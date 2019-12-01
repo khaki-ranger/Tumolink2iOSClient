@@ -14,6 +14,7 @@
 		D1896E232390F30D004EC82A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D1896E222390F30D004EC82A /* Assets.xcassets */; };
 		D1896E262390F30D004EC82A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D1896E242390F30D004EC82A /* LaunchScreen.storyboard */; };
 		D193677C2391FAE80000B652 /* LoginStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D193677B2391FAE80000B652 /* LoginStoryboard.storyboard */; };
+		D1FFD53F239397D8004D7366 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = D1FFD53E239397D8004D7366 /* GoogleService-Info.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -27,6 +28,7 @@
 		D1896E252390F30D004EC82A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D1896E272390F30D004EC82A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D193677B2391FAE80000B652 /* LoginStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LoginStoryboard.storyboard; sourceTree = "<group>"; };
+		D1FFD53E239397D8004D7366 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		D6830A79D55BA4E537A66ADC /* Pods_Tumolink2iOSClient.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Tumolink2iOSClient.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -86,6 +88,7 @@
 				D1896E1F2390F30B004EC82A /* Main.storyboard */,
 				D1896E222390F30D004EC82A /* Assets.xcassets */,
 				D1896E242390F30D004EC82A /* LaunchScreen.storyboard */,
+				D1FFD53E239397D8004D7366 /* GoogleService-Info.plist */,
 				D1896E272390F30D004EC82A /* Info.plist */,
 			);
 			path = Tumolink2iOSClient;
@@ -153,6 +156,7 @@
 			files = (
 				D1896E262390F30D004EC82A /* LaunchScreen.storyboard in Resources */,
 				D1896E232390F30D004EC82A /* Assets.xcassets in Resources */,
+				D1FFD53F239397D8004D7366 /* GoogleService-Info.plist in Resources */,
 				D1896E212390F30B004EC82A /* Main.storyboard in Resources */,
 				D193677C2391FAE80000B652 /* LoginStoryboard.storyboard in Resources */,
 			);

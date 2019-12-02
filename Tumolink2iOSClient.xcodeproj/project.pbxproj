@@ -15,6 +15,8 @@
 		D1896E262390F30D004EC82A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D1896E242390F30D004EC82A /* LaunchScreen.storyboard */; };
 		D193677C2391FAE80000B652 /* LoginStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D193677B2391FAE80000B652 /* LoginStoryboard.storyboard */; };
 		D1E4C9F42394DCB700272C5F /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = D1E4C9F32394DCB700272C5F /* GoogleService-Info.plist */; };
+		D1E4C9FA2394E59200272C5F /* LoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1E4C9F92394E59200272C5F /* LoginVC.swift */; };
+		D1E4C9FC2394E5B800272C5F /* RegisterVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1E4C9FB2394E5B800272C5F /* RegisterVC.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -29,6 +31,8 @@
 		D1896E272390F30D004EC82A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D193677B2391FAE80000B652 /* LoginStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LoginStoryboard.storyboard; sourceTree = "<group>"; };
 		D1E4C9F32394DCB700272C5F /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		D1E4C9F92394E59200272C5F /* LoginVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginVC.swift; sourceTree = "<group>"; };
+		D1E4C9FB2394E5B800272C5F /* RegisterVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterVC.swift; sourceTree = "<group>"; };
 		D6830A79D55BA4E537A66ADC /* Pods_Tumolink2iOSClient.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Tumolink2iOSClient.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -82,16 +86,50 @@
 		D1896E1A2390F30B004EC82A /* Tumolink2iOSClient */ = {
 			isa = PBXGroup;
 			children = (
-				D1896E1B2390F30B004EC82A /* AppDelegate.swift */,
-				D1896E1D2390F30B004EC82A /* ViewController.swift */,
-				D193677B2391FAE80000B652 /* LoginStoryboard.storyboard */,
-				D1896E1F2390F30B004EC82A /* Main.storyboard */,
+				D1E4C9F72394E50300272C5F /* Model */,
+				D1E4C9F62394E4F300272C5F /* View */,
+				D1E4C9F52394E4E000272C5F /* Controller */,
+				D1E4C9F82394E50D00272C5F /* Storyboards */,
 				D1896E222390F30D004EC82A /* Assets.xcassets */,
-				D1896E242390F30D004EC82A /* LaunchScreen.storyboard */,
 				D1E4C9F32394DCB700272C5F /* GoogleService-Info.plist */,
 				D1896E272390F30D004EC82A /* Info.plist */,
 			);
 			path = Tumolink2iOSClient;
+			sourceTree = "<group>";
+		};
+		D1E4C9F52394E4E000272C5F /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				D1E4C9F92394E59200272C5F /* LoginVC.swift */,
+				D1E4C9FB2394E5B800272C5F /* RegisterVC.swift */,
+				D1896E1D2390F30B004EC82A /* ViewController.swift */,
+				D1896E1B2390F30B004EC82A /* AppDelegate.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		D1E4C9F62394E4F300272C5F /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		D1E4C9F72394E50300272C5F /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		D1E4C9F82394E50D00272C5F /* Storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				D193677B2391FAE80000B652 /* LoginStoryboard.storyboard */,
+				D1896E1F2390F30B004EC82A /* Main.storyboard */,
+				D1896E242390F30D004EC82A /* LaunchScreen.storyboard */,
+			);
+			path = Storyboards;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -231,7 +269,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				D1896E1E2390F30B004EC82A /* ViewController.swift in Sources */,
+				D1E4C9FC2394E5B800272C5F /* RegisterVC.swift in Sources */,
 				D1896E1C2390F30B004EC82A /* AppDelegate.swift in Sources */,
+				D1E4C9FA2394E59200272C5F /* LoginVC.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

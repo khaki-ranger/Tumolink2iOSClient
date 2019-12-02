@@ -203,8 +203,10 @@
                     </view>
                     <connections>
                         <outlet property="activityIndicator" destination="SMu-DY-Job" id="Usl-i8-Ctt"/>
+                        <outlet property="confirmPassCheckImg" destination="4TB-TM-lco" id="cjC-HS-YKH"/>
                         <outlet property="confirmPasswordTxt" destination="l7E-hp-hci" id="MgQ-I8-fEA"/>
                         <outlet property="emailTxt" destination="aFl-I0-OlD" id="iv0-rc-aRC"/>
+                        <outlet property="passCheckImg" destination="Jcr-Jv-5fN" id="oFW-yW-Q7H"/>
                         <outlet property="passwordTxt" destination="uyW-LW-Ro4" id="zCC-uu-8hn"/>
                         <outlet property="usernameTxt" destination="bgg-na-9hp" id="yyQ-qn-3em"/>
                     </connections>

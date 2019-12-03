@@ -7,14 +7,23 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		79874AF417CC877D15F3DB11 /* Pods_Tumolink2iOSClient.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D6830A79D55BA4E537A66ADC /* Pods_Tumolink2iOSClient.framework */; };
 		D1896E1C2390F30B004EC82A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1896E1B2390F30B004EC82A /* AppDelegate.swift */; };
 		D1896E1E2390F30B004EC82A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1896E1D2390F30B004EC82A /* ViewController.swift */; };
 		D1896E212390F30B004EC82A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D1896E1F2390F30B004EC82A /* Main.storyboard */; };
 		D1896E232390F30D004EC82A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D1896E222390F30D004EC82A /* Assets.xcassets */; };
 		D1896E262390F30D004EC82A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D1896E242390F30D004EC82A /* LaunchScreen.storyboard */; };
+		D193677C2391FAE80000B652 /* LoginStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D193677B2391FAE80000B652 /* LoginStoryboard.storyboard */; };
+		D1E4C9F42394DCB700272C5F /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = D1E4C9F32394DCB700272C5F /* GoogleService-Info.plist */; };
+		D1E4C9FA2394E59200272C5F /* LoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1E4C9F92394E59200272C5F /* LoginVC.swift */; };
+		D1E4C9FC2394E5B800272C5F /* RegisterVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1E4C9FB2394E5B800272C5F /* RegisterVC.swift */; };
+		D1E4C9FF2394F2D900272C5F /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1E4C9FE2394F2D900272C5F /* Extensions.swift */; };
+		D1E4CA012395084800272C5F /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1E4CA002395084800272C5F /* Constants.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		63344A8FDD8C1DFA9AAFE53E /* Pods-Tumolink2iOSClient.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Tumolink2iOSClient.release.xcconfig"; path = "Target Support Files/Pods-Tumolink2iOSClient/Pods-Tumolink2iOSClient.release.xcconfig"; sourceTree = "<group>"; };
+		790934C17713D698442F667E /* Pods-Tumolink2iOSClient.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Tumolink2iOSClient.debug.xcconfig"; path = "Target Support Files/Pods-Tumolink2iOSClient/Pods-Tumolink2iOSClient.debug.xcconfig"; sourceTree = "<group>"; };
 		D1896E182390F30B004EC82A /* Tumolink2iOSClient.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Tumolink2iOSClient.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D1896E1B2390F30B004EC82A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D1896E1D2390F30B004EC82A /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -22,6 +31,13 @@
 		D1896E222390F30D004EC82A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D1896E252390F30D004EC82A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D1896E272390F30D004EC82A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D193677B2391FAE80000B652 /* LoginStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LoginStoryboard.storyboard; sourceTree = "<group>"; };
+		D1E4C9F32394DCB700272C5F /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		D1E4C9F92394E59200272C5F /* LoginVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginVC.swift; sourceTree = "<group>"; };
+		D1E4C9FB2394E5B800272C5F /* RegisterVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterVC.swift; sourceTree = "<group>"; };
+		D1E4C9FE2394F2D900272C5F /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		D1E4CA002395084800272C5F /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		D6830A79D55BA4E537A66ADC /* Pods_Tumolink2iOSClient.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Tumolink2iOSClient.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -29,17 +45,37 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				79874AF417CC877D15F3DB11 /* Pods_Tumolink2iOSClient.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3B85193A53FFD833BFE88DBA /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				790934C17713D698442F667E /* Pods-Tumolink2iOSClient.debug.xcconfig */,
+				63344A8FDD8C1DFA9AAFE53E /* Pods-Tumolink2iOSClient.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		91AA40D07DB6698E862E573F /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				D6830A79D55BA4E537A66ADC /* Pods_Tumolink2iOSClient.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		D1896E0F2390F30B004EC82A = {
 			isa = PBXGroup;
 			children = (
 				D1896E1A2390F30B004EC82A /* Tumolink2iOSClient */,
 				D1896E192390F30B004EC82A /* Products */,
+				3B85193A53FFD833BFE88DBA /* Pods */,
+				91AA40D07DB6698E862E573F /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -54,14 +90,60 @@
 		D1896E1A2390F30B004EC82A /* Tumolink2iOSClient */ = {
 			isa = PBXGroup;
 			children = (
-				D1896E1B2390F30B004EC82A /* AppDelegate.swift */,
-				D1896E1D2390F30B004EC82A /* ViewController.swift */,
-				D1896E1F2390F30B004EC82A /* Main.storyboard */,
+				D1E4C9FD2394F2C000272C5F /* Utils */,
+				D1E4C9F72394E50300272C5F /* Model */,
+				D1E4C9F62394E4F300272C5F /* View */,
+				D1E4C9F52394E4E000272C5F /* Controller */,
+				D1E4C9F82394E50D00272C5F /* Storyboards */,
 				D1896E222390F30D004EC82A /* Assets.xcassets */,
-				D1896E242390F30D004EC82A /* LaunchScreen.storyboard */,
+				D1E4C9F32394DCB700272C5F /* GoogleService-Info.plist */,
 				D1896E272390F30D004EC82A /* Info.plist */,
 			);
 			path = Tumolink2iOSClient;
+			sourceTree = "<group>";
+		};
+		D1E4C9F52394E4E000272C5F /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				D1E4C9F92394E59200272C5F /* LoginVC.swift */,
+				D1E4C9FB2394E5B800272C5F /* RegisterVC.swift */,
+				D1896E1D2390F30B004EC82A /* ViewController.swift */,
+				D1896E1B2390F30B004EC82A /* AppDelegate.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		D1E4C9F62394E4F300272C5F /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		D1E4C9F72394E50300272C5F /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		D1E4C9F82394E50D00272C5F /* Storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				D193677B2391FAE80000B652 /* LoginStoryboard.storyboard */,
+				D1896E1F2390F30B004EC82A /* Main.storyboard */,
+				D1896E242390F30D004EC82A /* LaunchScreen.storyboard */,
+			);
+			path = Storyboards;
+			sourceTree = "<group>";
+		};
+		D1E4C9FD2394F2C000272C5F /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				D1E4C9FE2394F2D900272C5F /* Extensions.swift */,
+				D1E4CA002395084800272C5F /* Constants.swift */,
+			);
+			path = Utils;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -71,9 +153,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = D1896E2A2390F30D004EC82A /* Build configuration list for PBXNativeTarget "Tumolink2iOSClient" */;
 			buildPhases = (
+				B4CEEEC88603B1D06D937F2F /* [CP] Check Pods Manifest.lock */,
 				D1896E142390F30B004EC82A /* Sources */,
 				D1896E152390F30B004EC82A /* Frameworks */,
 				D1896E162390F30B004EC82A /* Resources */,
+				2D106630FB99D4ED842B529F /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -124,19 +208,86 @@
 			files = (
 				D1896E262390F30D004EC82A /* LaunchScreen.storyboard in Resources */,
 				D1896E232390F30D004EC82A /* Assets.xcassets in Resources */,
+				D1E4C9F42394DCB700272C5F /* GoogleService-Info.plist in Resources */,
 				D1896E212390F30B004EC82A /* Main.storyboard in Resources */,
+				D193677C2391FAE80000B652 /* LoginStoryboard.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		2D106630FB99D4ED842B529F /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Tumolink2iOSClient/Pods-Tumolink2iOSClient-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/BoringSSL-GRPC/openssl_grpc.framework",
+				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
+				"${BUILT_PRODUCTS_DIR}/GoogleUtilities/GoogleUtilities.framework",
+				"${BUILT_PRODUCTS_DIR}/Protobuf/protobuf.framework",
+				"${BUILT_PRODUCTS_DIR}/gRPC-C++/grpcpp.framework",
+				"${BUILT_PRODUCTS_DIR}/gRPC-Core/grpc.framework",
+				"${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework",
+				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/openssl_grpc.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleUtilities.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/protobuf.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/grpcpp.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/grpc.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/leveldb.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Tumolink2iOSClient/Pods-Tumolink2iOSClient-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		B4CEEEC88603B1D06D937F2F /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Tumolink2iOSClient-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		D1896E142390F30B004EC82A /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D1E4C9FF2394F2D900272C5F /* Extensions.swift in Sources */,
 				D1896E1E2390F30B004EC82A /* ViewController.swift in Sources */,
+				D1E4C9FC2394E5B800272C5F /* RegisterVC.swift in Sources */,
 				D1896E1C2390F30B004EC82A /* AppDelegate.swift in Sources */,
+				D1E4C9FA2394E59200272C5F /* LoginVC.swift in Sources */,
+				D1E4CA012395084800272C5F /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -280,11 +431,13 @@
 		};
 		D1896E2B2390F30D004EC82A /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 790934C17713D698442F667E /* Pods-Tumolink2iOSClient.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = DCYC29YYSD;
 				INFOPLIST_FILE = Tumolink2iOSClient/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -298,11 +451,13 @@
 		};
 		D1896E2C2390F30D004EC82A /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 63344A8FDD8C1DFA9AAFE53E /* Pods-Tumolink2iOSClient.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = DCYC29YYSD;
 				INFOPLIST_FILE = Tumolink2iOSClient/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

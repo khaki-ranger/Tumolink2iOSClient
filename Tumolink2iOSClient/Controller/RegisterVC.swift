@@ -68,7 +68,7 @@ class RegisterVC: UIViewController {
             }
             
             self.activityIndicator.stopAnimating()
-            print("successfully registered new user.")
+            self.dismiss(animated: true, completion: nil)
         }
     }
     

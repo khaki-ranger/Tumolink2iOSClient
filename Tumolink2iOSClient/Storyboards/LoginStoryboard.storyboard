@@ -10,10 +10,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--LoginVC-->
         <scene sceneID="cv6-6X-IGF">
             <objects>
-                <viewController id="Uc2-YM-L2a" sceneMemberID="viewController">
+                <viewController id="Uc2-YM-L2a" customClass="LoginVC" customModule="Tumolink2iOSClient" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="2tH-gf-GkG">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -45,6 +45,9 @@
                                         <state key="normal" title="パスワードを忘れましたか？">
                                             <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
+                                        <connections>
+                                            <action selector="forgotPasswordClicked:" destination="Uc2-YM-L2a" eventType="touchUpInside" id="aYz-cf-H8e"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qb2-RM-rQ2" customClass="RoundedButton" customModule="Tumolink2iOSClient" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="143" width="374" height="40"/>
@@ -56,6 +59,9 @@
                                         <state key="normal" title="ログイン">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
+                                        <connections>
+                                            <action selector="loginClicked:" destination="Uc2-YM-L2a" eventType="touchUpInside" id="yQT-fi-j1t"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eUa-OZ-07K" customClass="RoundedButton" customModule="Tumolink2iOSClient" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="195" width="374" height="40"/>
@@ -81,6 +87,9 @@
                                         <state key="normal" title="ログインしないで使う">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
+                                        <connections>
+                                            <action selector="guestClicked:" destination="Uc2-YM-L2a" eventType="touchUpInside" id="AAY-EH-Pdr"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                             </stackView>
@@ -100,6 +109,11 @@
                         <viewLayoutGuide key="safeArea" id="41C-Kq-088"/>
                     </view>
                     <navigationItem key="navigationItem" id="xtJ-92-NuX"/>
+                    <connections>
+                        <outlet property="activityIndicator" destination="7vL-5p-qVe" id="yBs-lk-Qjl"/>
+                        <outlet property="emailTxt" destination="Npg-eb-pgd" id="kyg-bo-k8S"/>
+                        <outlet property="passwordTxt" destination="QOa-uT-zsR" id="bIF-Ih-kfo"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="F6W-tU-k3e" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

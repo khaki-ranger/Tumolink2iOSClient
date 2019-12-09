@@ -25,15 +25,24 @@
                                     <action selector="loginOutClicked:" destination="BYZ-38-t0r" eventType="touchUpInside" id="vY5-jd-JDF"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="匿名ユーザーとしてログイン中" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Yvd-3k-8CX">
+                                <rect key="frame" x="85.5" y="483" width="243" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstItem="Yvd-3k-8CX" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Baj-qv-53J"/>
+                            <constraint firstItem="Yvd-3k-8CX" firstAttribute="top" secondItem="gH2-h3-anD" secondAttribute="bottom" constant="20" id="EK8-YK-1PH"/>
                             <constraint firstItem="gH2-h3-anD" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="nw2-xi-pi2"/>
                             <constraint firstItem="gH2-h3-anD" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="xhm-zo-gec"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
+                        <outlet property="AuthUserTxt" destination="Yvd-3k-8CX" id="spi-uC-mIZ"/>
                         <outlet property="loginOutBtn" destination="gH2-h3-anD" id="HSB-DW-dD9"/>
                     </connections>
                 </viewController>

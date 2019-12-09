@@ -13,21 +13,34 @@ class HomeVC: UIViewController {
     
     // MARK: Outlets
     @IBOutlet weak var loginOutBtn: UIButton!
-
+    @IBOutlet weak var AuthUserTxt: UILabel!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        
+        // アプリ起動時にログインしていなかった場合は、
+        // Annonymousユーザーとしてログインする
+        if Auth.auth().currentUser == nil {
+            Auth.auth().signInAnonymously { (result, error) in
+                if let error = error {
+                    debugPrint(error)
+                }
+            }
+        }
     }
     
     override func viewDidAppear(_ animated: Bool) {
         // ログインしているかどうかを判定
-        if let user = Auth.auth().currentUser {
+        if let user = Auth.auth().currentUser , !user.isAnonymous {
             if let email = user.email {
-               print("Logged in as \(email)")
+                AuthUserTxt.text = "\(email)としてログイン中"
             }
             loginOutBtn.setTitle("ログアウト", for: .normal)
+        } else if let user = Auth.auth().currentUser, user.isAnonymous {
+            AuthUserTxt.text = "匿名ユーザーとしてログイン中"
         } else {
             loginOutBtn.setTitle("ログイン", for: .normal)
+            AuthUserTxt.text = "ログインしていません"
         }
     }
     
@@ -39,16 +52,22 @@ class HomeVC: UIViewController {
     
     // MARK: Actions
     @IBAction func loginOutClicked(_ sender: Any) {
-        // ログインしているかどうかを判定
-        if let _ = Auth.auth().currentUser {
+        guard let user = Auth.auth().currentUser else { return }
+        if user.isAnonymous {
+            presentLoginController()
+        } else {
             do {
                 try Auth.auth().signOut()
-                presentLoginController()
+                Auth.auth().signInAnonymously { (result, error) in
+                    if let error = error {
+                        debugPrint(error)
+                    }
+                    self.presentLoginController()
+                }
             } catch {
-                debugPrint(error.localizedDescription)
+                debugPrint(error)
+                
             }
-        } else {
-            presentLoginController()
         }
     }
 }

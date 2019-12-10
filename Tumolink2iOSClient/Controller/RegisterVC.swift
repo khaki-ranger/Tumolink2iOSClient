@@ -67,6 +67,7 @@ class RegisterVC: UIViewController {
         authUser.link(with: credential) { (result, error) in
             if let error = error {
                 debugPrint(error)
+                self.handleFireAuthError(error: error)
                 return
             }
             

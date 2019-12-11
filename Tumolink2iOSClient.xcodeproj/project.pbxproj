@@ -16,6 +16,7 @@
 		D1896E262390F30D004EC82A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D1896E242390F30D004EC82A /* LaunchScreen.storyboard */; };
 		D18D7F7C23A0806D0085B8B9 /* ForgotPasswordVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D18D7F7A23A0806D0085B8B9 /* ForgotPasswordVC.swift */; };
 		D18D7F7D23A0806D0085B8B9 /* ForgotPasswordVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = D18D7F7B23A0806D0085B8B9 /* ForgotPasswordVC.xib */; };
+		D18D7F7F23A08D100085B8B9 /* Firebase+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = D18D7F7E23A08D100085B8B9 /* Firebase+Utils.swift */; };
 		D193677C2391FAE80000B652 /* LoginStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D193677B2391FAE80000B652 /* LoginStoryboard.storyboard */; };
 		D1E4C9F42394DCB700272C5F /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = D1E4C9F32394DCB700272C5F /* GoogleService-Info.plist */; };
 		D1E4C9FA2394E59200272C5F /* LoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1E4C9F92394E59200272C5F /* LoginVC.swift */; };
@@ -37,6 +38,7 @@
 		D1896E272390F30D004EC82A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D18D7F7A23A0806D0085B8B9 /* ForgotPasswordVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordVC.swift; sourceTree = "<group>"; };
 		D18D7F7B23A0806D0085B8B9 /* ForgotPasswordVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ForgotPasswordVC.xib; sourceTree = "<group>"; };
+		D18D7F7E23A08D100085B8B9 /* Firebase+Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Firebase+Utils.swift"; sourceTree = "<group>"; };
 		D193677B2391FAE80000B652 /* LoginStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LoginStoryboard.storyboard; sourceTree = "<group>"; };
 		D1E4C9F32394DCB700272C5F /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		D1E4C9F92394E59200272C5F /* LoginVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginVC.swift; sourceTree = "<group>"; };
@@ -159,6 +161,7 @@
 			children = (
 				D1E4C9FE2394F2D900272C5F /* Extensions.swift */,
 				D1E4CA002395084800272C5F /* Constants.swift */,
+				D18D7F7E23A08D100085B8B9 /* Firebase+Utils.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -300,6 +303,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D18D7F7F23A08D100085B8B9 /* Firebase+Utils.swift in Sources */,
 				D1E4C9FF2394F2D900272C5F /* Extensions.swift in Sources */,
 				D1896E1E2390F30B004EC82A /* HomeVC.swift in Sources */,
 				D1E4C9FC2394E5B800272C5F /* RegisterVC.swift in Sources */,

@@ -76,10 +76,10 @@ class RegisterVC: UIViewController {
             if let error = error {
                 debugPrint(error)
                 Auth.auth().handleFireAuthError(error: error, vc: self)
+                self.activityIndicator.stopAnimating()
                 return
             }
             
-            self.activityIndicator.stopAnimating()
             self.dismiss(animated: true, completion: nil)
         }
     }

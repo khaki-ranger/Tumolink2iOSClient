@@ -14,6 +14,8 @@
 		D1896E212390F30B004EC82A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D1896E1F2390F30B004EC82A /* Main.storyboard */; };
 		D1896E232390F30D004EC82A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D1896E222390F30D004EC82A /* Assets.xcassets */; };
 		D1896E262390F30D004EC82A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D1896E242390F30D004EC82A /* LaunchScreen.storyboard */; };
+		D18D7F7C23A0806D0085B8B9 /* ForgotPasswordVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D18D7F7A23A0806D0085B8B9 /* ForgotPasswordVC.swift */; };
+		D18D7F7D23A0806D0085B8B9 /* ForgotPasswordVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = D18D7F7B23A0806D0085B8B9 /* ForgotPasswordVC.xib */; };
 		D193677C2391FAE80000B652 /* LoginStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D193677B2391FAE80000B652 /* LoginStoryboard.storyboard */; };
 		D1E4C9F42394DCB700272C5F /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = D1E4C9F32394DCB700272C5F /* GoogleService-Info.plist */; };
 		D1E4C9FA2394E59200272C5F /* LoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1E4C9F92394E59200272C5F /* LoginVC.swift */; };
@@ -33,6 +35,8 @@
 		D1896E222390F30D004EC82A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D1896E252390F30D004EC82A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D1896E272390F30D004EC82A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D18D7F7A23A0806D0085B8B9 /* ForgotPasswordVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordVC.swift; sourceTree = "<group>"; };
+		D18D7F7B23A0806D0085B8B9 /* ForgotPasswordVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ForgotPasswordVC.xib; sourceTree = "<group>"; };
 		D193677B2391FAE80000B652 /* LoginStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LoginStoryboard.storyboard; sourceTree = "<group>"; };
 		D1E4C9F32394DCB700272C5F /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		D1E4C9F92394E59200272C5F /* LoginVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginVC.swift; sourceTree = "<group>"; };
@@ -92,6 +96,7 @@
 		D1896E1A2390F30B004EC82A /* Tumolink2iOSClient */ = {
 			isa = PBXGroup;
 			children = (
+				D18D7F7923A0803C0085B8B9 /* XIBs */,
 				D1E4C9FD2394F2C000272C5F /* Utils */,
 				D1E4C9F72394E50300272C5F /* Model */,
 				D1E4C9F62394E4F300272C5F /* View */,
@@ -102,6 +107,15 @@
 				D1896E272390F30D004EC82A /* Info.plist */,
 			);
 			path = Tumolink2iOSClient;
+			sourceTree = "<group>";
+		};
+		D18D7F7923A0803C0085B8B9 /* XIBs */ = {
+			isa = PBXGroup;
+			children = (
+				D18D7F7A23A0806D0085B8B9 /* ForgotPasswordVC.swift */,
+				D18D7F7B23A0806D0085B8B9 /* ForgotPasswordVC.xib */,
+			);
+			path = XIBs;
 			sourceTree = "<group>";
 		};
 		D1E4C9F52394E4E000272C5F /* Controller */ = {
@@ -213,6 +227,7 @@
 				D1896E232390F30D004EC82A /* Assets.xcassets in Resources */,
 				D1E4C9F42394DCB700272C5F /* GoogleService-Info.plist in Resources */,
 				D1896E212390F30B004EC82A /* Main.storyboard in Resources */,
+				D18D7F7D23A0806D0085B8B9 /* ForgotPasswordVC.xib in Resources */,
 				D193677C2391FAE80000B652 /* LoginStoryboard.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -291,6 +306,7 @@
 				D1896E1C2390F30B004EC82A /* AppDelegate.swift in Sources */,
 				D118084023969E87006EA889 /* RoundedViews.swift in Sources */,
 				D1E4C9FA2394E59200272C5F /* LoginVC.swift in Sources */,
+				D18D7F7C23A0806D0085B8B9 /* ForgotPasswordVC.swift in Sources */,
 				D1E4CA012395084800272C5F /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

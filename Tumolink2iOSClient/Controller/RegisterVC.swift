@@ -57,7 +57,15 @@ class RegisterVC: UIViewController {
     @IBAction func registerClicked(_ sender: Any) {
         guard let email = emailTxt.text, email.isNotEmpty,
             let username = usernameTxt.text, username.isNotEmpty,
-            let password = passwordTxt.text, password.isNotEmpty else { return }
+            let password = passwordTxt.text, password.isNotEmpty else {
+                simpleAlert(title: "Error", msg: "Please fill out all fields.")
+                return
+        }
+        
+        guard let confirmPassword = confirmPasswordTxt.text, confirmPassword == password else {
+            simpleAlert(title: "Error", msg: "Passwords do not match.")
+            return
+        }
         
         activityIndicator.startAnimating()
         

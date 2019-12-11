@@ -16,7 +16,6 @@ extension String {
 }
 
 extension UIViewController {
-    
     func handleFireAuthError(error: Error) {
         if let errorCode = AuthErrorCode(rawValue: error._code) {
             let alert = UIAlertController(title: "Error", message: errorCode.errorMessage, preferredStyle: .alert)
@@ -24,6 +23,12 @@ extension UIViewController {
             alert.addAction(okAction)
             present(alert, animated: true, completion: nil)
         }
+    }
+    
+    func simpleAlert(title: String, msg: String) {
+        let alert = UIAlertController(title: title, message: msg, preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
+        present(alert, animated: true, completion: nil)
     }
 }
 

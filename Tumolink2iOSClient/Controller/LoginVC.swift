@@ -30,7 +30,10 @@ class LoginVC: UIViewController {
     
     @IBAction func loginClicked(_ sender: Any) {
         guard let email = emailTxt.text, email.isNotEmpty,
-            let password = passwordTxt.text, password.isNotEmpty else { return }
+            let password = passwordTxt.text, password.isNotEmpty else {
+                simpleAlert(title: "Error", msg: "Please fill out all fields.")
+                return
+        }
         
         activityIndicator.startAnimating()
         

@@ -13,6 +13,10 @@ class HomeVC: UIViewController {
     
     // MARK: Outlets
     @IBOutlet weak var loginBtn: UIBarButtonItem!
+    @IBOutlet weak var tableView: UITableView!
+    
+    // MARK: Variables
+    var spots = [Spot]()
     
     // MARK: Functions
     override func viewDidLoad() {
@@ -28,6 +32,20 @@ class HomeVC: UIViewController {
                 }
             }
         }
+        
+        // テストのためにスポットのダミーデータを設定
+        let spot = Spot.init(id: "hogehoge",
+                             name: "ギークオフィス恵比寿",
+                             owner: "YoheiTerashima",
+                             description: "東京の恵比寿にある、ギーク達が集まる場所だよ",
+                             images: ["https://www.tumolink.com/images/spaces/space_1.jpg"],
+                             address: "東京都渋谷区恵比寿",
+                             isPublic: true,
+                             isActive: true,
+                             timeStamp: Timestamp())
+        spots.append(spot)
+        
+        setupTableView()
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -37,6 +55,12 @@ class HomeVC: UIViewController {
         }  else {
             loginBtn.title = "ログイン"
         }
+    }
+    
+    private func setupTableView() {
+        tableView.delegate = self
+        tableView.dataSource = self
+        tableView.register(UINib(nibName: Identifiers.SpotCell, bundle: nil), forCellReuseIdentifier: Identifiers.SpotCell)
     }
     
     fileprivate func presentLoginController() {
@@ -68,3 +92,22 @@ class HomeVC: UIViewController {
     }
 }
 
+extension HomeVC : UITableViewDelegate, UITableViewDataSource {
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return spots.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        if let cell = tableView.dequeueReusableCell(withIdentifier: Identifiers.SpotCell, for: indexPath) as? SpotCell {
+            cell.configureCell(spot: spots[indexPath.row])
+            return cell
+        }
+        return UITableViewCell()
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 100
+    }
+    
+}

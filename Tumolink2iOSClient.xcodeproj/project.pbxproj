@@ -20,6 +20,9 @@
 		D193677C2391FAE80000B652 /* LoginStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D193677B2391FAE80000B652 /* LoginStoryboard.storyboard */; };
 		D1BBF96923A1D38D003C7D61 /* Home.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D1BBF96823A1D38D003C7D61 /* Home.storyboard */; };
 		D1BBF96B23A1D629003C7D61 /* MyPage.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D1BBF96A23A1D629003C7D61 /* MyPage.storyboard */; };
+		D1BBF97023A22E12003C7D61 /* SpotCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1BBF96E23A22E12003C7D61 /* SpotCell.swift */; };
+		D1BBF97123A22E12003C7D61 /* SpotCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D1BBF96F23A22E12003C7D61 /* SpotCell.xib */; };
+		D1BBF97323A2330E003C7D61 /* Spot.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1BBF97223A2330E003C7D61 /* Spot.swift */; };
 		D1E4C9F42394DCB700272C5F /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = D1E4C9F32394DCB700272C5F /* GoogleService-Info.plist */; };
 		D1E4C9FA2394E59200272C5F /* LoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1E4C9F92394E59200272C5F /* LoginVC.swift */; };
 		D1E4C9FC2394E5B800272C5F /* RegisterVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1E4C9FB2394E5B800272C5F /* RegisterVC.swift */; };
@@ -44,6 +47,9 @@
 		D193677B2391FAE80000B652 /* LoginStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LoginStoryboard.storyboard; sourceTree = "<group>"; };
 		D1BBF96823A1D38D003C7D61 /* Home.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Home.storyboard; sourceTree = "<group>"; };
 		D1BBF96A23A1D629003C7D61 /* MyPage.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MyPage.storyboard; sourceTree = "<group>"; };
+		D1BBF96E23A22E12003C7D61 /* SpotCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpotCell.swift; sourceTree = "<group>"; };
+		D1BBF96F23A22E12003C7D61 /* SpotCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SpotCell.xib; sourceTree = "<group>"; };
+		D1BBF97223A2330E003C7D61 /* Spot.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Spot.swift; sourceTree = "<group>"; };
 		D1E4C9F32394DCB700272C5F /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		D1E4C9F92394E59200272C5F /* LoginVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginVC.swift; sourceTree = "<group>"; };
 		D1E4C9FB2394E5B800272C5F /* RegisterVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterVC.swift; sourceTree = "<group>"; };
@@ -120,6 +126,8 @@
 			children = (
 				D18D7F7A23A0806D0085B8B9 /* ForgotPasswordVC.swift */,
 				D18D7F7B23A0806D0085B8B9 /* ForgotPasswordVC.xib */,
+				D1BBF96E23A22E12003C7D61 /* SpotCell.swift */,
+				D1BBF96F23A22E12003C7D61 /* SpotCell.xib */,
 			);
 			path = XIBs;
 			sourceTree = "<group>";
@@ -146,6 +154,7 @@
 		D1E4C9F72394E50300272C5F /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				D1BBF97223A2330E003C7D61 /* Spot.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -234,6 +243,7 @@
 			files = (
 				D1BBF96923A1D38D003C7D61 /* Home.storyboard in Resources */,
 				D1896E262390F30D004EC82A /* LaunchScreen.storyboard in Resources */,
+				D1BBF97123A22E12003C7D61 /* SpotCell.xib in Resources */,
 				D1896E232390F30D004EC82A /* Assets.xcassets in Resources */,
 				D1BBF96B23A1D629003C7D61 /* MyPage.storyboard in Resources */,
 				D1E4C9F42394DCB700272C5F /* GoogleService-Info.plist in Resources */,
@@ -258,6 +268,8 @@
 				"${BUILT_PRODUCTS_DIR}/BoringSSL-GRPC/openssl_grpc.framework",
 				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleUtilities/GoogleUtilities.framework",
+				"${BUILT_PRODUCTS_DIR}/IQKeyboardManagerSwift/IQKeyboardManagerSwift.framework",
+				"${BUILT_PRODUCTS_DIR}/Kingfisher/Kingfisher.framework",
 				"${BUILT_PRODUCTS_DIR}/Protobuf/protobuf.framework",
 				"${BUILT_PRODUCTS_DIR}/gRPC-C++/grpcpp.framework",
 				"${BUILT_PRODUCTS_DIR}/gRPC-Core/grpc.framework",
@@ -271,6 +283,8 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/openssl_grpc.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleUtilities.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/IQKeyboardManagerSwift.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Kingfisher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/protobuf.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/grpcpp.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/grpc.framework",
@@ -319,7 +333,9 @@
 				D118084023969E87006EA889 /* RoundedViews.swift in Sources */,
 				D1E4C9FA2394E59200272C5F /* LoginVC.swift in Sources */,
 				D18D7F7C23A0806D0085B8B9 /* ForgotPasswordVC.swift in Sources */,
+				D1BBF97323A2330E003C7D61 /* Spot.swift in Sources */,
 				D1E4CA012395084800272C5F /* Constants.swift in Sources */,
+				D1BBF97023A22E12003C7D61 /* SpotCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

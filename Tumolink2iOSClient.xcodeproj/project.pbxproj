@@ -18,6 +18,9 @@
 		D18D7F7D23A0806D0085B8B9 /* ForgotPasswordVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = D18D7F7B23A0806D0085B8B9 /* ForgotPasswordVC.xib */; };
 		D18D7F7F23A08D100085B8B9 /* Firebase+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = D18D7F7E23A08D100085B8B9 /* Firebase+Utils.swift */; };
 		D193677C2391FAE80000B652 /* LoginStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D193677B2391FAE80000B652 /* LoginStoryboard.storyboard */; };
+		D1BBF96723A1C252003C7D61 /* CustomTC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1BBF96623A1C252003C7D61 /* CustomTC.swift */; };
+		D1BBF96923A1D38D003C7D61 /* Home.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D1BBF96823A1D38D003C7D61 /* Home.storyboard */; };
+		D1BBF96B23A1D629003C7D61 /* MyPage.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D1BBF96A23A1D629003C7D61 /* MyPage.storyboard */; };
 		D1E4C9F42394DCB700272C5F /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = D1E4C9F32394DCB700272C5F /* GoogleService-Info.plist */; };
 		D1E4C9FA2394E59200272C5F /* LoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1E4C9F92394E59200272C5F /* LoginVC.swift */; };
 		D1E4C9FC2394E5B800272C5F /* RegisterVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1E4C9FB2394E5B800272C5F /* RegisterVC.swift */; };
@@ -40,6 +43,9 @@
 		D18D7F7B23A0806D0085B8B9 /* ForgotPasswordVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ForgotPasswordVC.xib; sourceTree = "<group>"; };
 		D18D7F7E23A08D100085B8B9 /* Firebase+Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Firebase+Utils.swift"; sourceTree = "<group>"; };
 		D193677B2391FAE80000B652 /* LoginStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LoginStoryboard.storyboard; sourceTree = "<group>"; };
+		D1BBF96623A1C252003C7D61 /* CustomTC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTC.swift; sourceTree = "<group>"; };
+		D1BBF96823A1D38D003C7D61 /* Home.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Home.storyboard; sourceTree = "<group>"; };
+		D1BBF96A23A1D629003C7D61 /* MyPage.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MyPage.storyboard; sourceTree = "<group>"; };
 		D1E4C9F32394DCB700272C5F /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		D1E4C9F92394E59200272C5F /* LoginVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginVC.swift; sourceTree = "<group>"; };
 		D1E4C9FB2394E5B800272C5F /* RegisterVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterVC.swift; sourceTree = "<group>"; };
@@ -126,6 +132,7 @@
 				D1E4C9F92394E59200272C5F /* LoginVC.swift */,
 				D1E4C9FB2394E5B800272C5F /* RegisterVC.swift */,
 				D1896E1D2390F30B004EC82A /* HomeVC.swift */,
+				D1BBF96623A1C252003C7D61 /* CustomTC.swift */,
 				D1896E1B2390F30B004EC82A /* AppDelegate.swift */,
 			);
 			path = Controller;
@@ -150,6 +157,8 @@
 			isa = PBXGroup;
 			children = (
 				D193677B2391FAE80000B652 /* LoginStoryboard.storyboard */,
+				D1BBF96823A1D38D003C7D61 /* Home.storyboard */,
+				D1BBF96A23A1D629003C7D61 /* MyPage.storyboard */,
 				D1896E1F2390F30B004EC82A /* Main.storyboard */,
 				D1896E242390F30D004EC82A /* LaunchScreen.storyboard */,
 			);
@@ -226,8 +235,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D1BBF96923A1D38D003C7D61 /* Home.storyboard in Resources */,
 				D1896E262390F30D004EC82A /* LaunchScreen.storyboard in Resources */,
 				D1896E232390F30D004EC82A /* Assets.xcassets in Resources */,
+				D1BBF96B23A1D629003C7D61 /* MyPage.storyboard in Resources */,
 				D1E4C9F42394DCB700272C5F /* GoogleService-Info.plist in Resources */,
 				D1896E212390F30B004EC82A /* Main.storyboard in Resources */,
 				D18D7F7D23A0806D0085B8B9 /* ForgotPasswordVC.xib in Resources */,
@@ -306,6 +317,7 @@
 				D18D7F7F23A08D100085B8B9 /* Firebase+Utils.swift in Sources */,
 				D1E4C9FF2394F2D900272C5F /* Extensions.swift in Sources */,
 				D1896E1E2390F30B004EC82A /* HomeVC.swift in Sources */,
+				D1BBF96723A1C252003C7D61 /* CustomTC.swift in Sources */,
 				D1E4C9FC2394E5B800272C5F /* RegisterVC.swift in Sources */,
 				D1896E1C2390F30B004EC82A /* AppDelegate.swift in Sources */,
 				D118084023969E87006EA889 /* RoundedViews.swift in Sources */,

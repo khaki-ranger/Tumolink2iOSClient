@@ -8,7 +8,7 @@
 
 import UIKit
 
-class CustomTC: UITabBarController {
+class MainVC: UITabBarController {
     
     // MART: Outlets
 

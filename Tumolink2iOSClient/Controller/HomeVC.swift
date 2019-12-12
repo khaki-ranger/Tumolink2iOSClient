@@ -12,9 +12,9 @@ import Firebase
 class HomeVC: UIViewController {
     
     // MARK: Outlets
-    @IBOutlet weak var loginOutBtn: UIButton!
-    @IBOutlet weak var AuthUserTxt: UILabel!
+    @IBOutlet weak var loginBtn: UIBarButtonItem!
     
+    // MARK: Functions
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -33,15 +33,9 @@ class HomeVC: UIViewController {
     override func viewDidAppear(_ animated: Bool) {
         // ログインしているかどうかを判定
         if let user = Auth.auth().currentUser , !user.isAnonymous {
-            if let email = user.email {
-                AuthUserTxt.text = "\(email)としてログイン中"
-            }
-            loginOutBtn.setTitle("ログアウト", for: .normal)
-        } else if let user = Auth.auth().currentUser, user.isAnonymous {
-            AuthUserTxt.text = "匿名ユーザーとしてログイン中"
-        } else {
-            loginOutBtn.setTitle("ログイン", for: .normal)
-            AuthUserTxt.text = "ログインしていません"
+            loginBtn.title = "ログアウト"
+        }  else {
+            loginBtn.title = "ログイン"
         }
     }
     
@@ -52,7 +46,7 @@ class HomeVC: UIViewController {
     }
     
     // MARK: Actions
-    @IBAction func loginOutClicked(_ sender: Any) {
+    @IBAction func loginClicked(_ sender: Any) {
         guard let user = Auth.auth().currentUser else { return }
         if user.isAnonymous {
             presentLoginController()

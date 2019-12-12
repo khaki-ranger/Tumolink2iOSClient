@@ -20,6 +20,7 @@ class RegisterVC: UIViewController {
     @IBOutlet weak var passCheckImg: UIImageView!
     @IBOutlet weak var confirmPassCheckImg: UIImageView!
     
+    // MART: Functions
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -27,7 +28,6 @@ class RegisterVC: UIViewController {
         confirmPasswordTxt.addTarget(self, action: #selector(textFieldDidChange(_:)), for: UIControl.Event.editingChanged)
     }
     
-    // MART: Functions
     @objc func textFieldDidChange(_ textField: UITextField) {
         guard let passTxt = passwordTxt.text else { return }
         

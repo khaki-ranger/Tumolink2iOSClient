@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Pxc-1O-78U">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="tZg-Xr-FQS">
     <device id="retina6_1" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -10,47 +10,50 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--ホーム-->
+        <!--HomeVC-->
         <scene sceneID="uJB-pG-a4j">
             <objects>
                 <viewController id="Pxc-1O-78U" customClass="HomeVC" customModule="Tumolink2iOSClient" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="7eq-N4-7jN">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="O41-NN-8hR">
-                                <rect key="frame" x="176" y="433" width="62" height="30"/>
-                                <state key="normal" title="ログイン"/>
-                                <connections>
-                                    <action selector="loginOutClicked:" destination="Pxc-1O-78U" eventType="touchUpInside" id="tGV-hO-1Ui"/>
-                                </connections>
-                            </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="匿名ユーザーとしてログイン中" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XAa-SS-8o5">
-                                <rect key="frame" x="85.5" y="483" width="243" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                        </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        <constraints>
-                            <constraint firstItem="XAa-SS-8o5" firstAttribute="centerX" secondItem="7eq-N4-7jN" secondAttribute="centerX" id="7gJ-ln-gkw"/>
-                            <constraint firstItem="O41-NN-8hR" firstAttribute="centerX" secondItem="7eq-N4-7jN" secondAttribute="centerX" id="a9I-mJ-Ibq"/>
-                            <constraint firstItem="O41-NN-8hR" firstAttribute="centerY" secondItem="7eq-N4-7jN" secondAttribute="centerY" id="oWk-Au-eQN"/>
-                            <constraint firstItem="XAa-SS-8o5" firstAttribute="top" secondItem="O41-NN-8hR" secondAttribute="bottom" constant="20" id="wDX-W8-gbt"/>
-                        </constraints>
                         <viewLayoutGuide key="safeArea" id="xWT-De-3HF"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="ホーム" image="icn_home" selectedImage="icn_home" id="Xj6-16-aEo"/>
+                    <navigationItem key="navigationItem" id="Pmx-RW-V1o">
+                        <barButtonItem key="rightBarButtonItem" title="ログイン" id="7v8-hn-nn3">
+                            <connections>
+                                <action selector="loginClicked:" destination="Pxc-1O-78U" id="oXS-7i-t3f"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
-                        <outlet property="AuthUserTxt" destination="XAa-SS-8o5" id="imB-XH-vpd"/>
-                        <outlet property="loginOutBtn" destination="O41-NN-8hR" id="isw-e3-ebu"/>
+                        <outlet property="loginBtn" destination="7v8-hn-nn3" id="15s-hq-RY5"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="W5b-xN-clO" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1093" y="-131"/>
+            <point key="canvasLocation" x="2002.8985507246377" y="-131.25"/>
+        </scene>
+        <!--ホーム-->
+        <scene sceneID="Z67-IV-XAh">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="tZg-Xr-FQS" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="ホーム" image="icn_home" selectedImage="icn_home" id="Xj6-16-aEo"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="y5O-Eu-2CZ">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="Pxc-1O-78U" kind="relationship" relationship="rootViewController" id="Yb0-uE-rGh"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dPb-8L-pKo" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1092.753623188406" y="-131.25"/>
         </scene>
     </scenes>
     <resources>

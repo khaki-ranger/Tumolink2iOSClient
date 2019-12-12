@@ -16,13 +16,12 @@ class LoginVC: UIViewController {
     @IBOutlet weak var passwordTxt: UITextField!
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
+    // MARK: Functions
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
     }
-    
-    // MARK: Functions
     
     // MARK: Actions
     @IBAction func forgotPasswordClicked(_ sender: Any) {

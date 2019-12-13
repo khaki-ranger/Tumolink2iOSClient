@@ -43,11 +43,27 @@
                     <connections>
                         <outlet property="loginBtn" destination="7v8-hn-nn3" id="15s-hq-RY5"/>
                         <outlet property="tableView" destination="bob-CL-LRr" id="Kzf-Wc-ZH6"/>
+                        <segue destination="7ek-Az-kmx" kind="show" identifier="ToSpot" id="Hho-fd-GMR"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="W5b-xN-clO" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2002.8985507246377" y="-131.25"/>
+        </scene>
+        <!--SpotVC-->
+        <scene sceneID="eKe-KU-2SA">
+            <objects>
+                <viewController id="7ek-Az-kmx" customClass="SpotVC" customModule="Tumolink2iOSClient" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="gXK-Zj-h9u">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="qWx-Hh-lCV"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="1oH-gH-b5P" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2904" y="-131"/>
         </scene>
         <!--ホーム-->
         <scene sceneID="Z67-IV-XAh">

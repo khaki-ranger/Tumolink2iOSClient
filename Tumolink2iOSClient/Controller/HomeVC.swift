@@ -179,4 +179,17 @@ extension HomeVC : UITableViewDelegate, UITableViewDataSource {
         return 100
     }
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        selectedSpot = spots[indexPath.row]
+        performSegue(withIdentifier: Segues.ToSpot, sender: self)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == Segues.ToSpot {
+            if let destination = segue.destination as? SpotVC {
+                destination.spot = selectedSpot
+            }
+        }
+    }
+    
 }

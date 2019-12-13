@@ -28,5 +28,5 @@ struct Identifiers {
 }
 
 struct Segues {
-    static let ToSpots = "ToSpots"
+    static let ToSpot = "ToSpot"
 }

@@ -15,6 +15,10 @@ class SpotVC: UIViewController {
     @IBOutlet weak var prevBtn: UIButton!
     @IBOutlet weak var nextBtn: UIButton!
     @IBOutlet weak var pageControl: UIPageControl!
+    @IBOutlet weak var yearTxt: UILabel!
+    @IBOutlet weak var monthTxt: UILabel!
+    @IBOutlet weak var dayTxt: UILabel!
+    @IBOutlet weak var dayOfWeekTxt: UILabel!
     
     // MARK: Valiables
     var spot: Spot!
@@ -29,6 +33,7 @@ class SpotVC: UIViewController {
         setupCollectionView()
         setupPageControl()
         controlOfNextAndPrev()
+        setupDateTxt()
     }
     
     private func setupCollectionView() {
@@ -40,6 +45,20 @@ class SpotVC: UIViewController {
     private func setupPageControl() {
         pageControl.numberOfPages = spotImages.count
         pageControl.currentPage = 0
+    }
+    
+    private func setupDateTxt() {
+        let dayOfWeekJpString = ["土", "日", "月", "火", "水", "木", "金"]
+        let date = Date()
+        let calendar = Calendar.current
+        let year = calendar.component(.year, from: date)
+        let month = calendar.component(.month, from: date)
+        let day = calendar.component(.day, from: date)
+        let dayOfWeek = calendar.component(.weekday, from: date)
+        yearTxt.text = String(year)
+        monthTxt.text = String(month)
+        dayTxt.text = String(day)
+        dayOfWeekTxt.text = dayOfWeekJpString[dayOfWeek]
     }
     
     // nextボタンとprevボタンの表示非表示を制御するメソッド

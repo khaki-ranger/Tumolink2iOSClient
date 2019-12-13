@@ -92,7 +92,7 @@
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gGI-gD-J3r">
-                                                <rect key="frame" x="371" y="105" width="23" height="23"/>
+                                                <rect key="frame" x="370" y="104.5" width="24" height="24"/>
                                                 <state key="normal" image="btn_next"/>
                                                 <connections>
                                                     <action selector="nextTapped:" destination="7ek-Az-kmx" eventType="touchUpInside" id="YQI-NL-Bad"/>
@@ -103,9 +103,69 @@
                                                 <color key="pageIndicatorTintColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <color key="currentPageIndicatorTintColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             </pageControl>
+                                            <stackView opaque="NO" contentMode="scaleToFill" alignment="lastBaseline" spacing="3" translatesAutoresizingMaskIntoConstraints="NO" id="sxx-Ac-wFn">
+                                                <rect key="frame" x="91" y="270" width="232.5" height="33.5"/>
+                                                <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2019" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9sK-8H-XIK">
+                                                        <rect key="frame" x="0.0" y="0.0" width="62.5" height="33.5"/>
+                                                        <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="28"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="年" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hLM-yS-lvS">
+                                                        <rect key="frame" x="65.5" y="11.5" width="17.5" height="20.5"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="12" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nCn-tR-n8P">
+                                                        <rect key="frame" x="86" y="0.0" width="31.5" height="33.5"/>
+                                                        <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="28"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="月" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NvI-u0-TEV">
+                                                        <rect key="frame" x="120.5" y="11.5" width="17.5" height="20.5"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="13" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IHC-WG-617">
+                                                        <rect key="frame" x="141" y="0.0" width="31.5" height="33.5"/>
+                                                        <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="28"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="日" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nhq-vV-uXL">
+                                                        <rect key="frame" x="175.5" y="11.5" width="17.5" height="20.5"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="(" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="W4w-05-UnG">
+                                                        <rect key="frame" x="196" y="11.5" width="6.5" height="20.5"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="金" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uGr-HP-k4u">
+                                                        <rect key="frame" x="205.5" y="11.5" width="17.5" height="20.5"/>
+                                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text=")" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nMC-zV-cjz">
+                                                        <rect key="frame" x="226" y="11.5" width="6.5" height="20.5"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                </subviews>
+                                            </stackView>
                                         </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
+                                            <constraint firstItem="sxx-Ac-wFn" firstAttribute="top" secondItem="M3O-Lj-4a1" secondAttribute="bottom" id="3RE-0L-kyh"/>
                                             <constraint firstItem="gGI-gD-J3r" firstAttribute="centerY" secondItem="ZUB-gu-BQG" secondAttribute="centerY" id="C4m-zN-wg7"/>
                                             <constraint firstItem="3Rl-tr-Ntq" firstAttribute="centerX" secondItem="uz6-mC-aFQ" secondAttribute="centerX" id="HCz-gE-oz5"/>
                                             <constraint firstItem="v2u-HY-uFZ" firstAttribute="leading" secondItem="ZUB-gu-BQG" secondAttribute="leading" constant="20" id="Mvf-1F-kaw"/>
@@ -116,6 +176,7 @@
                                             <constraint firstItem="M3O-Lj-4a1" firstAttribute="top" secondItem="ZUB-gu-BQG" secondAttribute="bottom" id="XQd-9f-S20"/>
                                             <constraint firstItem="ZUB-gu-BQG" firstAttribute="top" secondItem="uz6-mC-aFQ" secondAttribute="top" id="YCy-c2-4kS"/>
                                             <constraint firstAttribute="trailing" secondItem="ZUB-gu-BQG" secondAttribute="trailing" id="hbZ-tN-uTp"/>
+                                            <constraint firstItem="sxx-Ac-wFn" firstAttribute="centerX" secondItem="uz6-mC-aFQ" secondAttribute="centerX" id="lEC-h7-rxR"/>
                                             <constraint firstItem="gGI-gD-J3r" firstAttribute="trailing" secondItem="ZUB-gu-BQG" secondAttribute="trailing" constant="-20" id="qid-WF-0jC"/>
                                             <constraint firstItem="ZUB-gu-BQG" firstAttribute="leading" secondItem="uz6-mC-aFQ" secondAttribute="leading" id="wWT-R6-TPP"/>
                                         </constraints>
@@ -142,10 +203,14 @@
                     </view>
                     <size key="freeformSize" width="414" height="1170"/>
                     <connections>
+                        <outlet property="dayOfWeekTxt" destination="uGr-HP-k4u" id="bKe-J2-che"/>
+                        <outlet property="dayTxt" destination="IHC-WG-617" id="fbe-Uu-ZoV"/>
+                        <outlet property="monthTxt" destination="nCn-tR-n8P" id="gZ2-tm-rB3"/>
                         <outlet property="nextBtn" destination="gGI-gD-J3r" id="GAc-aF-4tR"/>
                         <outlet property="pageControl" destination="M3O-Lj-4a1" id="yES-TB-dwF"/>
                         <outlet property="prevBtn" destination="v2u-HY-uFZ" id="Ih3-VV-16G"/>
                         <outlet property="slideImageView" destination="ZUB-gu-BQG" id="iaB-Qa-nRK"/>
+                        <outlet property="yearTxt" destination="9sK-8H-XIK" id="TAi-Z9-zhR"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1oH-gH-b5P" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -173,7 +238,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="btn_next" width="23" height="23"/>
+        <image name="btn_next" width="24" height="24"/>
         <image name="btn_prev" width="24" height="24"/>
         <image name="icn_home" width="25" height="25"/>
     </resources>

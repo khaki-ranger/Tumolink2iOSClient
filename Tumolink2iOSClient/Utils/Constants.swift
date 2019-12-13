@@ -25,6 +25,7 @@ struct AppImages {
 
 struct Identifiers {
     static let SpotCell = "SpotCell"
+    static let SpotImageCell = "SpotImageCell"
 }
 
 struct Segues {

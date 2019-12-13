@@ -10,6 +10,8 @@
 		79874AF417CC877D15F3DB11 /* Pods_Tumolink2iOSClient.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D6830A79D55BA4E537A66ADC /* Pods_Tumolink2iOSClient.framework */; };
 		D118084023969E87006EA889 /* RoundedViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = D118083F23969E87006EA889 /* RoundedViews.swift */; };
 		D14E3E6723A35ACF00978AFC /* SpotVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D14E3E6623A35ACF00978AFC /* SpotVC.swift */; };
+		D14E3E6A23A3659200978AFC /* SpotImageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D14E3E6823A3659200978AFC /* SpotImageCell.swift */; };
+		D14E3E6B23A3659200978AFC /* SpotImageCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D14E3E6923A3659200978AFC /* SpotImageCell.xib */; };
 		D1896E1C2390F30B004EC82A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1896E1B2390F30B004EC82A /* AppDelegate.swift */; };
 		D1896E1E2390F30B004EC82A /* HomeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1896E1D2390F30B004EC82A /* HomeVC.swift */; };
 		D1896E212390F30B004EC82A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D1896E1F2390F30B004EC82A /* Main.storyboard */; };
@@ -36,6 +38,8 @@
 		790934C17713D698442F667E /* Pods-Tumolink2iOSClient.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Tumolink2iOSClient.debug.xcconfig"; path = "Target Support Files/Pods-Tumolink2iOSClient/Pods-Tumolink2iOSClient.debug.xcconfig"; sourceTree = "<group>"; };
 		D118083F23969E87006EA889 /* RoundedViews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedViews.swift; sourceTree = "<group>"; };
 		D14E3E6623A35ACF00978AFC /* SpotVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpotVC.swift; sourceTree = "<group>"; };
+		D14E3E6823A3659200978AFC /* SpotImageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpotImageCell.swift; sourceTree = "<group>"; };
+		D14E3E6923A3659200978AFC /* SpotImageCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SpotImageCell.xib; sourceTree = "<group>"; };
 		D1896E182390F30B004EC82A /* Tumolink2iOSClient.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Tumolink2iOSClient.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D1896E1B2390F30B004EC82A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D1896E1D2390F30B004EC82A /* HomeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeVC.swift; sourceTree = "<group>"; };
@@ -130,6 +134,8 @@
 				D18D7F7B23A0806D0085B8B9 /* ForgotPasswordVC.xib */,
 				D1BBF96E23A22E12003C7D61 /* SpotCell.swift */,
 				D1BBF96F23A22E12003C7D61 /* SpotCell.xib */,
+				D14E3E6823A3659200978AFC /* SpotImageCell.swift */,
+				D14E3E6923A3659200978AFC /* SpotImageCell.xib */,
 			);
 			path = XIBs;
 			sourceTree = "<group>";
@@ -249,6 +255,7 @@
 				D1BBF97123A22E12003C7D61 /* SpotCell.xib in Resources */,
 				D1896E232390F30D004EC82A /* Assets.xcassets in Resources */,
 				D1BBF96B23A1D629003C7D61 /* MyPage.storyboard in Resources */,
+				D14E3E6B23A3659200978AFC /* SpotImageCell.xib in Resources */,
 				D1E4C9F42394DCB700272C5F /* GoogleService-Info.plist in Resources */,
 				D1896E212390F30B004EC82A /* Main.storyboard in Resources */,
 				D18D7F7D23A0806D0085B8B9 /* ForgotPasswordVC.xib in Resources */,
@@ -331,6 +338,7 @@
 				D18D7F7F23A08D100085B8B9 /* Firebase+Utils.swift in Sources */,
 				D1E4C9FF2394F2D900272C5F /* Extensions.swift in Sources */,
 				D1896E1E2390F30B004EC82A /* HomeVC.swift in Sources */,
+				D14E3E6A23A3659200978AFC /* SpotImageCell.swift in Sources */,
 				D1E4C9FC2394E5B800272C5F /* RegisterVC.swift in Sources */,
 				D1896E1C2390F30B004EC82A /* AppDelegate.swift in Sources */,
 				D118084023969E87006EA889 /* RoundedViews.swift in Sources */,

@@ -20,6 +20,7 @@ struct StoryboardId {
 struct AppImages {
     static let GreenCheck = "green_check"
     static let RedCheck = "red_check"
+    static let Placeholder = "placeholder"
 }
 
 struct Identifiers {

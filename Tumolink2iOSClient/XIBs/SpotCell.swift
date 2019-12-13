@@ -30,7 +30,10 @@ class SpotCell: UITableViewCell {
     func configureCell(spot: Spot) {
         spotName.text = spot.name
         if let url = URL(string: spot.images[0]) {
-            spotImg.kf.setImage(with: url)
+            let placeholder = UIImage(named: AppImages.Placeholder)
+            let options : KingfisherOptionsInfo = [KingfisherOptionsInfoItem.transition(.fade(0.2))]
+            spotImg.kf.indicatorType = .activity
+            spotImg.kf.setImage(with: url, placeholder: placeholder, options: options)
         }
     }
     

@@ -21,7 +21,6 @@ class CreateSpotVC: UIViewController {
     
     // MARK: Variables
     var tappedImageView: UIImageView?
-    var name = ""
     // Firestoreにアップロードした画像のURLを格納する配列
     var imageUrls = [String]()
 
@@ -70,8 +69,44 @@ class CreateSpotVC: UIViewController {
     
     // MARK: Actions
     @IBAction func createClicked(_ sender: Any) {
+        uploadDocument()
     }
     
+    private func uploadDocument() {
+        guard let spotName = nameTxt.text , spotName.isNotEmpty else {
+            simpleAlert(title: "エラー", msg: "スポットの名前を入力してください")
+            return
+        }
+        
+        guard imageUrls.count > 0 else {
+            simpleAlert(title: "エラー", msg: "画像を1枚以上設定してください")
+            return
+        }
+        
+        activityIndicator.startAnimating()
+        
+        var spot = Spot.init(id: "",
+                             name: spotName,
+                             owner: "Yohei",
+                             description: "",
+                             images: imageUrls,
+                             address: "",
+                             isPublic: true,
+                             isActive: true)
+        
+        // 新規作成
+        let docRef = Firestore.firestore().collection("spots").document()
+        spot.id = docRef.documentID
+        
+        let data = Spot.modelToData(spot: spot)
+        docRef.setData(data, merge: true) { (error) in
+            if let error = error {
+                self.handleError(error: error, msg: "データのアップロードに失敗しました")
+            }
+            
+            self.navigationController?.popViewController(animated: true)
+        }
+    }
 }
 
 extension CreateSpotVC : UIImagePickerControllerDelegate, UINavigationControllerDelegate {

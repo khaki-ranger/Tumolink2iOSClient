@@ -27,6 +27,7 @@
 		D1BBF97123A22E12003C7D61 /* SpotCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D1BBF96F23A22E12003C7D61 /* SpotCell.xib */; };
 		D1BBF97323A2330E003C7D61 /* Spot.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1BBF97223A2330E003C7D61 /* Spot.swift */; };
 		D1CC783C23A479C000CD9D7B /* Spot.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D1CC783B23A479C000CD9D7B /* Spot.storyboard */; };
+		D1CC783E23A48BF000CD9D7B /* CreateSpotVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1CC783D23A48BF000CD9D7B /* CreateSpotVC.swift */; };
 		D1E4C9F42394DCB700272C5F /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = D1E4C9F32394DCB700272C5F /* GoogleService-Info.plist */; };
 		D1E4C9FA2394E59200272C5F /* LoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1E4C9F92394E59200272C5F /* LoginVC.swift */; };
 		D1E4C9FC2394E5B800272C5F /* RegisterVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1E4C9FB2394E5B800272C5F /* RegisterVC.swift */; };
@@ -58,6 +59,7 @@
 		D1BBF96F23A22E12003C7D61 /* SpotCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SpotCell.xib; sourceTree = "<group>"; };
 		D1BBF97223A2330E003C7D61 /* Spot.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Spot.swift; sourceTree = "<group>"; };
 		D1CC783B23A479C000CD9D7B /* Spot.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Spot.storyboard; sourceTree = "<group>"; };
+		D1CC783D23A48BF000CD9D7B /* CreateSpotVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateSpotVC.swift; sourceTree = "<group>"; };
 		D1E4C9F32394DCB700272C5F /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		D1E4C9F92394E59200272C5F /* LoginVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginVC.swift; sourceTree = "<group>"; };
 		D1E4C9FB2394E5B800272C5F /* RegisterVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterVC.swift; sourceTree = "<group>"; };
@@ -149,6 +151,7 @@
 				D1E4C9FB2394E5B800272C5F /* RegisterVC.swift */,
 				D1896E1D2390F30B004EC82A /* HomeVC.swift */,
 				D14E3E6623A35ACF00978AFC /* SpotVC.swift */,
+				D1CC783D23A48BF000CD9D7B /* CreateSpotVC.swift */,
 				D1896E1B2390F30B004EC82A /* AppDelegate.swift */,
 			);
 			path = Controller;
@@ -351,6 +354,7 @@
 				D1BBF97323A2330E003C7D61 /* Spot.swift in Sources */,
 				D1E4CA012395084800272C5F /* Constants.swift in Sources */,
 				D14E3E6723A35ACF00978AFC /* SpotVC.swift in Sources */,
+				D1CC783E23A48BF000CD9D7B /* CreateSpotVC.swift in Sources */,
 				D1BBF97023A22E12003C7D61 /* SpotCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

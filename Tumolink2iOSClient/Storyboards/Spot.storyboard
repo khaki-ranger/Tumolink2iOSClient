@@ -17,7 +17,25 @@
                     <view key="view" contentMode="scaleToFill" id="Mgs-m3-HdN">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="K1E-rI-kst" customClass="RoundedButton" customModule="Tumolink2iOSClient" customModuleProvider="target">
+                                <rect key="frame" x="20" y="753" width="374" height="40"/>
+                                <color key="backgroundColor" red="0.84705882349999995" green="0.26274509800000001" blue="0.08235294118" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="Oc3-s1-qNC"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <state key="normal" title="スポットをつくる">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="lHG-6h-fHA" firstAttribute="trailing" secondItem="K1E-rI-kst" secondAttribute="trailing" constant="20" id="6Zv-Q9-Vva"/>
+                            <constraint firstItem="K1E-rI-kst" firstAttribute="leading" secondItem="lHG-6h-fHA" secondAttribute="leading" constant="20" id="VTK-XG-2DK"/>
+                            <constraint firstItem="lHG-6h-fHA" firstAttribute="bottom" secondItem="K1E-rI-kst" secondAttribute="bottom" constant="20" id="f2g-Re-X8V"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="lHG-6h-fHA"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="スポット" image="icn_spot" selectedImage="icn_spot" id="cNG-c3-9zz"/>

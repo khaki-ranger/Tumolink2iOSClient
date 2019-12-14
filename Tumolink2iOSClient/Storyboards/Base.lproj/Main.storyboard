@@ -1,53 +1,68 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="FbO-3V-BFp">
     <device id="retina6_1" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
-        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--HomeVC-->
-        <scene sceneID="tne-QT-ifu">
+        <!--Home-->
+        <scene sceneID="Tdv-gT-itz">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="HomeVC" customModule="Tumolink2iOSClient" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gH2-h3-anD">
-                                <rect key="frame" x="176" y="433" width="62" height="30"/>
-                                <state key="normal" title="ログイン"/>
-                                <connections>
-                                    <action selector="loginOutClicked:" destination="BYZ-38-t0r" eventType="touchUpInside" id="vY5-jd-JDF"/>
-                                </connections>
-                            </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="匿名ユーザーとしてログイン中" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Yvd-3k-8CX">
-                                <rect key="frame" x="85.5" y="483" width="243" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                        </subviews>
-                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        <constraints>
-                            <constraint firstItem="Yvd-3k-8CX" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Baj-qv-53J"/>
-                            <constraint firstItem="Yvd-3k-8CX" firstAttribute="top" secondItem="gH2-h3-anD" secondAttribute="bottom" constant="20" id="EK8-YK-1PH"/>
-                            <constraint firstItem="gH2-h3-anD" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="nw2-xi-pi2"/>
-                            <constraint firstItem="gH2-h3-anD" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="xhm-zo-gec"/>
-                        </constraints>
-                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
-                    </view>
-                    <connections>
-                        <outlet property="AuthUserTxt" destination="Yvd-3k-8CX" id="spi-uC-mIZ"/>
-                        <outlet property="loginOutBtn" destination="gH2-h3-anD" id="HSB-DW-dD9"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <viewControllerPlaceholder storyboardName="Home" id="7pR-CI-TD3" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="ホーム" image="icn_home" selectedImage="icn_home" id="yUt-0i-heV"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ggx-pk-om2" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="919" y="-37"/>
+        </scene>
+        <!--Spot-->
+        <scene sceneID="CQk-8J-sad">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Spot" id="i62-nf-LAg" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="スポット" image="icn_spot" selectedImage="icn_spot" id="Pkg-OB-C11"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="J7v-RB-Kfx" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="920" y="254"/>
+        </scene>
+        <!--MyPage-->
+        <scene sceneID="X1z-5V-Fen">
+            <objects>
+                <viewControllerPlaceholder storyboardName="MyPage" id="c6B-ms-m5k" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="マイページ" image="icn_mypage" selectedImage="icn_mypage" id="ugc-xc-OFT"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="lxq-iX-aTx" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="920" y="546"/>
+        </scene>
+        <!--Tab Bar Controller-->
+        <scene sceneID="20c-cI-ODt">
+            <objects>
+                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="FbO-3V-BFp" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="UWg-Kt-f9X">
+                        <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="7pR-CI-TD3" kind="relationship" relationship="viewControllers" id="Iv7-b2-Niy"/>
+                        <segue destination="i62-nf-LAg" kind="relationship" relationship="viewControllers" id="WNC-f2-uuq"/>
+                        <segue destination="c6B-ms-m5k" kind="relationship" relationship="viewControllers" id="V1z-BW-FdU"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="D1i-rJ-Vpx" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="87" y="255"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="icn_home" width="25" height="25"/>
+        <image name="icn_mypage" width="25" height="25"/>
+        <image name="icn_spot" width="25" height="25"/>
+    </resources>
 </document>

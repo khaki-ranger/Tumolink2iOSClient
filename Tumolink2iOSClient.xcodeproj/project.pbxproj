@@ -9,6 +9,9 @@
 /* Begin PBXBuildFile section */
 		79874AF417CC877D15F3DB11 /* Pods_Tumolink2iOSClient.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D6830A79D55BA4E537A66ADC /* Pods_Tumolink2iOSClient.framework */; };
 		D118084023969E87006EA889 /* RoundedViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = D118083F23969E87006EA889 /* RoundedViews.swift */; };
+		D14E3E6723A35ACF00978AFC /* SpotVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D14E3E6623A35ACF00978AFC /* SpotVC.swift */; };
+		D14E3E6A23A3659200978AFC /* SpotImageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D14E3E6823A3659200978AFC /* SpotImageCell.swift */; };
+		D14E3E6B23A3659200978AFC /* SpotImageCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D14E3E6923A3659200978AFC /* SpotImageCell.xib */; };
 		D1896E1C2390F30B004EC82A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1896E1B2390F30B004EC82A /* AppDelegate.swift */; };
 		D1896E1E2390F30B004EC82A /* HomeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1896E1D2390F30B004EC82A /* HomeVC.swift */; };
 		D1896E212390F30B004EC82A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D1896E1F2390F30B004EC82A /* Main.storyboard */; };
@@ -18,6 +21,13 @@
 		D18D7F7D23A0806D0085B8B9 /* ForgotPasswordVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = D18D7F7B23A0806D0085B8B9 /* ForgotPasswordVC.xib */; };
 		D18D7F7F23A08D100085B8B9 /* Firebase+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = D18D7F7E23A08D100085B8B9 /* Firebase+Utils.swift */; };
 		D193677C2391FAE80000B652 /* LoginStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D193677B2391FAE80000B652 /* LoginStoryboard.storyboard */; };
+		D1BBF96923A1D38D003C7D61 /* Home.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D1BBF96823A1D38D003C7D61 /* Home.storyboard */; };
+		D1BBF96B23A1D629003C7D61 /* MyPage.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D1BBF96A23A1D629003C7D61 /* MyPage.storyboard */; };
+		D1BBF97023A22E12003C7D61 /* SpotCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1BBF96E23A22E12003C7D61 /* SpotCell.swift */; };
+		D1BBF97123A22E12003C7D61 /* SpotCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D1BBF96F23A22E12003C7D61 /* SpotCell.xib */; };
+		D1BBF97323A2330E003C7D61 /* Spot.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1BBF97223A2330E003C7D61 /* Spot.swift */; };
+		D1CC783C23A479C000CD9D7B /* Spot.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D1CC783B23A479C000CD9D7B /* Spot.storyboard */; };
+		D1CC783E23A48BF000CD9D7B /* CreateSpotVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1CC783D23A48BF000CD9D7B /* CreateSpotVC.swift */; };
 		D1E4C9F42394DCB700272C5F /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = D1E4C9F32394DCB700272C5F /* GoogleService-Info.plist */; };
 		D1E4C9FA2394E59200272C5F /* LoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1E4C9F92394E59200272C5F /* LoginVC.swift */; };
 		D1E4C9FC2394E5B800272C5F /* RegisterVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1E4C9FB2394E5B800272C5F /* RegisterVC.swift */; };
@@ -29,6 +39,9 @@
 		63344A8FDD8C1DFA9AAFE53E /* Pods-Tumolink2iOSClient.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Tumolink2iOSClient.release.xcconfig"; path = "Target Support Files/Pods-Tumolink2iOSClient/Pods-Tumolink2iOSClient.release.xcconfig"; sourceTree = "<group>"; };
 		790934C17713D698442F667E /* Pods-Tumolink2iOSClient.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Tumolink2iOSClient.debug.xcconfig"; path = "Target Support Files/Pods-Tumolink2iOSClient/Pods-Tumolink2iOSClient.debug.xcconfig"; sourceTree = "<group>"; };
 		D118083F23969E87006EA889 /* RoundedViews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedViews.swift; sourceTree = "<group>"; };
+		D14E3E6623A35ACF00978AFC /* SpotVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpotVC.swift; sourceTree = "<group>"; };
+		D14E3E6823A3659200978AFC /* SpotImageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpotImageCell.swift; sourceTree = "<group>"; };
+		D14E3E6923A3659200978AFC /* SpotImageCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SpotImageCell.xib; sourceTree = "<group>"; };
 		D1896E182390F30B004EC82A /* Tumolink2iOSClient.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Tumolink2iOSClient.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D1896E1B2390F30B004EC82A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D1896E1D2390F30B004EC82A /* HomeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeVC.swift; sourceTree = "<group>"; };
@@ -40,6 +53,13 @@
 		D18D7F7B23A0806D0085B8B9 /* ForgotPasswordVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ForgotPasswordVC.xib; sourceTree = "<group>"; };
 		D18D7F7E23A08D100085B8B9 /* Firebase+Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Firebase+Utils.swift"; sourceTree = "<group>"; };
 		D193677B2391FAE80000B652 /* LoginStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LoginStoryboard.storyboard; sourceTree = "<group>"; };
+		D1BBF96823A1D38D003C7D61 /* Home.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Home.storyboard; sourceTree = "<group>"; };
+		D1BBF96A23A1D629003C7D61 /* MyPage.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MyPage.storyboard; sourceTree = "<group>"; };
+		D1BBF96E23A22E12003C7D61 /* SpotCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpotCell.swift; sourceTree = "<group>"; };
+		D1BBF96F23A22E12003C7D61 /* SpotCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SpotCell.xib; sourceTree = "<group>"; };
+		D1BBF97223A2330E003C7D61 /* Spot.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Spot.swift; sourceTree = "<group>"; };
+		D1CC783B23A479C000CD9D7B /* Spot.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Spot.storyboard; sourceTree = "<group>"; };
+		D1CC783D23A48BF000CD9D7B /* CreateSpotVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateSpotVC.swift; sourceTree = "<group>"; };
 		D1E4C9F32394DCB700272C5F /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		D1E4C9F92394E59200272C5F /* LoginVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginVC.swift; sourceTree = "<group>"; };
 		D1E4C9FB2394E5B800272C5F /* RegisterVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterVC.swift; sourceTree = "<group>"; };
@@ -116,6 +136,10 @@
 			children = (
 				D18D7F7A23A0806D0085B8B9 /* ForgotPasswordVC.swift */,
 				D18D7F7B23A0806D0085B8B9 /* ForgotPasswordVC.xib */,
+				D1BBF96E23A22E12003C7D61 /* SpotCell.swift */,
+				D1BBF96F23A22E12003C7D61 /* SpotCell.xib */,
+				D14E3E6823A3659200978AFC /* SpotImageCell.swift */,
+				D14E3E6923A3659200978AFC /* SpotImageCell.xib */,
 			);
 			path = XIBs;
 			sourceTree = "<group>";
@@ -126,6 +150,8 @@
 				D1E4C9F92394E59200272C5F /* LoginVC.swift */,
 				D1E4C9FB2394E5B800272C5F /* RegisterVC.swift */,
 				D1896E1D2390F30B004EC82A /* HomeVC.swift */,
+				D14E3E6623A35ACF00978AFC /* SpotVC.swift */,
+				D1CC783D23A48BF000CD9D7B /* CreateSpotVC.swift */,
 				D1896E1B2390F30B004EC82A /* AppDelegate.swift */,
 			);
 			path = Controller;
@@ -142,6 +168,7 @@
 		D1E4C9F72394E50300272C5F /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				D1BBF97223A2330E003C7D61 /* Spot.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -150,6 +177,9 @@
 			isa = PBXGroup;
 			children = (
 				D193677B2391FAE80000B652 /* LoginStoryboard.storyboard */,
+				D1BBF96823A1D38D003C7D61 /* Home.storyboard */,
+				D1CC783B23A479C000CD9D7B /* Spot.storyboard */,
+				D1BBF96A23A1D629003C7D61 /* MyPage.storyboard */,
 				D1896E1F2390F30B004EC82A /* Main.storyboard */,
 				D1896E242390F30D004EC82A /* LaunchScreen.storyboard */,
 			);
@@ -226,8 +256,13 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D1BBF96923A1D38D003C7D61 /* Home.storyboard in Resources */,
 				D1896E262390F30D004EC82A /* LaunchScreen.storyboard in Resources */,
+				D1BBF97123A22E12003C7D61 /* SpotCell.xib in Resources */,
+				D1CC783C23A479C000CD9D7B /* Spot.storyboard in Resources */,
 				D1896E232390F30D004EC82A /* Assets.xcassets in Resources */,
+				D1BBF96B23A1D629003C7D61 /* MyPage.storyboard in Resources */,
+				D14E3E6B23A3659200978AFC /* SpotImageCell.xib in Resources */,
 				D1E4C9F42394DCB700272C5F /* GoogleService-Info.plist in Resources */,
 				D1896E212390F30B004EC82A /* Main.storyboard in Resources */,
 				D18D7F7D23A0806D0085B8B9 /* ForgotPasswordVC.xib in Resources */,
@@ -250,6 +285,8 @@
 				"${BUILT_PRODUCTS_DIR}/BoringSSL-GRPC/openssl_grpc.framework",
 				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleUtilities/GoogleUtilities.framework",
+				"${BUILT_PRODUCTS_DIR}/IQKeyboardManagerSwift/IQKeyboardManagerSwift.framework",
+				"${BUILT_PRODUCTS_DIR}/Kingfisher/Kingfisher.framework",
 				"${BUILT_PRODUCTS_DIR}/Protobuf/protobuf.framework",
 				"${BUILT_PRODUCTS_DIR}/gRPC-C++/grpcpp.framework",
 				"${BUILT_PRODUCTS_DIR}/gRPC-Core/grpc.framework",
@@ -263,6 +300,8 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/openssl_grpc.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleUtilities.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/IQKeyboardManagerSwift.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Kingfisher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/protobuf.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/grpcpp.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/grpc.framework",
@@ -306,12 +345,17 @@
 				D18D7F7F23A08D100085B8B9 /* Firebase+Utils.swift in Sources */,
 				D1E4C9FF2394F2D900272C5F /* Extensions.swift in Sources */,
 				D1896E1E2390F30B004EC82A /* HomeVC.swift in Sources */,
+				D14E3E6A23A3659200978AFC /* SpotImageCell.swift in Sources */,
 				D1E4C9FC2394E5B800272C5F /* RegisterVC.swift in Sources */,
 				D1896E1C2390F30B004EC82A /* AppDelegate.swift in Sources */,
 				D118084023969E87006EA889 /* RoundedViews.swift in Sources */,
 				D1E4C9FA2394E59200272C5F /* LoginVC.swift in Sources */,
 				D18D7F7C23A0806D0085B8B9 /* ForgotPasswordVC.swift in Sources */,
+				D1BBF97323A2330E003C7D61 /* Spot.swift in Sources */,
 				D1E4CA012395084800272C5F /* Constants.swift in Sources */,
+				D14E3E6723A35ACF00978AFC /* SpotVC.swift in Sources */,
+				D1CC783E23A48BF000CD9D7B /* CreateSpotVC.swift in Sources */,
+				D1BBF97023A22E12003C7D61 /* SpotCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

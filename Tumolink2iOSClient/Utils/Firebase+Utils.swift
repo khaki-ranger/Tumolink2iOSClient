@@ -8,6 +8,12 @@
 
 import Firebase
 
+extension Firestore {
+    var spots: Query {
+        return collection("spots").order(by: "timeStamp", descending: true)
+    }
+}
+
 extension Auth {
     func handleFireAuthError(error: Error, vc: UIViewController) {
         if let errorCode = AuthErrorCode(rawValue: error._code) {

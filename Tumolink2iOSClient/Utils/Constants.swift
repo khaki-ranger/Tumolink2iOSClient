@@ -20,12 +20,14 @@ struct StoryboardId {
 struct AppImages {
     static let GreenCheck = "green_check"
     static let RedCheck = "red_check"
+    static let Placeholder = "placeholder"
 }
 
 struct Identifiers {
     static let SpotCell = "SpotCell"
+    static let SpotImageCell = "SpotImageCell"
 }
 
 struct Segues {
-    static let ToSpots = "ToSpots"
+    static let ToSpot = "ToSpot"
 }

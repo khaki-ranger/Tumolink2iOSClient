@@ -48,7 +48,7 @@ class SpotVC: UIViewController {
     }
     
     private func setupDateTxt() {
-        let dayOfWeekJpString = ["土", "日", "月", "火", "水", "木", "金"]
+        let dayOfWeekStringJp: [Int: String] = [1: "日", 2: "月", 3: "火", 4: "水", 5: "木", 6: "金", 7: "土"]
         let date = Date()
         let calendar = Calendar.current
         let year = calendar.component(.year, from: date)
@@ -58,7 +58,7 @@ class SpotVC: UIViewController {
         yearTxt.text = String(year)
         monthTxt.text = String(month)
         dayTxt.text = String(day)
-        dayOfWeekTxt.text = dayOfWeekJpString[dayOfWeek]
+        dayOfWeekTxt.text = dayOfWeekStringJp[dayOfWeek]
     }
     
     // nextボタンとprevボタンの表示非表示を制御するメソッド

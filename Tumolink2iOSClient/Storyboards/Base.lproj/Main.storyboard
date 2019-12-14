@@ -19,6 +19,16 @@
             </objects>
             <point key="canvasLocation" x="919" y="-37"/>
         </scene>
+        <!--Spot-->
+        <scene sceneID="CQk-8J-sad">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Spot" id="i62-nf-LAg" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="スポット" image="icn_spot" selectedImage="icn_spot" id="Pkg-OB-C11"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="J7v-RB-Kfx" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="920" y="254"/>
+        </scene>
         <!--MyPage-->
         <scene sceneID="X1z-5V-Fen">
             <objects>
@@ -27,7 +37,7 @@
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lxq-iX-aTx" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="928" y="490"/>
+            <point key="canvasLocation" x="920" y="546"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="20c-cI-ODt">
@@ -35,11 +45,13 @@
                 <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="FbO-3V-BFp" sceneMemberID="viewController">
                     <toolbarItems/>
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="UWg-Kt-f9X">
+                        <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </tabBar>
                     <connections>
                         <segue destination="7pR-CI-TD3" kind="relationship" relationship="viewControllers" id="Iv7-b2-Niy"/>
+                        <segue destination="i62-nf-LAg" kind="relationship" relationship="viewControllers" id="WNC-f2-uuq"/>
                         <segue destination="c6B-ms-m5k" kind="relationship" relationship="viewControllers" id="V1z-BW-FdU"/>
                     </connections>
                 </tabBarController>
@@ -51,5 +63,6 @@
     <resources>
         <image name="icn_home" width="25" height="25"/>
         <image name="icn_mypage" width="25" height="25"/>
+        <image name="icn_spot" width="25" height="25"/>
     </resources>
 </document>

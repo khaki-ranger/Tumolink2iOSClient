@@ -30,10 +30,20 @@ class SpotVC: UIViewController {
 
         navigationItem.title = spot.name
         spotImages = spot.images
+        setupNavigation()
         setupCollectionView()
         setupPageControl()
         controlOfNextAndPrev()
         setupDateTxt()
+    }
+    
+    private func setupNavigation() {
+        let editSpotBtn = UIBarButtonItem(title: "編集", style: .plain, target: self, action: #selector(editSpot))
+        navigationItem.setRightBarButton(editSpotBtn, animated: false)
+    }
+    
+    @objc func editSpot() {
+        performSegue(withIdentifier: Segues.ToEditSpot, sender: self)
     }
     
     private func setupCollectionView() {
@@ -96,6 +106,14 @@ class SpotVC: UIViewController {
         pageControl.currentPage = next
         slideImageView.scrollToItem(at: index, at: .centeredHorizontally, animated: true)
         controlOfNextAndPrev()
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == Segues.ToEditSpot {
+            if let destination = segue.destination as? CreateSpotVC {
+                destination.spotToEdit = spot
+            }
+        }
     }
 }
 

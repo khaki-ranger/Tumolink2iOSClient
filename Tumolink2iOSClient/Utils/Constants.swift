@@ -30,4 +30,5 @@ struct Identifiers {
 
 struct Segues {
     static let ToSpot = "ToSpot"
+    static let ToEditSpot = "ToEditSpot"
 }

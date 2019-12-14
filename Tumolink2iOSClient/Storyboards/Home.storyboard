@@ -170,6 +170,7 @@
                     </view>
                     <connections>
                         <outlet property="activityIndicator" destination="xpA-gq-ad0" id="W2d-k3-o0F"/>
+                        <outlet property="addEditBtn" destination="cpO-v9-UQC" id="cKL-en-FB2"/>
                         <outlet property="nameTxt" destination="uRa-i9-bD8" id="c36-aY-0HD"/>
                         <outlet property="spotImg1" destination="nIZ-7W-tgI" id="UFj-4h-fvb"/>
                         <outlet property="spotImg2" destination="q6x-zt-sIx" id="9Vg-m6-IKU"/>
@@ -178,7 +179,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="KOb-Yj-bPe" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2002.8985507246377" y="890.625"/>
+            <point key="canvasLocation" x="2003" y="787"/>
         </scene>
         <!--SpotVC-->
         <scene sceneID="eKe-KU-2SA">
@@ -341,6 +342,7 @@
                         <outlet property="prevBtn" destination="v2u-HY-uFZ" id="Ih3-VV-16G"/>
                         <outlet property="slideImageView" destination="ZUB-gu-BQG" id="iaB-Qa-nRK"/>
                         <outlet property="yearTxt" destination="9sK-8H-XIK" id="TAi-Z9-zhR"/>
+                        <segue destination="6fV-ty-Cc0" kind="show" identifier="ToEditSpot" id="NS8-dt-1bM"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1oH-gH-b5P" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -373,4 +375,7 @@
         <image name="icn_home" width="25" height="25"/>
         <image name="icn_photo" width="25" height="25"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="NS8-dt-1bM"/>
+    </inferredMetricsTieBreakers>
 </document>

@@ -18,17 +18,47 @@ class CreateSpotVC: UIViewController {
     @IBOutlet weak var spotImg2: UIImageView!
     @IBOutlet weak var spotImg3: UIImageView!
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
+    @IBOutlet weak var addEditBtn: RoundedButton!
     
     // MARK: Variables
+    var spotToEdit: Spot?
     var tappedImageView: UIImageView?
     // Firestoreにアップロードした画像のURLを格納する配列
     var imageUrls = [String]()
+    var spotImageViews: [UIImageView] = []
 
     // MARK: Functions
     override func viewDidLoad() {
         super.viewDidLoad()
         
         setupTapGesture()
+        
+        spotImageViews = [
+            spotImg1,
+            spotImg2,
+            spotImg3
+        ]
+        
+        // spotToEditがnilでない場合は編集
+        if let spot = spotToEdit {
+            setupEditMode(spot: spot)
+        }
+    }
+    
+    private func setupEditMode(spot: Spot) {
+        addEditBtn.setTitle("編集", for: .normal)
+        
+        nameTxt.text = spot.name
+        // 画像をセットアップ
+        var count = 0
+        while count < spot.images.count {
+            imageUrls.append(spot.images[count])
+            if let url = URL(string: spot.images[count]) {
+                spotImageViews[count].contentMode = .scaleAspectFill
+                spotImageViews[count].kf.setImage(with: url)
+            }
+            count += 1
+        }
     }
     
     private func setupTapGesture() {
@@ -94,9 +124,17 @@ class CreateSpotVC: UIViewController {
                              isPublic: true,
                              isActive: true)
         
-        // 新規作成
-        let docRef = Firestore.firestore().collection("spots").document()
-        spot.id = docRef.documentID
+        var docRef: DocumentReference!
+        // productToEditがnilかどうかで、編集と新規作成の処理を分岐
+        if let spotToEdit = spotToEdit {
+            // 編集
+            docRef = Firestore.firestore().collection("spots").document(spotToEdit.id)
+            spot.id = spotToEdit.id
+        } else {
+            // 新規作成
+            docRef = Firestore.firestore().collection("spots").document()
+            spot.id = docRef.documentID
+        }
         
         let data = Spot.modelToData(spot: spot)
         docRef.setData(data, merge: true) { (error) in
@@ -104,7 +142,7 @@ class CreateSpotVC: UIViewController {
                 self.handleError(error: error, msg: "データのアップロードに失敗しました")
             }
             
-            self.navigationController?.popViewController(animated: true)
+            self.navigationController?.popToRootViewController(animated: true)
         }
     }
 }

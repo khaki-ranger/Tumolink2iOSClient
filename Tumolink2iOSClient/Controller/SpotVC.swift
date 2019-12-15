@@ -37,15 +37,6 @@ class SpotVC: UIViewController {
         setupDateTxt()
     }
     
-    private func setupNavigation() {
-        let editSpotBtn = UIBarButtonItem(title: "編集", style: .plain, target: self, action: #selector(editSpot))
-        navigationItem.setRightBarButton(editSpotBtn, animated: false)
-    }
-    
-    @objc func editSpot() {
-        performSegue(withIdentifier: Segues.ToEditSpot, sender: self)
-    }
-    
     private func setupCollectionView() {
         slideImageView.delegate = self
         slideImageView.dataSource = self
@@ -89,6 +80,29 @@ class SpotVC: UIViewController {
             nextBtn.isHidden = true
             prevBtn.isHidden = true
         }
+    }
+    
+    private func setupNavigation() {
+        let editSpotBtn = UIBarButtonItem(title: "編集", style: .plain, target: self, action: #selector(editSpot))
+        let deleteSpotBtn = UIBarButtonItem(title: "削除", style: .plain, target: self, action: #selector(deleteSpot))
+        navigationItem.setRightBarButtonItems([editSpotBtn, deleteSpotBtn], animated: false)
+    }
+    
+    @objc func editSpot() {
+        performSegue(withIdentifier: Segues.ToEditSpot, sender: self)
+    }
+    
+    @objc func deleteSpot() {
+        let alert = UIAlertController(title: "削除", message: "\(spot.name)を削除しますか？", preferredStyle: .alert)
+        let okAction = UIAlertAction(title: "Ok", style: .default, handler: {
+            (action: UIAlertAction!) -> Void in
+            // データベースのスポットの値を変更する処理
+            print("Ok Clicked!")
+        })
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+        alert.addAction(okAction)
+        alert.addAction(cancelAction)
+        present(alert, animated: true, completion: nil)
     }
     
     // MARK: Actions

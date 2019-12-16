@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import FirebaseFirestore
 
 class SpotVC: UIViewController {
     
@@ -19,6 +20,7 @@ class SpotVC: UIViewController {
     @IBOutlet weak var monthTxt: UILabel!
     @IBOutlet weak var dayTxt: UILabel!
     @IBOutlet weak var dayOfWeekTxt: UILabel!
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
     // MARK: Valiables
     var spot: Spot!
@@ -96,13 +98,27 @@ class SpotVC: UIViewController {
         let alert = UIAlertController(title: "削除", message: "\(spot.name)を削除しますか？", preferredStyle: .alert)
         let okAction = UIAlertAction(title: "Ok", style: .default, handler: {
             (action: UIAlertAction!) -> Void in
-            // データベースのスポットの値を変更する処理
-            print("Ok Clicked!")
+            self.activityIndicator.startAnimating()
+            self.changeIsActionValue()
         })
         let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
         alert.addAction(okAction)
         alert.addAction(cancelAction)
         present(alert, animated: true, completion: nil)
+    }
+    
+    // Firestoreのスポットの値を変更する処理
+    private func changeIsActionValue() {
+        let docRef = Firestore.firestore().collection(FireStoreCollectionIds.Spots).document(self.spot.id)
+        docRef.updateData(["isActive": false], completion: { (error) in
+            if let error = error {
+                debugPrint(error.localizedDescription)
+                self.simpleAlert(title: "エラー", msg: "スポットの削除に失敗しました")
+                return
+            }
+            // 値の更新に成功したらホームのトップ画面に遷移する
+            self.navigationController?.popToRootViewController(animated: true)
+        })
     }
     
     // MARK: Actions

@@ -10,8 +10,17 @@ import Firebase
 
 extension Firestore {
     var spots: Query {
-        return collection("spots").order(by: "timeStamp", descending: true)
+        return collection("spots").whereField("isActive", isEqualTo: true).order(by: "timeStamp", descending: true)
     }
+}
+
+struct FireStoreCollectionIds {
+    static let Spots = "spots"
+}
+
+struct FireStorageDirectories {
+    static let SpotImages = "spotImages"
+    
 }
 
 extension Auth {

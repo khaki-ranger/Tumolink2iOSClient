@@ -20,6 +20,8 @@
 		D18D7F7C23A0806D0085B8B9 /* ForgotPasswordVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D18D7F7A23A0806D0085B8B9 /* ForgotPasswordVC.swift */; };
 		D18D7F7D23A0806D0085B8B9 /* ForgotPasswordVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = D18D7F7B23A0806D0085B8B9 /* ForgotPasswordVC.xib */; };
 		D18D7F7F23A08D100085B8B9 /* Firebase+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = D18D7F7E23A08D100085B8B9 /* Firebase+Utils.swift */; };
+		D1902D5C23A7639C00822D9D /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1902D5B23A7639C00822D9D /* User.swift */; };
+		D1902D5F23A7682300822D9D /* UserService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1902D5E23A7682300822D9D /* UserService.swift */; };
 		D193677C2391FAE80000B652 /* LoginStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D193677B2391FAE80000B652 /* LoginStoryboard.storyboard */; };
 		D1BBF96923A1D38D003C7D61 /* Home.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D1BBF96823A1D38D003C7D61 /* Home.storyboard */; };
 		D1BBF96B23A1D629003C7D61 /* MyPage.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D1BBF96A23A1D629003C7D61 /* MyPage.storyboard */; };
@@ -52,6 +54,8 @@
 		D18D7F7A23A0806D0085B8B9 /* ForgotPasswordVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordVC.swift; sourceTree = "<group>"; };
 		D18D7F7B23A0806D0085B8B9 /* ForgotPasswordVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ForgotPasswordVC.xib; sourceTree = "<group>"; };
 		D18D7F7E23A08D100085B8B9 /* Firebase+Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Firebase+Utils.swift"; sourceTree = "<group>"; };
+		D1902D5B23A7639C00822D9D /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		D1902D5E23A7682300822D9D /* UserService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserService.swift; sourceTree = "<group>"; };
 		D193677B2391FAE80000B652 /* LoginStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LoginStoryboard.storyboard; sourceTree = "<group>"; };
 		D1BBF96823A1D38D003C7D61 /* Home.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Home.storyboard; sourceTree = "<group>"; };
 		D1BBF96A23A1D629003C7D61 /* MyPage.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MyPage.storyboard; sourceTree = "<group>"; };
@@ -121,6 +125,7 @@
 				D18D7F7923A0803C0085B8B9 /* XIBs */,
 				D1E4C9FD2394F2C000272C5F /* Utils */,
 				D1E4C9F72394E50300272C5F /* Model */,
+				D1902D5D23A767DE00822D9D /* Services */,
 				D1E4C9F62394E4F300272C5F /* View */,
 				D1E4C9F52394E4E000272C5F /* Controller */,
 				D1E4C9F82394E50D00272C5F /* Storyboards */,
@@ -142,6 +147,14 @@
 				D14E3E6923A3659200978AFC /* SpotImageCell.xib */,
 			);
 			path = XIBs;
+			sourceTree = "<group>";
+		};
+		D1902D5D23A767DE00822D9D /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				D1902D5E23A7682300822D9D /* UserService.swift */,
+			);
+			path = Services;
 			sourceTree = "<group>";
 		};
 		D1E4C9F52394E4E000272C5F /* Controller */ = {
@@ -169,6 +182,7 @@
 			isa = PBXGroup;
 			children = (
 				D1BBF97223A2330E003C7D61 /* Spot.swift */,
+				D1902D5B23A7639C00822D9D /* User.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -350,9 +364,11 @@
 				D1896E1C2390F30B004EC82A /* AppDelegate.swift in Sources */,
 				D118084023969E87006EA889 /* RoundedViews.swift in Sources */,
 				D1E4C9FA2394E59200272C5F /* LoginVC.swift in Sources */,
+				D1902D5C23A7639C00822D9D /* User.swift in Sources */,
 				D18D7F7C23A0806D0085B8B9 /* ForgotPasswordVC.swift in Sources */,
 				D1BBF97323A2330E003C7D61 /* Spot.swift in Sources */,
 				D1E4CA012395084800272C5F /* Constants.swift in Sources */,
+				D1902D5F23A7682300822D9D /* UserService.swift in Sources */,
 				D14E3E6723A35ACF00978AFC /* SpotVC.swift in Sources */,
 				D1CC783E23A48BF000CD9D7B /* CreateSpotVC.swift in Sources */,
 				D1BBF97023A22E12003C7D61 /* SpotCell.swift in Sources */,

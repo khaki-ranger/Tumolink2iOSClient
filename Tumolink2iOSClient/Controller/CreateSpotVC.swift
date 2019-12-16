@@ -128,11 +128,11 @@ class CreateSpotVC: UIViewController {
         // productToEditがnilかどうかで、編集と新規作成の処理を分岐
         if let spotToEdit = spotToEdit {
             // 編集
-            docRef = Firestore.firestore().collection(FireStoreCollectionIds.Spots).document(spotToEdit.id)
+            docRef = Firestore.firestore().collection(FirestoreCollectionIds.Spots).document(spotToEdit.id)
             spot.id = spotToEdit.id
         } else {
             // 新規作成
-            docRef = Firestore.firestore().collection(FireStoreCollectionIds.Spots).document()
+            docRef = Firestore.firestore().collection(FirestoreCollectionIds.Spots).document()
             spot.id = docRef.documentID
         }
         
@@ -184,7 +184,7 @@ extension CreateSpotVC : UIImagePickerControllerDelegate, UINavigationController
         // 画像をデータに変更する
         guard let imageData = image.jpegData(compressionQuality: 0.2) else { return }
         // Firestorageのリファレンスを作成する
-        let imageRef = Storage.storage().reference().child("/\(FireStorageDirectories.SpotImages)/\(imageName).jpg")
+        let imageRef = Storage.storage().reference().child("/\(FirestorageDirectories.SpotImages)/\(imageName).jpg")
         // メタデータを設定する
         let metaData = StorageMetadata()
         metaData.contentType = "image/jpg"

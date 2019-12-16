@@ -109,7 +109,7 @@ class SpotVC: UIViewController {
     
     // Firestoreのスポットの値を変更する処理
     private func changeIsActionValue() {
-        let docRef = Firestore.firestore().collection(FireStoreCollectionIds.Spots).document(self.spot.id)
+        let docRef = Firestore.firestore().collection(FirestoreCollectionIds.Spots).document(self.spot.id)
         docRef.updateData(["isActive": false], completion: { (error) in
             if let error = error {
                 debugPrint(error.localizedDescription)

@@ -53,6 +53,21 @@ class RegisterVC: UIViewController {
         }
     }
     
+    // FirestoreのUsersコレクションにユーザーのデータを作成するためのメソッド
+    func createFirestoreUser(user: User) {
+        let newUserRef = Firestore.firestore().collection(FirestoreCollectionIds.Users).document(user.id)
+        let data = User.modelToData(user: user)
+        newUserRef.setData(data) { (error) in
+            if let error = error {
+                Auth.auth().handleFireAuthError(error: error, vc: self)
+                debugPrint(error.localizedDescription)
+            } else {
+                self.dismiss(animated: true, completion: nil)
+            }
+            self.activityIndicator.stopAnimating()
+        }
+    }
+    
     // MARK: Actions
     @IBAction func registerClicked(_ sender: Any) {
         guard let email = emailTxt.text, email.isNotEmpty,
@@ -80,7 +95,15 @@ class RegisterVC: UIViewController {
                 return
             }
             
-            self.dismiss(animated: true, completion: nil)
+            // アプリ内でユーザーを管理するためのオブジェクトを作成
+            guard let firUser = result?.user else { return }
+            let appUser = User.init(id: firUser.uid,
+                                    email: email,
+                                    username: username,
+                                    imageUrl: "",
+                                    hasSetupAccount: true,
+                                    isActive: true)
+            self.createFirestoreUser(user: appUser)
         }
     }
 }

@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import FirebaseFirestore
 
 class SpotVC: UIViewController {
     
@@ -19,6 +20,7 @@ class SpotVC: UIViewController {
     @IBOutlet weak var monthTxt: UILabel!
     @IBOutlet weak var dayTxt: UILabel!
     @IBOutlet weak var dayOfWeekTxt: UILabel!
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
     // MARK: Valiables
     var spot: Spot!
@@ -30,6 +32,7 @@ class SpotVC: UIViewController {
 
         navigationItem.title = spot.name
         spotImages = spot.images
+        setupNavigation()
         setupCollectionView()
         setupPageControl()
         controlOfNextAndPrev()
@@ -81,6 +84,43 @@ class SpotVC: UIViewController {
         }
     }
     
+    private func setupNavigation() {
+        let editSpotBtn = UIBarButtonItem(title: "編集", style: .plain, target: self, action: #selector(editSpot))
+        let deleteSpotBtn = UIBarButtonItem(title: "削除", style: .plain, target: self, action: #selector(deleteSpot))
+        navigationItem.setRightBarButtonItems([editSpotBtn, deleteSpotBtn], animated: false)
+    }
+    
+    @objc func editSpot() {
+        performSegue(withIdentifier: Segues.ToEditSpot, sender: self)
+    }
+    
+    @objc func deleteSpot() {
+        let alert = UIAlertController(title: "削除", message: "\(spot.name)を削除しますか？", preferredStyle: .alert)
+        let okAction = UIAlertAction(title: "Ok", style: .default, handler: {
+            (action: UIAlertAction!) -> Void in
+            self.activityIndicator.startAnimating()
+            self.changeIsActionValue()
+        })
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+        alert.addAction(okAction)
+        alert.addAction(cancelAction)
+        present(alert, animated: true, completion: nil)
+    }
+    
+    // Firestoreのスポットの値を変更する処理
+    private func changeIsActionValue() {
+        let docRef = Firestore.firestore().collection(FireStoreCollectionIds.Spots).document(self.spot.id)
+        docRef.updateData(["isActive": false], completion: { (error) in
+            if let error = error {
+                debugPrint(error.localizedDescription)
+                self.simpleAlert(title: "エラー", msg: "スポットの削除に失敗しました")
+                return
+            }
+            // 値の更新に成功したらホームのトップ画面に遷移する
+            self.navigationController?.popToRootViewController(animated: true)
+        })
+    }
+    
     // MARK: Actions
     @IBAction func prevTapped(_ sender: Any) {
         let prev = max(0, pageControl.currentPage - 1)
@@ -96,6 +136,14 @@ class SpotVC: UIViewController {
         pageControl.currentPage = next
         slideImageView.scrollToItem(at: index, at: .centeredHorizontally, animated: true)
         controlOfNextAndPrev()
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == Segues.ToEditSpot {
+            if let destination = segue.destination as? CreateSpotVC {
+                destination.spotToEdit = spot
+            }
+        }
     }
 }
 

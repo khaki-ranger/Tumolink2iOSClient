@@ -170,6 +170,7 @@
                     </view>
                     <connections>
                         <outlet property="activityIndicator" destination="xpA-gq-ad0" id="W2d-k3-o0F"/>
+                        <outlet property="addEditBtn" destination="cpO-v9-UQC" id="cKL-en-FB2"/>
                         <outlet property="nameTxt" destination="uRa-i9-bD8" id="c36-aY-0HD"/>
                         <outlet property="spotImg1" destination="nIZ-7W-tgI" id="UFj-4h-fvb"/>
                         <outlet property="spotImg2" destination="q6x-zt-sIx" id="9Vg-m6-IKU"/>
@@ -178,7 +179,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="KOb-Yj-bPe" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2002.8985507246377" y="890.625"/>
+            <point key="canvasLocation" x="2003" y="787"/>
         </scene>
         <!--SpotVC-->
         <scene sceneID="eKe-KU-2SA">
@@ -319,13 +320,19 @@
                                     <constraint firstAttribute="trailing" secondItem="uz6-mC-aFQ" secondAttribute="trailing" id="yFh-2X-jqR"/>
                                 </constraints>
                             </scrollView>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="hFx-m7-7t3">
+                                <rect key="frame" x="188.5" y="566.5" width="37" height="37"/>
+                                <color key="color" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="uz6-mC-aFQ" firstAttribute="height" secondItem="gXK-Zj-h9u" secondAttribute="height" priority="250" id="3CG-4X-EHg"/>
                             <constraint firstAttribute="bottom" secondItem="tL5-Uc-YIF" secondAttribute="bottom" id="8ZM-SM-rFY"/>
+                            <constraint firstItem="hFx-m7-7t3" firstAttribute="centerX" secondItem="gXK-Zj-h9u" secondAttribute="centerX" id="BDL-G0-oCM"/>
                             <constraint firstItem="tL5-Uc-YIF" firstAttribute="top" secondItem="qWx-Hh-lCV" secondAttribute="top" id="Fac-Oi-DgJ"/>
                             <constraint firstItem="qWx-Hh-lCV" firstAttribute="trailing" secondItem="tL5-Uc-YIF" secondAttribute="trailing" id="XSM-l7-pap"/>
+                            <constraint firstItem="hFx-m7-7t3" firstAttribute="centerY" secondItem="gXK-Zj-h9u" secondAttribute="centerY" id="YiA-7S-iaU"/>
                             <constraint firstItem="tL5-Uc-YIF" firstAttribute="leading" secondItem="qWx-Hh-lCV" secondAttribute="leading" id="pD6-ll-x3G"/>
                             <constraint firstItem="uz6-mC-aFQ" firstAttribute="width" secondItem="gXK-Zj-h9u" secondAttribute="width" id="zCa-Mv-RtQ"/>
                         </constraints>
@@ -333,6 +340,7 @@
                     </view>
                     <size key="freeformSize" width="414" height="1170"/>
                     <connections>
+                        <outlet property="activityIndicator" destination="hFx-m7-7t3" id="03T-aZ-N5C"/>
                         <outlet property="dayOfWeekTxt" destination="uGr-HP-k4u" id="bKe-J2-che"/>
                         <outlet property="dayTxt" destination="IHC-WG-617" id="fbe-Uu-ZoV"/>
                         <outlet property="monthTxt" destination="nCn-tR-n8P" id="gZ2-tm-rB3"/>
@@ -341,6 +349,7 @@
                         <outlet property="prevBtn" destination="v2u-HY-uFZ" id="Ih3-VV-16G"/>
                         <outlet property="slideImageView" destination="ZUB-gu-BQG" id="iaB-Qa-nRK"/>
                         <outlet property="yearTxt" destination="9sK-8H-XIK" id="TAi-Z9-zhR"/>
+                        <segue destination="6fV-ty-Cc0" kind="show" identifier="ToEditSpot" id="NS8-dt-1bM"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1oH-gH-b5P" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -373,4 +382,7 @@
         <image name="icn_home" width="25" height="25"/>
         <image name="icn_photo" width="25" height="25"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="NS8-dt-1bM"/>
+    </inferredMetricsTieBreakers>
 </document>

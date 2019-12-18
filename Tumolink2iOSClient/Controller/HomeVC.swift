@@ -25,6 +25,8 @@ class HomeVC: UIViewController {
     // MARK: Functions
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        UserService.getCurrentUser()
         setupInitialAnonymouseUser()
         db = Firestore.firestore()
         setupTableView()

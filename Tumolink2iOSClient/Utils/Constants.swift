@@ -21,6 +21,7 @@ struct AppImages {
     static let GreenCheck = "green_check"
     static let RedCheck = "red_check"
     static let Placeholder = "placeholder"
+    static let NoProfile = "no_image"
 }
 
 struct Identifiers {

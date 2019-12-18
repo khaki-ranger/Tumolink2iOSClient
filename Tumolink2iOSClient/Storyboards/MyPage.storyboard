@@ -13,27 +13,44 @@
         <!--マイページ-->
         <scene sceneID="yoJ-ij-7lE">
             <objects>
-                <viewController id="gXy-ff-Tjg" sceneMemberID="viewController">
+                <viewController id="gXy-ff-Tjg" customClass="MyPageVC" customModule="Tumolink2iOSClient" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="eIN-n1-9vk">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="マイページ" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bZR-g2-w1J">
-                                <rect key="frame" x="163.5" y="437.5" width="87" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="D4D-fz-LKM">
+                                <rect key="frame" x="20" y="64" width="374" height="220.5"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ユーザーネーム" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="b84-ft-kd9">
+                                        <rect key="frame" x="126.5" y="0.0" width="121.5" height="20.5"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                        <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="no_image" translatesAutoresizingMaskIntoConstraints="NO" id="qZH-Sf-96Z">
+                                        <rect key="frame" x="97" y="40.5" width="180" height="180"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="180" id="kRT-cB-PjR"/>
+                                            <constraint firstAttribute="height" constant="180" id="rQV-6S-Ymu"/>
+                                        </constraints>
+                                    </imageView>
+                                </subviews>
+                            </stackView>
                         </subviews>
-                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="bZR-g2-w1J" firstAttribute="centerX" secondItem="eIN-n1-9vk" secondAttribute="centerX" id="Dzy-C9-AyH"/>
-                            <constraint firstItem="bZR-g2-w1J" firstAttribute="centerY" secondItem="eIN-n1-9vk" secondAttribute="centerY" id="Vsv-CU-5yG"/>
+                            <constraint firstItem="LOi-hw-efW" firstAttribute="trailing" secondItem="D4D-fz-LKM" secondAttribute="trailing" constant="20" id="EvF-dV-hXV"/>
+                            <constraint firstItem="D4D-fz-LKM" firstAttribute="leading" secondItem="LOi-hw-efW" secondAttribute="leading" constant="20" id="In8-6t-uxt"/>
+                            <constraint firstItem="D4D-fz-LKM" firstAttribute="top" secondItem="LOi-hw-efW" secondAttribute="top" constant="20" id="wTB-pd-39c"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="LOi-hw-efW"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="マイページ" image="icn_mypage" selectedImage="icn_mypage" id="7rK-Xd-A9d"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="profileImg" destination="qZH-Sf-96Z" id="BMw-v9-hJo"/>
+                        <outlet property="usernameTxt" destination="b84-ft-kd9" id="ujM-lA-MPB"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lIJ-QI-8nZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -42,5 +59,6 @@
     </scenes>
     <resources>
         <image name="icn_mypage" width="25" height="25"/>
+        <image name="no_image" width="300" height="300"/>
     </resources>
 </document>

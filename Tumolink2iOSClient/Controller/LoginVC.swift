@@ -48,6 +48,7 @@ class LoginVC: UIViewController {
                 return
             }
             
+            UserService.getCurrentUser()
             self.dismiss(animated: true, completion: nil)
         }
     }

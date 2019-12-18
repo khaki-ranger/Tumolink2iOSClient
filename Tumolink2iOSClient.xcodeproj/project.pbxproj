@@ -35,6 +35,7 @@
 		D1E4C9FC2394E5B800272C5F /* RegisterVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1E4C9FB2394E5B800272C5F /* RegisterVC.swift */; };
 		D1E4C9FF2394F2D900272C5F /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1E4C9FE2394F2D900272C5F /* Extensions.swift */; };
 		D1E4CA012395084800272C5F /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1E4CA002395084800272C5F /* Constants.swift */; };
+		D1FF02FC23AA1D06003AD9D4 /* MyPageVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1FF02FB23AA1D06003AD9D4 /* MyPageVC.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -69,6 +70,7 @@
 		D1E4C9FB2394E5B800272C5F /* RegisterVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterVC.swift; sourceTree = "<group>"; };
 		D1E4C9FE2394F2D900272C5F /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		D1E4CA002395084800272C5F /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		D1FF02FB23AA1D06003AD9D4 /* MyPageVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageVC.swift; sourceTree = "<group>"; };
 		D6830A79D55BA4E537A66ADC /* Pods_Tumolink2iOSClient.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Tumolink2iOSClient.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -165,6 +167,7 @@
 				D1896E1D2390F30B004EC82A /* HomeVC.swift */,
 				D14E3E6623A35ACF00978AFC /* SpotVC.swift */,
 				D1CC783D23A48BF000CD9D7B /* CreateSpotVC.swift */,
+				D1FF02FB23AA1D06003AD9D4 /* MyPageVC.swift */,
 				D1896E1B2390F30B004EC82A /* AppDelegate.swift */,
 			);
 			path = Controller;
@@ -367,6 +370,7 @@
 				D1902D5C23A7639C00822D9D /* User.swift in Sources */,
 				D18D7F7C23A0806D0085B8B9 /* ForgotPasswordVC.swift in Sources */,
 				D1BBF97323A2330E003C7D61 /* Spot.swift in Sources */,
+				D1FF02FC23AA1D06003AD9D4 /* MyPageVC.swift in Sources */,
 				D1E4CA012395084800272C5F /* Constants.swift in Sources */,
 				D1902D5F23A7682300822D9D /* UserService.swift in Sources */,
 				D14E3E6723A35ACF00978AFC /* SpotVC.swift in Sources */,

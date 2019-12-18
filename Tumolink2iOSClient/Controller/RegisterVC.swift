@@ -16,14 +16,37 @@ class RegisterVC: UIViewController {
     @IBOutlet weak var emailTxt: UITextField!
     @IBOutlet weak var passwordTxt: UITextField!
     @IBOutlet weak var confirmPasswordTxt: UITextField!
+    @IBOutlet weak var userImg: UIImageView!
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     @IBOutlet weak var passCheckImg: UIImageView!
     @IBOutlet weak var confirmPassCheckImg: UIImageView!
     
-    // MART: Functions
+    // MARK: Variables
+    var email: String = ""
+    var username: String = ""
+    var password: String = ""
+    var userImgUrl: String = ""
+    
+    // MARK: Functions
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        setupTapgesture()
+        setupPasswordCheck()
+    }
+    
+    private func setupTapgesture() {
+        let tap = UITapGestureRecognizer(target: self, action: #selector(imgTapped(_:)))
+        tap.numberOfTapsRequired = 1
+        userImg.isUserInteractionEnabled = true
+        userImg.addGestureRecognizer(tap)
+    }
+    
+    @objc func imgTapped(_ tap: UITapGestureRecognizer) {
+        launchImgPicker()
+    }
+    
+    private func setupPasswordCheck() {
         passwordTxt.addTarget(self, action: #selector(textFieldDidChange(_:)), for: UIControl.Event.editingChanged)
         confirmPasswordTxt.addTarget(self, action: #selector(textFieldDidChange(_:)), for: UIControl.Event.editingChanged)
     }
@@ -82,8 +105,57 @@ class RegisterVC: UIViewController {
             return
         }
         
+        self.email = email
+        self.username = username
+        self.password = password
+        
         activityIndicator.startAnimating()
         
+        if let userImg = userImg.image {
+            uploadImageThenDocument(image: userImg)
+        } else {
+            userImgUrl = ""
+            uploadDocument()
+        }
+    }
+    
+    private func uploadImageThenDocument(image: UIImage) {
+        // 画像名を作成する
+        let imageName = UUID()
+        // 画像をデータに変更する
+        guard let imageData = image.jpegData(compressionQuality: 0.2) else { return }
+        // Firestoreのリファレンスを作成する
+        let imageRef = Storage.storage().reference().child("/userImages/\(imageName).jpg")
+        // メタデータを設定する
+        let metaData = StorageMetadata()
+        metaData.contentType = "image/jpg"
+        // データをFirestorageにアップロードする
+        imageRef.putData(imageData, metadata: metaData) { (metaData, error) in
+            
+            if let error = error {
+                debugPrint(error.localizedDescription)
+                self.simpleAlert(title: "エラー", msg: "画像のアップロードに失敗しました")
+                return
+            }
+            // 画像のアップロードに成功したらURLを取得する
+            imageRef.downloadURL(completion: { (url, error) in
+                
+                if let error = error {
+                    debugPrint(error.localizedDescription)
+                    self.simpleAlert(title: "エラー", msg: "画像URLの取得に失敗しました")
+                    return
+                }
+                
+                // 画像URLの取得に成功
+                guard let url = url else { return }
+                // FirestoreのcategoriesコレクションにURLをアップロードして更新、および作成する
+                self.uploadDocument()
+                self.userImgUrl = url.absoluteString
+            })
+        }
+    }
+    
+    private func uploadDocument() {
         guard let authUser = Auth.auth().currentUser else { return }
         
         let credential = EmailAuthProvider.credential(withEmail: email, password: password)
@@ -98,12 +170,33 @@ class RegisterVC: UIViewController {
             // アプリ内でユーザーを管理するためのオブジェクトを作成
             guard let firUser = result?.user else { return }
             let appUser = User.init(id: firUser.uid,
-                                    email: email,
-                                    username: username,
-                                    imageUrl: "",
+                                    email: self.email,
+                                    username: self.username,
+                                    imageUrl: self.userImgUrl,
                                     hasSetupAccount: true,
                                     isActive: true)
             self.createFirestoreUser(user: appUser)
         }
     }
+}
+
+extension RegisterVC : UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+    
+    func launchImgPicker() {
+        let imagePicker = UIImagePickerController()
+        imagePicker.delegate = self
+        present(imagePicker, animated: true, completion: nil)
+    }
+    
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        guard let image = info[.originalImage] as? UIImage else { return }
+        userImg.contentMode = .scaleAspectFill
+        userImg.image = image
+        dismiss(animated: true, completion: nil)
+    }
+    
+    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
+        dismiss(animated: true, completion: nil)
+    }
+    
 }

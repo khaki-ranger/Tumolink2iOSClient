@@ -127,8 +127,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="gP4-0j-NPZ">
-                                <rect key="frame" x="20" y="108" width="374" height="248"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="gP4-0j-NPZ">
+                                <rect key="frame" x="20" y="108" width="374" height="412.5"/>
                                 <subviews>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="ユーザーネーム" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="bgg-na-9hp">
                                         <rect key="frame" x="0.0" y="0.0" width="374" height="40"/>
@@ -166,8 +166,22 @@
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" secureTextEntry="YES" textContentType="password"/>
                                     </textField>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="プロフィール画像" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ut1-Xz-B5x">
+                                        <rect key="frame" x="117.5" y="208" width="139" height="20.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Hp6-Z2-Tho">
+                                        <rect key="frame" x="127" y="240.5" width="120" height="120"/>
+                                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="120" id="k97-Il-qXa"/>
+                                            <constraint firstAttribute="width" constant="120" id="rTM-Pw-UWN"/>
+                                        </constraints>
+                                    </imageView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="y1j-pp-tFI" customClass="RoundedButton" customModule="Tumolink2iOSClient" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="208" width="374" height="40"/>
+                                        <rect key="frame" x="0.0" y="372.5" width="374" height="40"/>
                                         <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="40" id="XzM-NK-s4m"/>
@@ -181,9 +195,21 @@
                                         </connections>
                                     </button>
                                 </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="l7E-hp-hci" secondAttribute="trailing" id="Bwv-eM-1En"/>
+                                    <constraint firstItem="uyW-LW-Ro4" firstAttribute="leading" secondItem="gP4-0j-NPZ" secondAttribute="leading" id="C3l-gR-51t"/>
+                                    <constraint firstAttribute="trailing" secondItem="uyW-LW-Ro4" secondAttribute="trailing" id="FEA-Of-tx5"/>
+                                    <constraint firstItem="bgg-na-9hp" firstAttribute="leading" secondItem="gP4-0j-NPZ" secondAttribute="leading" id="b19-T4-uLc"/>
+                                    <constraint firstAttribute="trailing" secondItem="y1j-pp-tFI" secondAttribute="trailing" id="eh5-KP-fVk"/>
+                                    <constraint firstAttribute="trailing" secondItem="aFl-I0-OlD" secondAttribute="trailing" id="hw4-yZ-GQv"/>
+                                    <constraint firstAttribute="trailing" secondItem="bgg-na-9hp" secondAttribute="trailing" id="igl-FL-aQg"/>
+                                    <constraint firstItem="l7E-hp-hci" firstAttribute="leading" secondItem="gP4-0j-NPZ" secondAttribute="leading" id="maB-Or-HDs"/>
+                                    <constraint firstItem="aFl-I0-OlD" firstAttribute="leading" secondItem="gP4-0j-NPZ" secondAttribute="leading" id="osT-OR-KRy"/>
+                                    <constraint firstItem="y1j-pp-tFI" firstAttribute="leading" secondItem="gP4-0j-NPZ" secondAttribute="leading" id="w7E-9t-sZe"/>
+                                </constraints>
                             </stackView>
                             <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="SMu-DY-Job">
-                                <rect key="frame" x="188.5" y="368" width="37" height="37"/>
+                                <rect key="frame" x="188.5" y="532.5" width="37" height="37"/>
                                 <color key="color" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </activityIndicatorView>
                             <imageView hidden="YES" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="red_check" translatesAutoresizingMaskIntoConstraints="NO" id="Jcr-Jv-5fN">
@@ -222,6 +248,7 @@
                         <outlet property="emailTxt" destination="aFl-I0-OlD" id="iv0-rc-aRC"/>
                         <outlet property="passCheckImg" destination="Jcr-Jv-5fN" id="oFW-yW-Q7H"/>
                         <outlet property="passwordTxt" destination="uyW-LW-Ro4" id="zCC-uu-8hn"/>
+                        <outlet property="userImg" destination="Hp6-Z2-Tho" id="KBW-5V-1HT"/>
                         <outlet property="usernameTxt" destination="bgg-na-9hp" id="yyQ-qn-3em"/>
                     </connections>
                 </viewController>

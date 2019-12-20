@@ -15,8 +15,6 @@ class MyPageVC: UIViewController {
     @IBOutlet weak var usernameTxt: UILabel!
     @IBOutlet weak var profileImg: UIImageView!
     
-    // MARK: Variables
-    
     // MARK: Functions
     override func viewDidLoad() {
         super.viewDidLoad()

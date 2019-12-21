@@ -57,6 +57,11 @@ class EditUserVC: UIViewController {
     }
     
     // MARK: Actions
+    @IBAction func cancelClicked(_ sender: Any) {
+        dismiss(animated: true, completion: nil)
+    }
+    
+    
     @IBAction func editClicked(_ sender: Any) {
         guard let image = profileImg.image ,
             let username = usernameTxt.text , username.isNotEmpty else {

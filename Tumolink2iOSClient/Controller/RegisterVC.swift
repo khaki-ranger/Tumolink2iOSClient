@@ -76,22 +76,6 @@ class RegisterVC: UIViewController {
         }
     }
     
-    // FirestoreのUsersコレクションにユーザーのデータを作成するためのメソッド
-    func createFirestoreUser(user: User) {
-        let newUserRef = Firestore.firestore().collection(FirestoreCollectionIds.Users).document(user.id)
-        let data = User.modelToData(user: user)
-        newUserRef.setData(data) { (error) in
-            if let error = error {
-                Auth.auth().handleFireAuthError(error: error, vc: self)
-                debugPrint(error.localizedDescription)
-            } else {
-                UserService.getCurrentUser()
-                self.dismiss(animated: true, completion: nil)
-            }
-            self.activityIndicator.stopAnimating()
-        }
-    }
-    
     // MARK: Actions
     @IBAction func registerClicked(_ sender: Any) {
         guard let email = emailTxt.text, email.isNotEmpty,
@@ -177,6 +161,22 @@ class RegisterVC: UIViewController {
                                     hasSetupAccount: true,
                                     isActive: true)
             self.createFirestoreUser(user: appUser)
+        }
+    }
+    
+    // FirestoreのUsersコレクションにユーザーのデータを作成するためのメソッド
+    func createFirestoreUser(user: User) {
+        let newUserRef = Firestore.firestore().collection(FirestoreCollectionIds.Users).document(user.id)
+        let data = User.modelToData(user: user)
+        newUserRef.setData(data) { (error) in
+            if let error = error {
+                Auth.auth().handleFireAuthError(error: error, vc: self)
+                debugPrint(error.localizedDescription)
+            } else {
+                UserService.getCurrentUser()
+                self.dismiss(animated: true, completion: nil)
+            }
+            self.activityIndicator.stopAnimating()
         }
     }
 }

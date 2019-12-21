@@ -8,6 +8,7 @@
 
 import UIKit
 import Kingfisher
+import Firebase
 
 class EditUserVC: UIViewController {
     
@@ -18,6 +19,7 @@ class EditUserVC: UIViewController {
     
     // MARK: Variables
     var profileImgChenged = false // 画像が変更されたかどうかをチェックするための変数
+    var username: String = ""
 
     // MARK: Functions
     override func viewDidLoad() {
@@ -56,29 +58,78 @@ class EditUserVC: UIViewController {
     
     // MARK: Actions
     @IBAction func editClicked(_ sender: Any) {
-        uploadImageThenDocument()
-    }
-    
-    private func uploadImageThenDocument() {
         guard let image = profileImg.image ,
             let username = usernameTxt.text , username.isNotEmpty else {
                 simpleAlert(title: "エラー", msg: "ユーザーネームとプロフィール画像が未設定です")
                 return
         }
         
+        self.username = username
+        
         activityIndicator.startAnimating()
         
-        
+        // 画像が変更されたかどうかで処理を分岐する
         if profileImgChenged {
             // 画像が変更された場合はFirestorageにアップする
+            uploadImage(image: image)
         } else {
             // 画像が変更されていないのでFirestoreのデータを更新する
             uploadDocument(url: UserService.user.imageUrl)
         }
     }
     
+    private func uploadImage(image: UIImage) {
+        // 画像名を作成する
+        let imageName = UUID()
+        // 画像をデータに変更する
+        guard let imageData = image.jpegData(compressionQuality: 0.2) else { return }
+        // Firestoreのリファレンスを作成する
+        let imageRef = Storage.storage().reference().child("/userImages/\(imageName).jpg")
+        // メタデータを設定する
+        let metaData = StorageMetadata()
+        metaData.contentType = "image/jpg"
+        imageRef.putData(imageData, metadata: metaData) { (metaData, error) in
+            
+            if let error = error {
+                debugPrint(error.localizedDescription)
+                self.simpleAlert(title: "エラー", msg: "画像のアップロードに失敗しました")
+                return
+            }
+            // 画像のアップロードに成功したらURLを取得する
+            imageRef.downloadURL(completion: { (url, error) in
+                
+                if let error = error {
+                    debugPrint(error.localizedDescription)
+                    self.simpleAlert(title: "エラー", msg: "画像URLの取得に失敗しました")
+                    return
+                }
+                
+                // 画像URLの取得に成功
+                guard let url = url else { return }
+                // FirestoreのcategoriesコレクションにURLをアップロードして更新、および作成する
+                self.uploadDocument(url: url.absoluteString)
+            })
+        }
+    }
+    
     private func uploadDocument(url: String) {
         
+        let user = User.init(id: UserService.user.id,
+                                email: UserService.user.email,
+                                username: username,
+                                imageUrl: url)
+        
+        let docRef = Firestore.firestore().collection(FirestoreCollectionIds.Users).document(UserService.user.id)
+        let data = User.modelToData(user: user)
+        docRef.setData(data, merge: true) { (error) in
+            if let error = error {
+                debugPrint(error.localizedDescription)
+                self.simpleAlert(title: "エラー", msg: "データのアップロードに失敗しました")
+                return
+            }
+            
+            self.navigationController?.popToRootViewController(animated: true)
+        }
     }
 }
 

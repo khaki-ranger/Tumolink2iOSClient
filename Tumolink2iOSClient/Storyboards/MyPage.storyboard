@@ -36,9 +36,13 @@
                                     </imageView>
                                 </subviews>
                             </stackView>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="Mrn-ve-SAH">
+                                <rect key="frame" x="188.5" y="304.5" width="37" height="37"/>
+                                <color key="color" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </activityIndicatorView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3jD-De-T4F" customClass="RoundedButton" customModule="Tumolink2iOSClient" customModuleProvider="target">
                                 <rect key="frame" x="20" y="753" width="374" height="40"/>
-                                <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="Z33-EB-nhn"/>
                                 </constraints>
@@ -46,6 +50,9 @@
                                 <state key="normal" title="退会">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
+                                <connections>
+                                    <action selector="deleteClicked:" destination="gXy-ff-Tjg" eventType="touchUpInside" id="swk-vM-LX0"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Q9H-XX-u3J" customClass="RoundedButton" customModule="Tumolink2iOSClient" customModuleProvider="target">
                                 <rect key="frame" x="20" y="693" width="374" height="40"/>
@@ -67,6 +74,8 @@
                             <constraint firstItem="LOi-hw-efW" firstAttribute="trailing" secondItem="Q9H-XX-u3J" secondAttribute="trailing" constant="20" id="7NU-j5-ccr"/>
                             <constraint firstItem="Q9H-XX-u3J" firstAttribute="leading" secondItem="LOi-hw-efW" secondAttribute="leading" constant="20" id="CNy-Vg-Yi9"/>
                             <constraint firstItem="LOi-hw-efW" firstAttribute="trailing" secondItem="D4D-fz-LKM" secondAttribute="trailing" constant="20" id="EvF-dV-hXV"/>
+                            <constraint firstItem="Mrn-ve-SAH" firstAttribute="top" secondItem="D4D-fz-LKM" secondAttribute="bottom" constant="20" id="Eyz-hC-mYM"/>
+                            <constraint firstItem="Mrn-ve-SAH" firstAttribute="centerX" secondItem="eIN-n1-9vk" secondAttribute="centerX" id="Ga0-vB-mlR"/>
                             <constraint firstItem="D4D-fz-LKM" firstAttribute="leading" secondItem="LOi-hw-efW" secondAttribute="leading" constant="20" id="In8-6t-uxt"/>
                             <constraint firstItem="3jD-De-T4F" firstAttribute="top" secondItem="Q9H-XX-u3J" secondAttribute="bottom" constant="20" id="XJZ-zr-vd6"/>
                             <constraint firstItem="3jD-De-T4F" firstAttribute="leading" secondItem="LOi-hw-efW" secondAttribute="leading" constant="20" id="eTW-gK-wEQ"/>
@@ -80,6 +89,7 @@
                     <navigationItem key="navigationItem" id="tpg-qH-lC3"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
+                        <outlet property="activityIndicator" destination="Mrn-ve-SAH" id="el1-W5-lyM"/>
                         <outlet property="profileImg" destination="qZH-Sf-96Z" id="BMw-v9-hJo"/>
                         <outlet property="usernameTxt" destination="b84-ft-kd9" id="ujM-lA-MPB"/>
                     </connections>

@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		79874AF417CC877D15F3DB11 /* Pods_Tumolink2iOSClient.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D6830A79D55BA4E537A66ADC /* Pods_Tumolink2iOSClient.framework */; };
+		D114A6B823AF658700EE0B2E /* DeleteUserVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D114A6B723AF658700EE0B2E /* DeleteUserVC.swift */; };
+		D116B52F23ACC5F8006CBB3A /* EditUserVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D116B52E23ACC5F7006CBB3A /* EditUserVC.swift */; };
 		D118084023969E87006EA889 /* RoundedViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = D118083F23969E87006EA889 /* RoundedViews.swift */; };
 		D14E3E6723A35ACF00978AFC /* SpotVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D14E3E6623A35ACF00978AFC /* SpotVC.swift */; };
 		D14E3E6A23A3659200978AFC /* SpotImageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D14E3E6823A3659200978AFC /* SpotImageCell.swift */; };
@@ -20,6 +22,8 @@
 		D18D7F7C23A0806D0085B8B9 /* ForgotPasswordVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D18D7F7A23A0806D0085B8B9 /* ForgotPasswordVC.swift */; };
 		D18D7F7D23A0806D0085B8B9 /* ForgotPasswordVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = D18D7F7B23A0806D0085B8B9 /* ForgotPasswordVC.xib */; };
 		D18D7F7F23A08D100085B8B9 /* Firebase+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = D18D7F7E23A08D100085B8B9 /* Firebase+Utils.swift */; };
+		D1902D5C23A7639C00822D9D /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1902D5B23A7639C00822D9D /* User.swift */; };
+		D1902D5F23A7682300822D9D /* UserService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1902D5E23A7682300822D9D /* UserService.swift */; };
 		D193677C2391FAE80000B652 /* LoginStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D193677B2391FAE80000B652 /* LoginStoryboard.storyboard */; };
 		D1BBF96923A1D38D003C7D61 /* Home.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D1BBF96823A1D38D003C7D61 /* Home.storyboard */; };
 		D1BBF96B23A1D629003C7D61 /* MyPage.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D1BBF96A23A1D629003C7D61 /* MyPage.storyboard */; };
@@ -33,11 +37,14 @@
 		D1E4C9FC2394E5B800272C5F /* RegisterVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1E4C9FB2394E5B800272C5F /* RegisterVC.swift */; };
 		D1E4C9FF2394F2D900272C5F /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1E4C9FE2394F2D900272C5F /* Extensions.swift */; };
 		D1E4CA012395084800272C5F /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1E4CA002395084800272C5F /* Constants.swift */; };
+		D1FF02FC23AA1D06003AD9D4 /* MyPageVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1FF02FB23AA1D06003AD9D4 /* MyPageVC.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		63344A8FDD8C1DFA9AAFE53E /* Pods-Tumolink2iOSClient.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Tumolink2iOSClient.release.xcconfig"; path = "Target Support Files/Pods-Tumolink2iOSClient/Pods-Tumolink2iOSClient.release.xcconfig"; sourceTree = "<group>"; };
 		790934C17713D698442F667E /* Pods-Tumolink2iOSClient.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Tumolink2iOSClient.debug.xcconfig"; path = "Target Support Files/Pods-Tumolink2iOSClient/Pods-Tumolink2iOSClient.debug.xcconfig"; sourceTree = "<group>"; };
+		D114A6B723AF658700EE0B2E /* DeleteUserVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteUserVC.swift; sourceTree = "<group>"; };
+		D116B52E23ACC5F7006CBB3A /* EditUserVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditUserVC.swift; sourceTree = "<group>"; };
 		D118083F23969E87006EA889 /* RoundedViews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedViews.swift; sourceTree = "<group>"; };
 		D14E3E6623A35ACF00978AFC /* SpotVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpotVC.swift; sourceTree = "<group>"; };
 		D14E3E6823A3659200978AFC /* SpotImageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpotImageCell.swift; sourceTree = "<group>"; };
@@ -52,6 +59,8 @@
 		D18D7F7A23A0806D0085B8B9 /* ForgotPasswordVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordVC.swift; sourceTree = "<group>"; };
 		D18D7F7B23A0806D0085B8B9 /* ForgotPasswordVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ForgotPasswordVC.xib; sourceTree = "<group>"; };
 		D18D7F7E23A08D100085B8B9 /* Firebase+Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Firebase+Utils.swift"; sourceTree = "<group>"; };
+		D1902D5B23A7639C00822D9D /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		D1902D5E23A7682300822D9D /* UserService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserService.swift; sourceTree = "<group>"; };
 		D193677B2391FAE80000B652 /* LoginStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LoginStoryboard.storyboard; sourceTree = "<group>"; };
 		D1BBF96823A1D38D003C7D61 /* Home.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Home.storyboard; sourceTree = "<group>"; };
 		D1BBF96A23A1D629003C7D61 /* MyPage.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MyPage.storyboard; sourceTree = "<group>"; };
@@ -65,6 +74,7 @@
 		D1E4C9FB2394E5B800272C5F /* RegisterVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterVC.swift; sourceTree = "<group>"; };
 		D1E4C9FE2394F2D900272C5F /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		D1E4CA002395084800272C5F /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		D1FF02FB23AA1D06003AD9D4 /* MyPageVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageVC.swift; sourceTree = "<group>"; };
 		D6830A79D55BA4E537A66ADC /* Pods_Tumolink2iOSClient.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Tumolink2iOSClient.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -121,6 +131,7 @@
 				D18D7F7923A0803C0085B8B9 /* XIBs */,
 				D1E4C9FD2394F2C000272C5F /* Utils */,
 				D1E4C9F72394E50300272C5F /* Model */,
+				D1902D5D23A767DE00822D9D /* Services */,
 				D1E4C9F62394E4F300272C5F /* View */,
 				D1E4C9F52394E4E000272C5F /* Controller */,
 				D1E4C9F82394E50D00272C5F /* Storyboards */,
@@ -144,6 +155,14 @@
 			path = XIBs;
 			sourceTree = "<group>";
 		};
+		D1902D5D23A767DE00822D9D /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				D1902D5E23A7682300822D9D /* UserService.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
 		D1E4C9F52394E4E000272C5F /* Controller */ = {
 			isa = PBXGroup;
 			children = (
@@ -152,6 +171,9 @@
 				D1896E1D2390F30B004EC82A /* HomeVC.swift */,
 				D14E3E6623A35ACF00978AFC /* SpotVC.swift */,
 				D1CC783D23A48BF000CD9D7B /* CreateSpotVC.swift */,
+				D1FF02FB23AA1D06003AD9D4 /* MyPageVC.swift */,
+				D116B52E23ACC5F7006CBB3A /* EditUserVC.swift */,
+				D114A6B723AF658700EE0B2E /* DeleteUserVC.swift */,
 				D1896E1B2390F30B004EC82A /* AppDelegate.swift */,
 			);
 			path = Controller;
@@ -169,6 +191,7 @@
 			isa = PBXGroup;
 			children = (
 				D1BBF97223A2330E003C7D61 /* Spot.swift */,
+				D1902D5B23A7639C00822D9D /* User.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -349,10 +372,15 @@
 				D1E4C9FC2394E5B800272C5F /* RegisterVC.swift in Sources */,
 				D1896E1C2390F30B004EC82A /* AppDelegate.swift in Sources */,
 				D118084023969E87006EA889 /* RoundedViews.swift in Sources */,
+				D116B52F23ACC5F8006CBB3A /* EditUserVC.swift in Sources */,
 				D1E4C9FA2394E59200272C5F /* LoginVC.swift in Sources */,
+				D1902D5C23A7639C00822D9D /* User.swift in Sources */,
 				D18D7F7C23A0806D0085B8B9 /* ForgotPasswordVC.swift in Sources */,
 				D1BBF97323A2330E003C7D61 /* Spot.swift in Sources */,
+				D1FF02FC23AA1D06003AD9D4 /* MyPageVC.swift in Sources */,
 				D1E4CA012395084800272C5F /* Constants.swift in Sources */,
+				D114A6B823AF658700EE0B2E /* DeleteUserVC.swift in Sources */,
+				D1902D5F23A7682300822D9D /* UserService.swift in Sources */,
 				D14E3E6723A35ACF00978AFC /* SpotVC.swift in Sources */,
 				D1CC783E23A48BF000CD9D7B /* CreateSpotVC.swift in Sources */,
 				D1BBF97023A22E12003C7D61 /* SpotCell.swift in Sources */,

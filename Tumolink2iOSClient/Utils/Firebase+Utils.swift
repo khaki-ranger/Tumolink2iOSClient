@@ -14,11 +14,12 @@ extension Firestore {
     }
 }
 
-struct FireStoreCollectionIds {
+struct FirestoreCollectionIds {
     static let Spots = "spots"
+    static let Users = "users"
 }
 
-struct FireStorageDirectories {
+struct FirestorageDirectories {
     static let SpotImages = "spotImages"
     
 }

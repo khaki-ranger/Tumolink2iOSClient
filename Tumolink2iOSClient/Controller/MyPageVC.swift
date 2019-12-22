@@ -40,23 +40,4 @@ class MyPageVC: UIViewController {
             }
         }
     }
-    
-    // MARK: Actions
-    @IBAction func deleteClicked(_ sender: Any) {
-        let alert = UIAlertController(title: "退会", message: "本当に退会しますか？", preferredStyle: .alert)
-        let okAction = UIAlertAction(title: "Ok", style: .default, handler: {
-            (action: UIAlertAction!) -> Void in
-            self.activityIndicator.startAnimating()
-            self.unsubscribeUser()
-        })
-        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
-        alert.addAction(okAction)
-        alert.addAction(cancelAction)
-        present(alert, animated: true, completion: nil)
-    }
-    
-    // ユーザーのデータを変更して利用停止にする処理
-    private func unsubscribeUser() {
-        print("退会処理")
-    }
 }

@@ -51,7 +51,7 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <connections>
-                                    <action selector="deleteClicked:" destination="gXy-ff-Tjg" eventType="touchUpInside" id="swk-vM-LX0"/>
+                                    <segue destination="OMS-bS-cti" kind="show" id="ZYY-mT-BYS"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Q9H-XX-u3J" customClass="RoundedButton" customModule="Tumolink2iOSClient" customModuleProvider="target">
@@ -200,6 +200,113 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="byc-yF-6M0" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2109" y="-75"/>
+        </scene>
+        <!--Delete UserVC-->
+        <scene sceneID="9ka-E4-6bH">
+            <objects>
+                <viewController id="OMS-bS-cti" customClass="DeleteUserVC" customModule="Tumolink2iOSClient" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="s46-0U-thj">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="メールアドレス" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ek5-nE-CS8">
+                                <rect key="frame" x="20" y="64" width="374" height="21"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="HCI-Dg-rJU">
+                                <rect key="frame" x="20" y="95" width="374" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="Kje-n3-elu"/>
+                                </constraints>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="パスワード" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TDd-uJ-MLp">
+                                <rect key="frame" x="20" y="155" width="374" height="21"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="k4M-Ob-sXi">
+                                <rect key="frame" x="20" y="186" width="374" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="GTu-SC-WmO"/>
+                                </constraints>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" secureTextEntry="YES" textContentType="password"/>
+                            </textField>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="7OO-ng-9A0">
+                                <rect key="frame" x="188.5" y="246" width="37" height="37"/>
+                                <color key="color" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </activityIndicatorView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fjn-VV-lSD" customClass="RoundedButton" customModule="Tumolink2iOSClient" customModuleProvider="target">
+                                <rect key="frame" x="20" y="742" width="374" height="40"/>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="coR-v4-mU2"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <state key="normal" title="キャンセル">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="cancelClicked:" destination="OMS-bS-cti" eventType="touchUpInside" id="GOS-6A-ims"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gY7-e1-MK4" customClass="RoundedButton" customModule="Tumolink2iOSClient" customModuleProvider="target">
+                                <rect key="frame" x="20" y="802" width="374" height="40"/>
+                                <color key="backgroundColor" red="0.84705882349999995" green="0.26274509800000001" blue="0.08235294118" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="yBe-4P-gpz"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <state key="normal" title="退会">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="deleteClicked:" destination="OMS-bS-cti" eventType="touchUpInside" id="AoG-Vl-jqa"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" red="0.98431372549999996" green="0.91372549020000005" blue="0.90588235289999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="aVX-S6-tUy" firstAttribute="trailing" secondItem="TDd-uJ-MLp" secondAttribute="trailing" constant="20" id="2Cb-WS-Y0A"/>
+                            <constraint firstItem="aVX-S6-tUy" firstAttribute="bottom" secondItem="gY7-e1-MK4" secondAttribute="bottom" constant="20" id="57P-5f-80A"/>
+                            <constraint firstItem="fjn-VV-lSD" firstAttribute="leading" secondItem="aVX-S6-tUy" secondAttribute="leading" constant="20" id="7xo-mF-aQd"/>
+                            <constraint firstItem="TDd-uJ-MLp" firstAttribute="leading" secondItem="aVX-S6-tUy" secondAttribute="leading" constant="20" id="COg-5G-Rv5"/>
+                            <constraint firstItem="k4M-Ob-sXi" firstAttribute="leading" secondItem="aVX-S6-tUy" secondAttribute="leading" constant="20" id="J9L-80-1NK"/>
+                            <constraint firstItem="aVX-S6-tUy" firstAttribute="trailing" secondItem="ek5-nE-CS8" secondAttribute="trailing" constant="20" id="JVt-fr-E1c"/>
+                            <constraint firstItem="k4M-Ob-sXi" firstAttribute="top" secondItem="TDd-uJ-MLp" secondAttribute="bottom" constant="10" id="KJR-1R-dOh"/>
+                            <constraint firstItem="TDd-uJ-MLp" firstAttribute="top" secondItem="HCI-Dg-rJU" secondAttribute="bottom" constant="20" id="Vta-wB-RQc"/>
+                            <constraint firstItem="ek5-nE-CS8" firstAttribute="top" secondItem="aVX-S6-tUy" secondAttribute="top" constant="20" id="WuN-Nx-ewY"/>
+                            <constraint firstItem="ek5-nE-CS8" firstAttribute="leading" secondItem="aVX-S6-tUy" secondAttribute="leading" constant="20" id="XeL-sm-EZT"/>
+                            <constraint firstItem="HCI-Dg-rJU" firstAttribute="top" secondItem="ek5-nE-CS8" secondAttribute="bottom" constant="10" id="Z2Q-Fl-9l0"/>
+                            <constraint firstItem="aVX-S6-tUy" firstAttribute="trailing" secondItem="HCI-Dg-rJU" secondAttribute="trailing" constant="20" id="cHk-QH-V2h"/>
+                            <constraint firstItem="aVX-S6-tUy" firstAttribute="trailing" secondItem="gY7-e1-MK4" secondAttribute="trailing" constant="20" id="ch2-Gh-MMx"/>
+                            <constraint firstItem="ek5-nE-CS8" firstAttribute="centerX" secondItem="s46-0U-thj" secondAttribute="centerX" id="d9M-Mj-zC1"/>
+                            <constraint firstItem="aVX-S6-tUy" firstAttribute="trailing" secondItem="fjn-VV-lSD" secondAttribute="trailing" constant="20" id="e7d-1l-Fd7"/>
+                            <constraint firstItem="aVX-S6-tUy" firstAttribute="trailing" secondItem="k4M-Ob-sXi" secondAttribute="trailing" constant="20" id="fJI-TN-ESm"/>
+                            <constraint firstItem="HCI-Dg-rJU" firstAttribute="leading" secondItem="aVX-S6-tUy" secondAttribute="leading" constant="20" id="iUS-tV-Qai"/>
+                            <constraint firstItem="gY7-e1-MK4" firstAttribute="top" secondItem="fjn-VV-lSD" secondAttribute="bottom" constant="20" id="lBS-pU-Wgb"/>
+                            <constraint firstItem="7OO-ng-9A0" firstAttribute="centerX" secondItem="s46-0U-thj" secondAttribute="centerX" id="phz-Fi-mt1"/>
+                            <constraint firstItem="7OO-ng-9A0" firstAttribute="top" secondItem="k4M-Ob-sXi" secondAttribute="bottom" constant="20" id="sp1-Yq-e3r"/>
+                            <constraint firstItem="gY7-e1-MK4" firstAttribute="leading" secondItem="aVX-S6-tUy" secondAttribute="leading" constant="20" id="vBY-j8-rQn"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="aVX-S6-tUy"/>
+                    </view>
+                    <connections>
+                        <outlet property="activityIndicator" destination="7OO-ng-9A0" id="m8n-tk-cuL"/>
+                        <outlet property="emailTxt" destination="HCI-Dg-rJU" id="fij-hH-sWz"/>
+                        <outlet property="passwordTxt" destination="k4M-Ob-sXi" id="i70-13-D6j"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="R3X-tD-4jT" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1199" y="669"/>
         </scene>
     </scenes>
     <resources>

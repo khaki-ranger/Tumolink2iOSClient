@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		79874AF417CC877D15F3DB11 /* Pods_Tumolink2iOSClient.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D6830A79D55BA4E537A66ADC /* Pods_Tumolink2iOSClient.framework */; };
+		D114A6B823AF658700EE0B2E /* DeleteUserVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D114A6B723AF658700EE0B2E /* DeleteUserVC.swift */; };
 		D116B52F23ACC5F8006CBB3A /* EditUserVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D116B52E23ACC5F7006CBB3A /* EditUserVC.swift */; };
 		D118084023969E87006EA889 /* RoundedViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = D118083F23969E87006EA889 /* RoundedViews.swift */; };
 		D14E3E6723A35ACF00978AFC /* SpotVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D14E3E6623A35ACF00978AFC /* SpotVC.swift */; };
@@ -42,6 +43,7 @@
 /* Begin PBXFileReference section */
 		63344A8FDD8C1DFA9AAFE53E /* Pods-Tumolink2iOSClient.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Tumolink2iOSClient.release.xcconfig"; path = "Target Support Files/Pods-Tumolink2iOSClient/Pods-Tumolink2iOSClient.release.xcconfig"; sourceTree = "<group>"; };
 		790934C17713D698442F667E /* Pods-Tumolink2iOSClient.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Tumolink2iOSClient.debug.xcconfig"; path = "Target Support Files/Pods-Tumolink2iOSClient/Pods-Tumolink2iOSClient.debug.xcconfig"; sourceTree = "<group>"; };
+		D114A6B723AF658700EE0B2E /* DeleteUserVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteUserVC.swift; sourceTree = "<group>"; };
 		D116B52E23ACC5F7006CBB3A /* EditUserVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditUserVC.swift; sourceTree = "<group>"; };
 		D118083F23969E87006EA889 /* RoundedViews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedViews.swift; sourceTree = "<group>"; };
 		D14E3E6623A35ACF00978AFC /* SpotVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpotVC.swift; sourceTree = "<group>"; };
@@ -171,6 +173,7 @@
 				D1CC783D23A48BF000CD9D7B /* CreateSpotVC.swift */,
 				D1FF02FB23AA1D06003AD9D4 /* MyPageVC.swift */,
 				D116B52E23ACC5F7006CBB3A /* EditUserVC.swift */,
+				D114A6B723AF658700EE0B2E /* DeleteUserVC.swift */,
 				D1896E1B2390F30B004EC82A /* AppDelegate.swift */,
 			);
 			path = Controller;
@@ -376,6 +379,7 @@
 				D1BBF97323A2330E003C7D61 /* Spot.swift in Sources */,
 				D1FF02FC23AA1D06003AD9D4 /* MyPageVC.swift in Sources */,
 				D1E4CA012395084800272C5F /* Constants.swift in Sources */,
+				D114A6B823AF658700EE0B2E /* DeleteUserVC.swift in Sources */,
 				D1902D5F23A7682300822D9D /* UserService.swift in Sources */,
 				D14E3E6723A35ACF00978AFC /* SpotVC.swift in Sources */,
 				D1CC783E23A48BF000CD9D7B /* CreateSpotVC.swift in Sources */,

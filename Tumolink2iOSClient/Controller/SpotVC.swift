@@ -8,11 +8,13 @@
 
 import UIKit
 import FirebaseFirestore
+import Kingfisher
 
 class SpotVC: UIViewController {
     
     // MARK: Outlets
     @IBOutlet weak var slideImageView: UICollectionView!
+    @IBOutlet weak var ownerImg: CircleImageView!
     @IBOutlet weak var prevBtn: UIButton!
     @IBOutlet weak var nextBtn: UIButton!
     @IBOutlet weak var pageControl: UIPageControl!
@@ -34,6 +36,7 @@ class SpotVC: UIViewController {
         navigationItem.title = spot.name
         spotImages = spot.images
         setupCollectionView()
+        setupOwnerImg()
         setupPageControl()
         controlOfNextAndPrev()
         setupDateTxt()
@@ -49,6 +52,29 @@ class SpotVC: UIViewController {
         slideImageView.delegate = self
         slideImageView.dataSource = self
         slideImageView.register(UINib(nibName: Identifiers.SpotImageCell, bundle: nil), forCellWithReuseIdentifier: Identifiers.SpotImageCell)
+    }
+    
+    // オーナーのUser情報を取得して、アイコンを表示させるためのメソッド
+    private func setupOwnerImg() {
+        let docRef = Firestore.firestore().collection(FirestoreCollectionIds.Users).document(spot.owner)
+        docRef.addSnapshotListener({ (snap, error) in
+            
+            if let error = error {
+                debugPrint(error.localizedDescription)
+                self.simpleAlert(title: "エラー", msg: "オーナー情報の取得に失敗しました")
+                return
+            }
+            
+            guard let data = snap?.data() else { return }
+            let owner = User.init(data: data)
+            
+            if let url = URL(string: owner.imageUrl) {
+                let placeholder = UIImage(named: AppImages.Placeholder)
+                let options : KingfisherOptionsInfo = [KingfisherOptionsInfoItem.transition(.fade(0.2))]
+                self.ownerImg.kf.indicatorType = .activity
+                self.ownerImg.kf.setImage(with: url, placeholder: placeholder, options: options)
+            }
+        })
     }
     
     private func setupPageControl() {

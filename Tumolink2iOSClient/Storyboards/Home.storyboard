@@ -215,6 +215,13 @@
                                                 </collectionViewFlowLayout>
                                                 <cells/>
                                             </collectionView>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="no_image" translatesAutoresizingMaskIntoConstraints="NO" id="YBb-8u-CFu" customClass="OwnerIconView" customModule="Tumolink2iOSClient" customModuleProvider="target">
+                                                <rect key="frame" x="20" y="20" width="40" height="40"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="40" id="IIN-WZ-mrp"/>
+                                                    <constraint firstAttribute="height" constant="40" id="lhH-XG-Fq8"/>
+                                                </constraints>
+                                            </imageView>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="v2u-HY-uFZ">
                                                 <rect key="frame" x="20" y="104.5" width="24" height="24"/>
                                                 <state key="normal" image="btn_prev"/>
@@ -306,9 +313,11 @@
                                             <constraint firstItem="v2u-HY-uFZ" firstAttribute="centerY" secondItem="ZUB-gu-BQG" secondAttribute="centerY" id="Uth-DT-Cnh"/>
                                             <constraint firstItem="M3O-Lj-4a1" firstAttribute="top" secondItem="ZUB-gu-BQG" secondAttribute="bottom" id="XQd-9f-S20"/>
                                             <constraint firstItem="ZUB-gu-BQG" firstAttribute="top" secondItem="uz6-mC-aFQ" secondAttribute="top" id="YCy-c2-4kS"/>
+                                            <constraint firstItem="YBb-8u-CFu" firstAttribute="leading" secondItem="uz6-mC-aFQ" secondAttribute="leading" constant="20" id="agH-Xn-93K"/>
                                             <constraint firstAttribute="trailing" secondItem="ZUB-gu-BQG" secondAttribute="trailing" id="hbZ-tN-uTp"/>
                                             <constraint firstItem="sxx-Ac-wFn" firstAttribute="centerX" secondItem="uz6-mC-aFQ" secondAttribute="centerX" id="lEC-h7-rxR"/>
                                             <constraint firstItem="gGI-gD-J3r" firstAttribute="trailing" secondItem="ZUB-gu-BQG" secondAttribute="trailing" constant="-20" id="qid-WF-0jC"/>
+                                            <constraint firstItem="YBb-8u-CFu" firstAttribute="top" secondItem="uz6-mC-aFQ" secondAttribute="top" constant="20" id="tKV-Ct-lyy"/>
                                             <constraint firstItem="ZUB-gu-BQG" firstAttribute="leading" secondItem="uz6-mC-aFQ" secondAttribute="leading" id="wWT-R6-TPP"/>
                                         </constraints>
                                     </view>
@@ -345,6 +354,7 @@
                         <outlet property="dayTxt" destination="IHC-WG-617" id="fbe-Uu-ZoV"/>
                         <outlet property="monthTxt" destination="nCn-tR-n8P" id="gZ2-tm-rB3"/>
                         <outlet property="nextBtn" destination="gGI-gD-J3r" id="GAc-aF-4tR"/>
+                        <outlet property="ownerImg" destination="YBb-8u-CFu" id="zhb-ft-YPX"/>
                         <outlet property="pageControl" destination="M3O-Lj-4a1" id="yES-TB-dwF"/>
                         <outlet property="prevBtn" destination="v2u-HY-uFZ" id="Ih3-VV-16G"/>
                         <outlet property="slideImageView" destination="ZUB-gu-BQG" id="iaB-Qa-nRK"/>
@@ -354,7 +364,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1oH-gH-b5P" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2899" y="-40"/>
+            <point key="canvasLocation" x="2898.5507246376815" y="-40.178571428571423"/>
         </scene>
         <!--ホーム-->
         <scene sceneID="Z67-IV-XAh">
@@ -381,6 +391,7 @@
         <image name="btn_prev" width="24" height="24"/>
         <image name="icn_home" width="25" height="25"/>
         <image name="icn_photo" width="25" height="25"/>
+        <image name="no_image" width="300" height="300"/>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="NS8-dt-1bM"/>

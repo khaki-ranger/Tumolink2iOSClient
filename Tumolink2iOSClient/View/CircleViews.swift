@@ -43,3 +43,11 @@ extension UIImage {
         return newImage
     }
 }
+
+class OwnerIconView: CircleImageView {
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        layer.borderColor = UIColor.white.cgColor
+        layer.borderWidth = 3
+    }
+}

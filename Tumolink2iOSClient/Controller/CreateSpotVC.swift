@@ -117,7 +117,7 @@ class CreateSpotVC: UIViewController {
         
         var spot = Spot.init(id: "",
                              name: spotName,
-                             owner: "Yohei",
+                             owner: UserService.user.id,
                              description: "",
                              images: imageUrls,
                              address: "",

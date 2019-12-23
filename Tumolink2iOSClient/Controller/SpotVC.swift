@@ -25,6 +25,7 @@ class SpotVC: UIViewController {
     // MARK: Valiables
     var spot: Spot!
     var spotImages = [String]()
+    var isOwner = false
 
     // MARK: Functions
     override func viewDidLoad() {
@@ -32,11 +33,16 @@ class SpotVC: UIViewController {
 
         navigationItem.title = spot.name
         spotImages = spot.images
-        setupNavigation()
         setupCollectionView()
         setupPageControl()
         controlOfNextAndPrev()
         setupDateTxt()
+        
+        // ログイン中のユーザーがこのスポットのオーナーかどうかを判定
+        if spot.owner == UserService.user.id {
+            isOwner = true
+            setupNavigation()
+        }
     }
     
     private func setupCollectionView() {
@@ -91,7 +97,11 @@ class SpotVC: UIViewController {
     }
     
     @objc func editSpot() {
-        performSegue(withIdentifier: Segues.ToEditSpot, sender: self)
+        if isOwner {
+            performSegue(withIdentifier: Segues.ToEditSpot, sender: self)
+        } else {
+            simpleAlert(title: "エラー", msg: "オーナーだけがスポットの編集が可能です")
+        }
     }
     
     @objc func deleteSpot() {
@@ -109,16 +119,20 @@ class SpotVC: UIViewController {
     
     // Firestoreのスポットの値を変更する処理
     private func changeIsActionValue() {
-        let docRef = Firestore.firestore().collection(FirestoreCollectionIds.Spots).document(self.spot.id)
-        docRef.updateData(["isActive": false], completion: { (error) in
-            if let error = error {
-                debugPrint(error.localizedDescription)
-                self.simpleAlert(title: "エラー", msg: "スポットの削除に失敗しました")
-                return
-            }
-            // 値の更新に成功したらホームのトップ画面に遷移する
-            self.navigationController?.popToRootViewController(animated: true)
-        })
+        if isOwner {
+            let docRef = Firestore.firestore().collection(FirestoreCollectionIds.Spots).document(self.spot.id)
+            docRef.updateData(["isActive": false], completion: { (error) in
+                if let error = error {
+                    debugPrint(error.localizedDescription)
+                    self.simpleAlert(title: "エラー", msg: "スポットの削除に失敗しました")
+                    return
+                }
+                // 値の更新に成功したらホームのトップ画面に遷移する
+                self.navigationController?.popToRootViewController(animated: true)
+            })
+        } else {
+            simpleAlert(title: "エラー", msg: "オーナーだけがスポットの削除が可能です")
+        }
     }
     
     // MARK: Actions

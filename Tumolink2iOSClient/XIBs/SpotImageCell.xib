@@ -19,7 +19,7 @@
                 <rect key="frame" x="0.0" y="0.0" width="800" height="450"/>
                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 <subviews>
-                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="samp_spot" translatesAutoresizingMaskIntoConstraints="NO" id="sTL-9x-Fvt">
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="samp_spot" translatesAutoresizingMaskIntoConstraints="NO" id="sTL-9x-Fvt">
                         <rect key="frame" x="0.0" y="0.0" width="800" height="450"/>
                     </imageView>
                 </subviews>

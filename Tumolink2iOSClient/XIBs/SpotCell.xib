@@ -22,7 +22,7 @@
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9Nv-eR-LNB" customClass="RoundedShadowView" customModule="Tumolink2iOSClient" customModuleProvider="target">
                         <rect key="frame" x="8" y="8" width="557" height="141.5"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="samp_spot" translatesAutoresizingMaskIntoConstraints="NO" id="6Vg-7S-MlU" customClass="RoundedImageView" customModule="Tumolink2iOSClient" customModuleProvider="target">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="samp_spot" translatesAutoresizingMaskIntoConstraints="NO" id="6Vg-7S-MlU" customClass="RoundedImageView" customModule="Tumolink2iOSClient" customModuleProvider="target">
                                 <rect key="frame" x="8" y="8" width="223" height="125.5"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="6Vg-7S-MlU" secondAttribute="height" multiplier="16:9" id="qmy-mR-pGR"/>

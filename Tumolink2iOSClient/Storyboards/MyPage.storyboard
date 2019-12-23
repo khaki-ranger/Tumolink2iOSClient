@@ -27,7 +27,7 @@
                                         <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="no_image" translatesAutoresizingMaskIntoConstraints="NO" id="qZH-Sf-96Z">
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="no_image" translatesAutoresizingMaskIntoConstraints="NO" id="qZH-Sf-96Z" customClass="CircleImageView" customModule="Tumolink2iOSClient" customModuleProvider="target">
                                         <rect key="frame" x="97" y="40.5" width="180" height="180"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="180" id="kRT-cB-PjR"/>

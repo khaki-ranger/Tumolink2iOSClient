@@ -8,11 +8,13 @@
 
 import UIKit
 import FirebaseFirestore
+import Kingfisher
 
 class SpotVC: UIViewController {
     
     // MARK: Outlets
     @IBOutlet weak var slideImageView: UICollectionView!
+    @IBOutlet weak var ownerImg: CircleImageView!
     @IBOutlet weak var prevBtn: UIButton!
     @IBOutlet weak var nextBtn: UIButton!
     @IBOutlet weak var pageControl: UIPageControl!
@@ -25,6 +27,7 @@ class SpotVC: UIViewController {
     // MARK: Valiables
     var spot: Spot!
     var spotImages = [String]()
+    var isOwner = false
 
     // MARK: Functions
     override func viewDidLoad() {
@@ -32,17 +35,46 @@ class SpotVC: UIViewController {
 
         navigationItem.title = spot.name
         spotImages = spot.images
-        setupNavigation()
         setupCollectionView()
+        setupOwnerImg()
         setupPageControl()
         controlOfNextAndPrev()
         setupDateTxt()
+        
+        // ログイン中のユーザーがこのスポットのオーナーかどうかを判定
+        if spot.owner == UserService.user.id {
+            isOwner = true
+            setupNavigation()
+        }
     }
     
     private func setupCollectionView() {
         slideImageView.delegate = self
         slideImageView.dataSource = self
         slideImageView.register(UINib(nibName: Identifiers.SpotImageCell, bundle: nil), forCellWithReuseIdentifier: Identifiers.SpotImageCell)
+    }
+    
+    // オーナーのUser情報を取得して、アイコンを表示させるためのメソッド
+    private func setupOwnerImg() {
+        let docRef = Firestore.firestore().collection(FirestoreCollectionIds.Users).document(spot.owner)
+        docRef.addSnapshotListener({ (snap, error) in
+            
+            if let error = error {
+                debugPrint(error.localizedDescription)
+                self.simpleAlert(title: "エラー", msg: "オーナー情報の取得に失敗しました")
+                return
+            }
+            
+            guard let data = snap?.data() else { return }
+            let owner = User.init(data: data)
+            
+            if let url = URL(string: owner.imageUrl) {
+                let placeholder = UIImage(named: AppImages.Placeholder)
+                let options : KingfisherOptionsInfo = [KingfisherOptionsInfoItem.transition(.fade(0.2))]
+                self.ownerImg.kf.indicatorType = .activity
+                self.ownerImg.kf.setImage(with: url, placeholder: placeholder, options: options)
+            }
+        })
     }
     
     private func setupPageControl() {
@@ -91,7 +123,11 @@ class SpotVC: UIViewController {
     }
     
     @objc func editSpot() {
-        performSegue(withIdentifier: Segues.ToEditSpot, sender: self)
+        if isOwner {
+            performSegue(withIdentifier: Segues.ToEditSpot, sender: self)
+        } else {
+            simpleAlert(title: "エラー", msg: "オーナーだけがスポットの編集が可能です")
+        }
     }
     
     @objc func deleteSpot() {
@@ -109,16 +145,20 @@ class SpotVC: UIViewController {
     
     // Firestoreのスポットの値を変更する処理
     private func changeIsActionValue() {
-        let docRef = Firestore.firestore().collection(FirestoreCollectionIds.Spots).document(self.spot.id)
-        docRef.updateData(["isActive": false], completion: { (error) in
-            if let error = error {
-                debugPrint(error.localizedDescription)
-                self.simpleAlert(title: "エラー", msg: "スポットの削除に失敗しました")
-                return
-            }
-            // 値の更新に成功したらホームのトップ画面に遷移する
-            self.navigationController?.popToRootViewController(animated: true)
-        })
+        if isOwner {
+            let docRef = Firestore.firestore().collection(FirestoreCollectionIds.Spots).document(self.spot.id)
+            docRef.updateData(["isActive": false], completion: { (error) in
+                if let error = error {
+                    debugPrint(error.localizedDescription)
+                    self.simpleAlert(title: "エラー", msg: "スポットの削除に失敗しました")
+                    return
+                }
+                // 値の更新に成功したらホームのトップ画面に遷移する
+                self.navigationController?.popToRootViewController(animated: true)
+            })
+        } else {
+            simpleAlert(title: "エラー", msg: "オーナーだけがスポットの削除が可能です")
+        }
     }
     
     // MARK: Actions

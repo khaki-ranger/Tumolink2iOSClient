@@ -51,3 +51,11 @@ class OwnerIconView: CircleImageView {
         layer.borderWidth = 3
     }
 }
+
+class MypageProfileView: CircleImageView {
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        layer.borderColor = UIColor.white.cgColor
+        layer.borderWidth = 5
+    }
+}

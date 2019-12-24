@@ -18,37 +18,37 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="D4D-fz-LKM">
-                                <rect key="frame" x="20" y="64" width="374" height="220.5"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9NB-cZ-DU0">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="174"/>
+                                <color key="backgroundColor" red="0.84705882349999995" green="0.26274509800000001" blue="0.08235294118" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </view>
+                            <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="D4D-fz-LKM">
+                                <rect key="frame" x="20" y="64" width="374" height="90"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ユーザーネーム" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="b84-ft-kd9">
-                                        <rect key="frame" x="126.5" y="0.0" width="121.5" height="20.5"/>
-                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
-                                        <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="no_image" translatesAutoresizingMaskIntoConstraints="NO" id="qZH-Sf-96Z" customClass="CircleImageView" customModule="Tumolink2iOSClient" customModuleProvider="target">
-                                        <rect key="frame" x="97" y="40.5" width="180" height="180"/>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="no_image" translatesAutoresizingMaskIntoConstraints="NO" id="qZH-Sf-96Z" customClass="MypageProfileView" customModule="Tumolink2iOSClient" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="90" height="90"/>
                                         <constraints>
-                                            <constraint firstAttribute="width" constant="180" id="kRT-cB-PjR"/>
-                                            <constraint firstAttribute="height" constant="180" id="rQV-6S-Ymu"/>
+                                            <constraint firstAttribute="width" constant="90" id="kRT-cB-PjR"/>
+                                            <constraint firstAttribute="height" constant="90" id="rQV-6S-Ymu"/>
                                         </constraints>
                                     </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ユーザーネーム" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="b84-ft-kd9">
+                                        <rect key="frame" x="110" y="35" width="264" height="20.5"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
                                 </subviews>
                             </stackView>
-                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="Mrn-ve-SAH">
-                                <rect key="frame" x="188.5" y="304.5" width="37" height="37"/>
-                                <color key="color" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                            </activityIndicatorView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3jD-De-T4F" customClass="RoundedButton" customModule="Tumolink2iOSClient" customModuleProvider="target">
                                 <rect key="frame" x="20" y="753" width="374" height="40"/>
-                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="backgroundColor" red="0.11372549019607843" green="0.96078431372549022" blue="0.73725490196078436" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="Z33-EB-nhn"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                 <state key="normal" title="退会">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <color key="titleColor" red="0.40000000000000002" green="0.40000000000000002" blue="0.40000000000000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <connections>
                                     <segue destination="OMS-bS-cti" kind="show" id="ZYY-mT-BYS"/>
@@ -56,7 +56,7 @@
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Q9H-XX-u3J" customClass="RoundedButton" customModule="Tumolink2iOSClient" customModuleProvider="target">
                                 <rect key="frame" x="20" y="693" width="374" height="40"/>
-                                <color key="backgroundColor" red="0.84705882349999995" green="0.26274509800000001" blue="0.08235294118" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" red="0.96862745100000003" green="0.53725490200000003" blue="0.40784313729999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="Jck-7V-I6d"/>
                                 </constraints>
@@ -74,13 +74,15 @@
                             <constraint firstItem="LOi-hw-efW" firstAttribute="trailing" secondItem="Q9H-XX-u3J" secondAttribute="trailing" constant="20" id="7NU-j5-ccr"/>
                             <constraint firstItem="Q9H-XX-u3J" firstAttribute="leading" secondItem="LOi-hw-efW" secondAttribute="leading" constant="20" id="CNy-Vg-Yi9"/>
                             <constraint firstItem="LOi-hw-efW" firstAttribute="trailing" secondItem="D4D-fz-LKM" secondAttribute="trailing" constant="20" id="EvF-dV-hXV"/>
-                            <constraint firstItem="Mrn-ve-SAH" firstAttribute="top" secondItem="D4D-fz-LKM" secondAttribute="bottom" constant="20" id="Eyz-hC-mYM"/>
-                            <constraint firstItem="Mrn-ve-SAH" firstAttribute="centerX" secondItem="eIN-n1-9vk" secondAttribute="centerX" id="Ga0-vB-mlR"/>
                             <constraint firstItem="D4D-fz-LKM" firstAttribute="leading" secondItem="LOi-hw-efW" secondAttribute="leading" constant="20" id="In8-6t-uxt"/>
                             <constraint firstItem="3jD-De-T4F" firstAttribute="top" secondItem="Q9H-XX-u3J" secondAttribute="bottom" constant="20" id="XJZ-zr-vd6"/>
                             <constraint firstItem="3jD-De-T4F" firstAttribute="leading" secondItem="LOi-hw-efW" secondAttribute="leading" constant="20" id="eTW-gK-wEQ"/>
                             <constraint firstItem="LOi-hw-efW" firstAttribute="bottom" secondItem="3jD-De-T4F" secondAttribute="bottom" constant="20" id="gc6-Zj-KNP"/>
+                            <constraint firstItem="9NB-cZ-DU0" firstAttribute="leading" secondItem="LOi-hw-efW" secondAttribute="leading" id="i4w-up-7fu"/>
+                            <constraint firstItem="LOi-hw-efW" firstAttribute="trailing" secondItem="9NB-cZ-DU0" secondAttribute="trailing" id="k9b-bJ-62F"/>
                             <constraint firstItem="LOi-hw-efW" firstAttribute="trailing" secondItem="3jD-De-T4F" secondAttribute="trailing" constant="20" id="qdh-mL-shQ"/>
+                            <constraint firstItem="9NB-cZ-DU0" firstAttribute="bottom" secondItem="qZH-Sf-96Z" secondAttribute="bottom" constant="20" id="r2G-hJ-AYd"/>
+                            <constraint firstItem="9NB-cZ-DU0" firstAttribute="top" secondItem="eIN-n1-9vk" secondAttribute="top" id="sLp-E9-IZT"/>
                             <constraint firstItem="D4D-fz-LKM" firstAttribute="top" secondItem="LOi-hw-efW" secondAttribute="top" constant="20" id="wTB-pd-39c"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="LOi-hw-efW"/>
@@ -89,7 +91,6 @@
                     <navigationItem key="navigationItem" id="tpg-qH-lC3"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
-                        <outlet property="activityIndicator" destination="Mrn-ve-SAH" id="el1-W5-lyM"/>
                         <outlet property="profileImg" destination="qZH-Sf-96Z" id="BMw-v9-hJo"/>
                         <outlet property="usernameTxt" destination="b84-ft-kd9" id="ujM-lA-MPB"/>
                     </connections>
@@ -136,7 +137,7 @@
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="od3-2I-Lbl" customClass="RoundedButton" customModule="Tumolink2iOSClient" customModuleProvider="target">
                                 <rect key="frame" x="20" y="802" width="374" height="40"/>
-                                <color key="backgroundColor" red="0.84705882349999995" green="0.26274509800000001" blue="0.08235294118" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" red="0.96862745100000003" green="0.53725490200000003" blue="0.40784313729999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="HW9-iI-qkW"/>
                                 </constraints>
@@ -154,13 +155,13 @@
                             </activityIndicatorView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2bp-m7-Z9Z" customClass="RoundedButton" customModule="Tumolink2iOSClient" customModuleProvider="target">
                                 <rect key="frame" x="20" y="742" width="374" height="40"/>
-                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="backgroundColor" red="0.44291698932647705" green="0.95830684900283813" blue="0.74120432138442993" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="U8l-BX-ray"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                 <state key="normal" title="キャンセル">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <color key="titleColor" red="0.40000000000000002" green="0.40000000000000002" blue="0.40000000000000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <connections>
                                     <action selector="cancelClicked:" destination="fPD-Ad-p8I" eventType="touchUpInside" id="7cZ-Id-TWY"/>
@@ -245,13 +246,13 @@
                             </activityIndicatorView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fjn-VV-lSD" customClass="RoundedButton" customModule="Tumolink2iOSClient" customModuleProvider="target">
                                 <rect key="frame" x="20" y="742" width="374" height="40"/>
-                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="backgroundColor" red="0.44291698932647705" green="0.95830684900283813" blue="0.74120432138442993" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="coR-v4-mU2"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                 <state key="normal" title="キャンセル">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <color key="titleColor" red="0.40000000000000002" green="0.40000000000000002" blue="0.40000000000000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <connections>
                                     <action selector="cancelClicked:" destination="OMS-bS-cti" eventType="touchUpInside" id="GOS-6A-ims"/>
@@ -259,7 +260,7 @@
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gY7-e1-MK4" customClass="RoundedButton" customModule="Tumolink2iOSClient" customModuleProvider="target">
                                 <rect key="frame" x="20" y="802" width="374" height="40"/>
-                                <color key="backgroundColor" red="0.84705882349999995" green="0.26274509800000001" blue="0.08235294118" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" red="0.96862745100000003" green="0.53725490200000003" blue="0.40784313729999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="yBe-4P-gpz"/>
                                 </constraints>

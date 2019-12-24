@@ -24,7 +24,7 @@
                             </tableView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MEo-n8-cia" customClass="RoundedButton" customModule="Tumolink2iOSClient" customModuleProvider="target">
                                 <rect key="frame" x="20" y="753" width="374" height="40"/>
-                                <color key="backgroundColor" red="0.84705882349999995" green="0.26274509800000001" blue="0.08235294118" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" red="0.96862745098039216" green="0.53725490196078429" blue="0.40784313725490196" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="ODw-KL-leM"/>
                                 </constraints>
@@ -37,7 +37,7 @@
                                 </connections>
                             </button>
                         </subviews>
-                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="bob-CL-LRr" firstAttribute="leading" secondItem="xWT-De-3HF" secondAttribute="leading" constant="2" id="CB4-f7-fRG"/>
                             <constraint firstItem="xWT-De-3HF" firstAttribute="bottom" secondItem="MEo-n8-cia" secondAttribute="bottom" constant="20" id="GgA-Xi-zuI"/>
@@ -133,7 +133,7 @@
                             </activityIndicatorView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cpO-v9-UQC" customClass="RoundedButton" customModule="Tumolink2iOSClient" customModuleProvider="target">
                                 <rect key="frame" x="20" y="753" width="374" height="40"/>
-                                <color key="backgroundColor" red="0.84705882349999995" green="0.26274509800000001" blue="0.08235294118" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" red="0.96862745098039216" green="0.53725490196078429" blue="0.40784313725490196" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="nCW-O0-ZmJ"/>
                                 </constraints>
@@ -195,12 +195,6 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uz6-mC-aFQ" userLabel="ContentView">
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="1000"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Bottom" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3Rl-tr-Ntq">
-                                                <rect key="frame" x="169.5" y="951" width="75.5" height="29"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="24"/>
-                                                <nil key="textColor"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
                                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="ZUB-gu-BQG">
                                                 <rect key="frame" x="0.0" y="0.0" width="414" height="233"/>
                                                 <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
@@ -215,6 +209,16 @@
                                                 </collectionViewFlowLayout>
                                                 <cells/>
                                             </collectionView>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vTM-vd-AFM" customClass="FullRoundedShadowView" customModule="Tumolink2iOSClient" customModuleProvider="target">
+                                                <rect key="frame" x="20" y="20" width="110" height="40"/>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            </view>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WIK-TK-RkE">
+                                                <rect key="frame" x="110" y="40" width="0.0" height="0.0"/>
+                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                                <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="no_image" translatesAutoresizingMaskIntoConstraints="NO" id="YBb-8u-CFu" customClass="OwnerIconView" customModule="Tumolink2iOSClient" customModuleProvider="target">
                                                 <rect key="frame" x="20" y="20" width="40" height="40"/>
                                                 <constraints>
@@ -223,14 +227,14 @@
                                                 </constraints>
                                             </imageView>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="v2u-HY-uFZ">
-                                                <rect key="frame" x="20" y="104.5" width="24" height="24"/>
+                                                <rect key="frame" x="10" y="94" width="34" height="45"/>
                                                 <state key="normal" image="btn_prev"/>
                                                 <connections>
                                                     <action selector="prevTapped:" destination="7ek-Az-kmx" eventType="touchUpInside" id="PDw-qz-AdU"/>
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gGI-gD-J3r">
-                                                <rect key="frame" x="370" y="104.5" width="24" height="24"/>
+                                                <rect key="frame" x="370" y="94" width="34" height="45"/>
                                                 <state key="normal" image="btn_next"/>
                                                 <connections>
                                                     <action selector="nextTapped:" destination="7ek-Az-kmx" eventType="touchUpInside" id="YQI-NL-Bad"/>
@@ -300,14 +304,26 @@
                                                     </label>
                                                 </subviews>
                                             </stackView>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Bottom" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3Rl-tr-Ntq">
+                                                <rect key="frame" x="169.5" y="951" width="75.5" height="29"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
                                         </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
+                                            <constraint firstItem="vTM-vd-AFM" firstAttribute="leading" secondItem="uz6-mC-aFQ" secondAttribute="leading" constant="20" id="28o-Ys-cPm"/>
                                             <constraint firstItem="sxx-Ac-wFn" firstAttribute="top" secondItem="M3O-Lj-4a1" secondAttribute="bottom" id="3RE-0L-kyh"/>
+                                            <constraint firstItem="vTM-vd-AFM" firstAttribute="trailing" secondItem="WIK-TK-RkE" secondAttribute="trailing" constant="20" id="BDz-Ds-59w"/>
                                             <constraint firstItem="gGI-gD-J3r" firstAttribute="centerY" secondItem="ZUB-gu-BQG" secondAttribute="centerY" id="C4m-zN-wg7"/>
                                             <constraint firstItem="3Rl-tr-Ntq" firstAttribute="centerX" secondItem="uz6-mC-aFQ" secondAttribute="centerX" id="HCz-gE-oz5"/>
-                                            <constraint firstItem="v2u-HY-uFZ" firstAttribute="leading" secondItem="ZUB-gu-BQG" secondAttribute="leading" constant="20" id="Mvf-1F-kaw"/>
+                                            <constraint firstItem="WIK-TK-RkE" firstAttribute="centerY" secondItem="vTM-vd-AFM" secondAttribute="centerY" id="JqZ-lx-6KI"/>
+                                            <constraint firstItem="vTM-vd-AFM" firstAttribute="height" secondItem="YBb-8u-CFu" secondAttribute="height" id="Ltf-q4-9uw"/>
+                                            <constraint firstItem="v2u-HY-uFZ" firstAttribute="leading" secondItem="ZUB-gu-BQG" secondAttribute="leading" constant="10" id="Mvf-1F-kaw"/>
+                                            <constraint firstItem="vTM-vd-AFM" firstAttribute="top" secondItem="uz6-mC-aFQ" secondAttribute="top" constant="20" id="MyK-rz-5Wf"/>
                                             <constraint firstAttribute="bottom" secondItem="3Rl-tr-Ntq" secondAttribute="bottom" constant="20" id="NXV-h1-PNK"/>
+                                            <constraint firstItem="WIK-TK-RkE" firstAttribute="trailing" secondItem="YBb-8u-CFu" secondAttribute="trailing" constant="50" id="OOX-ih-Ofh"/>
                                             <constraint firstItem="M3O-Lj-4a1" firstAttribute="centerX" secondItem="uz6-mC-aFQ" secondAttribute="centerX" id="PGi-Ez-20h"/>
                                             <constraint firstAttribute="height" constant="1000" id="Syg-HA-eOj"/>
                                             <constraint firstItem="v2u-HY-uFZ" firstAttribute="centerY" secondItem="ZUB-gu-BQG" secondAttribute="centerY" id="Uth-DT-Cnh"/>
@@ -316,7 +332,7 @@
                                             <constraint firstItem="YBb-8u-CFu" firstAttribute="leading" secondItem="uz6-mC-aFQ" secondAttribute="leading" constant="20" id="agH-Xn-93K"/>
                                             <constraint firstAttribute="trailing" secondItem="ZUB-gu-BQG" secondAttribute="trailing" id="hbZ-tN-uTp"/>
                                             <constraint firstItem="sxx-Ac-wFn" firstAttribute="centerX" secondItem="uz6-mC-aFQ" secondAttribute="centerX" id="lEC-h7-rxR"/>
-                                            <constraint firstItem="gGI-gD-J3r" firstAttribute="trailing" secondItem="ZUB-gu-BQG" secondAttribute="trailing" constant="-20" id="qid-WF-0jC"/>
+                                            <constraint firstItem="gGI-gD-J3r" firstAttribute="trailing" secondItem="ZUB-gu-BQG" secondAttribute="trailing" constant="-10" id="qid-WF-0jC"/>
                                             <constraint firstItem="YBb-8u-CFu" firstAttribute="top" secondItem="uz6-mC-aFQ" secondAttribute="top" constant="20" id="tKV-Ct-lyy"/>
                                             <constraint firstItem="ZUB-gu-BQG" firstAttribute="leading" secondItem="uz6-mC-aFQ" secondAttribute="leading" id="wWT-R6-TPP"/>
                                         </constraints>
@@ -355,6 +371,7 @@
                         <outlet property="monthTxt" destination="nCn-tR-n8P" id="gZ2-tm-rB3"/>
                         <outlet property="nextBtn" destination="gGI-gD-J3r" id="GAc-aF-4tR"/>
                         <outlet property="ownerImg" destination="YBb-8u-CFu" id="zhb-ft-YPX"/>
+                        <outlet property="ownerNameTxt" destination="WIK-TK-RkE" id="oWT-Io-H2V"/>
                         <outlet property="pageControl" destination="M3O-Lj-4a1" id="yES-TB-dwF"/>
                         <outlet property="prevBtn" destination="v2u-HY-uFZ" id="Ih3-VV-16G"/>
                         <outlet property="slideImageView" destination="ZUB-gu-BQG" id="iaB-Qa-nRK"/>
@@ -375,6 +392,14 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="y5O-Eu-2CZ">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="barTintColor" red="0.84705882349999995" green="0.26274509800000001" blue="0.08235294118" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <textAttributes key="titleTextAttributes">
+                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </textAttributes>
+                        <textAttributes key="largeTitleTextAttributes">
+                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </textAttributes>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
@@ -387,8 +412,8 @@
         </scene>
     </scenes>
     <resources>
-        <image name="btn_next" width="24" height="24"/>
-        <image name="btn_prev" width="24" height="24"/>
+        <image name="btn_next" width="34" height="45"/>
+        <image name="btn_prev" width="34" height="45"/>
         <image name="icn_home" width="25" height="25"/>
         <image name="icn_photo" width="25" height="25"/>
         <image name="no_image" width="300" height="300"/>

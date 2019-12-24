@@ -14,6 +14,7 @@ class SpotVC: UIViewController {
     
     // MARK: Outlets
     @IBOutlet weak var slideImageView: UICollectionView!
+    @IBOutlet weak var ownerNameTxt: UILabel!
     @IBOutlet weak var ownerImg: CircleImageView!
     @IBOutlet weak var prevBtn: UIButton!
     @IBOutlet weak var nextBtn: UIButton!
@@ -54,7 +55,7 @@ class SpotVC: UIViewController {
         slideImageView.register(UINib(nibName: Identifiers.SpotImageCell, bundle: nil), forCellWithReuseIdentifier: Identifiers.SpotImageCell)
     }
     
-    // オーナーのUser情報を取得して、アイコンを表示させるためのメソッド
+    // オーナーのUser情報を取得して表示させるためのメソッド
     private func setupOwnerImg() {
         let docRef = Firestore.firestore().collection(FirestoreCollectionIds.Users).document(spot.owner)
         docRef.addSnapshotListener({ (snap, error) in
@@ -67,6 +68,8 @@ class SpotVC: UIViewController {
             
             guard let data = snap?.data() else { return }
             let owner = User.init(data: data)
+            
+            self.ownerNameTxt.text = owner.username
             
             if let url = URL(string: owner.imageUrl) {
                 let placeholder = UIImage(named: AppImages.Placeholder)

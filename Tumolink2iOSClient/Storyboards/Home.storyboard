@@ -223,14 +223,14 @@
                                                 </constraints>
                                             </imageView>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="v2u-HY-uFZ">
-                                                <rect key="frame" x="20" y="104.5" width="24" height="24"/>
+                                                <rect key="frame" x="10" y="94" width="34" height="45"/>
                                                 <state key="normal" image="btn_prev"/>
                                                 <connections>
                                                     <action selector="prevTapped:" destination="7ek-Az-kmx" eventType="touchUpInside" id="PDw-qz-AdU"/>
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gGI-gD-J3r">
-                                                <rect key="frame" x="370" y="104.5" width="24" height="24"/>
+                                                <rect key="frame" x="370" y="94" width="34" height="45"/>
                                                 <state key="normal" image="btn_next"/>
                                                 <connections>
                                                     <action selector="nextTapped:" destination="7ek-Az-kmx" eventType="touchUpInside" id="YQI-NL-Bad"/>
@@ -306,7 +306,7 @@
                                             <constraint firstItem="sxx-Ac-wFn" firstAttribute="top" secondItem="M3O-Lj-4a1" secondAttribute="bottom" id="3RE-0L-kyh"/>
                                             <constraint firstItem="gGI-gD-J3r" firstAttribute="centerY" secondItem="ZUB-gu-BQG" secondAttribute="centerY" id="C4m-zN-wg7"/>
                                             <constraint firstItem="3Rl-tr-Ntq" firstAttribute="centerX" secondItem="uz6-mC-aFQ" secondAttribute="centerX" id="HCz-gE-oz5"/>
-                                            <constraint firstItem="v2u-HY-uFZ" firstAttribute="leading" secondItem="ZUB-gu-BQG" secondAttribute="leading" constant="20" id="Mvf-1F-kaw"/>
+                                            <constraint firstItem="v2u-HY-uFZ" firstAttribute="leading" secondItem="ZUB-gu-BQG" secondAttribute="leading" constant="10" id="Mvf-1F-kaw"/>
                                             <constraint firstAttribute="bottom" secondItem="3Rl-tr-Ntq" secondAttribute="bottom" constant="20" id="NXV-h1-PNK"/>
                                             <constraint firstItem="M3O-Lj-4a1" firstAttribute="centerX" secondItem="uz6-mC-aFQ" secondAttribute="centerX" id="PGi-Ez-20h"/>
                                             <constraint firstAttribute="height" constant="1000" id="Syg-HA-eOj"/>
@@ -316,7 +316,7 @@
                                             <constraint firstItem="YBb-8u-CFu" firstAttribute="leading" secondItem="uz6-mC-aFQ" secondAttribute="leading" constant="20" id="agH-Xn-93K"/>
                                             <constraint firstAttribute="trailing" secondItem="ZUB-gu-BQG" secondAttribute="trailing" id="hbZ-tN-uTp"/>
                                             <constraint firstItem="sxx-Ac-wFn" firstAttribute="centerX" secondItem="uz6-mC-aFQ" secondAttribute="centerX" id="lEC-h7-rxR"/>
-                                            <constraint firstItem="gGI-gD-J3r" firstAttribute="trailing" secondItem="ZUB-gu-BQG" secondAttribute="trailing" constant="-20" id="qid-WF-0jC"/>
+                                            <constraint firstItem="gGI-gD-J3r" firstAttribute="trailing" secondItem="ZUB-gu-BQG" secondAttribute="trailing" constant="-10" id="qid-WF-0jC"/>
                                             <constraint firstItem="YBb-8u-CFu" firstAttribute="top" secondItem="uz6-mC-aFQ" secondAttribute="top" constant="20" id="tKV-Ct-lyy"/>
                                             <constraint firstItem="ZUB-gu-BQG" firstAttribute="leading" secondItem="uz6-mC-aFQ" secondAttribute="leading" id="wWT-R6-TPP"/>
                                         </constraints>
@@ -395,13 +395,13 @@
         </scene>
     </scenes>
     <resources>
-        <image name="btn_next" width="24" height="24"/>
-        <image name="btn_prev" width="24" height="24"/>
+        <image name="btn_next" width="34" height="45"/>
+        <image name="btn_prev" width="34" height="45"/>
         <image name="icn_home" width="25" height="25"/>
         <image name="icn_photo" width="25" height="25"/>
         <image name="no_image" width="300" height="300"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="W5e-Z1-6xd"/>
+        <segue reference="NS8-dt-1bM"/>
     </inferredMetricsTieBreakers>
 </document>

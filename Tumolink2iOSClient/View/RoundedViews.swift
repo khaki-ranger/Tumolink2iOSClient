@@ -26,6 +26,13 @@ class RoundedShadowView : UIView {
     }
 }
 
+class FullRoundedShadowView : RoundedShadowView {
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        layer.cornerRadius = self.frame.height / 2.0
+    }
+}
+
 class RoundedImageView: UIImageView {
     override func awakeFromNib() {
         super.awakeFromNib()

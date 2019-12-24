@@ -195,12 +195,6 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uz6-mC-aFQ" userLabel="ContentView">
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="1000"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Bottom" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3Rl-tr-Ntq">
-                                                <rect key="frame" x="169.5" y="951" width="75.5" height="29"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="24"/>
-                                                <nil key="textColor"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
                                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="ZUB-gu-BQG">
                                                 <rect key="frame" x="0.0" y="0.0" width="414" height="233"/>
                                                 <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
@@ -215,6 +209,16 @@
                                                 </collectionViewFlowLayout>
                                                 <cells/>
                                             </collectionView>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vTM-vd-AFM" customClass="FullRoundedShadowView" customModule="Tumolink2iOSClient" customModuleProvider="target">
+                                                <rect key="frame" x="20" y="20" width="110" height="40"/>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            </view>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WIK-TK-RkE">
+                                                <rect key="frame" x="110" y="40" width="0.0" height="0.0"/>
+                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                                <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="no_image" translatesAutoresizingMaskIntoConstraints="NO" id="YBb-8u-CFu" customClass="OwnerIconView" customModule="Tumolink2iOSClient" customModuleProvider="target">
                                                 <rect key="frame" x="20" y="20" width="40" height="40"/>
                                                 <constraints>
@@ -300,14 +304,26 @@
                                                     </label>
                                                 </subviews>
                                             </stackView>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Bottom" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3Rl-tr-Ntq">
+                                                <rect key="frame" x="169.5" y="951" width="75.5" height="29"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
                                         </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
+                                            <constraint firstItem="vTM-vd-AFM" firstAttribute="leading" secondItem="uz6-mC-aFQ" secondAttribute="leading" constant="20" id="28o-Ys-cPm"/>
                                             <constraint firstItem="sxx-Ac-wFn" firstAttribute="top" secondItem="M3O-Lj-4a1" secondAttribute="bottom" id="3RE-0L-kyh"/>
+                                            <constraint firstItem="vTM-vd-AFM" firstAttribute="trailing" secondItem="WIK-TK-RkE" secondAttribute="trailing" constant="20" id="BDz-Ds-59w"/>
                                             <constraint firstItem="gGI-gD-J3r" firstAttribute="centerY" secondItem="ZUB-gu-BQG" secondAttribute="centerY" id="C4m-zN-wg7"/>
                                             <constraint firstItem="3Rl-tr-Ntq" firstAttribute="centerX" secondItem="uz6-mC-aFQ" secondAttribute="centerX" id="HCz-gE-oz5"/>
+                                            <constraint firstItem="WIK-TK-RkE" firstAttribute="centerY" secondItem="vTM-vd-AFM" secondAttribute="centerY" id="JqZ-lx-6KI"/>
+                                            <constraint firstItem="vTM-vd-AFM" firstAttribute="height" secondItem="YBb-8u-CFu" secondAttribute="height" id="Ltf-q4-9uw"/>
                                             <constraint firstItem="v2u-HY-uFZ" firstAttribute="leading" secondItem="ZUB-gu-BQG" secondAttribute="leading" constant="10" id="Mvf-1F-kaw"/>
+                                            <constraint firstItem="vTM-vd-AFM" firstAttribute="top" secondItem="uz6-mC-aFQ" secondAttribute="top" constant="20" id="MyK-rz-5Wf"/>
                                             <constraint firstAttribute="bottom" secondItem="3Rl-tr-Ntq" secondAttribute="bottom" constant="20" id="NXV-h1-PNK"/>
+                                            <constraint firstItem="WIK-TK-RkE" firstAttribute="trailing" secondItem="YBb-8u-CFu" secondAttribute="trailing" constant="50" id="OOX-ih-Ofh"/>
                                             <constraint firstItem="M3O-Lj-4a1" firstAttribute="centerX" secondItem="uz6-mC-aFQ" secondAttribute="centerX" id="PGi-Ez-20h"/>
                                             <constraint firstAttribute="height" constant="1000" id="Syg-HA-eOj"/>
                                             <constraint firstItem="v2u-HY-uFZ" firstAttribute="centerY" secondItem="ZUB-gu-BQG" secondAttribute="centerY" id="Uth-DT-Cnh"/>
@@ -355,6 +371,7 @@
                         <outlet property="monthTxt" destination="nCn-tR-n8P" id="gZ2-tm-rB3"/>
                         <outlet property="nextBtn" destination="gGI-gD-J3r" id="GAc-aF-4tR"/>
                         <outlet property="ownerImg" destination="YBb-8u-CFu" id="zhb-ft-YPX"/>
+                        <outlet property="ownerNameTxt" destination="WIK-TK-RkE" id="oWT-Io-H2V"/>
                         <outlet property="pageControl" destination="M3O-Lj-4a1" id="yES-TB-dwF"/>
                         <outlet property="prevBtn" destination="v2u-HY-uFZ" id="Ih3-VV-16G"/>
                         <outlet property="slideImageView" destination="ZUB-gu-BQG" id="iaB-Qa-nRK"/>

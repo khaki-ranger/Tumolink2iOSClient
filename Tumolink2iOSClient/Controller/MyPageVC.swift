@@ -14,7 +14,6 @@ class MyPageVC: UIViewController {
     // MARK: Outlets
     @IBOutlet weak var usernameTxt: UILabel!
     @IBOutlet weak var profileImg: UIImageView!
-    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
     // MARK: Functions
     override func viewDidLoad() {

@@ -9,9 +9,18 @@
 import Firebase
 
 extension Firestore {
+    
     var spots: Query {
         return collection("spots").whereField("isActive", isEqualTo: true).order(by: "timeStamp", descending: true)
     }
+    
+    func tumolis(spotId: String) -> Query {
+        return collection("tumolis")
+            .whereField("spotId", isEqualTo: spotId)
+            .whereField("isActive", isEqualTo: true)
+            .order(by: "possibility",  descending: true)
+    }
+    
 }
 
 struct FirestoreCollectionIds {

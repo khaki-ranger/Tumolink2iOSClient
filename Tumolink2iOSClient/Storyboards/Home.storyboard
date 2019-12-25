@@ -65,7 +65,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="W5b-xN-clO" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2002.8985507246377" y="-131.25"/>
+            <point key="canvasLocation" x="1967" y="-131"/>
         </scene>
         <!--Create SpotVC-->
         <scene sceneID="9Qr-FZ-Kek">
@@ -186,11 +186,11 @@
             <objects>
                 <viewController id="7ek-Az-kmx" customClass="SpotVC" customModule="Tumolink2iOSClient" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="gXK-Zj-h9u">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="1170"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="1000"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tL5-Uc-YIF">
-                                <rect key="frame" x="0.0" y="88" width="414" height="1082"/>
+                                <rect key="frame" x="0.0" y="88" width="414" height="912"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uz6-mC-aFQ" userLabel="ContentView">
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="1000"/>
@@ -304,12 +304,10 @@
                                                     </label>
                                                 </subviews>
                                             </stackView>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Bottom" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3Rl-tr-Ntq">
-                                                <rect key="frame" x="169.5" y="951" width="75.5" height="29"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="24"/>
-                                                <nil key="textColor"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
+                                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="GGs-vG-tTD">
+                                                <rect key="frame" x="2" y="323.5" width="410" height="676.5"/>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            </tableView>
                                         </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
@@ -317,19 +315,20 @@
                                             <constraint firstItem="sxx-Ac-wFn" firstAttribute="top" secondItem="M3O-Lj-4a1" secondAttribute="bottom" id="3RE-0L-kyh"/>
                                             <constraint firstItem="vTM-vd-AFM" firstAttribute="trailing" secondItem="WIK-TK-RkE" secondAttribute="trailing" constant="20" id="BDz-Ds-59w"/>
                                             <constraint firstItem="gGI-gD-J3r" firstAttribute="centerY" secondItem="ZUB-gu-BQG" secondAttribute="centerY" id="C4m-zN-wg7"/>
-                                            <constraint firstItem="3Rl-tr-Ntq" firstAttribute="centerX" secondItem="uz6-mC-aFQ" secondAttribute="centerX" id="HCz-gE-oz5"/>
                                             <constraint firstItem="WIK-TK-RkE" firstAttribute="centerY" secondItem="vTM-vd-AFM" secondAttribute="centerY" id="JqZ-lx-6KI"/>
                                             <constraint firstItem="vTM-vd-AFM" firstAttribute="height" secondItem="YBb-8u-CFu" secondAttribute="height" id="Ltf-q4-9uw"/>
                                             <constraint firstItem="v2u-HY-uFZ" firstAttribute="leading" secondItem="ZUB-gu-BQG" secondAttribute="leading" constant="10" id="Mvf-1F-kaw"/>
                                             <constraint firstItem="vTM-vd-AFM" firstAttribute="top" secondItem="uz6-mC-aFQ" secondAttribute="top" constant="20" id="MyK-rz-5Wf"/>
-                                            <constraint firstAttribute="bottom" secondItem="3Rl-tr-Ntq" secondAttribute="bottom" constant="20" id="NXV-h1-PNK"/>
                                             <constraint firstItem="WIK-TK-RkE" firstAttribute="trailing" secondItem="YBb-8u-CFu" secondAttribute="trailing" constant="50" id="OOX-ih-Ofh"/>
                                             <constraint firstItem="M3O-Lj-4a1" firstAttribute="centerX" secondItem="uz6-mC-aFQ" secondAttribute="centerX" id="PGi-Ez-20h"/>
-                                            <constraint firstAttribute="height" constant="1000" id="Syg-HA-eOj"/>
                                             <constraint firstItem="v2u-HY-uFZ" firstAttribute="centerY" secondItem="ZUB-gu-BQG" secondAttribute="centerY" id="Uth-DT-Cnh"/>
                                             <constraint firstItem="M3O-Lj-4a1" firstAttribute="top" secondItem="ZUB-gu-BQG" secondAttribute="bottom" id="XQd-9f-S20"/>
                                             <constraint firstItem="ZUB-gu-BQG" firstAttribute="top" secondItem="uz6-mC-aFQ" secondAttribute="top" id="YCy-c2-4kS"/>
                                             <constraint firstItem="YBb-8u-CFu" firstAttribute="leading" secondItem="uz6-mC-aFQ" secondAttribute="leading" constant="20" id="agH-Xn-93K"/>
+                                            <constraint firstAttribute="trailing" secondItem="GGs-vG-tTD" secondAttribute="trailing" constant="2" id="bWM-1H-bU7"/>
+                                            <constraint firstItem="GGs-vG-tTD" firstAttribute="leading" secondItem="uz6-mC-aFQ" secondAttribute="leading" constant="2" id="chQ-Nt-ycu"/>
+                                            <constraint firstItem="GGs-vG-tTD" firstAttribute="top" secondItem="sxx-Ac-wFn" secondAttribute="bottom" constant="20" id="fmU-EB-7c9"/>
+                                            <constraint firstAttribute="bottom" secondItem="GGs-vG-tTD" secondAttribute="bottom" id="hax-F5-v8u"/>
                                             <constraint firstAttribute="trailing" secondItem="ZUB-gu-BQG" secondAttribute="trailing" id="hbZ-tN-uTp"/>
                                             <constraint firstItem="sxx-Ac-wFn" firstAttribute="centerX" secondItem="uz6-mC-aFQ" secondAttribute="centerX" id="lEC-h7-rxR"/>
                                             <constraint firstItem="gGI-gD-J3r" firstAttribute="trailing" secondItem="ZUB-gu-BQG" secondAttribute="trailing" constant="-10" id="qid-WF-0jC"/>
@@ -363,7 +362,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="qWx-Hh-lCV"/>
                     </view>
-                    <size key="freeformSize" width="414" height="1170"/>
+                    <size key="freeformSize" width="414" height="1000"/>
                     <connections>
                         <outlet property="activityIndicator" destination="hFx-m7-7t3" id="03T-aZ-N5C"/>
                         <outlet property="dayOfWeekTxt" destination="uGr-HP-k4u" id="bKe-J2-che"/>
@@ -375,13 +374,14 @@
                         <outlet property="pageControl" destination="M3O-Lj-4a1" id="yES-TB-dwF"/>
                         <outlet property="prevBtn" destination="v2u-HY-uFZ" id="Ih3-VV-16G"/>
                         <outlet property="slideImageView" destination="ZUB-gu-BQG" id="iaB-Qa-nRK"/>
+                        <outlet property="tableView" destination="GGs-vG-tTD" id="iQZ-uA-evq"/>
                         <outlet property="yearTxt" destination="9sK-8H-XIK" id="TAi-Z9-zhR"/>
                         <segue destination="6fV-ty-Cc0" kind="show" identifier="ToEditSpot" id="NS8-dt-1bM"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1oH-gH-b5P" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2898.5507246376815" y="-40.178571428571423"/>
+            <point key="canvasLocation" x="2879.7101449275365" y="-96.428571428571431"/>
         </scene>
         <!--ホーム-->
         <scene sceneID="Z67-IV-XAh">

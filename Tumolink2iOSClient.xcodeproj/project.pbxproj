@@ -15,6 +15,9 @@
 		D14E3E6723A35ACF00978AFC /* SpotVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D14E3E6623A35ACF00978AFC /* SpotVC.swift */; };
 		D14E3E6A23A3659200978AFC /* SpotImageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D14E3E6823A3659200978AFC /* SpotImageCell.swift */; };
 		D14E3E6B23A3659200978AFC /* SpotImageCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D14E3E6923A3659200978AFC /* SpotImageCell.xib */; };
+		D15EABF123B3501400A42D5D /* TumoliCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D15EABEF23B3501400A42D5D /* TumoliCell.swift */; };
+		D15EABF223B3501400A42D5D /* TumoliCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D15EABF023B3501400A42D5D /* TumoliCell.xib */; };
+		D15EABF423B352B300A42D5D /* Tumoli.swift in Sources */ = {isa = PBXBuildFile; fileRef = D15EABF323B352B300A42D5D /* Tumoli.swift */; };
 		D1896E1C2390F30B004EC82A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1896E1B2390F30B004EC82A /* AppDelegate.swift */; };
 		D1896E1E2390F30B004EC82A /* HomeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1896E1D2390F30B004EC82A /* HomeVC.swift */; };
 		D1896E212390F30B004EC82A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D1896E1F2390F30B004EC82A /* Main.storyboard */; };
@@ -51,6 +54,9 @@
 		D14E3E6623A35ACF00978AFC /* SpotVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpotVC.swift; sourceTree = "<group>"; };
 		D14E3E6823A3659200978AFC /* SpotImageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpotImageCell.swift; sourceTree = "<group>"; };
 		D14E3E6923A3659200978AFC /* SpotImageCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SpotImageCell.xib; sourceTree = "<group>"; };
+		D15EABEF23B3501400A42D5D /* TumoliCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TumoliCell.swift; sourceTree = "<group>"; };
+		D15EABF023B3501400A42D5D /* TumoliCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TumoliCell.xib; sourceTree = "<group>"; };
+		D15EABF323B352B300A42D5D /* Tumoli.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tumoli.swift; sourceTree = "<group>"; };
 		D1896E182390F30B004EC82A /* Tumolink2iOSClient.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Tumolink2iOSClient.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D1896E1B2390F30B004EC82A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D1896E1D2390F30B004EC82A /* HomeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeVC.swift; sourceTree = "<group>"; };
@@ -153,6 +159,8 @@
 				D1BBF96F23A22E12003C7D61 /* SpotCell.xib */,
 				D14E3E6823A3659200978AFC /* SpotImageCell.swift */,
 				D14E3E6923A3659200978AFC /* SpotImageCell.xib */,
+				D15EABEF23B3501400A42D5D /* TumoliCell.swift */,
+				D15EABF023B3501400A42D5D /* TumoliCell.xib */,
 			);
 			path = XIBs;
 			sourceTree = "<group>";
@@ -195,6 +203,7 @@
 			children = (
 				D1BBF97223A2330E003C7D61 /* Spot.swift */,
 				D1902D5B23A7639C00822D9D /* User.swift */,
+				D15EABF323B352B300A42D5D /* Tumoli.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -283,6 +292,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D1BBF96923A1D38D003C7D61 /* Home.storyboard in Resources */,
+				D15EABF223B3501400A42D5D /* TumoliCell.xib in Resources */,
 				D1896E262390F30D004EC82A /* LaunchScreen.storyboard in Resources */,
 				D1BBF97123A22E12003C7D61 /* SpotCell.xib in Resources */,
 				D1CC783C23A479C000CD9D7B /* Spot.storyboard in Resources */,
@@ -371,6 +381,7 @@
 				D114A6BA23AFA60200EE0B2E /* CircleViews.swift in Sources */,
 				D18D7F7F23A08D100085B8B9 /* Firebase+Utils.swift in Sources */,
 				D1E4C9FF2394F2D900272C5F /* Extensions.swift in Sources */,
+				D15EABF423B352B300A42D5D /* Tumoli.swift in Sources */,
 				D1896E1E2390F30B004EC82A /* HomeVC.swift in Sources */,
 				D14E3E6A23A3659200978AFC /* SpotImageCell.swift in Sources */,
 				D1E4C9FC2394E5B800272C5F /* RegisterVC.swift in Sources */,
@@ -385,6 +396,7 @@
 				D1E4CA012395084800272C5F /* Constants.swift in Sources */,
 				D114A6B823AF658700EE0B2E /* DeleteUserVC.swift in Sources */,
 				D1902D5F23A7682300822D9D /* UserService.swift in Sources */,
+				D15EABF123B3501400A42D5D /* TumoliCell.swift in Sources */,
 				D14E3E6723A35ACF00978AFC /* SpotVC.swift in Sources */,
 				D1CC783E23A48BF000CD9D7B /* CreateSpotVC.swift in Sources */,
 				D1BBF97023A22E12003C7D61 /* SpotCell.swift in Sources */,

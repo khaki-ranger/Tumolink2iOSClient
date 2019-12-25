@@ -24,11 +24,15 @@ class SpotVC: UIViewController {
     @IBOutlet weak var dayTxt: UILabel!
     @IBOutlet weak var dayOfWeekTxt: UILabel!
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
+    @IBOutlet weak var tableView: UITableView!
     
     // MARK: Valiables
     var spot: Spot!
     var spotImages = [String]()
     var isOwner = false
+    var tumolis = [Tumoli]()
+    var db: Firestore!
+    var listener: ListenerRegistration!
 
     // MARK: Functions
     override func viewDidLoad() {
@@ -41,12 +45,26 @@ class SpotVC: UIViewController {
         setupPageControl()
         controlOfNextAndPrev()
         setupDateTxt()
+        setupTableView()
         
         // ログイン中のユーザーがこのスポットのオーナーかどうかを判定
         if spot.owner == UserService.user.id {
             isOwner = true
             setupNavigation()
         }
+    }
+    
+    private func setupTableView() {
+        // ツモリの表示を確認するために仮のデータを設定
+        let tumoli = Tumoli(id: "hogehoge",
+                            userId: "hogehoge",
+                            spotId: "hogehoge"
+        )
+        tumolis.append(tumoli)
+        
+        tableView.delegate = self
+        tableView.dataSource = self
+        tableView.register(UINib(nibName: Identifiers.TumoliCell, bundle: nil), forCellReuseIdentifier: Identifiers.TumoliCell)
     }
     
     private func setupCollectionView() {
@@ -218,4 +236,25 @@ extension SpotVC : UICollectionViewDelegate, UICollectionViewDataSource, UIColle
         pageControl.currentPage = index
         controlOfNextAndPrev()
     }
+}
+
+extension SpotVC : UITableViewDelegate, UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return tumolis.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        if let cell = tableView.dequeueReusableCell(withIdentifier: Identifiers.TumoliCell, for: indexPath) as? TumoliCell {
+            cell.configureCell(tumoli: tumolis[indexPath.row])
+            return cell
+        }
+        
+        return UITableViewCell()
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 72
+    }
+    
+    
 }

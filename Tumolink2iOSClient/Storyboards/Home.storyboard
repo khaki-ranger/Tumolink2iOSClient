@@ -346,7 +346,7 @@
                                 </constraints>
                             </scrollView>
                             <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="hFx-m7-7t3">
-                                <rect key="frame" x="188.5" y="566.5" width="37" height="37"/>
+                                <rect key="frame" x="188.5" y="186" width="37" height="37"/>
                                 <color key="color" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </activityIndicatorView>
                         </subviews>
@@ -355,9 +355,9 @@
                             <constraint firstItem="uz6-mC-aFQ" firstAttribute="height" secondItem="gXK-Zj-h9u" secondAttribute="height" priority="250" id="3CG-4X-EHg"/>
                             <constraint firstAttribute="bottom" secondItem="tL5-Uc-YIF" secondAttribute="bottom" id="8ZM-SM-rFY"/>
                             <constraint firstItem="hFx-m7-7t3" firstAttribute="centerX" secondItem="gXK-Zj-h9u" secondAttribute="centerX" id="BDL-G0-oCM"/>
+                            <constraint firstItem="hFx-m7-7t3" firstAttribute="centerY" secondItem="ZUB-gu-BQG" secondAttribute="centerY" id="EQ2-Z4-Ikg"/>
                             <constraint firstItem="tL5-Uc-YIF" firstAttribute="top" secondItem="qWx-Hh-lCV" secondAttribute="top" id="Fac-Oi-DgJ"/>
                             <constraint firstItem="qWx-Hh-lCV" firstAttribute="trailing" secondItem="tL5-Uc-YIF" secondAttribute="trailing" id="XSM-l7-pap"/>
-                            <constraint firstItem="hFx-m7-7t3" firstAttribute="centerY" secondItem="gXK-Zj-h9u" secondAttribute="centerY" id="YiA-7S-iaU"/>
                             <constraint firstItem="tL5-Uc-YIF" firstAttribute="leading" secondItem="qWx-Hh-lCV" secondAttribute="leading" id="pD6-ll-x3G"/>
                             <constraint firstItem="uz6-mC-aFQ" firstAttribute="width" secondItem="gXK-Zj-h9u" secondAttribute="width" id="zCa-Mv-RtQ"/>
                         </constraints>

@@ -7,12 +7,16 @@
 //
 
 import UIKit
+import FirebaseFirestore
+import Kingfisher
 
 class TumoliCell: UITableViewCell {
     
     // MARK: Outlets
     @IBOutlet weak var profileImg: CircleImageView!
-    @IBOutlet weak var usernameTxt: UILabel!
+    @IBOutlet weak var usernameLbl: UILabel!
+    @IBOutlet weak var possibilityLbl: UILabel!
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
     // MARK: Variables
 
@@ -29,7 +33,31 @@ class TumoliCell: UITableViewCell {
     }
     
     func configureCell(tumoli: Tumoli) {
-        print(tumoli)
+        possibilityLbl.text = String(tumoli.possibility)
+        
+        activityIndicator.startAnimating()
+        
+        let docRef = Firestore.firestore().collection(FirestoreCollectionIds.Users).document(tumoli.userId)
+        docRef.addSnapshotListener { (snap, error) in
+            
+            self.activityIndicator.stopAnimating()
+            
+            if let error = error {
+                debugPrint(error.localizedDescription)
+                return
+            }
+            
+            guard let data = snap?.data() else { return }
+            let user = User.init(data: data)
+            self.usernameLbl.text = user.username
+            
+            if let url = URL(string: user.imageUrl) {
+                let placeholder = UIImage(named: AppImages.Placeholder)
+                let options : KingfisherOptionsInfo = [KingfisherOptionsInfoItem.transition(.fade(0.2))]
+                self.profileImg.kf.indicatorType = .activity
+                self.profileImg.kf.setImage(with: url, placeholder: placeholder, options: options)
+            }
+        }
     }
     
     // MARK: Actions

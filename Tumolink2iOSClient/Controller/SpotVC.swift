@@ -59,6 +59,12 @@ class SpotVC: UIViewController {
         setTumoliListener()
     }
     
+    override func viewDidDisappear(_ animated: Bool) {
+        listener.remove()
+        tumolis.removeAll()
+        tableView.reloadData()
+    }
+    
     private func setupTableView() {
         tableView.delegate = self
         tableView.dataSource = self
@@ -237,36 +243,6 @@ class SpotVC: UIViewController {
 
 extension SpotVC : UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     
-    // データベースの変更に対して実行されるメソッド - begin
-    private func onDocumentAdded(change: DocumentChange, tumoli: Tumoli) {
-        let newIndex = Int(change.newIndex)
-        tumolis.insert(tumoli, at: newIndex)
-        tableView.insertRows(at: [IndexPath(row: newIndex, section: 0)], with: .fade)
-    }
-    
-    private func onDocumentModified(change: DocumentChange, tumoli: Tumoli) {
-        if change.newIndex == change.oldIndex {
-            // Row change, but remained in the same position
-            let index = Int(change.newIndex)
-            tumolis[index] = tumoli
-            tableView.reloadRows(at: [IndexPath(row: index, section: 0)], with: .none)
-        } else {
-            // Row changed and changed position
-            let newIndex = Int(change.newIndex)
-            let oldIndex = Int(change.oldIndex)
-            tumolis.remove(at: oldIndex)
-            tumolis.insert(tumoli, at: newIndex)
-            tableView.moveRow(at: IndexPath(row: oldIndex, section: 0), to: IndexPath(row: newIndex, section: 0))
-        }
-    }
-    
-    private func onDocumentRemoved(change: DocumentChange) {
-        let oldIndex = Int(change.oldIndex)
-        tumolis.remove(at: oldIndex)
-        tableView.deleteRows(at: [IndexPath(row: oldIndex, section: 0)], with: .left)
-    }
-    // データベースの変更に対して実行されるメソッド - end
-    
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return spotImages.count
     }
@@ -296,6 +272,38 @@ extension SpotVC : UICollectionViewDelegate, UICollectionViewDataSource, UIColle
 }
 
 extension SpotVC : UITableViewDelegate, UITableViewDataSource {
+    
+    // データベースの変更に対して実行されるメソッド - begin
+    private func onDocumentAdded(change: DocumentChange, tumoli: Tumoli) {
+        let newIndex = Int(change.newIndex)
+        tumolis.insert(tumoli, at: newIndex)
+        tableView.insertRows(at: [IndexPath(row: newIndex, section: 0)], with: .fade)
+    }
+    
+    private func onDocumentModified(change: DocumentChange, tumoli: Tumoli) {
+        if change.newIndex == change.oldIndex {
+            // Row change, but remained in the same position
+            let index = Int(change.newIndex)
+            tumolis[index] = tumoli
+            tableView.reloadRows(at: [IndexPath(row: index, section: 0)], with: .none)
+        } else {
+            // Row changed and changed position
+            let newIndex = Int(change.newIndex)
+            let oldIndex = Int(change.oldIndex)
+            tumolis.remove(at: oldIndex)
+            tumolis.insert(tumoli, at: newIndex)
+            tableView.moveRow(at: IndexPath(row: oldIndex, section: 0), to: IndexPath(row: newIndex, section: 0))
+            tableView.reloadRows(at: [IndexPath(row: newIndex, section: 0)], with: .none)
+        }
+    }
+    
+    private func onDocumentRemoved(change: DocumentChange) {
+        let oldIndex = Int(change.oldIndex)
+        tumolis.remove(at: oldIndex)
+        tableView.deleteRows(at: [IndexPath(row: oldIndex, section: 0)], with: .left)
+    }
+    // データベースの変更に対して実行されるメソッド - end
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return tumolis.count
     }

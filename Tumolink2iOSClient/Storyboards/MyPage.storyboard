@@ -155,7 +155,7 @@
                             </activityIndicatorView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2bp-m7-Z9Z" customClass="RoundedButton" customModule="Tumolink2iOSClient" customModuleProvider="target">
                                 <rect key="frame" x="20" y="742" width="374" height="40"/>
-                                <color key="backgroundColor" red="0.44291698932647705" green="0.95830684900283813" blue="0.74120432138442993" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" red="0.44313725490196076" green="0.95686274509803915" blue="0.74117647058823533" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="U8l-BX-ray"/>
                                 </constraints>

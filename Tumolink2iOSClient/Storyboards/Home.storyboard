@@ -359,6 +359,9 @@
                                 <state key="normal" title="ツモる">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
+                                <connections>
+                                    <action selector="addTumoliClicked:" destination="7ek-Az-kmx" eventType="touchUpInside" id="jPB-cv-19q"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -433,6 +436,6 @@
         <image name="no_image" width="300" height="300"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="W5e-Z1-6xd"/>
+        <segue reference="NS8-dt-1bM"/>
     </inferredMetricsTieBreakers>
 </document>

@@ -44,7 +44,7 @@ class SpotVC: UIViewController {
         setupOwnerImg()
         setupPageControl()
         controlOfNextAndPrev()
-        setupDateTxt()
+        setupDateTxt(date: Date())
         db = Firestore.firestore()
         setupTableView()
         
@@ -136,9 +136,9 @@ class SpotVC: UIViewController {
         pageControl.currentPage = 0
     }
     
-    private func setupDateTxt() {
+    private func setupDateTxt(date: Date) {
         let dayOfWeekStringJp: [Int: String] = [1: "日", 2: "月", 3: "火", 4: "水", 5: "木", 6: "金", 7: "土"]
-        let date = Date()
+        let date = date
         let calendar = Calendar.current
         let year = calendar.component(.year, from: date)
         let month = calendar.component(.month, from: date)
@@ -216,6 +216,14 @@ class SpotVC: UIViewController {
     }
     
     // MARK: Actions
+    @IBAction func addTumoliClicked(_ sender: Any) {
+        let vc = AddTumoliVC()
+        vc.spot = spot
+        vc.modalTransitionStyle = .crossDissolve
+        vc.modalPresentationStyle = .overCurrentContext
+        present(vc, animated: true, completion: nil)
+    }
+    
     @IBAction func prevTapped(_ sender: Any) {
         let prev = max(0, pageControl.currentPage - 1)
         let index = IndexPath(item: prev, section: 0)

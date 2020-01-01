@@ -13,6 +13,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="AddTumoliVC" customModule="Tumolink2iOSClient" customModuleProvider="target">
             <connections>
                 <outlet property="activityIndicator" destination="FIC-tk-QhV" id="UEP-TW-xlh"/>
+                <outlet property="addEditBtn" destination="gh7-FU-2sl" id="OdD-m1-wVx"/>
                 <outlet property="bgView" destination="gX7-ZV-Xm0" id="lqa-UC-eJA"/>
                 <outlet property="possibilityLbl" destination="itE-qz-6bx" id="tlP-LX-F2W"/>
                 <outlet property="possibilitySlider" destination="ruL-Fm-BeF" id="uCP-rz-kP5"/>

@@ -17,9 +17,11 @@ class AddTumoliVC: UIViewController {
     @IBOutlet weak var possibilityLbl: UILabel!
     @IBOutlet weak var possibilitySlider: UISlider!
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
+    @IBOutlet weak var addEditBtn: RoundedButton!
     
     // MARK: Variables
     var spot: Spot!
+    var tumoliToEdit: Tumoli!
     var possibility = 50
     
     // MARK: Functions
@@ -28,6 +30,19 @@ class AddTumoliVC: UIViewController {
         
         setupTapGesture()
         setupSlider()
+        
+        // tumoliToEditがnilでない場合は編集
+        if let tumoli = tumoliToEdit {
+            setupEditMode(tumoli: tumoli)
+        }
+    }
+    
+    private func setupEditMode(tumoli: Tumoli) {
+        addEditBtn.setTitle("編集", for: .normal)
+        
+        possibility = tumoli.possibility
+        possibilityLbl.text = "\(possibility)%"
+        possibilitySlider.setValue(Float(possibility) / 100, animated: false)
     }
     
     private func setupTapGesture() {
@@ -70,8 +85,17 @@ class AddTumoliVC: UIViewController {
                                  isActive: true,
                                  date: Timestamp())
         
-        let docRef = Firestore.firestore().collection(FirestoreCollectionIds.Tumolis).document()
-        tumoli.id = docRef.documentID
+        var docRef: DocumentReference!
+        // tumoliToEditがnilかどうかで、編集と新規作成の処理を分岐
+        if let tumoliToEdit = tumoliToEdit {
+            // 編集
+            docRef = Firestore.firestore().collection(FirestoreCollectionIds.Tumolis).document(tumoliToEdit.id)
+            tumoli.id = tumoliToEdit.id
+        } else {
+            // 新規作成
+            docRef = Firestore.firestore().collection(FirestoreCollectionIds.Tumolis).document()
+            tumoli.id = docRef.documentID
+        }
         
         let data = Tumoli.modelToData(tumoli: tumoli)
         docRef.setData(data, merge: true) { (error) in

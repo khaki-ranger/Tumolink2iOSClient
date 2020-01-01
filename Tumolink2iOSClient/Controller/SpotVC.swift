@@ -33,6 +33,7 @@ class SpotVC: UIViewController {
     var tumolis = [Tumoli]()
     var db: Firestore!
     var listener: ListenerRegistration!
+    var tumoliToEdit: Tumoli?
 
     // MARK: Functions
     override func viewDidLoad() {
@@ -95,6 +96,15 @@ class SpotVC: UIViewController {
                     self.onDocumentRemoved(change: change)
                 @unknown default:
                     return
+                }
+            })
+            
+            // ログインユーザーのツモリがあるかどうかを確認する
+            snap?.documents.forEach({ (document) in
+                let data = document.data()
+                let tumoli = Tumoli.init(data: data)
+                if tumoli.userId == UserService.user.id {
+                    self.tumoliToEdit = tumoli
                 }
             })
         })
@@ -219,6 +229,7 @@ class SpotVC: UIViewController {
     @IBAction func addTumoliClicked(_ sender: Any) {
         let vc = AddTumoliVC()
         vc.spot = spot
+        vc.tumoliToEdit = tumoliToEdit
         vc.modalTransitionStyle = .crossDissolve
         vc.modalPresentationStyle = .overCurrentContext
         present(vc, animated: true, completion: nil)

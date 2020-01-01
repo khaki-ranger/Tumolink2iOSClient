@@ -26,6 +26,7 @@ extension Firestore {
 struct FirestoreCollectionIds {
     static let Spots = "spots"
     static let Users = "users"
+    static let Tumolis = "tumolis"
 }
 
 struct FirestorageDirectories {

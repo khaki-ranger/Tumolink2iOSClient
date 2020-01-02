@@ -18,6 +18,7 @@ class AddTumoliVC: UIViewController {
     @IBOutlet weak var possibilitySlider: UISlider!
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     @IBOutlet weak var addEditBtn: RoundedButton!
+    @IBOutlet weak var deleteBtn: RoundedButton!
     
     // MARK: Variables
     var spot: Spot!
@@ -34,6 +35,8 @@ class AddTumoliVC: UIViewController {
         // tumoliToEditがnilでない場合は編集
         if let tumoli = tumoliToEdit {
             setupEditMode(tumoli: tumoli)
+        } else {
+            deleteBtn.isHidden = true
         }
     }
     
@@ -68,6 +71,43 @@ class AddTumoliVC: UIViewController {
     // MARK: Actions
     @IBAction func cancelClicked(_ sender: Any) {
         dismiss(animated: true, completion: nil)
+    }
+    
+    @IBAction func deleteClicked(_ sender: Any) {
+        let alert = UIAlertController(title: "削除", message: "ツモリを削除しますか？", preferredStyle: .alert)
+        let okAction = UIAlertAction(title: "Ok", style: .default, handler: {
+            (action: UIAlertAction!) -> Void in
+            self.activityIndicator.startAnimating()
+            self.changeIsActiveValue()
+        })
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+        alert.addAction(okAction)
+        alert.addAction(cancelAction)
+        present(alert, animated: true, completion: nil)
+    }
+    
+    // Firestoreのツモリの値を変更する処理
+    private func changeIsActiveValue() {
+        guard let tumoli = tumoliToEdit else { return }
+        
+        let docRef = Firestore.firestore().collection(FirestoreCollectionIds.Tumolis).document(tumoli.id)
+        docRef.updateData(["isActive": false]) { (error) in
+            
+            if let error = error {
+                debugPrint(error.localizedDescription)
+                self.simpleAlert(title: "エラー", msg: "ツモリの削除に失敗しました")
+                return
+            }
+            
+            // 遷移元のtumoliToEditプロパティをnilにする
+            let naviVC = self.presentingViewController as! UINavigationController
+            guard let prevVC = naviVC.viewControllers[naviVC.viewControllers.count - 1] as? SpotVC else {
+                return
+            }
+            prevVC.tumoliToEdit = nil
+            
+            self.dismiss(animated: true, completion: nil)
+        }
     }
     
     @IBAction func addTumoliClicked(_ sender: Any) {

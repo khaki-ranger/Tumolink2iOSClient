@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="AddTumoliVC" customModule="Tumolink2iOSClient" customModuleProvider="target">
+            <connections>
+                <outlet property="activityIndicator" destination="FIC-tk-QhV" id="UEP-TW-xlh"/>
+                <outlet property="addEditBtn" destination="gh7-FU-2sl" id="OdD-m1-wVx"/>
+                <outlet property="bgView" destination="gX7-ZV-Xm0" id="lqa-UC-eJA"/>
+                <outlet property="deleteBtn" destination="xkk-5u-hHz" id="c28-qm-bqV"/>
+                <outlet property="possibilityLbl" destination="itE-qz-6bx" id="tlP-LX-F2W"/>
+                <outlet property="possibilitySlider" destination="ruL-Fm-BeF" id="uCP-rz-kP5"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <visualEffectView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gX7-ZV-Xm0">
+                    <rect key="frame" x="0.0" y="44" width="414" height="852"/>
+                    <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="fNw-t8-WXN">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                    </view>
+                    <blurEffect style="extraLight"/>
+                </visualEffectView>
+                <view contentMode="scaleToFill" placeholderIntrinsicWidth="374" placeholderIntrinsicHeight="170" translatesAutoresizingMaskIntoConstraints="NO" id="otC-vJ-70V" customClass="RoundedShadowView" customModule="Tumolink2iOSClient" customModuleProvider="target">
+                    <rect key="frame" x="20" y="297.5" width="374" height="301.5"/>
+                    <subviews>
+                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="t93-BG-gpt">
+                            <rect key="frame" x="20" y="20" width="334" height="261.5"/>
+                            <subviews>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="50%" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="itE-qz-6bx">
+                                    <rect key="frame" x="0.0" y="0.0" width="334" height="31.5"/>
+                                    <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="24"/>
+                                    <nil key="textColor"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                                <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="ruL-Fm-BeF">
+                                    <rect key="frame" x="-2" y="51.5" width="338" height="31"/>
+                                </slider>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3s7-zd-d7Z" customClass="RoundedButton" customModule="Tumolink2iOSClient" customModuleProvider="target">
+                                    <rect key="frame" x="0.0" y="101.5" width="334" height="40"/>
+                                    <color key="backgroundColor" red="0.44313725490196076" green="0.95686274509803915" blue="0.74117647058823533" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="40" id="usw-DN-Ngd"/>
+                                    </constraints>
+                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                    <state key="normal" title="キャンセル">
+                                        <color key="titleColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
+                                    </state>
+                                    <connections>
+                                        <action selector="cancelClicked:" destination="-1" eventType="touchUpInside" id="Vu9-SN-jle"/>
+                                    </connections>
+                                </button>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gh7-FU-2sl" customClass="RoundedButton" customModule="Tumolink2iOSClient" customModuleProvider="target">
+                                    <rect key="frame" x="0.0" y="161.5" width="334" height="40"/>
+                                    <color key="backgroundColor" red="0.96862745100000003" green="0.53725490200000003" blue="0.40784313729999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="40" id="fDm-h0-YBS"/>
+                                    </constraints>
+                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                    <state key="normal" title="ツモる">
+                                        <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </state>
+                                    <connections>
+                                        <action selector="addTumoliClicked:" destination="-1" eventType="touchUpInside" id="Qqk-ci-Ac0"/>
+                                    </connections>
+                                </button>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xkk-5u-hHz" customClass="RoundedButton" customModule="Tumolink2iOSClient" customModuleProvider="target">
+                                    <rect key="frame" x="0.0" y="221.5" width="334" height="40"/>
+                                    <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="40" id="vw6-q4-Uch"/>
+                                    </constraints>
+                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                    <state key="normal" title="削除">
+                                        <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </state>
+                                    <connections>
+                                        <action selector="deleteClicked:" destination="-1" eventType="touchUpInside" id="JdJ-GG-9KM"/>
+                                    </connections>
+                                </button>
+                            </subviews>
+                        </stackView>
+                    </subviews>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstItem="t93-BG-gpt" firstAttribute="top" secondItem="otC-vJ-70V" secondAttribute="top" constant="20" id="I6i-AR-gs5"/>
+                        <constraint firstAttribute="bottom" secondItem="t93-BG-gpt" secondAttribute="bottom" constant="20" id="S5g-2A-2Xk"/>
+                        <constraint firstAttribute="trailing" secondItem="t93-BG-gpt" secondAttribute="trailing" constant="20" id="fOt-Gx-zip"/>
+                        <constraint firstItem="t93-BG-gpt" firstAttribute="leading" secondItem="otC-vJ-70V" secondAttribute="leading" constant="20" id="lNd-BG-rv4"/>
+                    </constraints>
+                </view>
+                <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="FIC-tk-QhV">
+                    <rect key="frame" x="188.5" y="429.5" width="37" height="37"/>
+                    <color key="color" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                </activityIndicatorView>
+            </subviews>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <constraints>
+                <constraint firstItem="otC-vJ-70V" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" id="122-DM-xLT"/>
+                <constraint firstItem="gX7-ZV-Xm0" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="511-CM-dih"/>
+                <constraint firstAttribute="bottom" secondItem="gX7-ZV-Xm0" secondAttribute="bottom" id="AtI-Pb-yVg"/>
+                <constraint firstItem="gX7-ZV-Xm0" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="CoT-4O-YQJ"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="otC-vJ-70V" secondAttribute="trailing" constant="20" id="RKY-7N-BpA"/>
+                <constraint firstItem="otC-vJ-70V" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="20" id="Sn0-N3-KWH"/>
+                <constraint firstItem="FIC-tk-QhV" firstAttribute="centerY" secondItem="t93-BG-gpt" secondAttribute="centerY" id="YsY-hL-QRF"/>
+                <constraint firstItem="gX7-ZV-Xm0" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="wLS-yT-7Rb"/>
+                <constraint firstItem="FIC-tk-QhV" firstAttribute="centerX" secondItem="t93-BG-gpt" secondAttribute="centerX" id="yKc-1h-Vnk"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
+            <point key="canvasLocation" x="47.826086956521742" y="35.491071428571423"/>
+        </view>
+    </objects>
+</document>

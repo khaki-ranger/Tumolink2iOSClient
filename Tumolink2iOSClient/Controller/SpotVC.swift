@@ -24,11 +24,17 @@ class SpotVC: UIViewController {
     @IBOutlet weak var dayTxt: UILabel!
     @IBOutlet weak var dayOfWeekTxt: UILabel!
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
+    @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var addTumoliBtn: CircleShadowButtonView!
     
     // MARK: Valiables
     var spot: Spot!
     var spotImages = [String]()
     var isOwner = false
+    var tumolis = [Tumoli]()
+    var db: Firestore!
+    var listener: ListenerRegistration!
+    var tumoliToEdit: Tumoli?
 
     // MARK: Functions
     override func viewDidLoad() {
@@ -40,13 +46,85 @@ class SpotVC: UIViewController {
         setupOwnerImg()
         setupPageControl()
         controlOfNextAndPrev()
-        setupDateTxt()
+        setupDateTxt(date: Date())
+        db = Firestore.firestore()
+        setupTableView()
         
         // ログイン中のユーザーがこのスポットのオーナーかどうかを判定
         if spot.owner == UserService.user.id {
             isOwner = true
             setupNavigation()
         }
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        setTumoliListener()
+    }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        listener.remove()
+        tumolis.removeAll()
+        tableView.reloadData()
+    }
+    
+    private func setupTableView() {
+        tableView.delegate = self
+        tableView.dataSource = self
+        tableView.register(UINib(nibName: Identifiers.TumoliCell, bundle: nil), forCellReuseIdentifier: Identifiers.TumoliCell)
+    }
+    
+    // ツモリテーブルに表示されるセルのデータを制御するメソッド
+    private func setTumoliListener() {
+        let ref = db.tumolis(spotId: spot.id)
+        
+        listener = ref.addSnapshotListener({ (snap, error) in
+            
+            if let error = error {
+                debugPrint(error.localizedDescription)
+                return
+            }
+            
+            snap?.documentChanges.forEach({ (change) in
+                let data = change.document.data()
+                let tumoli = Tumoli.init(data: data)
+                
+                switch change.type {
+                case .added:
+                    self.onDocumentAdded(change: change, tumoli: tumoli)
+                case .modified:
+                    self.onDocumentModified(change: change, tumoli: tumoli)
+                case .removed:
+                    self.onDocumentRemoved(change: change)
+                @unknown default:
+                    return
+                }
+            })
+            
+            // ログインユーザーのツモリがあるかどうかを確認する
+            snap?.documents.forEach({ (document) in
+                let data = document.data()
+                let tumoli = Tumoli.init(data: data)
+                if tumoli.userId == UserService.user.id {
+                    self.tumoliToEdit = tumoli
+                }
+            })
+            
+            if self.tumoliToEdit == nil {
+                self.appearTumoliBtnWithAnimasion()
+            }
+        })
+    }
+    
+    private func appearTumoliBtnWithAnimasion() {
+        UIView.animate(withDuration: 0.4, delay: 0.1, options: [.curveEaseOut], animations: {
+            self.addTumoliBtn.center.y -= 174.0
+            self.addTumoliBtn.alpha = 1.0
+        }, completion: nil)
+    }
+    
+    func disappearTumoliBtn() {
+        addTumoliBtn.center.y += 174.0
+        addTumoliBtn.alpha = 0.0
     }
     
     private func setupCollectionView() {
@@ -85,9 +163,9 @@ class SpotVC: UIViewController {
         pageControl.currentPage = 0
     }
     
-    private func setupDateTxt() {
+    private func setupDateTxt(date: Date) {
         let dayOfWeekStringJp: [Int: String] = [1: "日", 2: "月", 3: "火", 4: "水", 5: "木", 6: "金", 7: "土"]
-        let date = Date()
+        let date = date
         let calendar = Calendar.current
         let year = calendar.component(.year, from: date)
         let month = calendar.component(.month, from: date)
@@ -165,6 +243,19 @@ class SpotVC: UIViewController {
     }
     
     // MARK: Actions
+    @IBAction func addTumoliClicked(_ sender: Any) {
+        appearAddTumoliVC()
+    }
+    
+    private func appearAddTumoliVC() {
+        let vc = AddTumoliVC()
+        vc.spot = spot
+        vc.tumoliToEdit = tumoliToEdit
+        vc.modalTransitionStyle = .crossDissolve
+        vc.modalPresentationStyle = .overCurrentContext
+        present(vc, animated: true, completion: nil)
+    }
+    
     @IBAction func prevTapped(_ sender: Any) {
         let prev = max(0, pageControl.currentPage - 1)
         let index = IndexPath(item: prev, section: 0)
@@ -217,5 +308,65 @@ extension SpotVC : UICollectionViewDelegate, UICollectionViewDataSource, UIColle
         let index = Int(x / view.frame.width)
         pageControl.currentPage = index
         controlOfNextAndPrev()
+    }
+}
+
+extension SpotVC : UITableViewDelegate, UITableViewDataSource {
+    
+    // データベースの変更に対して実行されるメソッド - begin
+    private func onDocumentAdded(change: DocumentChange, tumoli: Tumoli) {
+        let newIndex = Int(change.newIndex)
+        tumolis.insert(tumoli, at: newIndex)
+        tableView.insertRows(at: [IndexPath(row: newIndex, section: 0)], with: .fade)
+    }
+    
+    private func onDocumentModified(change: DocumentChange, tumoli: Tumoli) {
+        if change.newIndex == change.oldIndex {
+            // Row change, but remained in the same position
+            let index = Int(change.newIndex)
+            tumolis[index] = tumoli
+            tableView.reloadRows(at: [IndexPath(row: index, section: 0)], with: .none)
+        } else {
+            // Row changed and changed position
+            let newIndex = Int(change.newIndex)
+            let oldIndex = Int(change.oldIndex)
+            tumolis.remove(at: oldIndex)
+            tumolis.insert(tumoli, at: newIndex)
+            tableView.moveRow(at: IndexPath(row: oldIndex, section: 0), to: IndexPath(row: newIndex, section: 0))
+            tableView.reloadRows(at: [IndexPath(row: newIndex, section: 0)], with: .none)
+        }
+    }
+    
+    private func onDocumentRemoved(change: DocumentChange) {
+        let oldIndex = Int(change.oldIndex)
+        tumolis.remove(at: oldIndex)
+        tableView.deleteRows(at: [IndexPath(row: oldIndex, section: 0)], with: .left)
+    }
+    // データベースの変更に対して実行されるメソッド - end
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return tumolis.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        if let cell = tableView.dequeueReusableCell(withIdentifier: Identifiers.TumoliCell, for: indexPath) as? TumoliCell {
+            cell.configureCell(tumoli: tumolis[indexPath.row])
+            return cell
+        }
+        
+        return UITableViewCell()
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let selectedRow = tumolis[indexPath.row]
+        if selectedRow.userId == UserService.user.id {
+            appearAddTumoliVC()
+        }
+        //セルの選択解除
+        tableView.deselectRow(at: indexPath, animated: false)
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 72
     }
 }

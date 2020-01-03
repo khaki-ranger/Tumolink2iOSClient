@@ -72,6 +72,7 @@
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
                 <outlet property="activityIndicator" destination="baH-FH-Wfx" id="oBK-r6-bgB"/>
+                <outlet property="fullroundedShadowView" destination="CY2-YF-eeQ" id="aQ7-M0-bd7"/>
                 <outlet property="possibilityLbl" destination="JTD-7x-Lw8" id="nJ2-7g-aeW"/>
                 <outlet property="profileImg" destination="vQt-R7-hKI" id="CTH-dV-5F5"/>
                 <outlet property="usernameLbl" destination="fnp-sK-NJr" id="1Th-Rl-wXC"/>

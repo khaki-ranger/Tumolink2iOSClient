@@ -41,7 +41,7 @@ class AddTumoliVC: UIViewController {
     }
     
     private func setupEditMode(tumoli: Tumoli) {
-        addEditBtn.setTitle("編集", for: .normal)
+        addEditBtn.setTitle("変更", for: .normal)
         
         possibility = tumoli.possibility
         possibilityLbl.text = "\(possibility)%"
@@ -145,6 +145,13 @@ class AddTumoliVC: UIViewController {
                 self.simpleAlert(title: "エラー", msg: "データのアップロードに失敗しました")
                 return
             }
+            
+            // 遷移元のaddTumoliBtnの位置と透明度を変更する
+            let naviVC = self.presentingViewController as! UINavigationController
+            guard let prevVC = naviVC.viewControllers[naviVC.viewControllers.count - 1] as? SpotVC else {
+                return
+            }
+            prevVC.disappearTumoliBtn()
             
             self.dismiss(animated: true, completion: nil)
         }

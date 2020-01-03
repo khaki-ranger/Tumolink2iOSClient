@@ -25,6 +25,7 @@ class SpotVC: UIViewController {
     @IBOutlet weak var dayOfWeekTxt: UILabel!
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var addTumoliBtn: CircleShadowButtonView!
     
     // MARK: Valiables
     var spot: Spot!
@@ -107,7 +108,23 @@ class SpotVC: UIViewController {
                     self.tumoliToEdit = tumoli
                 }
             })
+            
+            if self.tumoliToEdit == nil {
+                self.appearTumoliBtnWithAnimasion()
+            }
         })
+    }
+    
+    private func appearTumoliBtnWithAnimasion() {
+        UIView.animate(withDuration: 0.4, delay: 0.1, options: [.curveEaseOut], animations: {
+            self.addTumoliBtn.center.y -= 174.0
+            self.addTumoliBtn.alpha = 1.0
+        }, completion: nil)
+    }
+    
+    func disappearTumoliBtn() {
+        addTumoliBtn.center.y += 174.0
+        addTumoliBtn.alpha = 0.0
     }
     
     private func setupCollectionView() {
@@ -227,6 +244,10 @@ class SpotVC: UIViewController {
     
     // MARK: Actions
     @IBAction func addTumoliClicked(_ sender: Any) {
+        appearAddTumoliVC()
+    }
+    
+    private func appearAddTumoliVC() {
         let vc = AddTumoliVC()
         vc.spot = spot
         vc.tumoliToEdit = tumoliToEdit
@@ -334,6 +355,15 @@ extension SpotVC : UITableViewDelegate, UITableViewDataSource {
         }
         
         return UITableViewCell()
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let selectedRow = tumolis[indexPath.row]
+        if selectedRow.userId == UserService.user.id {
+            appearAddTumoliVC()
+        }
+        //セルの選択解除
+        tableView.deselectRow(at: indexPath, animated: false)
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {

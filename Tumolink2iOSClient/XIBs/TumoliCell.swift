@@ -17,6 +17,7 @@ class TumoliCell: UITableViewCell {
     @IBOutlet weak var usernameLbl: UILabel!
     @IBOutlet weak var possibilityLbl: UILabel!
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
+    @IBOutlet weak var fullroundedShadowView: FullRoundedShadowView!
     
     // MARK: Variables
 
@@ -33,6 +34,10 @@ class TumoliCell: UITableViewCell {
     }
     
     func configureCell(tumoli: Tumoli) {
+        if tumoli.userId == UserService.user.id {
+            fullroundedShadowView.backgroundColor = #colorLiteral(red: 1, green: 0.6705882353, blue: 0.568627451, alpha: 1)
+        }
+        
         possibilityLbl.text = String(tumoli.possibility)
         
         activityIndicator.startAnimating()

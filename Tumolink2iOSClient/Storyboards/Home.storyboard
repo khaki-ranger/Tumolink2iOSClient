@@ -348,8 +348,8 @@
                                 <rect key="frame" x="188.5" y="186" width="37" height="37"/>
                                 <color key="color" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </activityIndicatorView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ENL-37-b7t" customClass="CircleShadowButtonView" customModule="Tumolink2iOSClient" customModuleProvider="target">
-                                <rect key="frame" x="320" y="1223" width="74" height="74"/>
+                            <button opaque="NO" alpha="0.0" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ENL-37-b7t" customClass="CircleShadowButtonView" customModule="Tumolink2iOSClient" customModuleProvider="target">
+                                <rect key="frame" x="320" y="1401" width="74" height="74"/>
                                 <color key="backgroundColor" red="0.96862745100000003" green="0.53725490200000003" blue="0.40784313729999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="74" id="6oV-ps-RGN"/>
@@ -374,7 +374,7 @@
                             <constraint firstItem="tL5-Uc-YIF" firstAttribute="top" secondItem="qWx-Hh-lCV" secondAttribute="top" id="Fac-Oi-DgJ"/>
                             <constraint firstItem="qWx-Hh-lCV" firstAttribute="trailing" secondItem="tL5-Uc-YIF" secondAttribute="trailing" id="XSM-l7-pap"/>
                             <constraint firstItem="tL5-Uc-YIF" firstAttribute="leading" secondItem="qWx-Hh-lCV" secondAttribute="leading" id="pD6-ll-x3G"/>
-                            <constraint firstItem="qWx-Hh-lCV" firstAttribute="bottom" secondItem="ENL-37-b7t" secondAttribute="bottom" constant="20" id="rDe-RM-izq"/>
+                            <constraint firstItem="qWx-Hh-lCV" firstAttribute="bottom" secondItem="ENL-37-b7t" secondAttribute="bottom" constant="-158" id="rDe-RM-izq"/>
                             <constraint firstItem="uz6-mC-aFQ" firstAttribute="width" secondItem="gXK-Zj-h9u" secondAttribute="width" id="zCa-Mv-RtQ"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="qWx-Hh-lCV"/>
@@ -382,6 +382,7 @@
                     <size key="freeformSize" width="414" height="1400"/>
                     <connections>
                         <outlet property="activityIndicator" destination="hFx-m7-7t3" id="03T-aZ-N5C"/>
+                        <outlet property="addTumoliBtn" destination="ENL-37-b7t" id="7I6-6W-0tI"/>
                         <outlet property="dayOfWeekTxt" destination="uGr-HP-k4u" id="bKe-J2-che"/>
                         <outlet property="dayTxt" destination="IHC-WG-617" id="fbe-Uu-ZoV"/>
                         <outlet property="monthTxt" destination="nCn-tR-n8P" id="gZ2-tm-rB3"/>
@@ -436,6 +437,6 @@
         <image name="no_image" width="300" height="300"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="NS8-dt-1bM"/>
+        <segue reference="W5e-Z1-6xd"/>
     </inferredMetricsTieBreakers>
 </document>

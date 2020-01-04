@@ -133,7 +133,7 @@ class EditUserVC: UIViewController {
                 return
             }
             
-            self.navigationController?.popToRootViewController(animated: true)
+            self.dismiss(animated: true, completion: nil)
         }
     }
 }

@@ -21,6 +21,10 @@ extension Firestore {
             .order(by: "possibility",  descending: true)
     }
     
+    func tumolis(userId: String) -> Query {
+        return collection("tumolis").whereField("userId", isEqualTo: userId)
+    }
+    
 }
 
 struct FirestoreCollectionIds {

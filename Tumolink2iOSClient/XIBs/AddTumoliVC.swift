@@ -86,7 +86,7 @@ class AddTumoliVC: UIViewController {
         present(alert, animated: true, completion: nil)
     }
     
-    // Firestoreのツモリの値を変更する処理
+    // FirestoreのisActiveの値を変更する処理
     private func changeIsActiveValue() {
         guard let tumoli = tumoliToEdit else { return }
         
@@ -120,6 +120,8 @@ class AddTumoliVC: UIViewController {
         
         var tumoli = Tumoli.init(id: "",
                                  userId: UserService.user.id,
+                                 username: UserService.user.username,
+                                 userImg: UserService.user.imageUrl,
                                  spotId: spot.id,
                                  possibility: possibility,
                                  isActive: true,

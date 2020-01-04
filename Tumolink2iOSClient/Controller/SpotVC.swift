@@ -39,6 +39,7 @@ class SpotVC: UIViewController {
     // MARK: Functions
     override func viewDidLoad() {
         super.viewDidLoad()
+        db = Firestore.firestore()
 
         navigationItem.title = spot.name
         spotImages = spot.images
@@ -47,7 +48,6 @@ class SpotVC: UIViewController {
         setupPageControl()
         controlOfNextAndPrev()
         setupDateTxt(date: Date())
-        db = Firestore.firestore()
         setupTableView()
         
         // ログイン中のユーザーがこのスポットのオーナーかどうかを判定

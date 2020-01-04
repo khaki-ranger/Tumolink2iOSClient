@@ -45,19 +45,13 @@
                                     </label>
                                 </subviews>
                             </stackView>
-                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="baH-FH-Wfx">
-                                <rect key="frame" x="173.5" y="9.5" width="37" height="37"/>
-                                <color key="color" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="7eU-DE-b4P" firstAttribute="top" secondItem="CY2-YF-eeQ" secondAttribute="top" constant="6" id="DXa-RS-aWa"/>
                             <constraint firstAttribute="bottom" secondItem="7eU-DE-b4P" secondAttribute="bottom" constant="6" id="N4j-Kr-Z5c"/>
-                            <constraint firstItem="baH-FH-Wfx" firstAttribute="centerX" secondItem="CY2-YF-eeQ" secondAttribute="centerX" id="TsY-Zo-HrJ"/>
                             <constraint firstAttribute="trailing" secondItem="7eU-DE-b4P" secondAttribute="trailing" constant="14" id="Uw0-JL-JYy"/>
                             <constraint firstItem="7eU-DE-b4P" firstAttribute="leading" secondItem="CY2-YF-eeQ" secondAttribute="leading" constant="6" id="gql-xs-XTk"/>
-                            <constraint firstItem="baH-FH-Wfx" firstAttribute="centerY" secondItem="CY2-YF-eeQ" secondAttribute="centerY" id="jgp-FB-kIk"/>
                         </constraints>
                     </view>
                 </subviews>
@@ -71,7 +65,6 @@
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
-                <outlet property="activityIndicator" destination="baH-FH-Wfx" id="oBK-r6-bgB"/>
                 <outlet property="fullroundedShadowView" destination="CY2-YF-eeQ" id="aQ7-M0-bd7"/>
                 <outlet property="possibilityLbl" destination="JTD-7x-Lw8" id="nJ2-7g-aeW"/>
                 <outlet property="profileImg" destination="vQt-R7-hKI" id="CTH-dV-5F5"/>

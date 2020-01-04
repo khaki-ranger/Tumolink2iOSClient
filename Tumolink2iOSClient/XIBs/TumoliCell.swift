@@ -16,7 +16,6 @@ class TumoliCell: UITableViewCell {
     @IBOutlet weak var profileImg: CircleImageView!
     @IBOutlet weak var usernameLbl: UILabel!
     @IBOutlet weak var possibilityLbl: UILabel!
-    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     @IBOutlet weak var fullroundedShadowView: FullRoundedShadowView!
     
     // MARK: Variables
@@ -34,34 +33,18 @@ class TumoliCell: UITableViewCell {
     }
     
     func configureCell(tumoli: Tumoli) {
-        if tumoli.userId == UserService.user.id {
-            fullroundedShadowView.backgroundColor = #colorLiteral(red: 1, green: 0.6705882353, blue: 0.568627451, alpha: 1)
+        usernameLbl.text = tumoli.username
+        possibilityLbl.text = String(tumoli.possibility)
+        if let url = URL(string: tumoli.userImg) {
+            let placeholder = UIImage(named: AppImages.Placeholder)
+            let options : KingfisherOptionsInfo = [KingfisherOptionsInfoItem.transition(.fade(0.2))]
+            self.profileImg.kf.indicatorType = .activity
+            self.profileImg.kf.setImage(with: url, placeholder: placeholder, options: options)
         }
         
-        possibilityLbl.text = String(tumoli.possibility)
-        
-        activityIndicator.startAnimating()
-        
-        let docRef = Firestore.firestore().collection(FirestoreCollectionIds.Users).document(tumoli.userId)
-        docRef.addSnapshotListener { (snap, error) in
-            
-            self.activityIndicator.stopAnimating()
-            
-            if let error = error {
-                debugPrint(error.localizedDescription)
-                return
-            }
-            
-            guard let data = snap?.data() else { return }
-            let user = User.init(data: data)
-            self.usernameLbl.text = user.username
-            
-            if let url = URL(string: user.imageUrl) {
-                let placeholder = UIImage(named: AppImages.Placeholder)
-                let options : KingfisherOptionsInfo = [KingfisherOptionsInfoItem.transition(.fade(0.2))]
-                self.profileImg.kf.indicatorType = .activity
-                self.profileImg.kf.setImage(with: url, placeholder: placeholder, options: options)
-            }
+        // ログインユーザーはセルの背景色を変える
+        if tumoli.userId == UserService.user.id {
+            fullroundedShadowView.backgroundColor = #colorLiteral(red: 1, green: 0.6705882353, blue: 0.568627451, alpha: 1)
         }
     }
     

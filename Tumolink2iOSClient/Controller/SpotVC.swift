@@ -58,11 +58,16 @@ class SpotVC: UIViewController {
     }
     
     override func viewDidAppear(_ animated: Bool) {
+        clearAllTumolis()
         setTumoliListener()
     }
     
     override func viewDidDisappear(_ animated: Bool) {
         listener.remove()
+        clearAllTumolis()
+    }
+    
+    private func clearAllTumolis() {
         tumolis.removeAll()
         tableView.reloadData()
     }
@@ -76,11 +81,11 @@ class SpotVC: UIViewController {
     // ツモリテーブルに表示されるセルのデータを制御するメソッド
     private func setTumoliListener() {
         let ref = db.tumolis(spotId: spot.id)
-        
         listener = ref.addSnapshotListener({ (snap, error) in
             
             if let error = error {
                 debugPrint(error.localizedDescription)
+                self.simpleAlert(title: "エラー", msg: "ツモリのデータの取得に失敗しました")
                 return
             }
             

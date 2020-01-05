@@ -186,14 +186,14 @@
             <objects>
                 <viewController id="7ek-Az-kmx" customClass="SpotVC" customModule="Tumolink2iOSClient" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="gXK-Zj-h9u">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="1400"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tL5-Uc-YIF">
-                                <rect key="frame" x="0.0" y="88" width="414" height="1312"/>
+                                <rect key="frame" x="0.0" y="88" width="414" height="725"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uz6-mC-aFQ" userLabel="ContentView">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="1400"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="725"/>
                                         <subviews>
                                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="ZUB-gu-BQG">
                                                 <rect key="frame" x="0.0" y="0.0" width="414" height="233"/>
@@ -305,7 +305,7 @@
                                                 </subviews>
                                             </stackView>
                                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="GGs-vG-tTD">
-                                                <rect key="frame" x="2" y="323.5" width="410" height="1076.5"/>
+                                                <rect key="frame" x="2" y="323.5" width="410" height="401.5"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             </tableView>
                                         </subviews>
@@ -327,8 +327,8 @@
                                             <constraint firstItem="YBb-8u-CFu" firstAttribute="leading" secondItem="uz6-mC-aFQ" secondAttribute="leading" constant="20" id="agH-Xn-93K"/>
                                             <constraint firstAttribute="trailing" secondItem="GGs-vG-tTD" secondAttribute="trailing" constant="2" id="bWM-1H-bU7"/>
                                             <constraint firstItem="GGs-vG-tTD" firstAttribute="leading" secondItem="uz6-mC-aFQ" secondAttribute="leading" constant="2" id="chQ-Nt-ycu"/>
+                                            <constraint firstAttribute="bottom" secondItem="GGs-vG-tTD" secondAttribute="bottom" id="eoE-7d-9Ib"/>
                                             <constraint firstItem="GGs-vG-tTD" firstAttribute="top" secondItem="sxx-Ac-wFn" secondAttribute="bottom" constant="20" id="fmU-EB-7c9"/>
-                                            <constraint firstAttribute="bottom" secondItem="GGs-vG-tTD" secondAttribute="bottom" id="hax-F5-v8u"/>
                                             <constraint firstAttribute="trailing" secondItem="ZUB-gu-BQG" secondAttribute="trailing" id="hbZ-tN-uTp"/>
                                             <constraint firstItem="sxx-Ac-wFn" firstAttribute="centerX" secondItem="uz6-mC-aFQ" secondAttribute="centerX" id="lEC-h7-rxR"/>
                                             <constraint firstItem="gGI-gD-J3r" firstAttribute="trailing" secondItem="ZUB-gu-BQG" secondAttribute="trailing" constant="-10" id="qid-WF-0jC"/>
@@ -338,7 +338,9 @@
                                     </view>
                                 </subviews>
                                 <constraints>
+                                    <constraint firstItem="uz6-mC-aFQ" firstAttribute="width" secondItem="tL5-Uc-YIF" secondAttribute="width" id="0Vx-74-dRK"/>
                                     <constraint firstAttribute="bottom" secondItem="uz6-mC-aFQ" secondAttribute="bottom" id="Cly-ml-iD0"/>
+                                    <constraint firstItem="uz6-mC-aFQ" firstAttribute="height" secondItem="tL5-Uc-YIF" secondAttribute="height" id="f0p-bZ-5AE"/>
                                     <constraint firstItem="uz6-mC-aFQ" firstAttribute="leading" secondItem="tL5-Uc-YIF" secondAttribute="leading" id="maT-5D-b4O"/>
                                     <constraint firstItem="uz6-mC-aFQ" firstAttribute="top" secondItem="tL5-Uc-YIF" secondAttribute="top" id="vuD-YX-Dup"/>
                                     <constraint firstAttribute="trailing" secondItem="uz6-mC-aFQ" secondAttribute="trailing" id="yFh-2X-jqR"/>
@@ -349,7 +351,7 @@
                                 <color key="color" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </activityIndicatorView>
                             <button opaque="NO" alpha="0.0" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ENL-37-b7t" customClass="CircleShadowButtonView" customModule="Tumolink2iOSClient" customModuleProvider="target">
-                                <rect key="frame" x="320" y="1401" width="74" height="74"/>
+                                <rect key="frame" x="320" y="897" width="74" height="74"/>
                                 <color key="backgroundColor" red="0.96862745100000003" green="0.53725490200000003" blue="0.40784313729999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="74" id="6oV-ps-RGN"/>
@@ -366,20 +368,17 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="uz6-mC-aFQ" firstAttribute="height" secondItem="gXK-Zj-h9u" secondAttribute="height" priority="250" id="3CG-4X-EHg"/>
                             <constraint firstItem="qWx-Hh-lCV" firstAttribute="trailing" secondItem="ENL-37-b7t" secondAttribute="trailing" constant="20" id="3cj-U9-tdm"/>
-                            <constraint firstAttribute="bottom" secondItem="tL5-Uc-YIF" secondAttribute="bottom" id="8ZM-SM-rFY"/>
                             <constraint firstItem="hFx-m7-7t3" firstAttribute="centerX" secondItem="gXK-Zj-h9u" secondAttribute="centerX" id="BDL-G0-oCM"/>
                             <constraint firstItem="hFx-m7-7t3" firstAttribute="centerY" secondItem="ZUB-gu-BQG" secondAttribute="centerY" id="EQ2-Z4-Ikg"/>
                             <constraint firstItem="tL5-Uc-YIF" firstAttribute="top" secondItem="qWx-Hh-lCV" secondAttribute="top" id="Fac-Oi-DgJ"/>
+                            <constraint firstItem="qWx-Hh-lCV" firstAttribute="bottom" secondItem="tL5-Uc-YIF" secondAttribute="bottom" id="Sga-KP-zWW"/>
                             <constraint firstItem="qWx-Hh-lCV" firstAttribute="trailing" secondItem="tL5-Uc-YIF" secondAttribute="trailing" id="XSM-l7-pap"/>
                             <constraint firstItem="tL5-Uc-YIF" firstAttribute="leading" secondItem="qWx-Hh-lCV" secondAttribute="leading" id="pD6-ll-x3G"/>
                             <constraint firstItem="qWx-Hh-lCV" firstAttribute="bottom" secondItem="ENL-37-b7t" secondAttribute="bottom" constant="-158" id="rDe-RM-izq"/>
-                            <constraint firstItem="uz6-mC-aFQ" firstAttribute="width" secondItem="gXK-Zj-h9u" secondAttribute="width" id="zCa-Mv-RtQ"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="qWx-Hh-lCV"/>
                     </view>
-                    <size key="freeformSize" width="414" height="1400"/>
                     <connections>
                         <outlet property="activityIndicator" destination="hFx-m7-7t3" id="03T-aZ-N5C"/>
                         <outlet property="addTumoliBtn" destination="ENL-37-b7t" id="7I6-6W-0tI"/>
@@ -399,7 +398,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1oH-gH-b5P" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2877" y="37"/>
+            <point key="canvasLocation" x="2849" y="-131"/>
         </scene>
         <!--ホーム-->
         <scene sceneID="Z67-IV-XAh">

@@ -58,7 +58,7 @@ class SpotVC: UIViewController {
     }
     
     override func viewDidAppear(_ animated: Bool) {
-        clearAllTumolis()
+//        clearAllTumolis()
         setTumoliListener()
     }
     

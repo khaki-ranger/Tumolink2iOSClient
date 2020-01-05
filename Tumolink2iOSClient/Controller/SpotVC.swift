@@ -26,6 +26,7 @@ class SpotVC: UIViewController {
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var addTumoliBtn: CircleShadowButtonView!
+    @IBOutlet weak var tableHeight: NSLayoutConstraint!
     
     // MARK: Valiables
     var spot: Spot!
@@ -116,20 +117,26 @@ class SpotVC: UIViewController {
             
             if self.tumoliToEdit == nil {
                 self.appearTumoliBtnWithAnimasion()
+            } else {
+                self.disappearTumoliBtn()
             }
         })
     }
     
-    private func appearTumoliBtnWithAnimasion() {
+    func appearTumoliBtnWithAnimasion() {
         UIView.animate(withDuration: 0.4, delay: 0.1, options: [.curveEaseOut], animations: {
-            self.addTumoliBtn.center.y -= 174.0
             self.addTumoliBtn.alpha = 1.0
         }, completion: nil)
+        changeTableHeight(margin: 114)
     }
     
     func disappearTumoliBtn() {
-        addTumoliBtn.center.y += 174.0
         addTumoliBtn.alpha = 0.0
+        changeTableHeight(margin: 10)
+    }
+    
+    private func changeTableHeight(margin: CGFloat) {
+        tableHeight.constant = tableView.contentSize.height + margin
     }
     
     private func setupCollectionView() {

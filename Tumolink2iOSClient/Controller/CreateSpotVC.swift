@@ -51,7 +51,7 @@ class CreateSpotVC: UIViewController {
         nameTxt.text = spot.name
         // 画像をセットアップ
         var count = 0
-        while count < spot.images.count {
+        while count < spot.images.count && count < spotImageViews.count {
             imageUrls.append(spot.images[count])
             if let url = URL(string: spot.images[count]) {
                 spotImageViews[count].contentMode = .scaleAspectFill

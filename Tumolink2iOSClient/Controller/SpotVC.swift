@@ -127,7 +127,7 @@ class SpotVC: UIViewController {
         UIView.animate(withDuration: 0.4, delay: 0.1, options: [.curveEaseOut], animations: {
             self.addTumoliBtn.alpha = 1.0
         }, completion: nil)
-        changeTableHeight(margin: 114)
+        changeTableHeight(margin: 140)
     }
     
     func disappearTumoliBtn() {

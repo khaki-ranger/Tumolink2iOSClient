@@ -34,7 +34,7 @@
 		D1BBF97023A22E12003C7D61 /* SpotCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1BBF96E23A22E12003C7D61 /* SpotCell.swift */; };
 		D1BBF97123A22E12003C7D61 /* SpotCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D1BBF96F23A22E12003C7D61 /* SpotCell.xib */; };
 		D1BBF97323A2330E003C7D61 /* Spot.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1BBF97223A2330E003C7D61 /* Spot.swift */; };
-		D1CC783C23A479C000CD9D7B /* Spot.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D1CC783B23A479C000CD9D7B /* Spot.storyboard */; };
+		D1CC783C23A479C000CD9D7B /* Information.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D1CC783B23A479C000CD9D7B /* Information.storyboard */; };
 		D1CC783E23A48BF000CD9D7B /* CreateSpotVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1CC783D23A48BF000CD9D7B /* CreateSpotVC.swift */; };
 		D1D6DC4523B72E5900AAE0B5 /* AddTumoliVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1D6DC4323B72E5900AAE0B5 /* AddTumoliVC.swift */; };
 		D1D6DC4623B72E5900AAE0B5 /* AddTumoliVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = D1D6DC4423B72E5900AAE0B5 /* AddTumoliVC.xib */; };
@@ -77,7 +77,7 @@
 		D1BBF96E23A22E12003C7D61 /* SpotCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpotCell.swift; sourceTree = "<group>"; };
 		D1BBF96F23A22E12003C7D61 /* SpotCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SpotCell.xib; sourceTree = "<group>"; };
 		D1BBF97223A2330E003C7D61 /* Spot.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Spot.swift; sourceTree = "<group>"; };
-		D1CC783B23A479C000CD9D7B /* Spot.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Spot.storyboard; sourceTree = "<group>"; };
+		D1CC783B23A479C000CD9D7B /* Information.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Information.storyboard; sourceTree = "<group>"; };
 		D1CC783D23A48BF000CD9D7B /* CreateSpotVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateSpotVC.swift; sourceTree = "<group>"; };
 		D1D6DC4323B72E5900AAE0B5 /* AddTumoliVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTumoliVC.swift; sourceTree = "<group>"; };
 		D1D6DC4423B72E5900AAE0B5 /* AddTumoliVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddTumoliVC.xib; sourceTree = "<group>"; };
@@ -219,7 +219,7 @@
 			children = (
 				D193677B2391FAE80000B652 /* LoginStoryboard.storyboard */,
 				D1BBF96823A1D38D003C7D61 /* Home.storyboard */,
-				D1CC783B23A479C000CD9D7B /* Spot.storyboard */,
+				D1CC783B23A479C000CD9D7B /* Information.storyboard */,
 				D1BBF96A23A1D629003C7D61 /* MyPage.storyboard */,
 				D1896E1F2390F30B004EC82A /* Main.storyboard */,
 				D1896E242390F30D004EC82A /* LaunchScreen.storyboard */,
@@ -301,7 +301,7 @@
 				D15EABF223B3501400A42D5D /* TumoliCell.xib in Resources */,
 				D1896E262390F30D004EC82A /* LaunchScreen.storyboard in Resources */,
 				D1BBF97123A22E12003C7D61 /* SpotCell.xib in Resources */,
-				D1CC783C23A479C000CD9D7B /* Spot.storyboard in Resources */,
+				D1CC783C23A479C000CD9D7B /* Information.storyboard in Resources */,
 				D1896E232390F30D004EC82A /* Assets.xcassets in Resources */,
 				D1BBF96B23A1D629003C7D61 /* MyPage.storyboard in Resources */,
 				D14E3E6B23A3659200978AFC /* SpotImageCell.xib in Resources */,

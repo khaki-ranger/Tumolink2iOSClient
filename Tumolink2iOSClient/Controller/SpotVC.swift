@@ -59,7 +59,7 @@ class SpotVC: UIViewController {
     }
     
     override func viewDidAppear(_ animated: Bool) {
-//        clearAllTumolis()
+        clearAllTumolis()
         setTumoliListener()
     }
     
@@ -132,7 +132,7 @@ class SpotVC: UIViewController {
     
     func disappearTumoliBtn() {
         addTumoliBtn.alpha = 0.0
-        changeTableHeight(margin: 10)
+        changeTableHeight(margin: 36)
     }
     
     private func changeTableHeight(margin: CGFloat) {

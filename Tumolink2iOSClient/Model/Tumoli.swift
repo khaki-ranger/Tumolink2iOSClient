@@ -12,6 +12,8 @@ import FirebaseFirestore
 struct Tumoli {
     var id: String
     var userId: String
+    var username: String
+    var userImg: String
     var spotId: String
     var possibility: Int
     var isActive: Bool
@@ -21,6 +23,8 @@ struct Tumoli {
     
     init(id: String = "",
          userId: String = "",
+         username: String = "",
+         userImg: String = "",
          spotId: String = "",
          possibility: Int = 0,
          isActive: Bool = true,
@@ -30,6 +34,8 @@ struct Tumoli {
         
         self.id = id
         self.userId = userId
+        self.username = username
+        self.userImg = userImg
         self.spotId = spotId
         self.possibility = possibility
         self.isActive = isActive
@@ -41,6 +47,8 @@ struct Tumoli {
     init(data: [String: Any]) {
         id = data["id"] as? String ?? ""
         userId = data["userId"] as? String ?? ""
+        username = data["username"] as? String ?? ""
+        userImg = data["userImg"] as? String ?? ""
         spotId = data["spotId"] as? String ?? ""
         possibility = data["possibility"] as? Int ?? 0
         isActive = data["isActive"] as? Bool ?? true
@@ -53,6 +61,8 @@ struct Tumoli {
         let data: [String: Any] = [
             "id" : tumoli.id,
             "userId" : tumoli.userId,
+            "username" : tumoli.username,
+            "userImg" : tumoli.userImg,
             "spotId" : tumoli.spotId,
             "possibility" : tumoli.possibility,
             "isActive" : tumoli.isActive,

@@ -18,10 +18,15 @@ class MyPageVC: UIViewController {
     // MARK: Functions
     override func viewDidLoad() {
         super.viewDidLoad()
+        setupProfile()
     }
     
     override func viewDidAppear(_ animated: Bool) {
-        setupProfile()
+        if let username = usernameTxt.text {
+            if username != UserService.user.username {
+                setupProfile()
+            }
+        }
     }
     
     private func setupProfile() {

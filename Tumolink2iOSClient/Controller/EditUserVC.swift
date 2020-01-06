@@ -18,12 +18,14 @@ class EditUserVC: UIViewController {
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
     // MARK: Variables
+    var db: Firestore!
     var profileImgChenged = false // 画像が変更されたかどうかをチェックするための変数
     var username: String = ""
 
     // MARK: Functions
     override func viewDidLoad() {
         super.viewDidLoad()
+        db = Firestore.firestore()
         
         setupProfile()
         setupTapGesture()
@@ -124,7 +126,7 @@ class EditUserVC: UIViewController {
                                 username: username,
                                 imageUrl: url)
         
-        let docRef = Firestore.firestore().collection(FirestoreCollectionIds.Users).document(UserService.user.id)
+        let docRef = db.collection(FirestoreCollectionIds.Users).document(UserService.user.id)
         let data = User.modelToData(user: user)
         docRef.setData(data, merge: true) { (error) in
             if let error = error {
@@ -133,7 +135,36 @@ class EditUserVC: UIViewController {
                 return
             }
             
-            self.navigationController?.popToRootViewController(animated: true)
+            // ツモリのデータも変更する
+            self.updateTumoliDocuments(imageUrl: url)
+        }
+    }
+    
+    private func updateTumoliDocuments(imageUrl: String) {
+        let ref = db.tumolis(userId: UserService.user.id)
+        ref.getDocuments { (snap, error) in
+            
+            if let error = error {
+                debugPrint(error.localizedDescription)
+                return
+            }
+            
+            guard let documents = snap?.documents else { return }
+            
+            for document in documents {
+                document.reference.updateData([
+                    "username" : self.username,
+                    "userImg" : imageUrl
+                    ]) { (error) in
+                    
+                    if let error = error {
+                        debugPrint(error.localizedDescription)
+                        return
+                    }
+                }
+            }
+            
+            self.dismiss(animated: true, completion: nil)
         }
     }
 }

@@ -26,6 +26,7 @@ class SpotVC: UIViewController {
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var addTumoliBtn: CircleShadowButtonView!
+    @IBOutlet weak var tableHeight: NSLayoutConstraint!
     
     // MARK: Valiables
     var spot: Spot!
@@ -39,6 +40,7 @@ class SpotVC: UIViewController {
     // MARK: Functions
     override func viewDidLoad() {
         super.viewDidLoad()
+        db = Firestore.firestore()
 
         navigationItem.title = spot.name
         spotImages = spot.images
@@ -47,7 +49,6 @@ class SpotVC: UIViewController {
         setupPageControl()
         controlOfNextAndPrev()
         setupDateTxt(date: Date())
-        db = Firestore.firestore()
         setupTableView()
         
         // ログイン中のユーザーがこのスポットのオーナーかどうかを判定
@@ -58,11 +59,16 @@ class SpotVC: UIViewController {
     }
     
     override func viewDidAppear(_ animated: Bool) {
+        clearAllTumolis()
         setTumoliListener()
     }
     
     override func viewDidDisappear(_ animated: Bool) {
         listener.remove()
+        clearAllTumolis()
+    }
+    
+    private func clearAllTumolis() {
         tumolis.removeAll()
         tableView.reloadData()
     }
@@ -76,11 +82,11 @@ class SpotVC: UIViewController {
     // ツモリテーブルに表示されるセルのデータを制御するメソッド
     private func setTumoliListener() {
         let ref = db.tumolis(spotId: spot.id)
-        
         listener = ref.addSnapshotListener({ (snap, error) in
             
             if let error = error {
                 debugPrint(error.localizedDescription)
+                self.simpleAlert(title: "エラー", msg: "ツモリのデータの取得に失敗しました")
                 return
             }
             
@@ -111,20 +117,26 @@ class SpotVC: UIViewController {
             
             if self.tumoliToEdit == nil {
                 self.appearTumoliBtnWithAnimasion()
+            } else {
+                self.disappearTumoliBtn()
             }
         })
     }
     
-    private func appearTumoliBtnWithAnimasion() {
+    func appearTumoliBtnWithAnimasion() {
         UIView.animate(withDuration: 0.4, delay: 0.1, options: [.curveEaseOut], animations: {
-            self.addTumoliBtn.center.y -= 174.0
             self.addTumoliBtn.alpha = 1.0
         }, completion: nil)
+        changeTableHeight(margin: 140)
     }
     
     func disappearTumoliBtn() {
-        addTumoliBtn.center.y += 174.0
         addTumoliBtn.alpha = 0.0
+        changeTableHeight(margin: 36)
+    }
+    
+    private func changeTableHeight(margin: CGFloat) {
+        tableHeight.constant = tableView.contentSize.height + margin
     }
     
     private func setupCollectionView() {

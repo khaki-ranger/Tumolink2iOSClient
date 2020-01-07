@@ -24,18 +24,18 @@ struct Spot {
         id: String,
         name: String,
         owner: String,
-        description: String,
         images: [String],
-        address: String,
-        isPublic: Bool,
-        isActive: Bool,
+        description: String = "",
+        address: String = "",
+        isPublic: Bool = true,
+        isActive: Bool = true,
         timeStamp: Timestamp = Timestamp()) {
         
         self.id = id
         self.name = name
         self.owner = owner
-        self.description = description
         self.images = images
+        self.description = description
         self.address = address
         self.isPublic = isPublic
         self.isActive = isActive
@@ -46,8 +46,8 @@ struct Spot {
         self.id = data["id"] as? String ?? ""
         self.name = data["name"] as? String ?? ""
         self.owner = data["owner"] as? String ?? ""
-        self.description = data["description"] as? String ?? ""
         self.images = data["images"] as? [String] ?? [String]()
+        self.description = data["description"] as? String ?? ""
         self.address = data["address"] as? String ?? ""
         self.isPublic = data["isPublic"] as? Bool ?? true
         self.isActive = data["isActive"] as? Bool ?? true
@@ -59,8 +59,8 @@ struct Spot {
             "id": spot.id,
             "name": spot.name,
             "owner": spot.owner,
-            "description": spot.description,
             "images": spot.images,
+            "description": spot.description,
             "address": spot.address,
             "isPublic": spot.isPublic,
             "isActive": spot.isActive,

@@ -33,9 +33,13 @@ struct FirestoreCollectionIds {
     static let Tumolis = "tumolis"
 }
 
+struct FirestoreSubCollectionIds {
+    static let Memgers = "members"
+    static let MySpots = "mySpots"
+}
+
 struct FirestorageDirectories {
     static let SpotImages = "spotImages"
-    
 }
 
 extension Auth {

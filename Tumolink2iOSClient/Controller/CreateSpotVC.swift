@@ -21,6 +21,7 @@ class CreateSpotVC: UIViewController {
     @IBOutlet weak var addEditBtn: RoundedButton!
     
     // MARK: Variables
+    var db: Firestore!
     var spotToEdit: Spot?
     var tappedImageView: UIImageView?
     // Firestoreにアップロードした画像のURLを格納する配列
@@ -30,6 +31,7 @@ class CreateSpotVC: UIViewController {
     // MARK: Functions
     override func viewDidLoad() {
         super.viewDidLoad()
+        db = Firestore.firestore()
         
         setupTapGesture()
         
@@ -118,26 +120,58 @@ class CreateSpotVC: UIViewController {
         var spot = Spot.init(id: "",
                              name: spotName,
                              owner: UserService.user.id,
-                             description: "",
-                             images: imageUrls,
-                             address: "",
-                             isPublic: true,
-                             isActive: true)
+                             images: imageUrls)
         
         var docRef: DocumentReference!
         // productToEditがnilかどうかで、編集と新規作成の処理を分岐
         if let spotToEdit = spotToEdit {
             // 編集
-            docRef = Firestore.firestore().collection(FirestoreCollectionIds.Spots).document(spotToEdit.id)
+            docRef = db.collection(FirestoreCollectionIds.Spots).document(spotToEdit.id)
             spot.id = spotToEdit.id
         } else {
             // 新規作成
-            docRef = Firestore.firestore().collection(FirestoreCollectionIds.Spots).document()
+            docRef = db.collection(FirestoreCollectionIds.Spots).document()
             spot.id = docRef.documentID
         }
         
         let data = Spot.modelToData(spot: spot)
         docRef.setData(data, merge: true) { (error) in
+            if let error = error {
+                self.handleError(error: error, msg: "データのアップロードに失敗しました")
+            }
+            
+            if self.spotToEdit == nil {
+                // 新規作成の場合、spotsにサブコレクションとしてmambersを定義
+                // そのコレクションにログインユーザーのUserドキュメントを追加する
+                self.registerMember(spot: spot)
+            } else {
+                self.navigationController?.popToRootViewController(animated: true)
+            }
+        }
+    }
+    
+    private func registerMember(spot: Spot) {
+        let membersRef = db.collection(FirestoreCollectionIds.Spots).document(spot.id).collection(FirestoreSubCollectionIds.Memgers)
+        // membersにログインユーザーのUserデータを追加登録する
+        let data = User.modelToData(user: UserService.user)
+        membersRef.document(UserService.user.id).setData(data) { (error) in
+            
+            if let error = error {
+                self.handleError(error: error, msg: "データのアップロードに失敗しました")
+            }
+            
+            // usersにサブコレクションとしてmySpotsを定義
+            // そのコレクションに作成したSpotのドキュメントを追加する
+            self.addMySpots(spot: spot)
+        }
+    }
+    
+    private func addMySpots(spot: Spot) {
+        let mySpotsRef = db.collection(FirestoreCollectionIds.Users).document(UserService.user.id).collection(FirestoreSubCollectionIds.MySpots)
+        // mySpotsに新規作成したSpotデータを追加登録する
+        let data = Spot.modelToData(spot: spot)
+        mySpotsRef.document(spot.id).setData(data) { (error) in
+            
             if let error = error {
                 self.handleError(error: error, msg: "データのアップロードに失敗しました")
             }

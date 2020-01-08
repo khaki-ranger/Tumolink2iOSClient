@@ -20,6 +20,7 @@ class HomeVC: UIViewController {
     var spots = [Spot]()
     var db: Firestore!
     var selectedSpot: Spot!
+    var count = 0
     
     
     // MARK: Functions
@@ -33,11 +34,13 @@ class HomeVC: UIViewController {
     }
     
     override func viewDidAppear(_ animated: Bool) {
+        count = 0
         setupLoginBtn()
-        fetchCollection()
+        setSpotsListener()
     }
     
     override func viewDidDisappear(_ animated: Bool) {
+        disappearTableViewWithAnimasion()
         spots.removeAll()
         tableView.reloadData()
     }
@@ -83,16 +86,14 @@ class HomeVC: UIViewController {
     }
     
     // テーブルに表示されるセルのデータを制御するメソッド
-    private func fetchCollection() {
-        
+    private func setSpotsListener() {
         guard let authUser = Auth.auth().currentUser else { return }
         
         activityIndicator.startAnimating()
-        
-        
+
         let collectionRef = db.spotUser(userId: authUser.uid)
         collectionRef.getDocuments { (snap, error) in
-            
+
             if let error = error {
                 debugPrint(error.localizedDescription)
                 return
@@ -103,58 +104,53 @@ class HomeVC: UIViewController {
             for document in documents {
                 let data = document.data()
                 let spotUser = SpotUser.init(data: data)
-                self.fetchDocument(spotUser: spotUser)
+                self.fetchDocument(spotUser: spotUser, completion: { (spot, error) in
+                    
+                    if let error = error {
+                        debugPrint(error.localizedDescription)
+                        return
+                    }
+                    
+                    guard let spot = spot else { return }
+                    
+                    self.spots.append(spot)
+                    self.tableView.reloadData()
+                    
+                    self.count += 1
+                    if self.count == documents.count {
+                        self.activityIndicator.stopAnimating()
+                        self.appearTableViewWithAnimasion()
+                    }
+                })
             }
-            
-            self.activityIndicator.stopAnimating()
         }
     }
     
-    
-    private func fetchDocument(spotUser: SpotUser) {
-        
+    private func fetchDocument(spotUser: SpotUser, completion: @escaping (Spot?, Error?) -> Void) {
         let docRef = db.collection(FirestoreCollectionIds.Spots).document(spotUser.spotId)
         docRef.getDocument { (snap, error) in
             
             if let error = error {
                 debugPrint(error.localizedDescription)
+                completion(nil, error)
                 return
             }
             
             guard let data = snap?.data() else { return }
             let spot = Spot.init(data: data)
-            self.spots.append(spot)
-            self.tableView.reloadData()
+            completion(spot, nil)
         }
     }
     
+    private func appearTableViewWithAnimasion() {
+        UIView.animate(withDuration: 0.4, delay: 0.1, options: [.curveEaseOut], animations: {
+            self.tableView.alpha = 1.0
+        }, completion: nil)
+    }
     
-//    private func setSpotsListener() {
-//
-//        listener = db.spots.addSnapshotListener({ (snap, error) in
-//
-//            if let error = error {
-//                debugPrint(error.localizedDescription)
-//                return
-//            }
-//
-//            snap?.documentChanges.forEach({ (change) in
-//                let data = change.document.data()
-//                let spot = Spot.init(data: data)
-//
-//                switch change.type {
-//                case .added:
-//                    self.onDocumentAdded(change: change, spot: spot)
-//                case .modified:
-//                    self.onDocumentModified(change: change, spot: spot)
-//                case .removed:
-//                    self.onDocumentRemoved(change: change)
-//                @unknown default:
-//                    return
-//                }
-//            })
-//        })
-//    }
+    private func disappearTableViewWithAnimasion() {
+        tableView.alpha = 0.0
+    }
     
     // MARK: Actions
     @IBAction func loginClicked(_ sender: Any) {
@@ -181,37 +177,6 @@ class HomeVC: UIViewController {
 }
 
 extension HomeVC : UITableViewDelegate, UITableViewDataSource {
-    
-    // データベースの変更に対して実行されるメソッド - begin
-//    private func onDocumentAdded(change: DocumentChange, spot: Spot) {
-//        let newIndex = Int(change.newIndex)
-//        spots.insert(spot, at: newIndex)
-//        tableView.insertRows(at: [IndexPath(row: newIndex, section: 0)], with: .fade)
-//    }
-//
-//    private func onDocumentModified(change: DocumentChange, spot: Spot) {
-//        if change.newIndex == change.oldIndex {
-//            // Row change, but remained in the same position
-//            let index = Int(change.newIndex)
-//            spots[index] = spot
-//            tableView.reloadRows(at: [IndexPath(row: index, section: 0)], with: .none)
-//        } else {
-//            // Row changed and changed position
-//            let newIndex = Int(change.newIndex)
-//            let oldIndex = Int(change.oldIndex)
-//            spots.remove(at: oldIndex)
-//            spots.insert(spot, at: newIndex)
-//            tableView.moveRow(at: IndexPath(row: oldIndex, section: 0), to: IndexPath(row: newIndex, section: 0))
-//        }
-//    }
-//
-//    private func onDocumentRemoved(change: DocumentChange) {
-//        let oldIndex = Int(change.oldIndex)
-//        spots.remove(at: oldIndex)
-//        tableView.deleteRows(at: [IndexPath(row: oldIndex, section: 0)], with: .left)
-//    }
-    // データベースの変更に対して実行されるメソッド - end
-    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return spots.count
     }

@@ -140,8 +140,12 @@ class CreateSpotVC: UIViewController {
                 self.handleError(error: error, msg: "データのアップロードに失敗しました")
             }
             
-            // spot-userコレクションにログインユーザーの情報を格納する
-            self.uploadSpotUserDocument(spot: spot)
+            // 新規作成の場合だけ、spot-userコレクションにログインユーザーの情報を格納する
+            if self.spotToEdit == nil {
+                self.uploadSpotUserDocument(spot: spot)
+            } else {
+                self.navigationController?.popToRootViewController(animated: true)
+            }
         }
     }
     

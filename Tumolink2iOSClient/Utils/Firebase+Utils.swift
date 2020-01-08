@@ -8,38 +8,33 @@
 
 import Firebase
 
-extension Firestore {
-    
-    var spots: Query {
-        return collection("spots").whereField("isActive", isEqualTo: true).order(by: "timeStamp", descending: true)
-    }
-    
-    func tumolis(spotId: String) -> Query {
-        return collection("tumolis")
-            .whereField("spotId", isEqualTo: spotId)
-            .whereField("isActive", isEqualTo: true)
-            .order(by: "possibility",  descending: true)
-    }
-    
-    func tumolis(userId: String) -> Query {
-        return collection("tumolis").whereField("userId", isEqualTo: userId)
-    }
-    
-}
-
 struct FirestoreCollectionIds {
     static let Spots = "spots"
     static let Users = "users"
     static let Tumolis = "tumolis"
 }
 
-struct FirestoreSubCollectionIds {
-    static let Memgers = "members"
-    static let MySpots = "mySpots"
-}
-
 struct FirestorageDirectories {
     static let SpotImages = "spotImages"
+}
+
+extension Firestore {
+    
+    var spots: Query {
+        return collection(FirestoreCollectionIds.Spots).whereField("isActive", isEqualTo: true).order(by: "timeStamp", descending: true)
+    }
+    
+    func tumolis(spotId: String) -> Query {
+        return collection(FirestoreCollectionIds.Tumolis)
+            .whereField("spotId", isEqualTo: spotId)
+            .whereField("isActive", isEqualTo: true)
+            .order(by: "possibility",  descending: true)
+    }
+    
+    func tumolis(userId: String) -> Query {
+        return collection(FirestoreCollectionIds.Tumolis).whereField("userId", isEqualTo: userId)
+    }
+    
 }
 
 extension Auth {

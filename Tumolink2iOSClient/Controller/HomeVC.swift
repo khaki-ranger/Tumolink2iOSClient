@@ -85,17 +85,18 @@ class HomeVC: UIViewController {
     
     // テーブルに表示されるセルのデータを制御するメソッド
     private func setSpotsListener() {
+        
         listener = db.spots.addSnapshotListener({ (snap, error) in
-            
+
             if let error = error {
                 debugPrint(error.localizedDescription)
                 return
             }
-            
+
             snap?.documentChanges.forEach({ (change) in
                 let data = change.document.data()
                 let spot = Spot.init(data: data)
-                
+
                 switch change.type {
                 case .added:
                     self.onDocumentAdded(change: change, spot: spot)

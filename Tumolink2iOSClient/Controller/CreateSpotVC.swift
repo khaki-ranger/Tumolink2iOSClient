@@ -140,42 +140,6 @@ class CreateSpotVC: UIViewController {
                 self.handleError(error: error, msg: "データのアップロードに失敗しました")
             }
             
-            if self.spotToEdit == nil {
-                // 新規作成の場合、spotsにサブコレクションとしてmambersを定義
-                // そのコレクションにログインユーザーのUserドキュメントを追加する
-                self.registerMember(spot: spot)
-            } else {
-                self.navigationController?.popToRootViewController(animated: true)
-            }
-        }
-    }
-    
-    private func registerMember(spot: Spot) {
-        let membersRef = db.collection(FirestoreCollectionIds.Spots).document(spot.id).collection(FirestoreSubCollectionIds.Memgers)
-        // membersにログインユーザーのUserデータを追加登録する
-        let data = User.modelToData(user: UserService.user)
-        membersRef.document(UserService.user.id).setData(data) { (error) in
-            
-            if let error = error {
-                self.handleError(error: error, msg: "データのアップロードに失敗しました")
-            }
-            
-            // usersにサブコレクションとしてmySpotsを定義
-            // そのコレクションに作成したSpotのドキュメントを追加する
-            self.addMySpots(spot: spot)
-        }
-    }
-    
-    private func addMySpots(spot: Spot) {
-        let mySpotsRef = db.collection(FirestoreCollectionIds.Users).document(UserService.user.id).collection(FirestoreSubCollectionIds.MySpots)
-        // mySpotsに新規作成したSpotデータを追加登録する
-        let data = Spot.modelToData(spot: spot)
-        mySpotsRef.document(spot.id).setData(data) { (error) in
-            
-            if let error = error {
-                self.handleError(error: error, msg: "データのアップロードに失敗しました")
-            }
-            
             self.navigationController?.popToRootViewController(animated: true)
         }
     }

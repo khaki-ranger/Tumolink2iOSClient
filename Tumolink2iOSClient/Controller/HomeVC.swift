@@ -14,11 +14,11 @@ class HomeVC: UIViewController {
     // MARK: Outlets
     @IBOutlet weak var loginBtn: UIBarButtonItem!
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
     // MARK: Variables
     var spots = [Spot]()
     var db: Firestore!
-    var listener: ListenerRegistration!
     var selectedSpot: Spot!
     
     
@@ -34,13 +34,18 @@ class HomeVC: UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         setupLoginBtn()
-        setSpotsListener()
+        fetchCollection()
     }
     
     override func viewDidDisappear(_ animated: Bool) {
-        listener.remove()
         spots.removeAll()
         tableView.reloadData()
+    }
+    
+    private func setupTableView() {
+        tableView.delegate = self
+        tableView.dataSource = self
+        tableView.register(UINib(nibName: Identifiers.SpotCell, bundle: nil), forCellReuseIdentifier: Identifiers.SpotCell)
     }
     
     private func setupInitialAnonymouseUser() {
@@ -70,12 +75,6 @@ class HomeVC: UIViewController {
         }
     }
     
-    private func setupTableView() {
-        tableView.delegate = self
-        tableView.dataSource = self
-        tableView.register(UINib(nibName: Identifiers.SpotCell, bundle: nil), forCellReuseIdentifier: Identifiers.SpotCell)
-    }
-    
     // ログインフローに遷移するためのメソッド
     fileprivate func presentLoginController() {
         let storyboard = UIStoryboard(name: Storyboard.LoginStoryboard, bundle: nil)
@@ -84,32 +83,78 @@ class HomeVC: UIViewController {
     }
     
     // テーブルに表示されるセルのデータを制御するメソッド
-    private func setSpotsListener() {
+    private func fetchCollection() {
         
-        listener = db.spots.addSnapshotListener({ (snap, error) in
-
+        guard let authUser = Auth.auth().currentUser else { return }
+        
+        activityIndicator.startAnimating()
+        
+        
+        let collectionRef = db.spotUser(userId: authUser.uid)
+        collectionRef.getDocuments { (snap, error) in
+            
             if let error = error {
                 debugPrint(error.localizedDescription)
                 return
             }
-
-            snap?.documentChanges.forEach({ (change) in
-                let data = change.document.data()
-                let spot = Spot.init(data: data)
-
-                switch change.type {
-                case .added:
-                    self.onDocumentAdded(change: change, spot: spot)
-                case .modified:
-                    self.onDocumentModified(change: change, spot: spot)
-                case .removed:
-                    self.onDocumentRemoved(change: change)
-                @unknown default:
-                    return
-                }
-            })
-        })
+            
+            guard let documents = snap?.documents else { return }
+            
+            for document in documents {
+                let data = document.data()
+                let spotUser = SpotUser.init(data: data)
+                self.fetchDocument(spotUser: spotUser)
+            }
+            
+            self.activityIndicator.stopAnimating()
+        }
     }
+    
+    
+    private func fetchDocument(spotUser: SpotUser) {
+        
+        let docRef = db.collection(FirestoreCollectionIds.Spots).document(spotUser.spotId)
+        docRef.getDocument { (snap, error) in
+            
+            if let error = error {
+                debugPrint(error.localizedDescription)
+                return
+            }
+            
+            guard let data = snap?.data() else { return }
+            let spot = Spot.init(data: data)
+            self.spots.append(spot)
+            self.tableView.reloadData()
+        }
+    }
+    
+    
+//    private func setSpotsListener() {
+//
+//        listener = db.spots.addSnapshotListener({ (snap, error) in
+//
+//            if let error = error {
+//                debugPrint(error.localizedDescription)
+//                return
+//            }
+//
+//            snap?.documentChanges.forEach({ (change) in
+//                let data = change.document.data()
+//                let spot = Spot.init(data: data)
+//
+//                switch change.type {
+//                case .added:
+//                    self.onDocumentAdded(change: change, spot: spot)
+//                case .modified:
+//                    self.onDocumentModified(change: change, spot: spot)
+//                case .removed:
+//                    self.onDocumentRemoved(change: change)
+//                @unknown default:
+//                    return
+//                }
+//            })
+//        })
+//    }
     
     // MARK: Actions
     @IBAction func loginClicked(_ sender: Any) {
@@ -138,33 +183,33 @@ class HomeVC: UIViewController {
 extension HomeVC : UITableViewDelegate, UITableViewDataSource {
     
     // データベースの変更に対して実行されるメソッド - begin
-    private func onDocumentAdded(change: DocumentChange, spot: Spot) {
-        let newIndex = Int(change.newIndex)
-        spots.insert(spot, at: newIndex)
-        tableView.insertRows(at: [IndexPath(row: newIndex, section: 0)], with: .fade)
-    }
-    
-    private func onDocumentModified(change: DocumentChange, spot: Spot) {
-        if change.newIndex == change.oldIndex {
-            // Row change, but remained in the same position
-            let index = Int(change.newIndex)
-            spots[index] = spot
-            tableView.reloadRows(at: [IndexPath(row: index, section: 0)], with: .none)
-        } else {
-            // Row changed and changed position
-            let newIndex = Int(change.newIndex)
-            let oldIndex = Int(change.oldIndex)
-            spots.remove(at: oldIndex)
-            spots.insert(spot, at: newIndex)
-            tableView.moveRow(at: IndexPath(row: oldIndex, section: 0), to: IndexPath(row: newIndex, section: 0))
-        }
-    }
-    
-    private func onDocumentRemoved(change: DocumentChange) {
-        let oldIndex = Int(change.oldIndex)
-        spots.remove(at: oldIndex)
-        tableView.deleteRows(at: [IndexPath(row: oldIndex, section: 0)], with: .left)
-    }
+//    private func onDocumentAdded(change: DocumentChange, spot: Spot) {
+//        let newIndex = Int(change.newIndex)
+//        spots.insert(spot, at: newIndex)
+//        tableView.insertRows(at: [IndexPath(row: newIndex, section: 0)], with: .fade)
+//    }
+//
+//    private func onDocumentModified(change: DocumentChange, spot: Spot) {
+//        if change.newIndex == change.oldIndex {
+//            // Row change, but remained in the same position
+//            let index = Int(change.newIndex)
+//            spots[index] = spot
+//            tableView.reloadRows(at: [IndexPath(row: index, section: 0)], with: .none)
+//        } else {
+//            // Row changed and changed position
+//            let newIndex = Int(change.newIndex)
+//            let oldIndex = Int(change.oldIndex)
+//            spots.remove(at: oldIndex)
+//            spots.insert(spot, at: newIndex)
+//            tableView.moveRow(at: IndexPath(row: oldIndex, section: 0), to: IndexPath(row: newIndex, section: 0))
+//        }
+//    }
+//
+//    private func onDocumentRemoved(change: DocumentChange) {
+//        let oldIndex = Int(change.oldIndex)
+//        spots.remove(at: oldIndex)
+//        tableView.deleteRows(at: [IndexPath(row: oldIndex, section: 0)], with: .left)
+//    }
     // データベースの変更に対して実行されるメソッド - end
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

@@ -22,7 +22,9 @@ struct FirestorageDirectories {
 extension Firestore {
     
     var spots: Query {
-        return collection(FirestoreCollectionIds.Spots).whereField("isActive", isEqualTo: true).order(by: "timeStamp", descending: true)
+        return collection(FirestoreCollectionIds.Spots)
+            .whereField("isActive", isEqualTo: true)
+            .order(by: "timeStamp", descending: true)
     }
     
     func tumolis(spotId: String) -> Query {
@@ -33,7 +35,18 @@ extension Firestore {
     }
     
     func tumolis(userId: String) -> Query {
-        return collection(FirestoreCollectionIds.Tumolis).whereField("userId", isEqualTo: userId)
+        return collection(FirestoreCollectionIds.Tumolis)
+            .whereField("userId", isEqualTo: userId)
+    }
+    
+    func spotUser(userId: String) -> Query {
+        return collection(FirestoreCollectionIds.SpotUser)
+            .whereField("userId", isEqualTo: userId)
+    }
+    
+    func spotUser(spotId: String) -> Query {
+        return collection(FirestoreCollectionIds.SpotUser)
+            .whereField("spotId", isEqualTo: spotId)
     }
     
 }

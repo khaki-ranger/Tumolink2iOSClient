@@ -22,6 +22,10 @@
                                 <rect key="frame" x="2" y="90" width="410" height="643"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </tableView>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="I3n-eX-GDk">
+                                <rect key="frame" x="188.5" y="429.5" width="37" height="37"/>
+                                <color key="color" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </activityIndicatorView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MEo-n8-cia" customClass="RoundedButton" customModule="Tumolink2iOSClient" customModuleProvider="target">
                                 <rect key="frame" x="20" y="753" width="374" height="40"/>
                                 <color key="backgroundColor" red="0.96862745098039216" green="0.53725490196078429" blue="0.40784313725490196" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -39,11 +43,13 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="I3n-eX-GDk" firstAttribute="centerY" secondItem="7eq-N4-7jN" secondAttribute="centerY" id="4ln-0G-ibB"/>
                             <constraint firstItem="bob-CL-LRr" firstAttribute="leading" secondItem="xWT-De-3HF" secondAttribute="leading" constant="2" id="CB4-f7-fRG"/>
                             <constraint firstItem="xWT-De-3HF" firstAttribute="bottom" secondItem="MEo-n8-cia" secondAttribute="bottom" constant="20" id="GgA-Xi-zuI"/>
                             <constraint firstItem="bob-CL-LRr" firstAttribute="top" secondItem="xWT-De-3HF" secondAttribute="top" constant="2" id="bsh-vx-SlN"/>
                             <constraint firstItem="MEo-n8-cia" firstAttribute="top" secondItem="bob-CL-LRr" secondAttribute="bottom" constant="20" id="e1a-Sc-IX0"/>
                             <constraint firstItem="MEo-n8-cia" firstAttribute="leading" secondItem="xWT-De-3HF" secondAttribute="leading" constant="20" id="eZA-gJ-uQ7"/>
+                            <constraint firstItem="I3n-eX-GDk" firstAttribute="centerX" secondItem="7eq-N4-7jN" secondAttribute="centerX" id="iiu-TJ-cf8"/>
                             <constraint firstItem="xWT-De-3HF" firstAttribute="trailing" secondItem="MEo-n8-cia" secondAttribute="trailing" constant="20" id="rZH-dA-EWR"/>
                             <constraint firstAttribute="trailing" secondItem="bob-CL-LRr" secondAttribute="trailing" constant="2" id="yod-t5-oLU"/>
                         </constraints>
@@ -58,6 +64,7 @@
                     </navigationItem>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
+                        <outlet property="activityIndicator" destination="I3n-eX-GDk" id="eII-4N-lFA"/>
                         <outlet property="loginBtn" destination="7v8-hn-nn3" id="15s-hq-RY5"/>
                         <outlet property="tableView" destination="bob-CL-LRr" id="Kzf-Wc-ZH6"/>
                         <segue destination="7ek-Az-kmx" kind="show" identifier="ToSpot" id="Hho-fd-GMR"/>
@@ -439,6 +446,6 @@
         <image name="no_image" width="300" height="300"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="NS8-dt-1bM"/>
+        <segue reference="W5e-Z1-6xd"/>
     </inferredMetricsTieBreakers>
 </document>

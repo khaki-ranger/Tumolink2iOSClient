@@ -140,6 +140,26 @@ class CreateSpotVC: UIViewController {
                 self.handleError(error: error, msg: "データのアップロードに失敗しました")
             }
             
+            // spot-userコレクションにログインユーザーの情報を格納する
+            self.uploadSpotUserDocument(spot: spot)
+        }
+    }
+    
+    private func uploadSpotUserDocument(spot: Spot) {
+        // Firestoreドキュメントを新規作成
+        let docRef = db.collection(FirestoreCollectionIds.SpotUser).document()
+        var spotUser = SpotUser.init(id: "",
+                                 spotId: spot.id,
+                                 userId: UserService.user.id,
+                                 isApproved: true)
+        spotUser.id = docRef.documentID
+        let data = SpotUser.modelToData(spotuser: spotUser)
+        docRef.setData(data) { (error) in
+            
+            if let error = error {
+                self.handleError(error: error, msg: "データのアップロードに失敗しました")
+            }
+            
             self.navigationController?.popToRootViewController(animated: true)
         }
     }

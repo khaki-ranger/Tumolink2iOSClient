@@ -12,6 +12,7 @@ struct FirestoreCollectionIds {
     static let Spots = "spots"
     static let Users = "users"
     static let Tumolis = "tumolis"
+    static let SpotUser = "spot-user"
 }
 
 struct FirestorageDirectories {

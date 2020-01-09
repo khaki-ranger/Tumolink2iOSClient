@@ -101,6 +101,10 @@ class HomeVC: UIViewController {
             
             guard let documents = snap?.documents else { return }
             
+            if documents.count < 1 {
+                self.activityIndicator.stopAnimating()
+            }
+            
             for document in documents {
                 let data = document.data()
                 let spotUser = SpotUser.init(data: data)

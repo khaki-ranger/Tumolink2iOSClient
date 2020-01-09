@@ -167,6 +167,10 @@ class CreateSpotVC: UIViewController {
             self.navigationController?.popToRootViewController(animated: true)
         }
     }
+    
+    @IBAction func cancelClicked(_ sender: Any) {
+        dismiss(animated: true, completion: nil)
+    }
 }
 
 extension CreateSpotVC : UIImagePickerControllerDelegate, UINavigationControllerDelegate {

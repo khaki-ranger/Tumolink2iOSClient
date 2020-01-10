@@ -82,7 +82,19 @@ class SearchSpotVC: UIViewController {
             
             for document in documents {
                 let data = document.data()
-                let spot = Spot.init(data: data)
+                var spot = Spot.init(data: data)
+                
+                // 各スポットにおけるログインユーザーのステータスを判定
+                if spot.owner == UserService.user.id {
+                    spot.memberStatus = MemberStatus.owner
+                } else if spot.members.contains(UserService.user.id) {
+                    spot.memberStatus = MemberStatus.member
+                } else if spot.pending.contains(UserService.user.id) {
+                    spot.memberStatus = MemberStatus.pending
+                } else {
+                    spot.memberStatus = MemberStatus.unapplied
+                }
+                
                 spots.append(spot)
             }
             completion(spots, nil)

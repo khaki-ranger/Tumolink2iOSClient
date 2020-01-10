@@ -13,8 +13,11 @@ struct Spot {
     var id: String
     var name: String
     var owner: String
-    var description: String
     var images: [String]
+    var members: [String]
+    var pending: [String]
+    var memberStatus: MemberStatus
+    var description: String
     var address: String
     var isPublic: Bool
     var isActive: Bool
@@ -25,6 +28,9 @@ struct Spot {
         name: String,
         owner: String,
         images: [String],
+        members: [String] = [String](),
+        pending: [String] = [String](),
+        memberStatus: MemberStatus = MemberStatus.unapplied,
         description: String = "",
         address: String = "",
         isPublic: Bool = true,
@@ -35,6 +41,9 @@ struct Spot {
         self.name = name
         self.owner = owner
         self.images = images
+        self.members = members
+        self.pending = pending
+        self.memberStatus = memberStatus
         self.description = description
         self.address = address
         self.isPublic = isPublic
@@ -47,6 +56,9 @@ struct Spot {
         self.name = data["name"] as? String ?? ""
         self.owner = data["owner"] as? String ?? ""
         self.images = data["images"] as? [String] ?? [String]()
+        self.members = data["members"] as? [String] ?? [String]()
+        self.pending = data["pending"] as? [String] ?? [String]()
+        self.memberStatus = data["memberStatus"] as? MemberStatus ?? MemberStatus.unapplied
         self.description = data["description"] as? String ?? ""
         self.address = data["address"] as? String ?? ""
         self.isPublic = data["isPublic"] as? Bool ?? true
@@ -60,6 +72,9 @@ struct Spot {
             "name": spot.name,
             "owner": spot.owner,
             "images": spot.images,
+            "members": spot.members,
+            "pending": spot.pending,
+            "memberStatus": spot.memberStatus.rawValue,
             "description": spot.description,
             "address": spot.address,
             "isPublic": spot.isPublic,

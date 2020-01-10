@@ -33,6 +33,30 @@ class FullRoundedShadowView : RoundedShadowView {
     }
 }
 
+@IBDesignable class RoundedLabel: UILabel {
+    @IBInspectable var topInset: CGFloat = 3.0
+    @IBInspectable var bottomInset: CGFloat = 3.0
+    @IBInspectable var leftInset: CGFloat = 6.0
+    @IBInspectable var rightInset: CGFloat = 6.0
+    
+    override func drawText(in rect: CGRect) {
+        let insets = UIEdgeInsets(top: topInset, left: leftInset, bottom: bottomInset, right: rightInset)
+        super.drawText(in: rect.inset(by: insets))
+    }
+    
+    override var intrinsicContentSize: CGSize {
+        let size = super.intrinsicContentSize
+        return CGSize(width: size.width + leftInset + rightInset,
+                      height: size.height + topInset + bottomInset)
+    }
+    
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        layer.cornerRadius = 5
+        layer.masksToBounds = true
+    }
+}
+
 class RoundedImageView: UIImageView {
     override func awakeFromNib() {
         super.awakeFromNib()

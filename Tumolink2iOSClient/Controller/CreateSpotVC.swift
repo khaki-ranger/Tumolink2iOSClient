@@ -117,10 +117,13 @@ class CreateSpotVC: UIViewController {
         
         activityIndicator.startAnimating()
         
+        let members = [UserService.user.id]
+        
         var spot = Spot.init(id: "",
                              name: spotName,
                              owner: UserService.user.id,
-                             images: imageUrls)
+                             images: imageUrls,
+                             members: members)
         
         var docRef: DocumentReference!
         // productToEditがnilかどうかで、編集と新規作成の処理を分岐
@@ -153,9 +156,9 @@ class CreateSpotVC: UIViewController {
         // Firestoreドキュメントを新規作成
         let docRef = db.collection(FirestoreCollectionIds.SpotUser).document()
         var spotUser = SpotUser.init(id: "",
-                                 spotId: spot.id,
-                                 userId: UserService.user.id,
-                                 isApproved: true)
+                                     spotId: spot.id,
+                                     userId: UserService.user.id,
+                                     status: MemberStatus.owner)
         spotUser.id = docRef.documentID
         let data = SpotUser.modelToData(spotuser: spotUser)
         docRef.setData(data) { (error) in
@@ -164,7 +167,7 @@ class CreateSpotVC: UIViewController {
                 self.handleError(error: error, msg: "データのアップロードに失敗しました")
             }
             
-            self.navigationController?.popToRootViewController(animated: true)
+            self.dismiss(animated: true, completion: nil)
         }
     }
     

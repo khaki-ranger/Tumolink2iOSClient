@@ -83,18 +83,8 @@ class SearchSpotVC: UIViewController {
             for document in documents {
                 let data = document.data()
                 var spot = Spot.init(data: data)
-                
                 // 各スポットにおけるログインユーザーのステータスを判定
-                if spot.owner == UserService.user.id {
-                    spot.memberStatus = MemberStatus.owner
-                } else if spot.members.contains(UserService.user.id) {
-                    spot.memberStatus = MemberStatus.member
-                } else if spot.pending.contains(UserService.user.id) {
-                    spot.memberStatus = MemberStatus.pending
-                } else {
-                    spot.memberStatus = MemberStatus.unapplied
-                }
-                
+                spot.memberStatus = UserService.status(spot: spot)
                 spots.append(spot)
             }
             completion(spots, nil)
@@ -157,5 +147,27 @@ extension SearchSpotVC : UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 100
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        selectedSpot = filteredSpots[indexPath.row]
+        
+        // ステータスに応じて振る舞いを分岐する
+        switch selectedSpot.memberStatus {
+        case .owner, .member:
+            performSegue(withIdentifier: Segues.ToSpot, sender: self)
+        case .pending:
+            print("申請をキャンセルするダイアログを表示する")
+        case .unapplied:
+            print("申請ダイアログを表示する")
+        }
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == Segues.ToSpot {
+            if let destination = segue.destination as? SpotVC {
+                destination.spot = selectedSpot
+            }
+        }
     }
 }

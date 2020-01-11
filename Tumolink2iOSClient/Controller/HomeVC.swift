@@ -141,7 +141,8 @@ class HomeVC: UIViewController {
             }
             
             guard let data = snap?.data() else { return }
-            let spot = Spot.init(data: data)
+            var spot = Spot.init(data: data)
+            spot.memberStatus = UserService.status(spot: spot)
             completion(spot, nil)
         }
     }
@@ -209,5 +210,4 @@ extension HomeVC : UITableViewDelegate, UITableViewDataSource {
             }
         }
     }
-    
 }

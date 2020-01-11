@@ -55,4 +55,17 @@ final class _UserService {
         userListener = nil
         user = User()
     }
+    
+    // 各スポットにおけるログインユーザーのステータスを判定するメソッド
+    func status(spot: Spot) -> MemberStatus {
+        if spot.owner == user.id {
+            return MemberStatus.owner
+        } else if spot.members.contains(user.id) {
+            return MemberStatus.member
+        } else if spot.pending.contains(user.id) {
+            return MemberStatus.pending
+        } else {
+            return MemberStatus.unapplied
+        }
+    }
 }

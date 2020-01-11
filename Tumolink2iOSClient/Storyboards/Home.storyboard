@@ -75,11 +75,12 @@
                         <outlet property="searchTxt" destination="jpA-2j-av9" id="5TL-WC-0YK"/>
                         <outlet property="searchView" destination="xGe-7Z-eTM" id="AQl-hC-PNm"/>
                         <outlet property="tableView" destination="L3L-mw-Wyj" id="zI3-1l-WAV"/>
+                        <segue destination="7ek-Az-kmx" kind="show" identifier="ToSpot" id="rxK-tx-MJb"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ja6-aM-h3L" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2847.826086956522" y="-898.66071428571422"/>
+            <point key="canvasLocation" x="2848" y="-906"/>
         </scene>
         <!--HomeVC-->
         <scene sceneID="uJB-pG-a4j">
@@ -291,7 +292,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="KOb-Yj-bPe" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2848" y="694"/>
+            <point key="canvasLocation" x="2848" y="680"/>
         </scene>
         <!--SpotVC-->
         <scene sceneID="eKe-KU-2SA">
@@ -551,6 +552,7 @@
         <image name="no_image" width="300" height="300"/>
     </resources>
     <inferredMetricsTieBreakers>
+        <segue reference="rxK-tx-MJb"/>
         <segue reference="NS8-dt-1bM"/>
     </inferredMetricsTieBreakers>
 </document>

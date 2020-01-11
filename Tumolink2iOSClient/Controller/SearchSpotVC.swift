@@ -178,8 +178,7 @@ extension SearchSpotVC : UITableViewDelegate, UITableViewDataSource {
     
     private func appearAddRequestVC() {
         let vc = AddRequestVC()
-//        vc.spot = spot
-//        vc.tumoliToEdit = tumoliToEdit
+        vc.spot = selectedSpot
         vc.modalTransitionStyle = .crossDissolve
         vc.modalPresentationStyle = .overCurrentContext
         present(vc, animated: true, completion: nil)

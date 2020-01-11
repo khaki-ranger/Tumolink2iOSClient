@@ -12,6 +12,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="AddRequestVC" customModule="Tumolink2iOSClient" customModuleProvider="target">
             <connections>
+                <outlet property="activityIndicator" destination="ONe-JY-9oK" id="ocZ-Mq-C4S"/>
                 <outlet property="bgView" destination="g9H-ZP-Ynd" id="yYq-u2-mGf"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
@@ -62,6 +63,9 @@ ERER4oCo44Kq44O844OK44O844G444Gu55Sz6KuL44GM5b+F6KaB44Gn44GZ44CCA
                                     <state key="normal" title="申請する">
                                         <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     </state>
+                                    <connections>
+                                        <action selector="requestClicked:" destination="-1" eventType="touchUpInside" id="8Jk-F6-4eD"/>
+                                    </connections>
                                 </button>
                             </subviews>
                         </stackView>
@@ -76,6 +80,10 @@ ERER4oCo44Kq44O844OK44O844G444Gu55Sz6KuL44GM5b+F6KaB44Gn44GZ44CCA
                                 <action selector="closeClicked:" destination="-1" eventType="touchUpInside" id="tNu-3P-7eb"/>
                             </connections>
                         </button>
+                        <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="ONe-JY-9oK">
+                            <rect key="frame" x="168.5" y="51.5" width="37" height="37"/>
+                            <color key="color" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </activityIndicatorView>
                     </subviews>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <constraints>
@@ -83,6 +91,8 @@ ERER4oCo44Kq44O844OK44O844G444Gu55Sz6KuL44GM5b+F6KaB44Gn44GZ44CCA
                         <constraint firstItem="vay-pw-rd9" firstAttribute="top" secondItem="CWU-n5-kXs" secondAttribute="top" constant="10" id="9BU-iK-SM1"/>
                         <constraint firstItem="FaD-14-Ngo" firstAttribute="top" secondItem="CWU-n5-kXs" secondAttribute="top" constant="20" id="Cmh-Z6-iH0"/>
                         <constraint firstAttribute="trailing" secondItem="FaD-14-Ngo" secondAttribute="trailing" constant="20" id="Myc-lR-2Dr"/>
+                        <constraint firstItem="ONe-JY-9oK" firstAttribute="centerX" secondItem="CWU-n5-kXs" secondAttribute="centerX" id="NXC-Rn-X3w"/>
+                        <constraint firstItem="ONe-JY-9oK" firstAttribute="centerY" secondItem="CWU-n5-kXs" secondAttribute="centerY" id="PEZ-Ke-fma"/>
                         <constraint firstAttribute="bottom" secondItem="FaD-14-Ngo" secondAttribute="bottom" constant="20" id="Vzr-J2-l9V"/>
                         <constraint firstAttribute="trailing" secondItem="vay-pw-rd9" secondAttribute="trailing" constant="10" id="qUB-5V-mNU"/>
                     </constraints>

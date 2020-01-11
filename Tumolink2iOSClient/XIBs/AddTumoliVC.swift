@@ -69,7 +69,7 @@ class AddTumoliVC: UIViewController {
     }
     
     // MARK: Actions
-    @IBAction func cancelClicked(_ sender: Any) {
+    @IBAction func closeClicked(_ sender: Any) {
         dismiss(animated: true, completion: nil)
     }
     

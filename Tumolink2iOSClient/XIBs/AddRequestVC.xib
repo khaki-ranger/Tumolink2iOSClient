@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="AddRequestVC" customModule="Tumolink2iOSClient" customModuleProvider="target">
+            <connections>
+                <outlet property="bgView" destination="g9H-ZP-Ynd" id="yYq-u2-mGf"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <visualEffectView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="g9H-ZP-Ynd">
+                    <rect key="frame" x="0.0" y="44" width="414" height="852"/>
+                    <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="ELh-Na-p4b">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                    </view>
+                    <blurEffect style="extraLight"/>
+                </visualEffectView>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CWU-n5-kXs" customClass="RoundedShadowView" customModule="Tumolink2iOSClient" customModuleProvider="target">
+                    <rect key="frame" x="20" y="378" width="374" height="140"/>
+                    <subviews>
+                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="FaD-14-Ngo">
+                            <rect key="frame" x="20" y="20" width="334" height="100"/>
+                            <subviews>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OD0-9H-GWa">
+                                    <rect key="frame" x="0.0" y="0.0" width="334" height="40"/>
+                                    <attributedString key="attributedText">
+                                        <fragment>
+                                            <string key="content" base64-UTF8="YES">
+44GT44Gu44K544Od44OD44OI44Gu44Oh44Oz44OQ44O844Gr44Gq44KL44Gr44Gv44CBERERERERERER
+ERER4oCo44Kq44O844OK44O844G444Gu55Sz6KuL44GM5b+F6KaB44Gn44GZ44CCA
+</string>
+                                            <attributes>
+                                                <color key="NSColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <font key="NSFont" size="17" name=".HiraKakuInterface-W3"/>
+                                                <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" lineSpacing="8" tighteningFactorForTruncation="0.0"/>
+                                            </attributes>
+                                        </fragment>
+                                    </attributedString>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WIl-f2-WDo" customClass="RoundedButton" customModule="Tumolink2iOSClient" customModuleProvider="target">
+                                    <rect key="frame" x="0.0" y="60" width="334" height="40"/>
+                                    <color key="backgroundColor" red="0.96862745100000003" green="0.53725490200000003" blue="0.40784313729999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="40" id="JtU-Aj-MpP"/>
+                                    </constraints>
+                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                    <state key="normal" title="申請する">
+                                        <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </state>
+                                </button>
+                            </subviews>
+                        </stackView>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vay-pw-rd9">
+                            <rect key="frame" x="348" y="10" width="16" height="16"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="16" id="oKR-OH-v31"/>
+                                <constraint firstAttribute="height" constant="16" id="yvZ-gB-I4h"/>
+                            </constraints>
+                            <state key="normal" image="btn_close"/>
+                            <connections>
+                                <action selector="closeClicked:" destination="-1" eventType="touchUpInside" id="tNu-3P-7eb"/>
+                            </connections>
+                        </button>
+                    </subviews>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstItem="FaD-14-Ngo" firstAttribute="leading" secondItem="CWU-n5-kXs" secondAttribute="leading" constant="20" id="7a6-SR-wOx"/>
+                        <constraint firstItem="vay-pw-rd9" firstAttribute="top" secondItem="CWU-n5-kXs" secondAttribute="top" constant="10" id="9BU-iK-SM1"/>
+                        <constraint firstItem="FaD-14-Ngo" firstAttribute="top" secondItem="CWU-n5-kXs" secondAttribute="top" constant="20" id="Cmh-Z6-iH0"/>
+                        <constraint firstAttribute="trailing" secondItem="FaD-14-Ngo" secondAttribute="trailing" constant="20" id="Myc-lR-2Dr"/>
+                        <constraint firstAttribute="bottom" secondItem="FaD-14-Ngo" secondAttribute="bottom" constant="20" id="Vzr-J2-l9V"/>
+                        <constraint firstAttribute="trailing" secondItem="vay-pw-rd9" secondAttribute="trailing" constant="10" id="qUB-5V-mNU"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <constraints>
+                <constraint firstAttribute="bottom" secondItem="g9H-ZP-Ynd" secondAttribute="bottom" id="2IE-0w-nzs"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="g9H-ZP-Ynd" secondAttribute="trailing" id="43R-V6-dVu"/>
+                <constraint firstItem="g9H-ZP-Ynd" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="90z-nM-7Fj"/>
+                <constraint firstItem="CWU-n5-kXs" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" id="HdI-Io-1o2"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="CWU-n5-kXs" secondAttribute="trailing" constant="20" id="N7P-Mh-Gcn"/>
+                <constraint firstItem="g9H-ZP-Ynd" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="SNn-uS-wYH"/>
+                <constraint firstItem="CWU-n5-kXs" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="20" id="jdi-CG-jk7"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="btn_close" width="24" height="24"/>
+    </resources>
+</document>

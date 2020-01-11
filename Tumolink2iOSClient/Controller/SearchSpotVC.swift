@@ -159,8 +159,13 @@ extension SearchSpotVC : UITableViewDelegate, UITableViewDataSource {
         case .pending:
             print("申請をキャンセルするダイアログを表示する")
         case .unapplied:
-            print("申請ダイアログを表示する")
+            // 申請ダイアログを表示する
+            appearAddRequestVC()
         }
+        
+        // セルの選択解除
+        // タップしても反応しない現象を避ける
+        tableView.deselectRow(at: indexPath, animated: false)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -169,5 +174,14 @@ extension SearchSpotVC : UITableViewDelegate, UITableViewDataSource {
                 destination.spot = selectedSpot
             }
         }
+    }
+    
+    private func appearAddRequestVC() {
+        let vc = AddRequestVC()
+//        vc.spot = spot
+//        vc.tumoliToEdit = tumoliToEdit
+        vc.modalTransitionStyle = .crossDissolve
+        vc.modalPresentationStyle = .overCurrentContext
+        present(vc, animated: true, completion: nil)
     }
 }

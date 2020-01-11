@@ -374,7 +374,9 @@ extension SpotVC : UITableViewDelegate, UITableViewDataSource {
         if selectedRow.userId == UserService.user.id {
             appearAddTumoliVC()
         }
-        //セルの選択解除
+        
+        // セルの選択解除
+        // タップしても反応しない現象を避ける
         tableView.deselectRow(at: indexPath, animated: false)
     }
     

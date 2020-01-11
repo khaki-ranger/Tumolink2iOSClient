@@ -35,10 +35,10 @@
                     <blurEffect style="extraLight"/>
                 </visualEffectView>
                 <view contentMode="scaleToFill" placeholderIntrinsicWidth="374" placeholderIntrinsicHeight="170" translatesAutoresizingMaskIntoConstraints="NO" id="otC-vJ-70V" customClass="RoundedShadowView" customModule="Tumolink2iOSClient" customModuleProvider="target">
-                    <rect key="frame" x="20" y="297.5" width="374" height="301.5"/>
+                    <rect key="frame" x="20" y="327.5" width="374" height="241.5"/>
                     <subviews>
                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="t93-BG-gpt">
-                            <rect key="frame" x="20" y="20" width="334" height="261.5"/>
+                            <rect key="frame" x="20" y="20" width="334" height="201.5"/>
                             <subviews>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="50%" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="itE-qz-6bx">
                                     <rect key="frame" x="0.0" y="0.0" width="334" height="31.5"/>
@@ -49,22 +49,8 @@
                                 <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="ruL-Fm-BeF">
                                     <rect key="frame" x="-2" y="51.5" width="338" height="31"/>
                                 </slider>
-                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3s7-zd-d7Z" customClass="RoundedButton" customModule="Tumolink2iOSClient" customModuleProvider="target">
-                                    <rect key="frame" x="0.0" y="101.5" width="334" height="40"/>
-                                    <color key="backgroundColor" red="0.44313725490196076" green="0.95686274509803915" blue="0.74117647058823533" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                    <constraints>
-                                        <constraint firstAttribute="height" constant="40" id="usw-DN-Ngd"/>
-                                    </constraints>
-                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                    <state key="normal" title="キャンセル">
-                                        <color key="titleColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
-                                    </state>
-                                    <connections>
-                                        <action selector="cancelClicked:" destination="-1" eventType="touchUpInside" id="Vu9-SN-jle"/>
-                                    </connections>
-                                </button>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gh7-FU-2sl" customClass="RoundedButton" customModule="Tumolink2iOSClient" customModuleProvider="target">
-                                    <rect key="frame" x="0.0" y="161.5" width="334" height="40"/>
+                                    <rect key="frame" x="0.0" y="101.5" width="334" height="40"/>
                                     <color key="backgroundColor" red="0.96862745100000003" green="0.53725490200000003" blue="0.40784313729999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="40" id="fDm-h0-YBS"/>
@@ -78,7 +64,7 @@
                                     </connections>
                                 </button>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xkk-5u-hHz" customClass="RoundedButton" customModule="Tumolink2iOSClient" customModuleProvider="target">
-                                    <rect key="frame" x="0.0" y="221.5" width="334" height="40"/>
+                                    <rect key="frame" x="0.0" y="161.5" width="334" height="40"/>
                                     <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="40" id="vw6-q4-Uch"/>
@@ -93,13 +79,26 @@
                                 </button>
                             </subviews>
                         </stackView>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yQl-el-niE">
+                            <rect key="frame" x="348" y="10" width="16" height="16"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="16" id="95M-Pk-jX4"/>
+                                <constraint firstAttribute="height" constant="16" id="kbs-Pq-mBo"/>
+                            </constraints>
+                            <state key="normal" image="btn_close"/>
+                            <connections>
+                                <action selector="closeClicked:" destination="-1" eventType="touchUpInside" id="4p3-Mg-Ib2"/>
+                            </connections>
+                        </button>
                     </subviews>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <constraints>
                         <constraint firstItem="t93-BG-gpt" firstAttribute="top" secondItem="otC-vJ-70V" secondAttribute="top" constant="20" id="I6i-AR-gs5"/>
                         <constraint firstAttribute="bottom" secondItem="t93-BG-gpt" secondAttribute="bottom" constant="20" id="S5g-2A-2Xk"/>
+                        <constraint firstItem="yQl-el-niE" firstAttribute="top" secondItem="otC-vJ-70V" secondAttribute="top" constant="10" id="bG3-gt-q5D"/>
                         <constraint firstAttribute="trailing" secondItem="t93-BG-gpt" secondAttribute="trailing" constant="20" id="fOt-Gx-zip"/>
                         <constraint firstItem="t93-BG-gpt" firstAttribute="leading" secondItem="otC-vJ-70V" secondAttribute="leading" constant="20" id="lNd-BG-rv4"/>
+                        <constraint firstAttribute="trailing" secondItem="yQl-el-niE" secondAttribute="trailing" constant="10" id="wgG-Be-rbc"/>
                     </constraints>
                 </view>
                 <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="FIC-tk-QhV">
@@ -123,4 +122,7 @@
             <point key="canvasLocation" x="47.826086956521742" y="35.491071428571423"/>
         </view>
     </objects>
+    <resources>
+        <image name="btn_close" width="24" height="24"/>
+    </resources>
 </document>

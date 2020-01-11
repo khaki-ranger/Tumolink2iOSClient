@@ -21,6 +21,8 @@
 		D15EABF123B3501400A42D5D /* TumoliCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D15EABEF23B3501400A42D5D /* TumoliCell.swift */; };
 		D15EABF223B3501400A42D5D /* TumoliCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D15EABF023B3501400A42D5D /* TumoliCell.xib */; };
 		D15EABF423B352B300A42D5D /* Tumoli.swift in Sources */ = {isa = PBXBuildFile; fileRef = D15EABF323B352B300A42D5D /* Tumoli.swift */; };
+		D16EADEF23C95EA40080B7B0 /* AddRequestVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D16EADED23C95EA40080B7B0 /* AddRequestVC.swift */; };
+		D16EADF023C95EA40080B7B0 /* AddRequestVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = D16EADEE23C95EA40080B7B0 /* AddRequestVC.xib */; };
 		D1896E1C2390F30B004EC82A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1896E1B2390F30B004EC82A /* AppDelegate.swift */; };
 		D1896E1E2390F30B004EC82A /* HomeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1896E1D2390F30B004EC82A /* HomeVC.swift */; };
 		D1896E212390F30B004EC82A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D1896E1F2390F30B004EC82A /* Main.storyboard */; };
@@ -65,6 +67,8 @@
 		D15EABEF23B3501400A42D5D /* TumoliCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TumoliCell.swift; sourceTree = "<group>"; };
 		D15EABF023B3501400A42D5D /* TumoliCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TumoliCell.xib; sourceTree = "<group>"; };
 		D15EABF323B352B300A42D5D /* Tumoli.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tumoli.swift; sourceTree = "<group>"; };
+		D16EADED23C95EA40080B7B0 /* AddRequestVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddRequestVC.swift; sourceTree = "<group>"; };
+		D16EADEE23C95EA40080B7B0 /* AddRequestVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddRequestVC.xib; sourceTree = "<group>"; };
 		D1896E182390F30B004EC82A /* Tumolink2iOSClient.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Tumolink2iOSClient.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D1896E1B2390F30B004EC82A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D1896E1D2390F30B004EC82A /* HomeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeVC.swift; sourceTree = "<group>"; };
@@ -173,6 +177,8 @@
 				D15EABF023B3501400A42D5D /* TumoliCell.xib */,
 				D1D6DC4323B72E5900AAE0B5 /* AddTumoliVC.swift */,
 				D1D6DC4423B72E5900AAE0B5 /* AddTumoliVC.xib */,
+				D16EADED23C95EA40080B7B0 /* AddRequestVC.swift */,
+				D16EADEE23C95EA40080B7B0 /* AddRequestVC.xib */,
 			);
 			path = XIBs;
 			sourceTree = "<group>";
@@ -316,6 +322,7 @@
 				D14E3E6B23A3659200978AFC /* SpotImageCell.xib in Resources */,
 				D1E4C9F42394DCB700272C5F /* GoogleService-Info.plist in Resources */,
 				D1896E212390F30B004EC82A /* Main.storyboard in Resources */,
+				D16EADF023C95EA40080B7B0 /* AddRequestVC.xib in Resources */,
 				D1D6DC4623B72E5900AAE0B5 /* AddTumoliVC.xib in Resources */,
 				D18D7F7D23A0806D0085B8B9 /* ForgotPasswordVC.xib in Resources */,
 				D193677C2391FAE80000B652 /* LoginStoryboard.storyboard in Resources */,
@@ -420,6 +427,7 @@
 				D14E3E6723A35ACF00978AFC /* SpotVC.swift in Sources */,
 				D1CC783E23A48BF000CD9D7B /* CreateSpotVC.swift in Sources */,
 				D1BBF97023A22E12003C7D61 /* SpotCell.swift in Sources */,
+				D16EADEF23C95EA40080B7B0 /* AddRequestVC.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -45,12 +45,14 @@ class AddRequestVC: UIViewController {
     @IBAction func requestClicked(_ sender: Any) {
         activityIndicator.startAnimating()
         
-        let details = "\(UserService.user.username)さんから、\(spot.name)にメンバー申請が来ました。"
+        let title = "メンバー申請"
+        let description = "\(UserService.user.username)さんから、\(spot.name)にメンバー申請が来ました。"
         
         // オーナーにInformationを作成する処理
         var information = Information.init(id: "",
                                            infoType: .request,
-                                           details: details,
+                                           title: title,
+                                           description: description,
                                            from: UserService.user.id,
                                            spotId: spot.id)
         
@@ -82,7 +84,18 @@ class AddRequestVC: UIViewController {
             }
             
             // 完了後の処理
-            self.dismiss(animated: true, completion: nil)
+            self.activityIndicator.stopAnimating()
+            self.completionAlert()
         }
+    }
+    
+    private func completionAlert() {
+        let alert = UIAlertController(title: "申請完了！", message: "\(spot.name)のオーナーが申請を許可するまでお待ちください。", preferredStyle: .alert)
+        let okAction = UIAlertAction(title: "Ok", style: .default, handler: {
+            (action: UIAlertAction!) -> Void in
+            self.dismiss(animated: true, completion: nil)
+        })
+        alert.addAction(okAction)
+        present(alert, animated: true, completion: nil)
     }
 }

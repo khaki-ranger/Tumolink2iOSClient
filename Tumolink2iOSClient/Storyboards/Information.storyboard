@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="QLJ-5k-hBb">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="8K4-4W-ovI">
     <device id="retina6_1" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -10,22 +10,80 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--お知らせ-->
+        <!--Info ListVC-->
         <scene sceneID="NSO-Sq-nRL">
             <objects>
-                <viewController id="QLJ-5k-hBb" sceneMemberID="viewController">
+                <viewController id="QLJ-5k-hBb" customClass="InfoListVC" customModule="Tumolink2iOSClient" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Mgs-m3-HdN">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Jkd-CK-aRx">
+                                <rect key="frame" x="0.0" y="88" width="414" height="725"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="InfoCell" id="Mjm-vc-uT0">
+                                        <rect key="frame" x="0.0" y="28" width="414" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Mjm-vc-uT0" id="P4F-57-6v7">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ucJ-0U-yD5">
+                                                    <rect key="frame" x="20" y="43" width="374" height="1"/>
+                                                    <color key="backgroundColor" red="0.8666666666666667" green="0.8666666666666667" blue="0.8666666666666667" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="1" id="G3X-QM-wql"/>
+                                                    </constraints>
+                                                </view>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="trailing" secondItem="ucJ-0U-yD5" secondAttribute="trailing" constant="20" id="UpA-wI-hVj"/>
+                                                <constraint firstItem="ucJ-0U-yD5" firstAttribute="leading" secondItem="P4F-57-6v7" secondAttribute="leading" constant="20" id="VUO-tS-IvN"/>
+                                                <constraint firstAttribute="bottom" secondItem="ucJ-0U-yD5" secondAttribute="bottom" id="kr1-Rd-7W1"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="lHG-6h-fHA" firstAttribute="bottom" secondItem="Jkd-CK-aRx" secondAttribute="bottom" id="5RL-Kq-Ozk"/>
+                            <constraint firstItem="Jkd-CK-aRx" firstAttribute="top" secondItem="lHG-6h-fHA" secondAttribute="top" id="Fl7-yf-rix"/>
+                            <constraint firstItem="Jkd-CK-aRx" firstAttribute="leading" secondItem="lHG-6h-fHA" secondAttribute="leading" id="bgY-oY-YOF"/>
+                            <constraint firstItem="lHG-6h-fHA" firstAttribute="trailing" secondItem="Jkd-CK-aRx" secondAttribute="trailing" id="rtM-JJ-fPc"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="lHG-6h-fHA"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="お知らせ" image="icn_info" selectedImage="icn_info" id="cNG-c3-9zz"/>
+                    <navigationItem key="navigationItem" id="5Rz-z7-myz"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="tableView" destination="Jkd-CK-aRx" id="xSd-NY-vft"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pQ8-W3-PbM" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="184" y="26"/>
+            <point key="canvasLocation" x="1092.753623188406" y="25.446428571428569"/>
+        </scene>
+        <!--お知らせ-->
+        <scene sceneID="A8C-Yj-2qh">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="8K4-4W-ovI" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="お知らせ" image="icn_info" selectedImage="icn_info" id="cNG-c3-9zz"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="yjT-Zq-CWo">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="QLJ-5k-hBb" kind="relationship" relationship="rootViewController" id="qyN-RQ-FKE"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="DFl-g3-Mbi" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="182.60869565217394" y="25.446428571428569"/>
         </scene>
     </scenes>
     <resources>

@@ -31,7 +31,8 @@ enum InfoType: String {
 struct Information {
     var id: String
     var infoType: InfoType
-    var details: String
+    var title: String
+    var description: String
     var from: String
     var spotId: String
     var isRead: Bool
@@ -41,17 +42,19 @@ struct Information {
     
     init(id: String = "",
          infoType: InfoType = InfoType.others,
-         details: String = "",
+         title: String = "",
+         description: String = "",
          from: String = "",
          spotId: String = "",
          isRead: Bool = false,
-         isActive: Bool = false,
+         isActive: Bool = true,
          createdAt: Timestamp = Timestamp(),
          updatedAt: Timestamp = Timestamp()) {
         
         self.id = id
         self.infoType = infoType
-        self.details = details
+        self.title = title
+        self.description = description
         self.from = from
         self.spotId = spotId
         self.isRead = isRead
@@ -65,7 +68,8 @@ struct Information {
         
         id = data["id"] as? String ?? ""
         infoType = infoTypeFromFirestore ?? InfoType.others
-        details = data["details"] as? String ?? ""
+        title = data["title"] as? String ?? ""
+        description = data["details"] as? String ?? ""
         from = data["from"] as? String ?? ""
         spotId = data["spotId"] as? String ?? ""
         isRead = data["isRead"] as? Bool ?? false
@@ -78,7 +82,8 @@ struct Information {
         let data: [String: Any] = [
             "id" : information.id,
             "InfoType" : information.infoType.rawValue,
-            "details" : information.details,
+            "title" : information.title,
+            "description" : information.description,
             "from" : information.from,
             "spotId" : information.spotId,
             "isRead" : information.isRead,

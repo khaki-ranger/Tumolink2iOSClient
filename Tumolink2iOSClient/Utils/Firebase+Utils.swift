@@ -54,6 +54,12 @@ extension Firestore {
             .whereField("spotId", isEqualTo: spotId)
     }
     
+    func informations(userId: String) -> Query {
+        return collection(FirestoreCollectionIds.Users).document(userId).collection(FirestoreCollectionIds.Informations)
+            .whereField("isActive", isEqualTo: true)
+            .order(by: "createdAt", descending: true)
+    }
+    
 }
 
 extension Auth {

@@ -28,6 +28,7 @@ struct Identifiers {
     static let SpotCell = "SpotCell"
     static let SpotImageCell = "SpotImageCell"
     static let TumoliCell = "TumoliCell"
+    static let InfoCell = "InfoCell"
 }
 
 struct Segues {

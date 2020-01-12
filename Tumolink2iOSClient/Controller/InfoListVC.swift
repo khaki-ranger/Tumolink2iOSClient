@@ -111,8 +111,8 @@ extension InfoListVC : UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: Identifiers.InfoCell, for: indexPath)
-        cell.textLabel?.text = informations[indexPath.row].title
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: Identifiers.InfoCell, for: indexPath) as? InfoCell else { return UITableViewCell() }
+        cell.configureCell(information: informations[indexPath.row])
         return cell
     }
 }

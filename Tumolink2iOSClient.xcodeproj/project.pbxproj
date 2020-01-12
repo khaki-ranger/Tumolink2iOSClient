@@ -35,6 +35,7 @@
 		D1902D5C23A7639C00822D9D /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1902D5B23A7639C00822D9D /* User.swift */; };
 		D1902D5F23A7682300822D9D /* UserService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1902D5E23A7682300822D9D /* UserService.swift */; };
 		D193677C2391FAE80000B652 /* LoginStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D193677B2391FAE80000B652 /* LoginStoryboard.storyboard */; };
+		D1B75EA123CADE9900773876 /* InfoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1B75EA023CADE9900773876 /* InfoCell.swift */; };
 		D1BBF96923A1D38D003C7D61 /* Home.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D1BBF96823A1D38D003C7D61 /* Home.storyboard */; };
 		D1BBF96B23A1D629003C7D61 /* MyPage.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D1BBF96A23A1D629003C7D61 /* MyPage.storyboard */; };
 		D1BBF97023A22E12003C7D61 /* SpotCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1BBF96E23A22E12003C7D61 /* SpotCell.swift */; };
@@ -84,6 +85,7 @@
 		D1902D5B23A7639C00822D9D /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		D1902D5E23A7682300822D9D /* UserService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserService.swift; sourceTree = "<group>"; };
 		D193677B2391FAE80000B652 /* LoginStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LoginStoryboard.storyboard; sourceTree = "<group>"; };
+		D1B75EA023CADE9900773876 /* InfoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoCell.swift; sourceTree = "<group>"; };
 		D1BBF96823A1D38D003C7D61 /* Home.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Home.storyboard; sourceTree = "<group>"; };
 		D1BBF96A23A1D629003C7D61 /* MyPage.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MyPage.storyboard; sourceTree = "<group>"; };
 		D1BBF96E23A22E12003C7D61 /* SpotCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpotCell.swift; sourceTree = "<group>"; };
@@ -206,6 +208,7 @@
 				D116B52E23ACC5F7006CBB3A /* EditUserVC.swift */,
 				D114A6B723AF658700EE0B2E /* DeleteUserVC.swift */,
 				D16EADF123C9F58A0080B7B0 /* InfoListVC.swift */,
+				D1B75EA023CADE9900773876 /* InfoCell.swift */,
 				D1896E1B2390F30B004EC82A /* AppDelegate.swift */,
 			);
 			path = Controller;
@@ -426,6 +429,7 @@
 				D129CE5A23C4152E003ACEE2 /* Information.swift in Sources */,
 				D1902D5F23A7682300822D9D /* UserService.swift in Sources */,
 				D131CA2823C6CC4100244CA0 /* SearchSpotVC.swift in Sources */,
+				D1B75EA123CADE9900773876 /* InfoCell.swift in Sources */,
 				D129CE5C23C56DEF003ACEE2 /* SpotUser.swift in Sources */,
 				D15EABF123B3501400A42D5D /* TumoliCell.swift in Sources */,
 				D14E3E6723A35ACF00978AFC /* SpotVC.swift in Sources */,

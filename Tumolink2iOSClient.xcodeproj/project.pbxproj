@@ -36,6 +36,7 @@
 		D1902D5F23A7682300822D9D /* UserService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1902D5E23A7682300822D9D /* UserService.swift */; };
 		D193677C2391FAE80000B652 /* LoginStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D193677B2391FAE80000B652 /* LoginStoryboard.storyboard */; };
 		D1B75EA123CADE9900773876 /* InfoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1B75EA023CADE9900773876 /* InfoCell.swift */; };
+		D1B75EA523CAF3E000773876 /* RequestDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1B75EA423CAF3E000773876 /* RequestDetailVC.swift */; };
 		D1BBF96923A1D38D003C7D61 /* Home.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D1BBF96823A1D38D003C7D61 /* Home.storyboard */; };
 		D1BBF96B23A1D629003C7D61 /* MyPage.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D1BBF96A23A1D629003C7D61 /* MyPage.storyboard */; };
 		D1BBF97023A22E12003C7D61 /* SpotCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1BBF96E23A22E12003C7D61 /* SpotCell.swift */; };
@@ -86,6 +87,7 @@
 		D1902D5E23A7682300822D9D /* UserService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserService.swift; sourceTree = "<group>"; };
 		D193677B2391FAE80000B652 /* LoginStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LoginStoryboard.storyboard; sourceTree = "<group>"; };
 		D1B75EA023CADE9900773876 /* InfoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoCell.swift; sourceTree = "<group>"; };
+		D1B75EA423CAF3E000773876 /* RequestDetailVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestDetailVC.swift; sourceTree = "<group>"; };
 		D1BBF96823A1D38D003C7D61 /* Home.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Home.storyboard; sourceTree = "<group>"; };
 		D1BBF96A23A1D629003C7D61 /* MyPage.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MyPage.storyboard; sourceTree = "<group>"; };
 		D1BBF96E23A22E12003C7D61 /* SpotCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpotCell.swift; sourceTree = "<group>"; };
@@ -209,6 +211,7 @@
 				D114A6B723AF658700EE0B2E /* DeleteUserVC.swift */,
 				D16EADF123C9F58A0080B7B0 /* InfoListVC.swift */,
 				D1B75EA023CADE9900773876 /* InfoCell.swift */,
+				D1B75EA423CAF3E000773876 /* RequestDetailVC.swift */,
 				D1896E1B2390F30B004EC82A /* AppDelegate.swift */,
 			);
 			path = Controller;
@@ -420,6 +423,7 @@
 				D1D6DC4523B72E5900AAE0B5 /* AddTumoliVC.swift in Sources */,
 				D1E4C9FA2394E59200272C5F /* LoginVC.swift in Sources */,
 				D1902D5C23A7639C00822D9D /* User.swift in Sources */,
+				D1B75EA523CAF3E000773876 /* RequestDetailVC.swift in Sources */,
 				D18D7F7C23A0806D0085B8B9 /* ForgotPasswordVC.swift in Sources */,
 				D1BBF97323A2330E003C7D61 /* Spot.swift in Sources */,
 				D1FF02FC23AA1D06003AD9D4 /* MyPageVC.swift in Sources */,

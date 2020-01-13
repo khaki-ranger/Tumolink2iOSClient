@@ -18,12 +18,14 @@ class InfoListVC: UIViewController {
     var db: Firestore!
     var listener: ListenerRegistration!
     var informations = [Information]()
+    var selectedInformation: Information!
 
     // MARK: Functions
     override func viewDidLoad() {
         super.viewDidLoad()
         db = Firestore.firestore()
 
+        navigationItem.title = "お知らせ一覧"
         setupTableView()
     }
     
@@ -114,5 +116,23 @@ extension InfoListVC : UITableViewDelegate, UITableViewDataSource {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: Identifiers.InfoCell, for: indexPath) as? InfoCell else { return UITableViewCell() }
         cell.configureCell(information: informations[indexPath.row])
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        selectedInformation = informations[indexPath.row]
+        // infoTypeによって振る舞いを分岐する
+        performSegue(withIdentifier: Segues.ToRequestDetail, sender: self)
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 60
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == Segues.ToRequestDetail {
+            if let destination = segue.destination as? RequestDetailVC {
+                destination.information = selectedInformation
+            }
+        }
     }
 }

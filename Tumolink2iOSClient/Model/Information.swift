@@ -32,7 +32,6 @@ struct Information {
     var id: String
     var infoType: InfoType
     var title: String
-    var description: String
     var from: String
     var spotId: String
     var isRead: Bool
@@ -43,7 +42,6 @@ struct Information {
     init(id: String = "",
          infoType: InfoType = InfoType.others,
          title: String = "",
-         description: String = "",
          from: String = "",
          spotId: String = "",
          isRead: Bool = false,
@@ -54,7 +52,6 @@ struct Information {
         self.id = id
         self.infoType = infoType
         self.title = title
-        self.description = description
         self.from = from
         self.spotId = spotId
         self.isRead = isRead
@@ -69,7 +66,6 @@ struct Information {
         id = data["id"] as? String ?? ""
         infoType = infoTypeFromFirestore ?? InfoType.others
         title = data["title"] as? String ?? ""
-        description = data["details"] as? String ?? ""
         from = data["from"] as? String ?? ""
         spotId = data["spotId"] as? String ?? ""
         isRead = data["isRead"] as? Bool ?? false
@@ -83,7 +79,6 @@ struct Information {
             "id" : information.id,
             "InfoType" : information.infoType.rawValue,
             "title" : information.title,
-            "description" : information.description,
             "from" : information.from,
             "spotId" : information.spotId,
             "isRead" : information.isRead,

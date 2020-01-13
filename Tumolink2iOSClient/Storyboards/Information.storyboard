@@ -18,7 +18,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Jkd-CK-aRx">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Jkd-CK-aRx">
                                 <rect key="frame" x="0.0" y="88" width="414" height="725"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
@@ -90,11 +90,110 @@
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="tableView" destination="Jkd-CK-aRx" id="xSd-NY-vft"/>
+                        <segue destination="hRs-KV-Sxh" kind="show" identifier="ToRequestDetail" id="OIO-Sy-tHP"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pQ8-W3-PbM" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1092.753623188406" y="25.446428571428569"/>
+        </scene>
+        <!--Request DetailVC-->
+        <scene sceneID="7wo-RA-Ewd">
+            <objects>
+                <viewController id="hRs-KV-Sxh" customClass="RequestDetailVC" customModule="Tumolink2iOSClient" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="5UF-Gy-oM0">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7VL-zd-92Y" customClass="RoundedButton" customModule="Tumolink2iOSClient" customModuleProvider="target">
+                                <rect key="frame" x="20" y="753" width="374" height="40"/>
+                                <color key="backgroundColor" red="0.96862745100000003" green="0.53725490200000003" blue="0.40784313729999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="PZb-I4-6gL"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <state key="normal" title="申請を許可する">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="permitClicked:" destination="hRs-KV-Sxh" eventType="touchUpInside" id="59d-nO-3Hr"/>
+                                </connections>
+                            </button>
+                            <view alpha="0.0" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RKC-U3-Dtv">
+                                <rect key="frame" x="20" y="128" width="374" height="285"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="no_image" translatesAutoresizingMaskIntoConstraints="NO" id="Fe8-Ib-bCh" customClass="CircleImageView" customModule="Tumolink2iOSClient" customModuleProvider="target">
+                                        <rect key="frame" x="107" y="0.0" width="160" height="160"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="160" id="9Np-ms-cp1"/>
+                                            <constraint firstAttribute="height" constant="160" id="IMD-ka-WBH"/>
+                                        </constraints>
+                                    </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ユーザーネーム" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="feJ-pR-NX7">
+                                        <rect key="frame" x="126.5" y="180" width="121.5" height="21"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                        <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YzD-tG-z7v">
+                                        <rect key="frame" x="91.5" y="221" width="191" height="44"/>
+                                        <attributedString key="attributedText">
+                                            <fragment>
+                                                <string key="content" base64-UTF8="YES">
+44CH44CH44GV44KT44GL44KJ44CBw5fDl+OBuOOBrhEN44Oh44Oz44OQ44O855Sz6KuL44GM5p2l44G+
+44GX44Gf77yBA
+</string>
+                                                <attributes>
+                                                    <color key="NSColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <font key="NSFont" size="17" name=".HiraKakuInterface-W3"/>
+                                                    <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" lineSpacing="12" tighteningFactorForTruncation="0.0"/>
+                                                </attributes>
+                                            </fragment>
+                                        </attributedString>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstItem="YzD-tG-z7v" firstAttribute="top" secondItem="feJ-pR-NX7" secondAttribute="bottom" constant="20" id="45Z-XY-cjO"/>
+                                    <constraint firstItem="Fe8-Ib-bCh" firstAttribute="top" secondItem="RKC-U3-Dtv" secondAttribute="top" id="5re-kW-R6M"/>
+                                    <constraint firstItem="YzD-tG-z7v" firstAttribute="centerX" secondItem="RKC-U3-Dtv" secondAttribute="centerX" id="8Uf-aZ-Svf"/>
+                                    <constraint firstItem="feJ-pR-NX7" firstAttribute="top" secondItem="Fe8-Ib-bCh" secondAttribute="bottom" constant="20" id="KLg-97-mhk"/>
+                                    <constraint firstItem="Fe8-Ib-bCh" firstAttribute="centerX" secondItem="RKC-U3-Dtv" secondAttribute="centerX" id="VjQ-BB-CJ1"/>
+                                    <constraint firstAttribute="bottom" secondItem="YzD-tG-z7v" secondAttribute="bottom" constant="20" id="Xwu-RM-IvL"/>
+                                    <constraint firstItem="feJ-pR-NX7" firstAttribute="centerX" secondItem="RKC-U3-Dtv" secondAttribute="centerX" id="pd0-hn-FMl"/>
+                                </constraints>
+                            </view>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="At8-wV-ay7">
+                                <rect key="frame" x="188.5" y="429.5" width="37" height="37"/>
+                                <color key="color" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </activityIndicatorView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="RKC-U3-Dtv" firstAttribute="leading" secondItem="weE-T9-eMb" secondAttribute="leading" constant="20" id="15c-ET-r6B"/>
+                            <constraint firstItem="RKC-U3-Dtv" firstAttribute="top" secondItem="weE-T9-eMb" secondAttribute="top" constant="40" id="73N-Af-rI9"/>
+                            <constraint firstItem="At8-wV-ay7" firstAttribute="centerX" secondItem="5UF-Gy-oM0" secondAttribute="centerX" id="JAZ-5b-6uG"/>
+                            <constraint firstItem="weE-T9-eMb" firstAttribute="bottom" secondItem="7VL-zd-92Y" secondAttribute="bottom" constant="20" id="LRu-wf-IXW"/>
+                            <constraint firstItem="7VL-zd-92Y" firstAttribute="leading" secondItem="weE-T9-eMb" secondAttribute="leading" constant="20" id="W1J-r1-Tn7"/>
+                            <constraint firstItem="weE-T9-eMb" firstAttribute="trailing" secondItem="7VL-zd-92Y" secondAttribute="trailing" constant="20" id="YDv-sh-grz"/>
+                            <constraint firstItem="At8-wV-ay7" firstAttribute="centerY" secondItem="5UF-Gy-oM0" secondAttribute="centerY" id="q0u-xZ-9pY"/>
+                            <constraint firstItem="weE-T9-eMb" firstAttribute="trailing" secondItem="RKC-U3-Dtv" secondAttribute="trailing" constant="20" id="wrM-Bu-Iuz"/>
+                            <constraint firstItem="RKC-U3-Dtv" firstAttribute="centerX" secondItem="5UF-Gy-oM0" secondAttribute="centerX" id="yVt-jF-rjX"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="weE-T9-eMb"/>
+                    </view>
+                    <connections>
+                        <outlet property="activityIndicator" destination="At8-wV-ay7" id="EpS-ps-SJm"/>
+                        <outlet property="descriptionLbl" destination="YzD-tG-z7v" id="iDX-IJ-QQ4"/>
+                        <outlet property="informationView" destination="RKC-U3-Dtv" id="SiQ-Ne-baR"/>
+                        <outlet property="profileImg" destination="Fe8-Ib-bCh" id="CUf-Tl-O40"/>
+                        <outlet property="usernameLbl" destination="feJ-pR-NX7" id="dyJ-Xo-tnP"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="qKT-ss-tDL" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1966.6666666666667" y="24.776785714285712"/>
         </scene>
         <!--お知らせ-->
         <scene sceneID="A8C-Yj-2qh">
@@ -105,6 +204,14 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="yjT-Zq-CWo">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="barTintColor" red="0.84705882349999995" green="0.26274509800000001" blue="0.08235294118" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <textAttributes key="titleTextAttributes">
+                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </textAttributes>
+                        <textAttributes key="largeTitleTextAttributes">
+                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </textAttributes>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
@@ -118,5 +225,6 @@
     </scenes>
     <resources>
         <image name="icn_info" width="25" height="25"/>
+        <image name="no_image" width="300" height="300"/>
     </resources>
 </document>

@@ -39,3 +39,14 @@ extension DateFormatter {
         dateFormat = DateFormatter.dateFormat(fromTemplate: template.rawValue, options: 0, locale: .current)
     }
 }
+
+extension NSAttributedString {
+    convenience init(string: String, lineSpacing: CGFloat, alignment: NSTextAlignment) {
+        var attributes: [NSAttributedString.Key: Any] = [:]
+        let paragraphStyle = NSMutableParagraphStyle()
+        paragraphStyle.lineSpacing = lineSpacing
+        paragraphStyle.alignment = alignment
+        attributes.updateValue(paragraphStyle, forKey: .paragraphStyle)
+        self.init(string: string, attributes: attributes)
+    }
+}

@@ -22,6 +22,7 @@ class RequestDetailVC: UIViewController {
     // MARK: Valiables
     var information: Information!
     var db: Firestore!
+    var isRead = false
 
     // MARK: Functions
     override func viewDidLoad() {
@@ -29,12 +30,30 @@ class RequestDetailVC: UIViewController {
         db = Firestore.firestore()
         navigationItem.title = "メンバー申請"
         
-        getUserDocument()
+        // 未読の場合は既読に変更する
+        activityIndicator.startAnimating()
+        if information.isRead == false {
+            changeIsRead()
+        } else {
+            getUserDocument()
+        }
+    }
+    
+    private func changeIsRead() {
+        let docRef = db.collection(FirestoreCollectionIds.Users).document(UserService.user.id).collection(FirestoreCollectionIds.Informations).document(information.id)
+        docRef.updateData(["isRead": true]) { (error) in
+            
+            if let error = error {
+                debugPrint(error.localizedDescription)
+                self.simpleAlert(title: "エラー", msg: "お知らせの開封に失敗しました")
+                return
+            }
+            
+            self.getUserDocument()
+        }
     }
     
     private func getUserDocument() {
-        activityIndicator.startAnimating()
-        
         let docRef = db.collection(FirestoreCollectionIds.Users).document(information.from)
         docRef.getDocument { (snap, error) in
             

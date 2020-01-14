@@ -21,6 +21,7 @@
 		D15EABF123B3501400A42D5D /* TumoliCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D15EABEF23B3501400A42D5D /* TumoliCell.swift */; };
 		D15EABF223B3501400A42D5D /* TumoliCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D15EABF023B3501400A42D5D /* TumoliCell.xib */; };
 		D15EABF423B352B300A42D5D /* Tumoli.swift in Sources */ = {isa = PBXBuildFile; fileRef = D15EABF323B352B300A42D5D /* Tumoli.swift */; };
+		D16B6C0623CD452200B495A5 /* ResponseDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D16B6C0523CD452200B495A5 /* ResponseDetailVC.swift */; };
 		D16EADEF23C95EA40080B7B0 /* AddRequestVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D16EADED23C95EA40080B7B0 /* AddRequestVC.swift */; };
 		D16EADF023C95EA40080B7B0 /* AddRequestVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = D16EADEE23C95EA40080B7B0 /* AddRequestVC.xib */; };
 		D16EADF223C9F58A0080B7B0 /* InfoListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D16EADF123C9F58A0080B7B0 /* InfoListVC.swift */; };
@@ -70,6 +71,7 @@
 		D15EABEF23B3501400A42D5D /* TumoliCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TumoliCell.swift; sourceTree = "<group>"; };
 		D15EABF023B3501400A42D5D /* TumoliCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TumoliCell.xib; sourceTree = "<group>"; };
 		D15EABF323B352B300A42D5D /* Tumoli.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tumoli.swift; sourceTree = "<group>"; };
+		D16B6C0523CD452200B495A5 /* ResponseDetailVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResponseDetailVC.swift; sourceTree = "<group>"; };
 		D16EADED23C95EA40080B7B0 /* AddRequestVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddRequestVC.swift; sourceTree = "<group>"; };
 		D16EADEE23C95EA40080B7B0 /* AddRequestVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddRequestVC.xib; sourceTree = "<group>"; };
 		D16EADF123C9F58A0080B7B0 /* InfoListVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoListVC.swift; sourceTree = "<group>"; };
@@ -212,6 +214,7 @@
 				D16EADF123C9F58A0080B7B0 /* InfoListVC.swift */,
 				D1B75EA023CADE9900773876 /* InfoCell.swift */,
 				D1B75EA423CAF3E000773876 /* RequestDetailVC.swift */,
+				D16B6C0523CD452200B495A5 /* ResponseDetailVC.swift */,
 				D1896E1B2390F30B004EC82A /* AppDelegate.swift */,
 			);
 			path = Controller;
@@ -410,6 +413,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D16B6C0623CD452200B495A5 /* ResponseDetailVC.swift in Sources */,
 				D114A6BA23AFA60200EE0B2E /* CircleViews.swift in Sources */,
 				D18D7F7F23A08D100085B8B9 /* Firebase+Utils.swift in Sources */,
 				D1E4C9FF2394F2D900272C5F /* Extensions.swift in Sources */,

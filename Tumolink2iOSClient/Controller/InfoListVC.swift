@@ -127,11 +127,10 @@ extension InfoListVC : UITableViewDelegate, UITableViewDataSource {
         case .request:
             performSegue(withIdentifier: Segues.ToRequestDetail, sender: self)
         case .response:
-            print("申請許可")
+            performSegue(withIdentifier: Segues.ToResponseDetail, sender: self)
         case .others:
             print("その他")
         }
-        
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -141,6 +140,10 @@ extension InfoListVC : UITableViewDelegate, UITableViewDataSource {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == Segues.ToRequestDetail {
             if let destination = segue.destination as? RequestDetailVC {
+                destination.information = selectedInformation
+            }
+        } else if segue.identifier == Segues.ToResponseDetail {
+            if let destination = segue.destination as? ResponseDetailVC {
                 destination.information = selectedInformation
             }
         }

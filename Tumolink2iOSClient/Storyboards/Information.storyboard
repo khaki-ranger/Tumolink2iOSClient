@@ -91,6 +91,7 @@
                     <connections>
                         <outlet property="tableView" destination="Jkd-CK-aRx" id="xSd-NY-vft"/>
                         <segue destination="hRs-KV-Sxh" kind="show" identifier="ToRequestDetail" id="OIO-Sy-tHP"/>
+                        <segue destination="Ymu-JB-1mp" kind="show" identifier="ToResponseDetail" id="ULx-3a-9JO"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pQ8-W3-PbM" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -193,6 +194,97 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qKT-ss-tDL" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="1967" y="-706"/>
+        </scene>
+        <!--Response DetailVC-->
+        <scene sceneID="oKT-wK-w3j">
+            <objects>
+                <viewController id="Ymu-JB-1mp" customClass="ResponseDetailVC" customModule="Tumolink2iOSClient" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="l8f-FQ-1da">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view alpha="0.0" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="d7J-z5-zQP">
+                                <rect key="frame" x="0.0" y="88" width="414" height="335"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="samp_spot" translatesAutoresizingMaskIntoConstraints="NO" id="A23-FF-ADP">
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="233"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" secondItem="A23-FF-ADP" secondAttribute="height" multiplier="16:9" id="FW7-dX-yrZ"/>
+                                        </constraints>
+                                    </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="スポットの名前" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dNa-5V-1jK">
+                                        <rect key="frame" x="146.5" y="253" width="121.5" height="21"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                        <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="el3-s2-M2R">
+                                        <rect key="frame" x="104" y="294" width="206.5" height="21"/>
+                                        <attributedString key="attributedText">
+                                            <fragment content="×">
+                                                <attributes>
+                                                    <color key="NSColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <font key="NSFont" metaFont="system" size="17"/>
+                                                    <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                </attributes>
+                                            </fragment>
+                                            <fragment content="×">
+                                                <attributes>
+                                                    <color key="NSColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <font key="NSFont" size="17" name="HelveticaNeue"/>
+                                                    <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                </attributes>
+                                            </fragment>
+                                            <fragment content="のメンバーになりました">
+                                                <attributes>
+                                                    <color key="NSColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <font key="NSFont" size="17" name="HiraginoSans-W3"/>
+                                                    <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                </attributes>
+                                            </fragment>
+                                        </attributedString>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstItem="A23-FF-ADP" firstAttribute="leading" secondItem="d7J-z5-zQP" secondAttribute="leading" id="0Ty-j6-87H"/>
+                                    <constraint firstItem="dNa-5V-1jK" firstAttribute="top" secondItem="A23-FF-ADP" secondAttribute="bottom" constant="20" id="1iY-Nl-zOf"/>
+                                    <constraint firstItem="el3-s2-M2R" firstAttribute="top" secondItem="dNa-5V-1jK" secondAttribute="bottom" constant="20" id="2fD-Lb-kcf"/>
+                                    <constraint firstAttribute="trailing" secondItem="A23-FF-ADP" secondAttribute="trailing" id="8KT-H8-hd2"/>
+                                    <constraint firstItem="A23-FF-ADP" firstAttribute="centerX" secondItem="d7J-z5-zQP" secondAttribute="centerX" id="KNh-dw-aPm"/>
+                                    <constraint firstAttribute="bottom" secondItem="el3-s2-M2R" secondAttribute="bottom" constant="20" id="OhL-Kc-aBW"/>
+                                    <constraint firstItem="el3-s2-M2R" firstAttribute="centerX" secondItem="d7J-z5-zQP" secondAttribute="centerX" id="Uxj-wY-6t0"/>
+                                    <constraint firstItem="A23-FF-ADP" firstAttribute="top" secondItem="d7J-z5-zQP" secondAttribute="top" id="owg-5u-idu"/>
+                                    <constraint firstItem="dNa-5V-1jK" firstAttribute="centerX" secondItem="d7J-z5-zQP" secondAttribute="centerX" id="puV-S0-NXc"/>
+                                </constraints>
+                            </view>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="xbA-vI-xPt">
+                                <rect key="frame" x="188.5" y="429.5" width="37" height="37"/>
+                                <color key="color" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </activityIndicatorView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="xbA-vI-xPt" firstAttribute="centerX" secondItem="l8f-FQ-1da" secondAttribute="centerX" id="4o0-cr-sSj"/>
+                            <constraint firstItem="d7J-z5-zQP" firstAttribute="top" secondItem="Nfe-6Z-An5" secondAttribute="top" id="BwO-NN-eaf"/>
+                            <constraint firstItem="xbA-vI-xPt" firstAttribute="centerY" secondItem="l8f-FQ-1da" secondAttribute="centerY" id="WCd-qO-ego"/>
+                            <constraint firstItem="d7J-z5-zQP" firstAttribute="leading" secondItem="Nfe-6Z-An5" secondAttribute="leading" id="uVX-4s-UfP"/>
+                            <constraint firstItem="Nfe-6Z-An5" firstAttribute="trailing" secondItem="d7J-z5-zQP" secondAttribute="trailing" id="vwy-eM-jLh"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="Nfe-6Z-An5"/>
+                    </view>
+                    <connections>
+                        <outlet property="activityIndicator" destination="xbA-vI-xPt" id="fhb-ev-Aap"/>
+                        <outlet property="descriptionLbl" destination="el3-s2-M2R" id="Xxk-k4-4RB"/>
+                        <outlet property="informationView" destination="d7J-z5-zQP" id="IYb-aS-17C"/>
+                        <outlet property="spotImg" destination="A23-FF-ADP" id="AQj-dq-s0k"/>
+                        <outlet property="spotnameLbl" destination="dNa-5V-1jK" id="Ieh-gU-M8P"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ylk-0e-zJ0" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
             <point key="canvasLocation" x="1966.6666666666667" y="24.776785714285712"/>
         </scene>
         <!--お知らせ-->
@@ -226,5 +318,6 @@
     <resources>
         <image name="icn_info" width="25" height="25"/>
         <image name="no_image" width="300" height="300"/>
+        <image name="samp_spot" width="800" height="450"/>
     </resources>
 </document>

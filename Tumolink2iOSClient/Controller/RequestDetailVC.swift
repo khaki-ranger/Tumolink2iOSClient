@@ -93,7 +93,6 @@ class RequestDetailVC: UIViewController {
             let spot = Spot.init(data: data)
             
             let description = "\(user.username)さんから、\(spot.name)への\nメンバー申請が来ました！"
-            
             self.descriptionLbl.attributedText = NSAttributedString(string: description, lineSpacing: 12.0, alignment: .center)
             
             self.appearViewWithAnimasion()

@@ -113,6 +113,64 @@ class RequestDetailVC: UIViewController {
     
     // MARK: Actions
     @IBAction func permitClicked(_ sender: Any) {
+        activityIndicator.startAnimating()
+        removeFromPendingArray()
     }
     
+    // SpotのpendingからuserIdを削除する
+    private func removeFromPendingArray() {
+        let docRef = db.collection(FirestoreCollectionIds.Spots).document(information.spotId)
+        docRef.updateData([FirestoreArrayIds.Pending : FieldValue.arrayRemove([information.from])]) { (error) in
+            
+            if let error = error {
+                debugPrint(error.localizedDescription)
+                self.simpleAlert(title: "エラー", msg: "メンバー申請の許可に失敗しました")
+                return
+            }
+            
+            self.addToMembersArray(docRef: docRef)
+        }
+    }
+    
+    // SpotのmembersにuserIdを追加する
+    private func addToMembersArray(docRef: DocumentReference) {
+        docRef.updateData([FirestoreArrayIds.Members : FieldValue.arrayUnion([information.from])]) { (error) in
+            
+            if let error = error {
+                debugPrint(error.localizedDescription)
+                self.simpleAlert(title: "エラー", msg: "メンバー申請の許可に失敗しました")
+                return
+            }
+            
+            self.sendInformation()
+        }
+    }
+    
+    // メンバー申請の許可を申請相手に知らせる
+    private func sendInformation() {
+        // 申請者にメンバー入りの許可を知らせるためにInformationを作成
+        var information = Information.init(id: "",
+                                           infoType: .response,
+                                           title: InfoType.setTitle(infoType: .response),
+                                           from: UserService.user.id,
+                                           spotId: self.information.spotId)
+        
+        // 対象のUserドキュメントのinformationsコレクションにInformationを追加する
+        let docRef = db.collection(FirestoreCollectionIds.Users).document(self.information.from).collection(FirestoreCollectionIds.Informations).document()
+        information.id = docRef.documentID
+        
+        let data = Information.modelToData(information: information)
+        docRef.setData(data) { (error) in
+            
+            if let error = error {
+                debugPrint(error.localizedDescription)
+                self.simpleAlert(title: "エラー", msg: "お知らせの送信に失敗しました")
+                return
+            }
+            
+            // 完了後の処理
+            // お知らせ一覧画面に遷移する
+            self.navigationController?.popToRootViewController(animated: true)
+        }
+    }
 }

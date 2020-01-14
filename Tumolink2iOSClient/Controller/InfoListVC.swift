@@ -121,7 +121,17 @@ extension InfoListVC : UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         selectedInformation = informations[indexPath.row]
         // infoTypeによって振る舞いを分岐する
-        performSegue(withIdentifier: Segues.ToRequestDetail, sender: self)
+        switch selectedInformation.infoType {
+        case .news:
+            print("ニュース")
+        case .request:
+            performSegue(withIdentifier: Segues.ToRequestDetail, sender: self)
+        case .response:
+            print("申請許可")
+        case .others:
+            print("その他")
+        }
+        
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {

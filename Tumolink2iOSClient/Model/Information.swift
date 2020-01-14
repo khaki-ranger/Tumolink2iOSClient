@@ -12,6 +12,7 @@ import FirebaseFirestore
 enum InfoType: String {
     case news = "news"
     case request = "request"
+    case response = "response"
     case others = "other"
     
     init?(name: String) {
@@ -20,10 +21,25 @@ enum InfoType: String {
             self = .news
         case "request":
             self = .request
+        case "response":
+            self = .response
         case "others":
             self = .others
         default:
             return nil
+        }
+    }
+    
+    static func setTitle(infoType: InfoType) -> String {
+        switch infoType {
+        case .news:
+            return "ニュース"
+        case .request:
+            return "メンバー申請"
+        case .response:
+            return "メンバー申請許可"
+        case .others :
+            return "お知らせ"
         }
     }
 }

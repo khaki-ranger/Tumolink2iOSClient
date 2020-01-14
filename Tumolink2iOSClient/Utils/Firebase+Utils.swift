@@ -18,6 +18,7 @@ struct FirestoreCollectionIds {
 
 struct FirestoreArrayIds {
     static let Pending = "pending"
+    static let Members = "members"
 }
 
 struct FirestorageDirectories {

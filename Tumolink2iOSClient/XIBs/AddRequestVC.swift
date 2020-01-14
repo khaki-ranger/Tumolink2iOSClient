@@ -45,12 +45,10 @@ class AddRequestVC: UIViewController {
     @IBAction func requestClicked(_ sender: Any) {
         activityIndicator.startAnimating()
         
-        let title = "メンバー申請"
-        
         // オーナーにInformationを作成する処理
         var information = Information.init(id: "",
                                            infoType: .request,
-                                           title: title,
+                                           title: InfoType.setTitle(infoType: .request),
                                            from: UserService.user.id,
                                            spotId: spot.id)
         

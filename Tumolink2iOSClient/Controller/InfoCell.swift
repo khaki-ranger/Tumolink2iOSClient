@@ -35,6 +35,10 @@ class InfoCell: UITableViewCell {
             isReadedLbl.text = "既読"
             isReadedLbl.backgroundColor = #colorLiteral(red: 0.1137254902, green: 0.9607843137, blue: 0.737254902, alpha: 1)
             isReadedLbl.textColor = #colorLiteral(red: 0.4, green: 0.4, blue: 0.4, alpha: 1)
+        } else {
+            isReadedLbl.text = "未読"
+            isReadedLbl.backgroundColor = #colorLiteral(red: 0.968627451, green: 0.537254902, blue: 0.4078431373, alpha: 1)
+            isReadedLbl.textColor = .white
         }
         titleLbl.text = information.title
         

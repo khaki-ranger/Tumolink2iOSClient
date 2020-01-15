@@ -13,7 +13,6 @@
 		D116B52F23ACC5F8006CBB3A /* EditUserVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D116B52E23ACC5F7006CBB3A /* EditUserVC.swift */; };
 		D118084023969E87006EA889 /* RoundedViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = D118083F23969E87006EA889 /* RoundedViews.swift */; };
 		D129CE5A23C4152E003ACEE2 /* Information.swift in Sources */ = {isa = PBXBuildFile; fileRef = D129CE5923C4152E003ACEE2 /* Information.swift */; };
-		D129CE5C23C56DEF003ACEE2 /* SpotUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = D129CE5B23C56DEF003ACEE2 /* SpotUser.swift */; };
 		D131CA2823C6CC4100244CA0 /* SearchSpotVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D131CA2723C6CC4100244CA0 /* SearchSpotVC.swift */; };
 		D14E3E6723A35ACF00978AFC /* SpotVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D14E3E6623A35ACF00978AFC /* SpotVC.swift */; };
 		D14E3E6A23A3659200978AFC /* SpotImageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D14E3E6823A3659200978AFC /* SpotImageCell.swift */; };
@@ -63,7 +62,6 @@
 		D116B52E23ACC5F7006CBB3A /* EditUserVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditUserVC.swift; sourceTree = "<group>"; };
 		D118083F23969E87006EA889 /* RoundedViews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedViews.swift; sourceTree = "<group>"; };
 		D129CE5923C4152E003ACEE2 /* Information.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Information.swift; sourceTree = "<group>"; };
-		D129CE5B23C56DEF003ACEE2 /* SpotUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpotUser.swift; sourceTree = "<group>"; };
 		D131CA2723C6CC4100244CA0 /* SearchSpotVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchSpotVC.swift; sourceTree = "<group>"; };
 		D14E3E6623A35ACF00978AFC /* SpotVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpotVC.swift; sourceTree = "<group>"; };
 		D14E3E6823A3659200978AFC /* SpotImageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpotImageCell.swift; sourceTree = "<group>"; };
@@ -235,7 +233,6 @@
 				D1BBF97223A2330E003C7D61 /* Spot.swift */,
 				D1902D5B23A7639C00822D9D /* User.swift */,
 				D15EABF323B352B300A42D5D /* Tumoli.swift */,
-				D129CE5B23C56DEF003ACEE2 /* SpotUser.swift */,
 				D129CE5923C4152E003ACEE2 /* Information.swift */,
 			);
 			path = Model;
@@ -438,7 +435,6 @@
 				D1902D5F23A7682300822D9D /* UserService.swift in Sources */,
 				D131CA2823C6CC4100244CA0 /* SearchSpotVC.swift in Sources */,
 				D1B75EA123CADE9900773876 /* InfoCell.swift in Sources */,
-				D129CE5C23C56DEF003ACEE2 /* SpotUser.swift in Sources */,
 				D15EABF123B3501400A42D5D /* TumoliCell.swift in Sources */,
 				D14E3E6723A35ACF00978AFC /* SpotVC.swift in Sources */,
 				D1CC783E23A48BF000CD9D7B /* CreateSpotVC.swift in Sources */,

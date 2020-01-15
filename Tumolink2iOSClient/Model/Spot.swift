@@ -9,6 +9,13 @@
 import Foundation
 import FirebaseFirestore
 
+enum MemberStatus: String {
+    case owner = "オーナー"
+    case member = "メンバー"
+    case pending = "承認待ち"
+    case unapplied = "未申請"
+}
+
 struct Spot {
     var id: String
     var name: String

@@ -21,6 +21,7 @@ class CreateSpotVC: UIViewController {
     @IBOutlet weak var addEditBtn: RoundedButton!
     
     // MARK: Variables
+    var db: Firestore!
     var spotToEdit: Spot?
     var tappedImageView: UIImageView?
     // Firestoreにアップロードした画像のURLを格納する配列
@@ -30,6 +31,7 @@ class CreateSpotVC: UIViewController {
     // MARK: Functions
     override func viewDidLoad() {
         super.viewDidLoad()
+        db = Firestore.firestore()
         
         setupTapGesture()
         
@@ -115,24 +117,23 @@ class CreateSpotVC: UIViewController {
         
         activityIndicator.startAnimating()
         
+        let members = [UserService.user.id]
+        
         var spot = Spot.init(id: "",
                              name: spotName,
                              owner: UserService.user.id,
-                             description: "",
                              images: imageUrls,
-                             address: "",
-                             isPublic: true,
-                             isActive: true)
+                             members: members)
         
         var docRef: DocumentReference!
         // productToEditがnilかどうかで、編集と新規作成の処理を分岐
         if let spotToEdit = spotToEdit {
             // 編集
-            docRef = Firestore.firestore().collection(FirestoreCollectionIds.Spots).document(spotToEdit.id)
+            docRef = db.collection(FirestoreCollectionIds.Spots).document(spotToEdit.id)
             spot.id = spotToEdit.id
         } else {
             // 新規作成
-            docRef = Firestore.firestore().collection(FirestoreCollectionIds.Spots).document()
+            docRef = db.collection(FirestoreCollectionIds.Spots).document()
             spot.id = docRef.documentID
         }
         
@@ -142,8 +143,32 @@ class CreateSpotVC: UIViewController {
                 self.handleError(error: error, msg: "データのアップロードに失敗しました")
             }
             
-            self.navigationController?.popToRootViewController(animated: true)
+            // 新規作成の場合だけ、mySpots配列にspotIdを追加する
+            if self.spotToEdit == nil {
+                self.addSpotIdToMySpotsArray(spot: spot)
+            } else {
+                self.dismiss(animated: true, completion: nil)
+            }
         }
+    }
+    
+    // ログインユーザーのUserドキュメントのspots配列にspotIdを追加
+    private func addSpotIdToMySpotsArray(spot: Spot) {
+        let docRef = db.collection(FirestoreCollectionIds.Users).document(UserService.user.id)
+        docRef.updateData([FirestoreArrayIds.MySpots : FieldValue.arrayUnion([spot.id])]) { (error) in
+            
+            if let error = error {
+                debugPrint(error.localizedDescription)
+                self.simpleAlert(title: "エラー", msg: "マイスポットの登録に失敗しました")
+                return
+            }
+            
+            self.dismiss(animated: true, completion: nil)
+        }
+    }
+    
+    @IBAction func cancelClicked(_ sender: Any) {
+        dismiss(animated: true, completion: nil)
     }
 }
 

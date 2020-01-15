@@ -9,12 +9,22 @@
 import Foundation
 import FirebaseFirestore
 
+enum MemberStatus: String {
+    case owner = "オーナー"
+    case member = "メンバー"
+    case pending = "承認待ち"
+    case unapplied = "未申請"
+}
+
 struct Spot {
     var id: String
     var name: String
     var owner: String
-    var description: String
     var images: [String]
+    var members: [String]
+    var pending: [String]
+    var memberStatus: MemberStatus
+    var description: String
     var address: String
     var isPublic: Bool
     var isActive: Bool
@@ -24,18 +34,24 @@ struct Spot {
         id: String,
         name: String,
         owner: String,
-        description: String,
         images: [String],
-        address: String,
-        isPublic: Bool,
-        isActive: Bool,
+        members: [String] = [String](),
+        pending: [String] = [String](),
+        memberStatus: MemberStatus = MemberStatus.unapplied,
+        description: String = "",
+        address: String = "",
+        isPublic: Bool = true,
+        isActive: Bool = true,
         timeStamp: Timestamp = Timestamp()) {
         
         self.id = id
         self.name = name
         self.owner = owner
-        self.description = description
         self.images = images
+        self.members = members
+        self.pending = pending
+        self.memberStatus = memberStatus
+        self.description = description
         self.address = address
         self.isPublic = isPublic
         self.isActive = isActive
@@ -46,8 +62,11 @@ struct Spot {
         self.id = data["id"] as? String ?? ""
         self.name = data["name"] as? String ?? ""
         self.owner = data["owner"] as? String ?? ""
-        self.description = data["description"] as? String ?? ""
         self.images = data["images"] as? [String] ?? [String]()
+        self.members = data["members"] as? [String] ?? [String]()
+        self.pending = data["pending"] as? [String] ?? [String]()
+        self.memberStatus = data["memberStatus"] as? MemberStatus ?? MemberStatus.unapplied
+        self.description = data["description"] as? String ?? ""
         self.address = data["address"] as? String ?? ""
         self.isPublic = data["isPublic"] as? Bool ?? true
         self.isActive = data["isActive"] as? Bool ?? true
@@ -59,8 +78,11 @@ struct Spot {
             "id": spot.id,
             "name": spot.name,
             "owner": spot.owner,
-            "description": spot.description,
             "images": spot.images,
+            "members": spot.members,
+            "pending": spot.pending,
+            "memberStatus": spot.memberStatus.rawValue,
+            "description": spot.description,
             "address": spot.address,
             "isPublic": spot.isPublic,
             "isActive": spot.isActive,

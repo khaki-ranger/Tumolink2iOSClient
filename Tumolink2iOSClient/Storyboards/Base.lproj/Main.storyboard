@@ -19,11 +19,11 @@
             </objects>
             <point key="canvasLocation" x="919" y="-37"/>
         </scene>
-        <!--Spot-->
+        <!--Information-->
         <scene sceneID="CQk-8J-sad">
             <objects>
-                <viewControllerPlaceholder storyboardName="Spot" id="i62-nf-LAg" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="スポット" image="icn_spot" selectedImage="icn_spot" id="Pkg-OB-C11"/>
+                <viewControllerPlaceholder storyboardName="Information" id="i62-nf-LAg" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="お知らせ" image="icn_spot" selectedImage="icn_spot" id="Pkg-OB-C11"/>
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="J7v-RB-Kfx" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

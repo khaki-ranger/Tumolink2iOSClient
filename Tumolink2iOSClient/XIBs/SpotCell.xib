@@ -28,21 +28,33 @@
                                     <constraint firstAttribute="width" secondItem="6Vg-7S-MlU" secondAttribute="height" multiplier="16:9" id="qmy-mR-pGR"/>
                                 </constraints>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ギークオフィス恵比寿" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="baa-7s-RTh">
-                                <rect key="frame" x="251" y="62" width="286" height="18"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="6" translatesAutoresizingMaskIntoConstraints="NO" id="yHX-Sy-bmf">
+                                <rect key="frame" x="251" y="48.5" width="286" height="44.5"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="未申請" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ke7-gp-eU4" customClass="RoundedLabel" customModule="Tumolink2iOSClient" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="49" height="20.5"/>
+                                        <color key="backgroundColor" red="0.96862745100000003" green="0.53725490200000003" blue="0.40784313729999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="12"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ギークオフィス恵比寿" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="baa-7s-RTh">
+                                        <rect key="frame" x="0.0" y="26.5" width="153" height="18"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                        <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                            </stackView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstAttribute="trailing" secondItem="yHX-Sy-bmf" secondAttribute="trailing" constant="20" id="00I-k1-1JU"/>
                             <constraint firstAttribute="bottom" secondItem="6Vg-7S-MlU" secondAttribute="bottom" constant="8" id="0Eo-Gm-Xeq"/>
-                            <constraint firstItem="baa-7s-RTh" firstAttribute="centerY" secondItem="9Nv-eR-LNB" secondAttribute="centerY" id="2Nl-qM-wO0"/>
                             <constraint firstItem="6Vg-7S-MlU" firstAttribute="leading" secondItem="9Nv-eR-LNB" secondAttribute="leading" constant="8" id="AeH-3s-w7L"/>
                             <constraint firstItem="6Vg-7S-MlU" firstAttribute="top" secondItem="9Nv-eR-LNB" secondAttribute="top" constant="8" id="U8X-nZ-TNl"/>
-                            <constraint firstAttribute="trailing" secondItem="baa-7s-RTh" secondAttribute="trailing" constant="20" id="VrN-op-r7T"/>
-                            <constraint firstItem="baa-7s-RTh" firstAttribute="leading" secondItem="6Vg-7S-MlU" secondAttribute="trailing" constant="20" id="bV7-Vi-9X5"/>
+                            <constraint firstItem="yHX-Sy-bmf" firstAttribute="leading" secondItem="6Vg-7S-MlU" secondAttribute="trailing" constant="20" id="bmR-uk-02s"/>
+                            <constraint firstItem="yHX-Sy-bmf" firstAttribute="centerY" secondItem="9Nv-eR-LNB" secondAttribute="centerY" id="nEm-BR-rWl"/>
                         </constraints>
                     </view>
                 </subviews>
@@ -56,10 +68,11 @@
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
+                <outlet property="memberStatusLbl" destination="ke7-gp-eU4" id="RXT-Tk-1Ot"/>
                 <outlet property="spotImg" destination="6Vg-7S-MlU" id="jgH-OP-d9r"/>
                 <outlet property="spotName" destination="baa-7s-RTh" id="sKh-XB-KA0"/>
             </connections>
-            <point key="canvasLocation" x="321.01449275362319" y="180.13392857142856"/>
+            <point key="canvasLocation" x="319.56521739130437" y="180.13392857142856"/>
         </tableViewCell>
     </objects>
     <resources>

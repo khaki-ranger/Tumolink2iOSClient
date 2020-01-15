@@ -28,10 +28,13 @@ struct Identifiers {
     static let SpotCell = "SpotCell"
     static let SpotImageCell = "SpotImageCell"
     static let TumoliCell = "TumoliCell"
+    static let InfoCell = "InfoCell"
 }
 
 struct Segues {
     static let ToSpot = "ToSpot"
     static let ToEditSpot = "ToEditSpot"
     static let ToEditUser = "ToEditUser"
+    static let ToRequestDetail = "ToRequestDetail"
+    static let ToResponseDetail = "ToResponseDetail"
 }

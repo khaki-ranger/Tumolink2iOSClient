@@ -14,19 +14,17 @@ class HomeVC: UIViewController {
     // MARK: Outlets
     @IBOutlet weak var loginBtn: UIBarButtonItem!
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
     // MARK: Variables
-    var spots = [Spot]()
+    var mySpots = [Spot]()
     var db: Firestore!
-    var listener: ListenerRegistration!
     var selectedSpot: Spot!
-    
     
     // MARK: Functions
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        UserService.getCurrentUser()
         setupInitialAnonymouseUser()
         db = Firestore.firestore()
         setupTableView()
@@ -34,13 +32,19 @@ class HomeVC: UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         setupLoginBtn()
-        setSpotsListener()
+        setupMySpots()
     }
     
     override func viewDidDisappear(_ animated: Bool) {
-        listener.remove()
-        spots.removeAll()
+        disappearTableViewWithAnimasion()
+        mySpots.removeAll()
         tableView.reloadData()
+    }
+    
+    private func setupTableView() {
+        tableView.delegate = self
+        tableView.dataSource = self
+        tableView.register(UINib(nibName: Identifiers.SpotCell, bundle: nil), forCellReuseIdentifier: Identifiers.SpotCell)
     }
     
     private func setupInitialAnonymouseUser() {
@@ -70,12 +74,6 @@ class HomeVC: UIViewController {
         }
     }
     
-    private func setupTableView() {
-        tableView.delegate = self
-        tableView.dataSource = self
-        tableView.register(UINib(nibName: Identifiers.SpotCell, bundle: nil), forCellReuseIdentifier: Identifiers.SpotCell)
-    }
-    
     // ログインフローに遷移するためのメソッド
     fileprivate func presentLoginController() {
         let storyboard = UIStoryboard(name: Storyboard.LoginStoryboard, bundle: nil)
@@ -84,30 +82,35 @@ class HomeVC: UIViewController {
     }
     
     // テーブルに表示されるセルのデータを制御するメソッド
-    private func setSpotsListener() {
-        listener = db.spots.addSnapshotListener({ (snap, error) in
+    private func setupMySpots() {
+        activityIndicator.startAnimating()
+        
+        UserService.getMySpots { (mySpots, error) in
             
             if let error = error {
                 debugPrint(error.localizedDescription)
+                self.simpleAlert(title: "エラー", msg: "マイスポットの取得に失敗しました")
                 return
             }
             
-            snap?.documentChanges.forEach({ (change) in
-                let data = change.document.data()
-                let spot = Spot.init(data: data)
-                
-                switch change.type {
-                case .added:
-                    self.onDocumentAdded(change: change, spot: spot)
-                case .modified:
-                    self.onDocumentModified(change: change, spot: spot)
-                case .removed:
-                    self.onDocumentRemoved(change: change)
-                @unknown default:
-                    return
-                }
-            })
-        })
+            if mySpots.count > 0 {
+                self.mySpots = mySpots
+                self.tableView.reloadData()
+                self.appearTableViewWithAnimasion()
+            }
+            
+            self.activityIndicator.stopAnimating()
+        }
+    }
+    
+    private func appearTableViewWithAnimasion() {
+        UIView.animate(withDuration: 0.4, delay: 0.1, options: [.curveEaseOut], animations: {
+            self.tableView.alpha = 1.0
+        }, completion: nil)
+    }
+    
+    private func disappearTableViewWithAnimasion() {
+        tableView.alpha = 0.0
     }
     
     // MARK: Actions
@@ -135,44 +138,13 @@ class HomeVC: UIViewController {
 }
 
 extension HomeVC : UITableViewDelegate, UITableViewDataSource {
-    
-    // データベースの変更に対して実行されるメソッド - begin
-    private func onDocumentAdded(change: DocumentChange, spot: Spot) {
-        let newIndex = Int(change.newIndex)
-        spots.insert(spot, at: newIndex)
-        tableView.insertRows(at: [IndexPath(row: newIndex, section: 0)], with: .fade)
-    }
-    
-    private func onDocumentModified(change: DocumentChange, spot: Spot) {
-        if change.newIndex == change.oldIndex {
-            // Row change, but remained in the same position
-            let index = Int(change.newIndex)
-            spots[index] = spot
-            tableView.reloadRows(at: [IndexPath(row: index, section: 0)], with: .none)
-        } else {
-            // Row changed and changed position
-            let newIndex = Int(change.newIndex)
-            let oldIndex = Int(change.oldIndex)
-            spots.remove(at: oldIndex)
-            spots.insert(spot, at: newIndex)
-            tableView.moveRow(at: IndexPath(row: oldIndex, section: 0), to: IndexPath(row: newIndex, section: 0))
-        }
-    }
-    
-    private func onDocumentRemoved(change: DocumentChange) {
-        let oldIndex = Int(change.oldIndex)
-        spots.remove(at: oldIndex)
-        tableView.deleteRows(at: [IndexPath(row: oldIndex, section: 0)], with: .left)
-    }
-    // データベースの変更に対して実行されるメソッド - end
-    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return spots.count
+        return mySpots.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if let cell = tableView.dequeueReusableCell(withIdentifier: Identifiers.SpotCell, for: indexPath) as? SpotCell {
-            cell.configureCell(spot: spots[indexPath.row])
+            cell.configureCell(spot: mySpots[indexPath.row])
             return cell
         }
         return UITableViewCell()
@@ -183,7 +155,7 @@ extension HomeVC : UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        selectedSpot = spots[indexPath.row]
+        selectedSpot = mySpots[indexPath.row]
         performSegue(withIdentifier: Segues.ToSpot, sender: self)
     }
     
@@ -194,5 +166,4 @@ extension HomeVC : UITableViewDelegate, UITableViewDataSource {
             }
         }
     }
-    
 }

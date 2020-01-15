@@ -8,33 +8,59 @@
 
 import Firebase
 
+struct FirestoreCollectionIds {
+    static let Spots = "spots"
+    static let Users = "users"
+    static let Tumolis = "tumolis"
+    static let SpotUser = "spot-user"
+    static let Informations = "informations"
+}
+
+struct FirestoreArrayIds {
+    static let Pending = "pending"
+    static let Members = "members"
+    static let MySpots = "mySpots"
+}
+
+struct FirestorageDirectories {
+    static let SpotImages = "spotImages"
+}
+
 extension Firestore {
     
     var spots: Query {
-        return collection("spots").whereField("isActive", isEqualTo: true).order(by: "timeStamp", descending: true)
+        return collection(FirestoreCollectionIds.Spots)
+            .whereField("isActive", isEqualTo: true)
+            .order(by: "timeStamp", descending: true)
     }
     
     func tumolis(spotId: String) -> Query {
-        return collection("tumolis")
+        return collection(FirestoreCollectionIds.Tumolis)
             .whereField("spotId", isEqualTo: spotId)
             .whereField("isActive", isEqualTo: true)
             .order(by: "possibility",  descending: true)
     }
     
     func tumolis(userId: String) -> Query {
-        return collection("tumolis").whereField("userId", isEqualTo: userId)
+        return collection(FirestoreCollectionIds.Tumolis)
+            .whereField("userId", isEqualTo: userId)
     }
     
-}
-
-struct FirestoreCollectionIds {
-    static let Spots = "spots"
-    static let Users = "users"
-    static let Tumolis = "tumolis"
-}
-
-struct FirestorageDirectories {
-    static let SpotImages = "spotImages"
+    func spotUser(userId: String) -> Query {
+        return collection(FirestoreCollectionIds.SpotUser)
+            .whereField("userId", isEqualTo: userId)
+    }
+    
+    func spotUser(spotId: String) -> Query {
+        return collection(FirestoreCollectionIds.SpotUser)
+            .whereField("spotId", isEqualTo: spotId)
+    }
+    
+    func informations(userId: String) -> Query {
+        return collection(FirestoreCollectionIds.Users).document(userId).collection(FirestoreCollectionIds.Informations)
+            .whereField("isActive", isEqualTo: true)
+            .order(by: "createdAt", descending: true)
+    }
     
 }
 

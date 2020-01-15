@@ -34,6 +34,7 @@ class InfoListVC: UIViewController {
     }
     
     override func viewDidDisappear(_ animated: Bool) {
+        listener.remove()
         informations.removeAll()
         tableView.reloadData()
     }

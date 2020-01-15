@@ -17,6 +17,7 @@ class RequestDetailVC: UIViewController {
     @IBOutlet weak var profileImg: CircleImageView!
     @IBOutlet weak var usernameLbl: UILabel!
     @IBOutlet weak var descriptionLbl: UILabel!
+    @IBOutlet weak var permitBtn: RoundedButton!
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
     // MARK: Valiables
@@ -29,13 +30,23 @@ class RequestDetailVC: UIViewController {
         super.viewDidLoad()
         db = Firestore.firestore()
         navigationItem.title = "メンバー申請"
+        setupPermitBtn()
+        activityIndicator.startAnimating()
         
         // 未読の場合は既読に変更する
-        activityIndicator.startAnimating()
         if information.isRead == false {
             changeIsRead()
         } else {
             getUserDocument()
+        }
+    }
+    
+    private func setupPermitBtn() {
+        if information.isCompleted == true {
+            permitBtn.isUserInteractionEnabled = false
+            permitBtn.setTitle("申請を許可しました", for: .normal)
+            permitBtn.backgroundColor = #colorLiteral(red: 0.1137254902, green: 0.9607843137, blue: 0.737254902, alpha: 1)
+            permitBtn.setTitleColor(#colorLiteral(red: 0.4, green: 0.4, blue: 0.4, alpha: 1), for: .normal)
         }
     }
     
@@ -141,6 +152,21 @@ class RequestDetailVC: UIViewController {
                 return
             }
             
+            self.changeIsCompleted()
+        }
+    }
+    
+    // InformationのisCompletedをtrueにする
+    private func changeIsCompleted() {
+        let docRef = db.collection(FirestoreCollectionIds.Users).document(UserService.user.id).collection(FirestoreCollectionIds.Informations).document(self.information.id)
+        docRef.updateData(["isCompleted": true]) { (error) in
+
+            if let error = error {
+                debugPrint(error.localizedDescription)
+                self.simpleAlert(title: "エラー", msg: "メンバー申請の許可に失敗しました")
+                return
+            }
+
             self.sendInformation()
         }
     }

@@ -51,6 +51,7 @@ struct Information {
     var from: String
     var spotId: String
     var isRead: Bool
+    var isCompleted: Bool
     var isActive: Bool
     var createdAt: Timestamp
     var updatedAt: Timestamp
@@ -61,6 +62,7 @@ struct Information {
          from: String = "",
          spotId: String = "",
          isRead: Bool = false,
+         isCompleted: Bool = false,
          isActive: Bool = true,
          createdAt: Timestamp = Timestamp(),
          updatedAt: Timestamp = Timestamp()) {
@@ -71,6 +73,7 @@ struct Information {
         self.from = from
         self.spotId = spotId
         self.isRead = isRead
+        self.isCompleted = isCompleted
         self.isActive = isActive
         self.createdAt = createdAt
         self.updatedAt = updatedAt
@@ -85,6 +88,7 @@ struct Information {
         from = data["from"] as? String ?? ""
         spotId = data["spotId"] as? String ?? ""
         isRead = data["isRead"] as? Bool ?? false
+        isCompleted = data["isCompleted"] as? Bool ?? false
         isActive = data["isActive"] as? Bool ?? false
         createdAt = data["createdAt"] as? Timestamp ?? Timestamp()
         updatedAt = data["updatedAt"] as? Timestamp ?? Timestamp()
@@ -98,6 +102,7 @@ struct Information {
             "from" : information.from,
             "spotId" : information.spotId,
             "isRead" : information.isRead,
+            "isCompleted" : information.isCompleted,
             "isActive" : information.isActive,
             "createdAt" : information.createdAt,
             "updatedAt" : information.updatedAt

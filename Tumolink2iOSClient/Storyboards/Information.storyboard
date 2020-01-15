@@ -37,14 +37,14 @@
                                                     </constraints>
                                                 </view>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="未読" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Bzk-jP-Pp0" customClass="RoundedLabel" customModule="Tumolink2iOSClient" customModuleProvider="target">
-                                                    <rect key="frame" x="20" y="12" width="37" height="20.5"/>
+                                                    <rect key="frame" x="20" y="15" width="25" height="14.5"/>
                                                     <color key="backgroundColor" red="0.96862745100000003" green="0.53725490200000003" blue="0.40784313729999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <fontDescription key="fontDescription" type="boldSystem" pointSize="12"/>
                                                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="タイトル" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="33D-NY-YQS">
-                                                    <rect key="frame" x="67" y="11.5" width="69.5" height="21"/>
+                                                    <rect key="frame" x="55" y="11.5" width="69.5" height="21"/>
                                                     <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                                     <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
@@ -188,6 +188,7 @@
                         <outlet property="activityIndicator" destination="At8-wV-ay7" id="EpS-ps-SJm"/>
                         <outlet property="descriptionLbl" destination="YzD-tG-z7v" id="iDX-IJ-QQ4"/>
                         <outlet property="informationView" destination="RKC-U3-Dtv" id="SiQ-Ne-baR"/>
+                        <outlet property="permitBtn" destination="7VL-zd-92Y" id="H11-zA-V8u"/>
                         <outlet property="profileImg" destination="Fe8-Ib-bCh" id="CUf-Tl-O40"/>
                         <outlet property="usernameLbl" destination="feJ-pR-NX7" id="dyJ-Xo-tnP"/>
                     </connections>

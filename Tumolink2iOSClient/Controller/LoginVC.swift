@@ -48,8 +48,15 @@ class LoginVC: UIViewController {
                 return
             }
             
-            UserService.getCurrentUser()
-            self.dismiss(animated: true, completion: nil)
+            UserService.getCurrentUser(completion: { (error) in
+                
+                if let error = error {
+                    debugPrint(error.localizedDescription)
+                    return
+                }
+                
+                self.dismiss(animated: true, completion: nil)
+            })
         }
     }
     

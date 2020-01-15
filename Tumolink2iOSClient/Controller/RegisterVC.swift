@@ -173,8 +173,15 @@ class RegisterVC: UIViewController {
                 Auth.auth().handleFireAuthError(error: error, vc: self)
                 debugPrint(error.localizedDescription)
             } else {
-                UserService.getCurrentUser()
-                self.dismiss(animated: true, completion: nil)
+                UserService.getCurrentUser(completion: { (erorr) in
+                    
+                    if let error = error {
+                        debugPrint(error.localizedDescription)
+                        return
+                    }
+                    
+                    self.dismiss(animated: true, completion: nil)
+                })
             }
             self.activityIndicator.stopAnimating()
         }

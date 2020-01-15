@@ -14,6 +14,7 @@ struct User {
     var email: String
     var username: String
     var imageUrl: String
+    var mySpots: [String]
     var hasSetupAccount: Bool
     var isActive: Bool
     var timeStamp: Timestamp
@@ -22,6 +23,7 @@ struct User {
          email: String = "",
          username: String = "",
          imageUrl: String = "",
+         mySpots: [String] = [String](),
          hasSetupAccount: Bool = false,
          isActive: Bool = true,
          timeStamp: Timestamp = Timestamp()) {
@@ -30,6 +32,7 @@ struct User {
         self.email = email
         self.username = username
         self.imageUrl = imageUrl
+        self.mySpots = mySpots
         self.hasSetupAccount = hasSetupAccount
         self.isActive = isActive
         self.timeStamp = timeStamp
@@ -40,6 +43,7 @@ struct User {
         email = data["email"] as? String ?? ""
         username = data["username"] as? String ?? ""
         imageUrl = data["imageUrl"] as? String ?? ""
+        mySpots = data["mySpots"] as? [String] ?? [String]()
         hasSetupAccount = data["hasSetupAccount"] as? Bool ?? false
         isActive = data["isActive"] as? Bool ?? true
         timeStamp = data["timeStamp"] as? Timestamp ?? Timestamp()
@@ -51,6 +55,7 @@ struct User {
             "email" : user.email,
             "username" : user.username,
             "imageUrl" : user.imageUrl,
+            "mySpots" : user.mySpots,
             "hasSetupAccount" : user.hasSetupAccount,
             "isActive" : user.isActive,
             "timeStamp" : user.timeStamp

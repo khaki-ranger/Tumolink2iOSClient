@@ -143,28 +143,24 @@ class CreateSpotVC: UIViewController {
                 self.handleError(error: error, msg: "データのアップロードに失敗しました")
             }
             
-            // 新規作成の場合だけ、spot-userコレクションにログインユーザーの情報を格納する
+            // 新規作成の場合だけ、mySpots配列にspotIdを追加する
             if self.spotToEdit == nil {
-                self.uploadSpotUserDocument(spot: spot)
+                self.addSpotIdToMySpotsArray(spot: spot)
             } else {
-                self.navigationController?.popToRootViewController(animated: true)
+                self.dismiss(animated: true, completion: nil)
             }
         }
     }
     
-    private func uploadSpotUserDocument(spot: Spot) {
-        // Firestoreドキュメントを新規作成
-        let docRef = db.collection(FirestoreCollectionIds.SpotUser).document()
-        var spotUser = SpotUser.init(id: "",
-                                     spotId: spot.id,
-                                     userId: UserService.user.id,
-                                     status: MemberStatus.owner)
-        spotUser.id = docRef.documentID
-        let data = SpotUser.modelToData(spotuser: spotUser)
-        docRef.setData(data) { (error) in
+    // ログインユーザーのUserドキュメントのspots配列にspotIdを追加
+    private func addSpotIdToMySpotsArray(spot: Spot) {
+        let docRef = db.collection(FirestoreCollectionIds.Users).document(UserService.user.id)
+        docRef.updateData([FirestoreArrayIds.MySpots : FieldValue.arrayUnion([spot.id])]) { (error) in
             
             if let error = error {
-                self.handleError(error: error, msg: "データのアップロードに失敗しました")
+                debugPrint(error.localizedDescription)
+                self.simpleAlert(title: "エラー", msg: "マイスポットの登録に失敗しました")
+                return
             }
             
             self.dismiss(animated: true, completion: nil)

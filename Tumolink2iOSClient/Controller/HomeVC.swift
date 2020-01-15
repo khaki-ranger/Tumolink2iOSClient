@@ -17,31 +17,27 @@ class HomeVC: UIViewController {
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
     // MARK: Variables
-    var spots = [Spot]()
+    var mySpots = [Spot]()
     var db: Firestore!
     var selectedSpot: Spot!
-    var count = 0
-    
     
     // MARK: Functions
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        UserService.getCurrentUser()
         setupInitialAnonymouseUser()
         db = Firestore.firestore()
         setupTableView()
     }
     
     override func viewDidAppear(_ animated: Bool) {
-        count = 0
         setupLoginBtn()
-        setSpotsListener()
+        setupMySpots()
     }
     
     override func viewDidDisappear(_ animated: Bool) {
         disappearTableViewWithAnimasion()
-        spots.removeAll()
+        mySpots.removeAll()
         tableView.reloadData()
     }
     
@@ -86,64 +82,24 @@ class HomeVC: UIViewController {
     }
     
     // テーブルに表示されるセルのデータを制御するメソッド
-    private func setSpotsListener() {
-        guard let authUser = Auth.auth().currentUser else { return }
-        
+    private func setupMySpots() {
         activityIndicator.startAnimating()
-
-        let collectionRef = db.spotUser(userId: authUser.uid)
-        collectionRef.getDocuments { (snap, error) in
-
-            if let error = error {
-                debugPrint(error.localizedDescription)
-                return
-            }
-            
-            guard let documents = snap?.documents else { return }
-            
-            if documents.count < 1 {
-                self.activityIndicator.stopAnimating()
-            }
-            
-            for document in documents {
-                let data = document.data()
-                let spotUser = SpotUser.init(data: data)
-                self.fetchDocument(spotUser: spotUser, completion: { (spot, error) in
-                    
-                    if let error = error {
-                        debugPrint(error.localizedDescription)
-                        return
-                    }
-                    
-                    guard let spot = spot else { return }
-                    
-                    self.spots.append(spot)
-                    self.tableView.reloadData()
-                    
-                    self.count += 1
-                    if self.count == documents.count {
-                        self.activityIndicator.stopAnimating()
-                        self.appearTableViewWithAnimasion()
-                    }
-                })
-            }
-        }
-    }
-    
-    private func fetchDocument(spotUser: SpotUser, completion: @escaping (Spot?, Error?) -> Void) {
-        let docRef = db.collection(FirestoreCollectionIds.Spots).document(spotUser.spotId)
-        docRef.getDocument { (snap, error) in
+        
+        UserService.getMySpots { (mySpots, error) in
             
             if let error = error {
                 debugPrint(error.localizedDescription)
-                completion(nil, error)
+                self.simpleAlert(title: "エラー", msg: "マイスポットの取得に失敗しました")
                 return
             }
             
-            guard let data = snap?.data() else { return }
-            var spot = Spot.init(data: data)
-            spot.memberStatus = UserService.status(spot: spot)
-            completion(spot, nil)
+            if mySpots.count > 0 {
+                self.mySpots = mySpots
+                self.tableView.reloadData()
+                self.appearTableViewWithAnimasion()
+            }
+            
+            self.activityIndicator.stopAnimating()
         }
     }
     
@@ -183,12 +139,12 @@ class HomeVC: UIViewController {
 
 extension HomeVC : UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return spots.count
+        return mySpots.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if let cell = tableView.dequeueReusableCell(withIdentifier: Identifiers.SpotCell, for: indexPath) as? SpotCell {
-            cell.configureCell(spot: spots[indexPath.row])
+            cell.configureCell(spot: mySpots[indexPath.row])
             return cell
         }
         return UITableViewCell()
@@ -199,7 +155,7 @@ extension HomeVC : UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        selectedSpot = spots[indexPath.row]
+        selectedSpot = mySpots[indexPath.row]
         performSegue(withIdentifier: Segues.ToSpot, sender: self)
     }
     

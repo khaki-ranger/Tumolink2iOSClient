@@ -152,6 +152,21 @@ class RequestDetailVC: UIViewController {
                 return
             }
             
+            self.addSpotIdToMySpotsArray()
+        }
+    }
+    
+    // 申請ユーザーのUserドキュメントのmySpots配列にspotIdを追加する
+    private func addSpotIdToMySpotsArray() {
+        let docRef = db.collection(FirestoreCollectionIds.Users).document(information.from)
+        docRef.updateData([FirestoreArrayIds.MySpots : FieldValue.arrayUnion([information.spotId])]) { (error) in
+            
+            if let error = error {
+                debugPrint(error.localizedDescription)
+                self.simpleAlert(title: "エラー", msg: "マイスポットの登録に失敗しました")
+                return
+            }
+            
             self.changeIsCompleted()
         }
     }

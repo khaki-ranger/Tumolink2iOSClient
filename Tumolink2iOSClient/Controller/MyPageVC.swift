@@ -16,36 +16,55 @@ class MyPageVC: UIViewController {
     @IBOutlet weak var usernameTxt: UILabel!
     @IBOutlet weak var profileImg: UIImageView!
     @IBOutlet weak var logoutBtn: FullRoundedButton!
+    @IBOutlet weak var userProfileView: UIStackView!
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
     // MARK: Functions
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         setupProfile()
     }
     
     override func viewDidAppear(_ animated: Bool) {
         setupLoginBtn()
-        if let username = usernameTxt.text {
-            if username != UserService.user.username {
-                setupProfile()
-            }
-        }
+        setupProfile()
     }
     
     private func setupProfile() {
-        if UserService.isGuest {
-            usernameTxt.text = "匿名ユーザー"
-            profileImg.image = UIImage(named: AppImages.NoProfile)
-        } else {
-            usernameTxt.text = UserService.user.username
+        activityIndicator.startAnimating()
+        
+        UserService.getCurrentUser { (error) in
             
-            if let url = URL(string: UserService.user.imageUrl) {
-                let placeholder = UIImage(named: AppImages.Placeholder)
-                let options : KingfisherOptionsInfo = [KingfisherOptionsInfoItem.transition(.fade(0.2))]
-                profileImg.kf.indicatorType = .activity
-                profileImg.kf.setImage(with: url, placeholder: placeholder, options: options)
+            if let error = error {
+                debugPrint(error.localizedDescription)
+                self.simpleAlert(title: "エラー", msg: "ユーザー情報の取得に失敗しました")
+                return
             }
+            
+            if UserService.isGuest {
+                self.usernameTxt.text = "匿名ユーザー"
+                self.profileImg.image = UIImage(named: AppImages.NoProfile)
+            } else {
+                self.usernameTxt.text = UserService.user.username
+                
+                if let url = URL(string: UserService.user.imageUrl) {
+                    let placeholder = UIImage(named: AppImages.Placeholder)
+                    let options : KingfisherOptionsInfo = [KingfisherOptionsInfoItem.transition(.fade(0.2))]
+                    self.profileImg.kf.indicatorType = .activity
+                    self.profileImg.kf.setImage(with: url, placeholder: placeholder, options: options)
+                }
+            }
+            
+            self.activityIndicator.stopAnimating()
+            self.appearProfileViewWithAnimasion()
         }
+    }
+    
+    private func appearProfileViewWithAnimasion() {
+        UIView.animate(withDuration: 0.4, delay: 0.1, options: [.curveEaseOut], animations: {
+            self.userProfileView.alpha = 1.0
+        }, completion: nil)
     }
     
     private func setupLoginBtn() {

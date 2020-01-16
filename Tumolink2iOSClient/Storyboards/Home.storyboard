@@ -136,17 +136,10 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="xWT-De-3HF"/>
                     </view>
-                    <navigationItem key="navigationItem" id="Pmx-RW-V1o">
-                        <barButtonItem key="rightBarButtonItem" title="ログイン" id="7v8-hn-nn3">
-                            <connections>
-                                <action selector="loginClicked:" destination="Pxc-1O-78U" id="oXS-7i-t3f"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" id="Pmx-RW-V1o"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="activityIndicator" destination="I3n-eX-GDk" id="eII-4N-lFA"/>
-                        <outlet property="loginBtn" destination="7v8-hn-nn3" id="15s-hq-RY5"/>
                         <outlet property="tableView" destination="bob-CL-LRr" id="Kzf-Wc-ZH6"/>
                         <segue destination="7ek-Az-kmx" kind="show" identifier="ToSpot" id="Hho-fd-GMR"/>
                     </connections>
@@ -544,7 +537,7 @@
         <image name="no_image" width="300" height="300"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="rxK-tx-MJb"/>
+        <segue reference="Hho-fd-GMR"/>
         <segue reference="W5e-Z1-6xd"/>
     </inferredMetricsTieBreakers>
 </document>

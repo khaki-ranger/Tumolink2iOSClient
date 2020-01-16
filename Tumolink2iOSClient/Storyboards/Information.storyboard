@@ -86,7 +86,9 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="lHG-6h-fHA"/>
                     </view>
-                    <navigationItem key="navigationItem" id="5Rz-z7-myz"/>
+                    <navigationItem key="navigationItem" id="5Rz-z7-myz">
+                        <barButtonItem key="backBarButtonItem" title="一覧" id="y1h-Kk-aIF"/>
+                    </navigationItem>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="tableView" destination="Jkd-CK-aRx" id="xSd-NY-vft"/>

@@ -38,4 +38,5 @@ struct Segues {
     static let ToEditUser = "ToEditUser"
     static let ToRequestDetail = "ToRequestDetail"
     static let ToResponseDetail = "ToResponseDetail"
+    static let ToManageSpot = "ToManageSpot"
 }

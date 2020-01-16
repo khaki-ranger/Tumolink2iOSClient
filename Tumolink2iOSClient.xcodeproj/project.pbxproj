@@ -18,6 +18,7 @@
 		D14E3E6A23A3659200978AFC /* SpotImageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D14E3E6823A3659200978AFC /* SpotImageCell.swift */; };
 		D14E3E6B23A3659200978AFC /* SpotImageCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D14E3E6923A3659200978AFC /* SpotImageCell.xib */; };
 		D1505BE623CFFBCC00FF48E6 /* TumorirekiCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1505BE523CFFBCC00FF48E6 /* TumorirekiCell.swift */; };
+		D1505BE923D02C0800FF48E6 /* ManageSpotVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1505BE823D02C0800FF48E6 /* ManageSpotVC.swift */; };
 		D15EABF123B3501400A42D5D /* TumoliCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D15EABEF23B3501400A42D5D /* TumoliCell.swift */; };
 		D15EABF223B3501400A42D5D /* TumoliCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D15EABF023B3501400A42D5D /* TumoliCell.xib */; };
 		D15EABF423B352B300A42D5D /* Tumoli.swift in Sources */ = {isa = PBXBuildFile; fileRef = D15EABF323B352B300A42D5D /* Tumoli.swift */; };
@@ -68,6 +69,7 @@
 		D14E3E6823A3659200978AFC /* SpotImageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpotImageCell.swift; sourceTree = "<group>"; };
 		D14E3E6923A3659200978AFC /* SpotImageCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SpotImageCell.xib; sourceTree = "<group>"; };
 		D1505BE523CFFBCC00FF48E6 /* TumorirekiCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TumorirekiCell.swift; sourceTree = "<group>"; };
+		D1505BE823D02C0800FF48E6 /* ManageSpotVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManageSpotVC.swift; sourceTree = "<group>"; };
 		D15EABEF23B3501400A42D5D /* TumoliCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TumoliCell.swift; sourceTree = "<group>"; };
 		D15EABF023B3501400A42D5D /* TumoliCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TumoliCell.xib; sourceTree = "<group>"; };
 		D15EABF323B352B300A42D5D /* Tumoli.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tumoli.swift; sourceTree = "<group>"; };
@@ -216,6 +218,7 @@
 				D1E4C9FB2394E5B800272C5F /* RegisterVC.swift */,
 				D1896E1D2390F30B004EC82A /* HomeVC.swift */,
 				D14E3E6623A35ACF00978AFC /* SpotVC.swift */,
+				D1505BE823D02C0800FF48E6 /* ManageSpotVC.swift */,
 				D1CC783D23A48BF000CD9D7B /* CreateSpotVC.swift */,
 				D131CA2723C6CC4100244CA0 /* SearchSpotVC.swift */,
 				D1FF02FB23AA1D06003AD9D4 /* MyPageVC.swift */,
@@ -442,6 +445,7 @@
 				D1FF02FC23AA1D06003AD9D4 /* MyPageVC.swift in Sources */,
 				D16EADF223C9F58A0080B7B0 /* InfoListVC.swift in Sources */,
 				D1E4CA012395084800272C5F /* Constants.swift in Sources */,
+				D1505BE923D02C0800FF48E6 /* ManageSpotVC.swift in Sources */,
 				D114A6B823AF658700EE0B2E /* DeleteUserVC.swift in Sources */,
 				D129CE5A23C4152E003ACEE2 /* Information.swift in Sources */,
 				D1902D5F23A7682300822D9D /* UserService.swift in Sources */,

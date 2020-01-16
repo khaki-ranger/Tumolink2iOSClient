@@ -136,7 +136,9 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="xWT-De-3HF"/>
                     </view>
-                    <navigationItem key="navigationItem" id="Pmx-RW-V1o"/>
+                    <navigationItem key="navigationItem" id="Pmx-RW-V1o">
+                        <barButtonItem key="backBarButtonItem" title="ホーム" id="g0J-DQ-Vjr"/>
+                    </navigationItem>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="activityIndicator" destination="I3n-eX-GDk" id="eII-4N-lFA"/>
@@ -496,12 +498,105 @@
                         <outlet property="tableHeight" destination="tXs-it-jhV" id="LNf-tr-H9D"/>
                         <outlet property="tableView" destination="GGs-vG-tTD" id="iQZ-uA-evq"/>
                         <outlet property="yearTxt" destination="9sK-8H-XIK" id="TAi-Z9-zhR"/>
-                        <segue destination="6fV-ty-Cc0" kind="presentation" identifier="ToEditSpot" id="NS8-dt-1bM"/>
+                        <segue destination="jS5-pu-G4a" kind="show" identifier="ToManageSpot" id="EPz-p1-Hd5"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1oH-gH-b5P" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2849" y="-131"/>
+        </scene>
+        <!--Manage SpotVC-->
+        <scene sceneID="BNs-4J-eKl">
+            <objects>
+                <viewController id="jS5-pu-G4a" customClass="ManageSpotVC" customModule="Tumolink2iOSClient" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="qub-YZ-Tft">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="スポット名" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GSW-HP-6UU">
+                                <rect key="frame" x="151.5" y="108" width="111.5" height="26.5"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="22"/>
+                                <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="rbw-De-l1i">
+                                <rect key="frame" x="20" y="154.5" width="374" height="111.5"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nIh-Jm-WwV" customClass="RoundedButton" customModule="Tumolink2iOSClient" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="111.5" height="111.5"/>
+                                        <color key="backgroundColor" red="0.96862745100000003" green="0.53725490200000003" blue="0.40784313729999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" secondItem="nIh-Jm-WwV" secondAttribute="height" multiplier="1:1" id="UqS-Sr-jHd"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                        <state key="normal" title="メンバー管理">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="manageMemberClicked:" destination="jS5-pu-G4a" eventType="touchUpInside" id="QKI-8g-gCV"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FOR-4f-Dnf" customClass="RoundedButton" customModule="Tumolink2iOSClient" customModuleProvider="target">
+                                        <rect key="frame" x="131.5" y="0.0" width="111" height="111.5"/>
+                                        <color key="backgroundColor" red="0.96862745100000003" green="0.53725490200000003" blue="0.40784313729999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" secondItem="FOR-4f-Dnf" secondAttribute="height" multiplier="1:1" id="rUv-Uv-Sqz"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                        <state key="normal" title="登録情報変更">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="editSpotClicked:" destination="jS5-pu-G4a" eventType="touchUpInside" id="crP-3g-JLS"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hNd-5h-u3I" customClass="RoundedButton" customModule="Tumolink2iOSClient" customModuleProvider="target">
+                                        <rect key="frame" x="262.5" y="0.0" width="111.5" height="111.5"/>
+                                        <color key="backgroundColor" red="0.96862745100000003" green="0.53725490200000003" blue="0.40784313729999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" secondItem="hNd-5h-u3I" secondAttribute="height" multiplier="1:1" id="lWi-xx-BoO"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                        <state key="normal" title="削除">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="deleteSpotClicked:" destination="jS5-pu-G4a" eventType="touchUpInside" id="f4U-YX-qSC"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="hNd-5h-u3I" firstAttribute="width" secondItem="hNd-5h-u3I" secondAttribute="height" multiplier="1:1" id="Ahz-2y-QC1"/>
+                                    <constraint firstItem="hNd-5h-u3I" firstAttribute="width" secondItem="hNd-5h-u3I" secondAttribute="height" multiplier="1:1" id="Oji-nu-Iyq"/>
+                                    <constraint firstItem="FOR-4f-Dnf" firstAttribute="width" secondItem="FOR-4f-Dnf" secondAttribute="height" multiplier="1:1" id="fvJ-nT-i3W"/>
+                                </constraints>
+                            </stackView>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="cdv-am-K3s">
+                                <rect key="frame" x="188.5" y="429.5" width="37" height="37"/>
+                                <color key="color" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </activityIndicatorView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="GSW-HP-6UU" firstAttribute="top" secondItem="o0E-CO-iHH" secondAttribute="top" constant="20" id="Ex7-Iz-xr3"/>
+                            <constraint firstItem="o0E-CO-iHH" firstAttribute="trailing" secondItem="rbw-De-l1i" secondAttribute="trailing" constant="20" id="Mub-cl-sxm"/>
+                            <constraint firstItem="rbw-De-l1i" firstAttribute="top" secondItem="GSW-HP-6UU" secondAttribute="bottom" constant="20" id="OJy-30-id6"/>
+                            <constraint firstItem="cdv-am-K3s" firstAttribute="centerY" secondItem="qub-YZ-Tft" secondAttribute="centerY" id="YzE-Zt-MY0"/>
+                            <constraint firstItem="rbw-De-l1i" firstAttribute="leading" secondItem="o0E-CO-iHH" secondAttribute="leading" constant="20" id="cS0-85-wva"/>
+                            <constraint firstItem="GSW-HP-6UU" firstAttribute="centerX" secondItem="qub-YZ-Tft" secondAttribute="centerX" id="g3L-8x-8nG"/>
+                            <constraint firstItem="cdv-am-K3s" firstAttribute="centerX" secondItem="qub-YZ-Tft" secondAttribute="centerX" id="u2s-Tz-8wu"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="o0E-CO-iHH"/>
+                    </view>
+                    <connections>
+                        <outlet property="activityIndicator" destination="cdv-am-K3s" id="44g-5r-hfd"/>
+                        <outlet property="spotNameLbl" destination="GSW-HP-6UU" id="Cos-gk-Jjt"/>
+                        <segue destination="6fV-ty-Cc0" kind="presentation" identifier="ToEditSpot" id="Cv1-Ng-SaS"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="M1m-IF-DYU" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3759" y="-131"/>
         </scene>
         <!--ホーム-->
         <scene sceneID="Z67-IV-XAh">
@@ -539,7 +634,7 @@
         <image name="no_image" width="300" height="300"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="Hho-fd-GMR"/>
-        <segue reference="NS8-dt-1bM"/>
+        <segue reference="rxK-tx-MJb"/>
+        <segue reference="Cv1-Ng-SaS"/>
     </inferredMetricsTieBreakers>
 </document>

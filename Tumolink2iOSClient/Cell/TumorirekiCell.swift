@@ -30,6 +30,7 @@ class TumorirekiCell: UITableViewCell {
     }
     
     func configureCell(tumoli: Tumoli) {
+        spotnameLbl.text = tumoli.spotname
         possibilityLbl.text = String(tumoli.possibility)
         
         let f = DateFormatter()

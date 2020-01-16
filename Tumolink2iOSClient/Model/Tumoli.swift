@@ -15,6 +15,8 @@ struct Tumoli {
     var username: String
     var userImg: String
     var spotId: String
+    var spotname: String
+    var spotImg: String
     var possibility: Int
     var isActive: Bool
     var date: Timestamp
@@ -26,6 +28,8 @@ struct Tumoli {
          username: String = "",
          userImg: String = "",
          spotId: String = "",
+         spotname: String = "",
+         spotImg: String = "",
          possibility: Int = 0,
          isActive: Bool = true,
          date: Timestamp = Timestamp(),
@@ -37,6 +41,8 @@ struct Tumoli {
         self.username = username
         self.userImg = userImg
         self.spotId = spotId
+        self.spotname = spotname
+        self.spotImg = spotImg
         self.possibility = possibility
         self.isActive = isActive
         self.date = date
@@ -50,6 +56,8 @@ struct Tumoli {
         username = data["username"] as? String ?? ""
         userImg = data["userImg"] as? String ?? ""
         spotId = data["spotId"] as? String ?? ""
+        spotname = data["spotname"] as? String ?? ""
+        spotImg = data["spotImg"] as? String ?? ""
         possibility = data["possibility"] as? Int ?? 0
         isActive = data["isActive"] as? Bool ?? true
         date = data["date"] as? Timestamp ?? Timestamp()
@@ -64,6 +72,8 @@ struct Tumoli {
             "username" : tumoli.username,
             "userImg" : tumoli.userImg,
             "spotId" : tumoli.spotId,
+            "spotname" : tumoli.spotname,
+            "spotImg" : tumoli.spotImg,
             "possibility" : tumoli.possibility,
             "isActive" : tumoli.isActive,
             "date" : tumoli.date,

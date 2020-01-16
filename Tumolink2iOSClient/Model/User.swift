@@ -17,7 +17,8 @@ struct User {
     var mySpots: [String]
     var hasSetupAccount: Bool
     var isActive: Bool
-    var timeStamp: Timestamp
+    var createdAt: Timestamp
+    var updatedAt: Timestamp
     
     init(id: String = "",
          email: String = "",
@@ -26,7 +27,8 @@ struct User {
          mySpots: [String] = [String](),
          hasSetupAccount: Bool = false,
          isActive: Bool = true,
-         timeStamp: Timestamp = Timestamp()) {
+         createdAt: Timestamp = Timestamp(),
+         updatedAt: Timestamp = Timestamp()) {
         
         self.id = id
         self.email = email
@@ -35,7 +37,8 @@ struct User {
         self.mySpots = mySpots
         self.hasSetupAccount = hasSetupAccount
         self.isActive = isActive
-        self.timeStamp = timeStamp
+        self.createdAt = createdAt
+        self.updatedAt = updatedAt
     }
     
     init(data: [String: Any]) {
@@ -46,7 +49,8 @@ struct User {
         mySpots = data["mySpots"] as? [String] ?? [String]()
         hasSetupAccount = data["hasSetupAccount"] as? Bool ?? false
         isActive = data["isActive"] as? Bool ?? true
-        timeStamp = data["timeStamp"] as? Timestamp ?? Timestamp()
+        createdAt = data["createdAt"] as? Timestamp ?? Timestamp()
+        updatedAt = data["updatedAt"] as? Timestamp ?? Timestamp()
     }
     
     static func modelToData(user: User) -> [String: Any] {
@@ -58,7 +62,8 @@ struct User {
             "mySpots" : user.mySpots,
             "hasSetupAccount" : user.hasSetupAccount,
             "isActive" : user.isActive,
-            "timeStamp" : user.timeStamp
+            "createdAt" : user.createdAt,
+            "updatedAt" : user.updatedAt
         ]
         
         return data

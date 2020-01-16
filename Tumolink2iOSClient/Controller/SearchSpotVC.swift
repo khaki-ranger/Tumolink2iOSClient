@@ -26,6 +26,7 @@ class SearchSpotVC: UIViewController {
     // MARK: functions
     override func viewDidLoad() {
         super.viewDidLoad()
+        navigationItem.title = "スポットを探す"
         
         db = Firestore.firestore()
         setupTableView()

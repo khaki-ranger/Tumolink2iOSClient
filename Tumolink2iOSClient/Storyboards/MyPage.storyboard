@@ -25,13 +25,25 @@
                             <stackView opaque="NO" alpha="0.0" contentMode="scaleToFill" alignment="center" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="D4D-fz-LKM">
                                 <rect key="frame" x="20" y="64" width="374" height="90"/>
                                 <subviews>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="no_image" translatesAutoresizingMaskIntoConstraints="NO" id="qZH-Sf-96Z" customClass="MypageProfileView" customModule="Tumolink2iOSClient" customModuleProvider="target">
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="D1r-yh-iPQ" customClass="FullRoundedShadowView" customModule="Tumolink2iOSClient" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="90" height="90"/>
+                                        <subviews>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="no_image" translatesAutoresizingMaskIntoConstraints="NO" id="qZH-Sf-96Z" customClass="CircleImageView" customModule="Tumolink2iOSClient" customModuleProvider="target">
+                                                <rect key="frame" x="5" y="5" width="80" height="80"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="80" id="kRT-cB-PjR"/>
+                                                    <constraint firstAttribute="height" constant="80" id="rQV-6S-Ymu"/>
+                                                </constraints>
+                                            </imageView>
+                                        </subviews>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
-                                            <constraint firstAttribute="width" constant="90" id="kRT-cB-PjR"/>
-                                            <constraint firstAttribute="height" constant="90" id="rQV-6S-Ymu"/>
+                                            <constraint firstItem="qZH-Sf-96Z" firstAttribute="centerX" secondItem="D1r-yh-iPQ" secondAttribute="centerX" id="A39-Pz-7Mi"/>
+                                            <constraint firstAttribute="width" constant="90" id="llK-Be-tNJ"/>
+                                            <constraint firstAttribute="height" constant="90" id="p1l-b5-DIA"/>
+                                            <constraint firstItem="qZH-Sf-96Z" firstAttribute="centerY" secondItem="D1r-yh-iPQ" secondAttribute="centerY" id="xf9-zL-tc7"/>
                                         </constraints>
-                                    </imageView>
+                                    </view>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ユーザーネーム" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="b84-ft-kd9">
                                         <rect key="frame" x="110" y="35" width="164" height="20.5"/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
@@ -158,11 +170,11 @@
                             <constraint firstItem="LOi-hw-efW" firstAttribute="trailing" secondItem="Zdf-wF-zxU" secondAttribute="trailing" id="c1q-ur-4BG"/>
                             <constraint firstItem="3jD-De-T4F" firstAttribute="leading" secondItem="LOi-hw-efW" secondAttribute="leading" constant="20" id="eTW-gK-wEQ"/>
                             <constraint firstItem="LOi-hw-efW" firstAttribute="bottom" secondItem="3jD-De-T4F" secondAttribute="bottom" constant="20" id="gc6-Zj-KNP"/>
+                            <constraint firstItem="Zdf-wF-zxU" firstAttribute="top" secondItem="D4D-fz-LKM" secondAttribute="bottom" constant="20" id="hJs-Gq-25U"/>
                             <constraint firstItem="9NB-cZ-DU0" firstAttribute="leading" secondItem="LOi-hw-efW" secondAttribute="leading" id="i4w-up-7fu"/>
                             <constraint firstItem="jmI-Wl-KfC" firstAttribute="centerY" secondItem="eIN-n1-9vk" secondAttribute="centerY" id="j1y-ag-aIc"/>
                             <constraint firstItem="LOi-hw-efW" firstAttribute="trailing" secondItem="9NB-cZ-DU0" secondAttribute="trailing" id="k9b-bJ-62F"/>
                             <constraint firstItem="LOi-hw-efW" firstAttribute="trailing" secondItem="3jD-De-T4F" secondAttribute="trailing" constant="20" id="qdh-mL-shQ"/>
-                            <constraint firstItem="9NB-cZ-DU0" firstAttribute="bottom" secondItem="qZH-Sf-96Z" secondAttribute="bottom" constant="20" id="r2G-hJ-AYd"/>
                             <constraint firstItem="9NB-cZ-DU0" firstAttribute="top" secondItem="eIN-n1-9vk" secondAttribute="top" id="sLp-E9-IZT"/>
                             <constraint firstItem="D4D-fz-LKM" firstAttribute="top" secondItem="LOi-hw-efW" secondAttribute="top" constant="20" id="wTB-pd-39c"/>
                         </constraints>

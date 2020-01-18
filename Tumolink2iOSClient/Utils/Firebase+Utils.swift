@@ -53,6 +53,12 @@ extension Firestore {
             .order(by: "createdAt", descending: true)
     }
     
+    func fetchUnreadInfomations(userId: String) -> Query {
+        return collection(FirestoreCollectionIds.Users).document(userId).collection(FirestoreCollectionIds.Informations)
+            .whereField("isActive", isEqualTo: true)
+            .whereField("isRead", isEqualTo: false)
+    }
+    
 }
 
 extension Auth {

@@ -31,6 +31,7 @@ class HomeVC: UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         setupMySpots()
+        setupTabBarBadge()
     }
     
     override func viewDidDisappear(_ animated: Bool) {

@@ -31,6 +31,7 @@ class InfoListVC: UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         setupListener()
+        setupTabBarBadge()
     }
     
     override func viewDidDisappear(_ animated: Bool) {
@@ -68,6 +69,8 @@ class InfoListVC: UIViewController {
                 @unknown default:
                     return
                 }
+                
+                self.setupTabBarBadge()
             })
         })
     }

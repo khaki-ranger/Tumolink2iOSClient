@@ -20,16 +20,16 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9Nv-eR-LNB" customClass="RoundedShadowView" customModule="Tumolink2iOSClient" customModuleProvider="target">
-                        <rect key="frame" x="12" y="12" width="594" height="133.5"/>
+                        <rect key="frame" x="14" y="14" width="590" height="138.5"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="samp_spot" translatesAutoresizingMaskIntoConstraints="NO" id="6Vg-7S-MlU" customClass="RoundedImageView" customModule="Tumolink2iOSClient" customModuleProvider="target">
-                                <rect key="frame" x="8" y="8" width="209" height="117.5"/>
+                                <rect key="frame" x="8" y="8" width="218" height="122.5"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="6Vg-7S-MlU" secondAttribute="height" multiplier="16:9" id="qmy-mR-pGR"/>
                                 </constraints>
                             </imageView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="6" translatesAutoresizingMaskIntoConstraints="NO" id="yHX-Sy-bmf">
-                                <rect key="frame" x="237" y="44.5" width="337" height="44.5"/>
+                                <rect key="frame" x="246" y="47" width="324" height="44.5"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="未申請" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ke7-gp-eU4" customClass="RoundedLabel" customModule="Tumolink2iOSClient" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="49" height="20.5"/>
@@ -59,10 +59,10 @@
                     </view>
                 </subviews>
                 <constraints>
-                    <constraint firstAttribute="trailing" secondItem="9Nv-eR-LNB" secondAttribute="trailing" constant="12" id="T0U-pR-Gms"/>
-                    <constraint firstAttribute="bottom" secondItem="9Nv-eR-LNB" secondAttribute="bottom" constant="12" id="Uvh-zw-wfY"/>
-                    <constraint firstItem="9Nv-eR-LNB" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="12" id="bKa-Dc-cH6"/>
-                    <constraint firstItem="9Nv-eR-LNB" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="12" id="gAq-jM-md2"/>
+                    <constraint firstAttribute="trailing" secondItem="9Nv-eR-LNB" secondAttribute="trailing" constant="14" id="T0U-pR-Gms"/>
+                    <constraint firstAttribute="bottom" secondItem="9Nv-eR-LNB" secondAttribute="bottom" constant="5" id="Uvh-zw-wfY"/>
+                    <constraint firstItem="9Nv-eR-LNB" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="14" id="bKa-Dc-cH6"/>
+                    <constraint firstItem="9Nv-eR-LNB" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="14" id="gAq-jM-md2"/>
                 </constraints>
             </tableViewCellContentView>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

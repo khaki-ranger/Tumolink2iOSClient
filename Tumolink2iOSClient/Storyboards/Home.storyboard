@@ -123,8 +123,9 @@
                         <constraints>
                             <constraint firstItem="I3n-eX-GDk" firstAttribute="centerY" secondItem="7eq-N4-7jN" secondAttribute="centerY" id="4ln-0G-ibB"/>
                             <constraint firstItem="wmE-TY-slT" firstAttribute="leading" secondItem="xWT-De-3HF" secondAttribute="leading" constant="20" id="AOC-rJ-z3G"/>
-                            <constraint firstItem="bob-CL-LRr" firstAttribute="leading" secondItem="xWT-De-3HF" secondAttribute="leading" id="CB4-f7-fRG"/>
                             <constraint firstItem="xWT-De-3HF" firstAttribute="bottom" secondItem="MEo-n8-cia" secondAttribute="bottom" constant="20" id="GgA-Xi-zuI"/>
+                            <constraint firstItem="xWT-De-3HF" firstAttribute="trailing" secondItem="bob-CL-LRr" secondAttribute="trailing" id="HeH-5y-LWv"/>
+                            <constraint firstItem="bob-CL-LRr" firstAttribute="leading" secondItem="xWT-De-3HF" secondAttribute="leading" id="T6i-Sc-78k"/>
                             <constraint firstItem="xWT-De-3HF" firstAttribute="trailing" secondItem="wmE-TY-slT" secondAttribute="trailing" constant="20" id="bSE-M2-UlM"/>
                             <constraint firstItem="bob-CL-LRr" firstAttribute="top" secondItem="xWT-De-3HF" secondAttribute="top" id="bsh-vx-SlN"/>
                             <constraint firstItem="MEo-n8-cia" firstAttribute="leading" secondItem="xWT-De-3HF" secondAttribute="leading" constant="20" id="eZA-gJ-uQ7"/>
@@ -132,7 +133,6 @@
                             <constraint firstItem="I3n-eX-GDk" firstAttribute="centerX" secondItem="7eq-N4-7jN" secondAttribute="centerX" id="iiu-TJ-cf8"/>
                             <constraint firstItem="wmE-TY-slT" firstAttribute="top" secondItem="bob-CL-LRr" secondAttribute="bottom" constant="20" id="lth-WO-eJ8"/>
                             <constraint firstItem="xWT-De-3HF" firstAttribute="trailing" secondItem="MEo-n8-cia" secondAttribute="trailing" constant="20" id="rZH-dA-EWR"/>
-                            <constraint firstAttribute="trailing" secondItem="bob-CL-LRr" secondAttribute="trailing" id="yod-t5-oLU"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="xWT-De-3HF"/>
                     </view>

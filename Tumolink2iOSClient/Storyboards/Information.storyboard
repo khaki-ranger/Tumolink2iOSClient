@@ -31,27 +31,27 @@
                                             <subviews>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ucJ-0U-yD5">
                                                     <rect key="frame" x="20" y="43" width="374" height="1"/>
-                                                    <color key="backgroundColor" red="0.8666666666666667" green="0.8666666666666667" blue="0.8666666666666667" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <color key="backgroundColor" red="0.98431372549019602" green="0.9137254901960784" blue="0.90588235294117647" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="1" id="G3X-QM-wql"/>
                                                     </constraints>
                                                 </view>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="未読" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Bzk-jP-Pp0" customClass="RoundedLabel" customModule="Tumolink2iOSClient" customModuleProvider="target">
-                                                    <rect key="frame" x="20" y="15" width="25" height="14.5"/>
+                                                    <rect key="frame" x="20" y="12" width="37" height="20.5"/>
                                                     <color key="backgroundColor" red="0.96862745100000003" green="0.53725490200000003" blue="0.40784313729999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <fontDescription key="fontDescription" type="boldSystem" pointSize="12"/>
                                                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="タイトル" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="33D-NY-YQS">
-                                                    <rect key="frame" x="55" y="11.5" width="69.5" height="21"/>
+                                                    <rect key="frame" x="67" y="11.5" width="69.5" height="21"/>
                                                     <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                                     <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2020/01/12" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CBk-Sg-xsI">
-                                                    <rect key="frame" x="321" y="13.5" width="73" height="17"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <rect key="frame" x="312.5" y="13" width="81.5" height="18.5"/>
+                                                    <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="14"/>
                                                     <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
@@ -86,7 +86,9 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="lHG-6h-fHA"/>
                     </view>
-                    <navigationItem key="navigationItem" id="5Rz-z7-myz"/>
+                    <navigationItem key="navigationItem" id="5Rz-z7-myz">
+                        <barButtonItem key="backBarButtonItem" title="一覧" id="y1h-Kk-aIF"/>
+                    </navigationItem>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="tableView" destination="Jkd-CK-aRx" id="xSd-NY-vft"/>
@@ -208,7 +210,7 @@
                             <view alpha="0.0" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="d7J-z5-zQP">
                                 <rect key="frame" x="0.0" y="88" width="414" height="335"/>
                                 <subviews>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="samp_spot" translatesAutoresizingMaskIntoConstraints="NO" id="A23-FF-ADP">
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="samp_spot" translatesAutoresizingMaskIntoConstraints="NO" id="A23-FF-ADP">
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="233"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="A23-FF-ADP" secondAttribute="height" multiplier="16:9" id="FW7-dX-yrZ"/>

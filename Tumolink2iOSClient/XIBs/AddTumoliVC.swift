@@ -123,6 +123,8 @@ class AddTumoliVC: UIViewController {
                                  username: UserService.user.username,
                                  userImg: UserService.user.imageUrl,
                                  spotId: spot.id,
+                                 spotname: spot.name,
+                                 spotImg: spot.images[0],
                                  possibility: possibility,
                                  isActive: true,
                                  date: Timestamp())

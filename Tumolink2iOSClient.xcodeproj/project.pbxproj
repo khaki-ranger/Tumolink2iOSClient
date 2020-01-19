@@ -17,6 +17,8 @@
 		D14E3E6723A35ACF00978AFC /* SpotVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D14E3E6623A35ACF00978AFC /* SpotVC.swift */; };
 		D14E3E6A23A3659200978AFC /* SpotImageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D14E3E6823A3659200978AFC /* SpotImageCell.swift */; };
 		D14E3E6B23A3659200978AFC /* SpotImageCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D14E3E6923A3659200978AFC /* SpotImageCell.xib */; };
+		D1505BE623CFFBCC00FF48E6 /* TumorirekiCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1505BE523CFFBCC00FF48E6 /* TumorirekiCell.swift */; };
+		D1505BE923D02C0800FF48E6 /* ManageSpotVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1505BE823D02C0800FF48E6 /* ManageSpotVC.swift */; };
 		D15EABF123B3501400A42D5D /* TumoliCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D15EABEF23B3501400A42D5D /* TumoliCell.swift */; };
 		D15EABF223B3501400A42D5D /* TumoliCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D15EABF023B3501400A42D5D /* TumoliCell.xib */; };
 		D15EABF423B352B300A42D5D /* Tumoli.swift in Sources */ = {isa = PBXBuildFile; fileRef = D15EABF323B352B300A42D5D /* Tumoli.swift */; };
@@ -46,6 +48,7 @@
 		D1CC783E23A48BF000CD9D7B /* CreateSpotVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1CC783D23A48BF000CD9D7B /* CreateSpotVC.swift */; };
 		D1D6DC4523B72E5900AAE0B5 /* AddTumoliVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1D6DC4323B72E5900AAE0B5 /* AddTumoliVC.swift */; };
 		D1D6DC4623B72E5900AAE0B5 /* AddTumoliVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = D1D6DC4423B72E5900AAE0B5 /* AddTumoliVC.xib */; };
+		D1DFE4D923D429420078A0BB /* SettingsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1DFE4D823D429420078A0BB /* SettingsVC.swift */; };
 		D1E4C9F42394DCB700272C5F /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = D1E4C9F32394DCB700272C5F /* GoogleService-Info.plist */; };
 		D1E4C9FA2394E59200272C5F /* LoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1E4C9F92394E59200272C5F /* LoginVC.swift */; };
 		D1E4C9FC2394E5B800272C5F /* RegisterVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1E4C9FB2394E5B800272C5F /* RegisterVC.swift */; };
@@ -66,6 +69,8 @@
 		D14E3E6623A35ACF00978AFC /* SpotVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpotVC.swift; sourceTree = "<group>"; };
 		D14E3E6823A3659200978AFC /* SpotImageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpotImageCell.swift; sourceTree = "<group>"; };
 		D14E3E6923A3659200978AFC /* SpotImageCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SpotImageCell.xib; sourceTree = "<group>"; };
+		D1505BE523CFFBCC00FF48E6 /* TumorirekiCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TumorirekiCell.swift; sourceTree = "<group>"; };
+		D1505BE823D02C0800FF48E6 /* ManageSpotVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManageSpotVC.swift; sourceTree = "<group>"; };
 		D15EABEF23B3501400A42D5D /* TumoliCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TumoliCell.swift; sourceTree = "<group>"; };
 		D15EABF023B3501400A42D5D /* TumoliCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TumoliCell.xib; sourceTree = "<group>"; };
 		D15EABF323B352B300A42D5D /* Tumoli.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tumoli.swift; sourceTree = "<group>"; };
@@ -97,6 +102,7 @@
 		D1CC783D23A48BF000CD9D7B /* CreateSpotVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateSpotVC.swift; sourceTree = "<group>"; };
 		D1D6DC4323B72E5900AAE0B5 /* AddTumoliVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTumoliVC.swift; sourceTree = "<group>"; };
 		D1D6DC4423B72E5900AAE0B5 /* AddTumoliVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddTumoliVC.xib; sourceTree = "<group>"; };
+		D1DFE4D823D429420078A0BB /* SettingsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsVC.swift; sourceTree = "<group>"; };
 		D1E4C9F32394DCB700272C5F /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		D1E4C9F92394E59200272C5F /* LoginVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginVC.swift; sourceTree = "<group>"; };
 		D1E4C9FB2394E5B800272C5F /* RegisterVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterVC.swift; sourceTree = "<group>"; };
@@ -135,6 +141,15 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		D1505BE723D0010A00FF48E6 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				D1B75EA023CADE9900773876 /* InfoCell.swift */,
+				D1505BE523CFFBCC00FF48E6 /* TumorirekiCell.swift */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
 		D1896E0F2390F30B004EC82A = {
 			isa = PBXGroup;
 			children = (
@@ -156,12 +171,13 @@
 		D1896E1A2390F30B004EC82A /* Tumolink2iOSClient */ = {
 			isa = PBXGroup;
 			children = (
-				D18D7F7923A0803C0085B8B9 /* XIBs */,
 				D1E4C9FD2394F2C000272C5F /* Utils */,
-				D1E4C9F72394E50300272C5F /* Model */,
 				D1902D5D23A767DE00822D9D /* Services */,
+				D1E4C9F72394E50300272C5F /* Model */,
 				D1E4C9F62394E4F300272C5F /* View */,
 				D1E4C9F52394E4E000272C5F /* Controller */,
+				D1505BE723D0010A00FF48E6 /* Cell */,
+				D18D7F7923A0803C0085B8B9 /* XIBs */,
 				D1E4C9F82394E50D00272C5F /* Storyboards */,
 				D1896E222390F30D004EC82A /* Assets.xcassets */,
 				D1E4C9F32394DCB700272C5F /* GoogleService-Info.plist */,
@@ -204,13 +220,14 @@
 				D1E4C9FB2394E5B800272C5F /* RegisterVC.swift */,
 				D1896E1D2390F30B004EC82A /* HomeVC.swift */,
 				D14E3E6623A35ACF00978AFC /* SpotVC.swift */,
+				D1505BE823D02C0800FF48E6 /* ManageSpotVC.swift */,
 				D1CC783D23A48BF000CD9D7B /* CreateSpotVC.swift */,
 				D131CA2723C6CC4100244CA0 /* SearchSpotVC.swift */,
 				D1FF02FB23AA1D06003AD9D4 /* MyPageVC.swift */,
+				D1DFE4D823D429420078A0BB /* SettingsVC.swift */,
 				D116B52E23ACC5F7006CBB3A /* EditUserVC.swift */,
 				D114A6B723AF658700EE0B2E /* DeleteUserVC.swift */,
 				D16EADF123C9F58A0080B7B0 /* InfoListVC.swift */,
-				D1B75EA023CADE9900773876 /* InfoCell.swift */,
 				D1B75EA423CAF3E000773876 /* RequestDetailVC.swift */,
 				D16B6C0523CD452200B495A5 /* ResponseDetailVC.swift */,
 				D1896E1B2390F30B004EC82A /* AppDelegate.swift */,
@@ -411,6 +428,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D16B6C0623CD452200B495A5 /* ResponseDetailVC.swift in Sources */,
+				D1505BE623CFFBCC00FF48E6 /* TumorirekiCell.swift in Sources */,
 				D114A6BA23AFA60200EE0B2E /* CircleViews.swift in Sources */,
 				D18D7F7F23A08D100085B8B9 /* Firebase+Utils.swift in Sources */,
 				D1E4C9FF2394F2D900272C5F /* Extensions.swift in Sources */,
@@ -420,6 +438,7 @@
 				D1E4C9FC2394E5B800272C5F /* RegisterVC.swift in Sources */,
 				D1896E1C2390F30B004EC82A /* AppDelegate.swift in Sources */,
 				D118084023969E87006EA889 /* RoundedViews.swift in Sources */,
+				D1DFE4D923D429420078A0BB /* SettingsVC.swift in Sources */,
 				D116B52F23ACC5F8006CBB3A /* EditUserVC.swift in Sources */,
 				D1D6DC4523B72E5900AAE0B5 /* AddTumoliVC.swift in Sources */,
 				D1E4C9FA2394E59200272C5F /* LoginVC.swift in Sources */,
@@ -430,6 +449,7 @@
 				D1FF02FC23AA1D06003AD9D4 /* MyPageVC.swift in Sources */,
 				D16EADF223C9F58A0080B7B0 /* InfoListVC.swift in Sources */,
 				D1E4CA012395084800272C5F /* Constants.swift in Sources */,
+				D1505BE923D02C0800FF48E6 /* ManageSpotVC.swift in Sources */,
 				D114A6B823AF658700EE0B2E /* DeleteUserVC.swift in Sources */,
 				D129CE5A23C4152E003ACEE2 /* Information.swift in Sources */,
 				D1902D5F23A7682300822D9D /* UserService.swift in Sources */,

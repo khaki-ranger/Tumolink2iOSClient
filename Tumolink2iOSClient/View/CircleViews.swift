@@ -44,22 +44,6 @@ extension UIImage {
     }
 }
 
-class OwnerIconView: CircleImageView {
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        layer.borderColor = UIColor.white.cgColor
-        layer.borderWidth = 3
-    }
-}
-
-class MypageProfileView: CircleImageView {
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        layer.borderColor = UIColor.white.cgColor
-        layer.borderWidth = 5
-    }
-}
-
 class CircleShadowButtonView : UIButton {
     override func awakeFromNib() {
         super.awakeFromNib()

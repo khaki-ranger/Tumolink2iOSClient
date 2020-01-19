@@ -16,10 +16,35 @@ extension String {
 }
 
 extension UIViewController {
+    
     func simpleAlert(title: String, msg: String) {
         let alert = UIAlertController(title: title, message: msg, preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
         present(alert, animated: true, completion: nil)
+    }
+    
+    func setupTabBarBadge() {
+        guard let authUser = Auth.auth().currentUser else { return }
+        let docRef = Firestore.firestore().fetchUnreadInfomations(userId: authUser.uid)
+        docRef.getDocuments { (snap, error) in
+            
+            if let error = error {
+                debugPrint(error.localizedDescription)
+                return
+            }
+            
+            guard let documents = snap?.documents else { return }
+            let unreadInfoCounts = documents.count
+            
+            if let tabItems = self.tabBarController?.tabBar.items {
+                if unreadInfoCounts > 0 {
+                    tabItems[1].badgeValue = String(unreadInfoCounts)
+                } else {
+                    tabItems[1].badgeValue = nil
+                }
+            }
+            
+        }
     }
 }
 

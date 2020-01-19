@@ -26,6 +26,7 @@ class SearchSpotVC: UIViewController {
     // MARK: functions
     override func viewDidLoad() {
         super.viewDidLoad()
+        navigationItem.title = "スポットを探す"
         
         db = Firestore.firestore()
         setupTableView()
@@ -146,7 +147,7 @@ extension SearchSpotVC : UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 100
+        return 98
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {

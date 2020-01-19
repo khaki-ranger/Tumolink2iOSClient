@@ -117,13 +117,12 @@ class CreateSpotVC: UIViewController {
         
         activityIndicator.startAnimating()
         
-        let members = [UserService.user.id]
-        
         var spot = Spot.init(id: "",
                              name: spotName,
                              owner: UserService.user.id,
                              images: imageUrls,
-                             members: members)
+                             members: [String](),
+                             pending: [String]())
         
         var docRef: DocumentReference!
         // productToEditがnilかどうかで、編集と新規作成の処理を分岐
@@ -131,6 +130,8 @@ class CreateSpotVC: UIViewController {
             // 編集
             docRef = db.collection(FirestoreCollectionIds.Spots).document(spotToEdit.id)
             spot.id = spotToEdit.id
+            spot.members = spotToEdit.members
+            spot.pending = spotToEdit.pending
         } else {
             // 新規作成
             docRef = db.collection(FirestoreCollectionIds.Spots).document()
@@ -143,11 +144,12 @@ class CreateSpotVC: UIViewController {
                 self.handleError(error: error, msg: "データのアップロードに失敗しました")
             }
             
-            // 新規作成の場合だけ、mySpots配列にspotIdを追加する
             if self.spotToEdit == nil {
+                // 新規作成の場合は、UserドキュメントのmySpots配列にspotIdを追加する
                 self.addSpotIdToMySpotsArray(spot: spot)
             } else {
-                self.dismiss(animated: true, completion: nil)
+                // 編集の場合は、tumolisのデータを変更する
+                self.updateTumoliDocuments(spot: spot)
             }
         }
     }
@@ -161,6 +163,34 @@ class CreateSpotVC: UIViewController {
                 debugPrint(error.localizedDescription)
                 self.simpleAlert(title: "エラー", msg: "マイスポットの登録に失敗しました")
                 return
+            }
+            
+            self.dismiss(animated: true, completion: nil)
+        }
+    }
+    
+    private func updateTumoliDocuments(spot: Spot) {
+        let collectionRef = db.tumolis(spotId: spot.id)
+        collectionRef.getDocuments { (snap, error) in
+            
+            if let error = error {
+                debugPrint(error.localizedDescription)
+                return
+            }
+            
+            guard let documents = snap?.documents else { return }
+            
+            for document in documents {
+                document.reference.updateData([
+                    "spotname" : spot.name,
+                    "spotImg" : spot.images[0]
+                ]) { (error) in
+                    
+                    if let error = error {
+                        debugPrint(error.localizedDescription)
+                        return
+                    }
+                }
             }
             
             self.dismiss(animated: true, completion: nil)

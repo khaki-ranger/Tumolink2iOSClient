@@ -28,7 +28,8 @@ struct Spot {
     var address: String
     var isPublic: Bool
     var isActive: Bool
-    var timeStamp: Timestamp
+    var createdAt: Timestamp
+    var updatedAt: Timestamp
     
     init(
         id: String,
@@ -42,7 +43,8 @@ struct Spot {
         address: String = "",
         isPublic: Bool = true,
         isActive: Bool = true,
-        timeStamp: Timestamp = Timestamp()) {
+        createdAt: Timestamp = Timestamp(),
+        updatedAt: Timestamp = Timestamp()) {
         
         self.id = id
         self.name = name
@@ -55,7 +57,8 @@ struct Spot {
         self.address = address
         self.isPublic = isPublic
         self.isActive = isActive
-        self.timeStamp = timeStamp
+        self.createdAt = createdAt
+        self.updatedAt = updatedAt
     }
     
     init(data: [String: Any]) {
@@ -70,7 +73,8 @@ struct Spot {
         self.address = data["address"] as? String ?? ""
         self.isPublic = data["isPublic"] as? Bool ?? true
         self.isActive = data["isActive"] as? Bool ?? true
-        self.timeStamp = data["timeStamp"] as? Timestamp ?? Timestamp()
+        self.createdAt = data["createdAt"] as? Timestamp ?? Timestamp()
+        self.updatedAt = data["updatedAt"] as? Timestamp ?? Timestamp()
     }
     
     static func modelToData(spot: Spot) -> [String: Any] {
@@ -86,7 +90,8 @@ struct Spot {
             "address": spot.address,
             "isPublic": spot.isPublic,
             "isActive": spot.isActive,
-            "timeStamp": spot.timeStamp
+            "createdAt": spot.createdAt,
+            "updatedAt": spot.updatedAt
         ]
         
         return data

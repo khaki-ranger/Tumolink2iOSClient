@@ -12,7 +12,6 @@ import Firebase
 class HomeVC: UIViewController {
     
     // MARK: Outlets
-    @IBOutlet weak var loginBtn: UIBarButtonItem!
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
@@ -25,14 +24,14 @@ class HomeVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        setupInitialAnonymouseUser()
         db = Firestore.firestore()
+        setupInitialAnonymouseUser()
         setupTableView()
     }
     
     override func viewDidAppear(_ animated: Bool) {
-        setupLoginBtn()
         setupMySpots()
+        setupTabBarBadge()
     }
     
     override func viewDidDisappear(_ animated: Bool) {
@@ -58,27 +57,6 @@ class HomeVC: UIViewController {
                 }
             }
         }
-    }
-    
-    private func setupLoginBtn() {
-        if let user = Auth.auth().currentUser {
-            print("login as \(user.uid)")
-        } else {
-            print("currentUser is nil")
-        }
-        
-        if let user = Auth.auth().currentUser , !user.isAnonymous {
-            loginBtn.title = "ログアウト"
-        }  else {
-            loginBtn.title = "ログイン"
-        }
-    }
-    
-    // ログインフローに遷移するためのメソッド
-    fileprivate func presentLoginController() {
-        let storyboard = UIStoryboard(name: Storyboard.LoginStoryboard, bundle: nil)
-        let controller = storyboard.instantiateViewController(withIdentifier: StoryboardId.LoginVC)
-        present(controller, animated: true, completion: nil)
     }
     
     // テーブルに表示されるセルのデータを制御するメソッド
@@ -114,27 +92,6 @@ class HomeVC: UIViewController {
     }
     
     // MARK: Actions
-    @IBAction func loginClicked(_ sender: Any) {
-        guard let user = Auth.auth().currentUser else { return }
-        if user.isAnonymous {
-            presentLoginController()
-        } else {
-            do {
-                try Auth.auth().signOut()
-                UserService.logoutUser()
-                Auth.auth().signInAnonymously { (result, error) in
-                    if let error = error {
-                        debugPrint(error)
-                        Auth.auth().handleFireAuthError(error: error, vc: self)
-                    }
-                    self.presentLoginController()
-                }
-            } catch {
-                debugPrint(error)
-                Auth.auth().handleFireAuthError(error: error, vc: self)
-            }
-        }
-    }
 }
 
 extension HomeVC : UITableViewDelegate, UITableViewDataSource {
@@ -151,7 +108,7 @@ extension HomeVC : UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 100
+        return 98
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {

@@ -124,7 +124,8 @@ class EditUserVC: UIViewController {
         let user = User.init(id: UserService.user.id,
                                 email: UserService.user.email,
                                 username: username,
-                                imageUrl: url)
+                                imageUrl: url,
+                                mySpots: UserService.user.mySpots)
         
         let docRef = db.collection(FirestoreCollectionIds.Users).document(UserService.user.id)
         let data = User.modelToData(user: user)

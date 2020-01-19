@@ -210,47 +210,23 @@ class SpotVC: UIViewController {
     }
     
     private func setupNavigation() {
-        let editSpotBtn = UIBarButtonItem(title: "編集", style: .plain, target: self, action: #selector(editSpot))
-        let deleteSpotBtn = UIBarButtonItem(title: "削除", style: .plain, target: self, action: #selector(deleteSpot))
-        navigationItem.setRightBarButtonItems([editSpotBtn, deleteSpotBtn], animated: false)
+        let manageSpotBtn = UIBarButtonItem(title: "管理", style: .plain, target: self, action: #selector(manageSpot))
+        navigationItem.setRightBarButton(manageSpotBtn, animated: false)
     }
     
-    @objc func editSpot() {
+    @objc func manageSpot() {
         if isOwner {
-            performSegue(withIdentifier: Segues.ToEditSpot, sender: self)
+            performSegue(withIdentifier: Segues.ToManageSpot, sender: self)
         } else {
-            simpleAlert(title: "エラー", msg: "オーナーだけがスポットの編集が可能です")
+            simpleAlert(title: "エラー", msg: "オーナーだけがスポットの管理が可能です")
         }
     }
     
-    @objc func deleteSpot() {
-        let alert = UIAlertController(title: "削除", message: "\(spot.name)を削除しますか？", preferredStyle: .alert)
-        let okAction = UIAlertAction(title: "Ok", style: .default, handler: {
-            (action: UIAlertAction!) -> Void in
-            self.activityIndicator.startAnimating()
-            self.changeIsActionValue()
-        })
-        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
-        alert.addAction(okAction)
-        alert.addAction(cancelAction)
-        present(alert, animated: true, completion: nil)
-    }
-    
-    // Firestoreのスポットの値を変更する処理
-    private func changeIsActionValue() {
-        if isOwner {
-            let docRef = Firestore.firestore().collection(FirestoreCollectionIds.Spots).document(self.spot.id)
-            docRef.updateData(["isActive": false], completion: { (error) in
-                if let error = error {
-                    debugPrint(error.localizedDescription)
-                    self.simpleAlert(title: "エラー", msg: "スポットの削除に失敗しました")
-                    return
-                }
-                // 値の更新に成功したらホームのトップ画面に遷移する
-                self.navigationController?.popToRootViewController(animated: true)
-            })
-        } else {
-            simpleAlert(title: "エラー", msg: "オーナーだけがスポットの削除が可能です")
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == Segues.ToManageSpot {
+            if let destination = segue.destination as? ManageSpotVC {
+                destination.spot = spot
+            }
         }
     }
     
@@ -282,14 +258,6 @@ class SpotVC: UIViewController {
         pageControl.currentPage = next
         slideImageView.scrollToItem(at: index, at: .centeredHorizontally, animated: true)
         controlOfNextAndPrev()
-    }
-    
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == Segues.ToEditSpot {
-            if let destination = segue.destination as? CreateSpotVC {
-                destination.spotToEdit = spot
-            }
-        }
     }
 }
 

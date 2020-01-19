@@ -12,7 +12,6 @@ struct FirestoreCollectionIds {
     static let Spots = "spots"
     static let Users = "users"
     static let Tumolis = "tumolis"
-    static let SpotUser = "spot-user"
     static let Informations = "informations"
 }
 
@@ -44,22 +43,20 @@ extension Firestore {
     func tumolis(userId: String) -> Query {
         return collection(FirestoreCollectionIds.Tumolis)
             .whereField("userId", isEqualTo: userId)
-    }
-    
-    func spotUser(userId: String) -> Query {
-        return collection(FirestoreCollectionIds.SpotUser)
-            .whereField("userId", isEqualTo: userId)
-    }
-    
-    func spotUser(spotId: String) -> Query {
-        return collection(FirestoreCollectionIds.SpotUser)
-            .whereField("spotId", isEqualTo: spotId)
+            .whereField("isActive", isEqualTo: true)
+            .order(by: "date", descending: true)
     }
     
     func informations(userId: String) -> Query {
         return collection(FirestoreCollectionIds.Users).document(userId).collection(FirestoreCollectionIds.Informations)
             .whereField("isActive", isEqualTo: true)
             .order(by: "createdAt", descending: true)
+    }
+    
+    func fetchUnreadInfomations(userId: String) -> Query {
+        return collection(FirestoreCollectionIds.Users).document(userId).collection(FirestoreCollectionIds.Informations)
+            .whereField("isActive", isEqualTo: true)
+            .whereField("isRead", isEqualTo: false)
     }
     
 }

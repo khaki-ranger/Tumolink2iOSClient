@@ -16,7 +16,6 @@ class MyPageVC: UIViewController {
     // MARK: Outlets
     @IBOutlet weak var usernameTxt: UILabel!
     @IBOutlet weak var profileImg: UIImageView!
-    @IBOutlet weak var logoutBtn: FullRoundedButton!
     @IBOutlet weak var userProfileView: UIStackView!
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
@@ -36,7 +35,6 @@ class MyPageVC: UIViewController {
     }
     
     override func viewDidAppear(_ animated: Bool) {
-        setupLoginBtn()
         setupProfile()
         setTumoliListener()
     }
@@ -88,21 +86,6 @@ class MyPageVC: UIViewController {
         }, completion: nil)
     }
     
-    private func setupLoginBtn() {
-        if let user = Auth.auth().currentUser , !user.isAnonymous {
-            logoutBtn.setTitle("ログアウト", for: .normal)
-        }  else {
-            logoutBtn.setTitle("ログイン", for: .normal)
-        }
-    }
-    
-    // ログインフローに遷移するためのメソッド
-    fileprivate func presentLoginController() {
-        let storyboard = UIStoryboard(name: Storyboard.LoginStoryboard, bundle: nil)
-        let controller = storyboard.instantiateViewController(withIdentifier: StoryboardId.LoginVC)
-        present(controller, animated: true, completion: nil)
-    }
-    
     // ツモ履歴を表示させるためのメソッド
     private func setTumoliListener() {
         let collectionRef = db.tumolis(userId: UserService.user.id)
@@ -131,30 +114,6 @@ class MyPageVC: UIViewController {
             })
         })
     }
-    
-    // MARK: Actions
-    @IBAction func logoutClicked(_ sender: Any) {
-        guard let user = Auth.auth().currentUser else { return }
-        if user.isAnonymous {
-            presentLoginController()
-        } else {
-            do {
-                try Auth.auth().signOut()
-                UserService.logoutUser()
-                Auth.auth().signInAnonymously { (result, error) in
-                    if let error = error {
-                        debugPrint(error)
-                        Auth.auth().handleFireAuthError(error: error, vc: self)
-                    }
-                    self.presentLoginController()
-                }
-            } catch {
-                debugPrint(error)
-                Auth.auth().handleFireAuthError(error: error, vc: self)
-            }
-        }
-    }
-    
 }
 
 extension MyPageVC : UITableViewDelegate, UITableViewDataSource {

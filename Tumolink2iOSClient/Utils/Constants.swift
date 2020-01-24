@@ -30,6 +30,7 @@ struct Identifiers {
     static let TumoliCell = "TumoliCell"
     static let InfoCell = "InfoCell"
     static let TumorirekiCell = "TumorirekiCell"
+    static let WeeklyCell = "WeeklyCell"
 }
 
 struct Segues {

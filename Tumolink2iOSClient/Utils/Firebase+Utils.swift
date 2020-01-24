@@ -47,6 +47,14 @@ extension Firestore {
             .order(by: "date", descending: true)
     }
     
+    func tumolis(spotId: String, begin: Timestamp, end: Timestamp) -> Query {
+        return collection(FirestoreCollectionIds.Tumolis)
+            .whereField("spotId", isEqualTo: spotId)
+            .whereField("isActive", isEqualTo: true)
+            .whereField("date", isGreaterThanOrEqualTo: begin)
+            .whereField("date", isLessThanOrEqualTo: end)
+    }
+    
     func informations(userId: String) -> Query {
         return collection(FirestoreCollectionIds.Users).document(userId).collection(FirestoreCollectionIds.Informations)
             .whereField("isActive", isEqualTo: true)

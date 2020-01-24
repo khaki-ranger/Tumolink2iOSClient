@@ -124,7 +124,11 @@ class SpotVC: UIViewController, WeeklyCellDelegate {
     
     // ツモリテーブルに表示されるセルのデータを制御するメソッド
     private func setTumoliListener() {
-        let ref = db.tumolis(spotId: spot.id)
+        
+        // currentDateの日付けの始まりと終わり
+        let begin = Timestamp(date: currentDate.startOfDay)
+        let end = Timestamp(date: currentDate.endOfDay)
+        let ref = db.tumolis(spotId: spot.id, begin: begin, end: end)
         listener = ref.addSnapshotListener({ (snap, error) in
             
             if let error = error {
@@ -367,6 +371,8 @@ extension SpotVC : UICollectionViewDelegate, UICollectionViewDataSource, UIColle
         currentDate = date
         datePickerView.reloadData()
         setupCurrentDateLabel(date: date)
+        clearAllTumolis()
+        setTumoliListener()
     }
     
     private func addNextWeek(startOfLastWeek: Date) {

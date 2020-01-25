@@ -268,6 +268,11 @@ class SpotVC: UIViewController, WeeklyCellDelegate {
         vc.modalTransitionStyle = .crossDissolve
         vc.modalPresentationStyle = .overCurrentContext
         present(vc, animated: true, completion: nil)
+        controlTabBarIsHidden(true)
+    }
+    
+    func controlTabBarIsHidden(_ hidden: Bool) {
+        tabBarController?.tabBar.isHidden = hidden
     }
     
     @IBAction func prevTapped(_ sender: Any) {

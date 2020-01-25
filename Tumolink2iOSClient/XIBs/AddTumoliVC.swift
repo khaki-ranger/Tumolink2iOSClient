@@ -65,12 +65,13 @@ class AddTumoliVC: UIViewController {
     }
     
     @objc func dismissAddTumoli() {
+        appearTabBarOnPrevVC()
         dismiss(animated: true, completion: nil)
     }
     
     // MARK: Actions
     @IBAction func closeClicked(_ sender: Any) {
-        dismiss(animated: true, completion: nil)
+        dismissAddTumoli()
     }
     
     @IBAction func deleteClicked(_ sender: Any) {
@@ -106,6 +107,7 @@ class AddTumoliVC: UIViewController {
             }
             prevVC.tumoliToEdit = nil
             
+            self.appearTabBarOnPrevVC()
             self.dismiss(animated: true, completion: nil)
         }
     }
@@ -159,7 +161,16 @@ class AddTumoliVC: UIViewController {
             }
             prevVC.setupTumoliBtn()
             
+            self.appearTabBarOnPrevVC()
             self.dismiss(animated: true, completion: nil)
         }
+    }
+    
+    private func appearTabBarOnPrevVC() {
+        let naviVC = self.presentingViewController as! UINavigationController
+        guard let prevVC = naviVC.viewControllers[naviVC.viewControllers.count - 1] as? SpotVC else {
+            return
+        }
+        prevVC.controlTabBarIsHidden(false)
     }
 }

@@ -127,7 +127,8 @@ class AddTumoliVC: UIViewController {
                                  spotImg: spot.images[0],
                                  possibility: possibility,
                                  isActive: true,
-                                 date: Timestamp())
+                                 date: Timestamp(),
+                                 updatedAt: Timestamp())
         
         var docRef: DocumentReference!
         // tumoliToEditがnilかどうかで、編集と新規作成の処理を分岐
@@ -135,6 +136,7 @@ class AddTumoliVC: UIViewController {
             // 編集
             docRef = Firestore.firestore().collection(FirestoreCollectionIds.Tumolis).document(tumoliToEdit.id)
             tumoli.id = tumoliToEdit.id
+            tumoli.createdAt = tumoliToEdit.createdAt
         } else {
             // 新規作成
             docRef = Firestore.firestore().collection(FirestoreCollectionIds.Tumolis).document()

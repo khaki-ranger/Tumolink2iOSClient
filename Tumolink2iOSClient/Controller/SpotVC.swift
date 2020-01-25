@@ -124,7 +124,6 @@ class SpotVC: UIViewController, WeeklyCellDelegate {
     
     // ツモリテーブルに表示されるセルのデータを制御するメソッド
     private func setTumoliListener() {
-        
         // currentDateの日付けの始まりと終わり
         let begin = Timestamp(date: currentDate.startOfDay)
         let end = Timestamp(date: currentDate.endOfDay)

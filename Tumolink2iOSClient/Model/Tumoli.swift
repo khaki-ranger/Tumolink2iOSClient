@@ -33,8 +33,8 @@ struct Tumoli {
          possibility: Int = 0,
          isActive: Bool = true,
          date: Timestamp = Timestamp(),
-         createdAt: Timestamp = Timestamp(),
-         updatedAt: Timestamp = Timestamp()) {
+         updatedAt: Timestamp = Timestamp(),
+         createdAt: Timestamp = Timestamp()) {
         
         self.id = id
         self.userId = userId

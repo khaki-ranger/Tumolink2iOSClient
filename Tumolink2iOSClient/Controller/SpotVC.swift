@@ -10,7 +10,7 @@ import UIKit
 import FirebaseFirestore
 import Kingfisher
 
-class SpotVC: UIViewController {
+class SpotVC: UIViewController, WeeklyCellDelegate {
     
     // MARK: Outlets
     @IBOutlet weak var slideImageView: UICollectionView!
@@ -19,14 +19,12 @@ class SpotVC: UIViewController {
     @IBOutlet weak var prevBtn: UIButton!
     @IBOutlet weak var nextBtn: UIButton!
     @IBOutlet weak var pageControl: UIPageControl!
-    @IBOutlet weak var yearTxt: UILabel!
-    @IBOutlet weak var monthTxt: UILabel!
-    @IBOutlet weak var dayTxt: UILabel!
-    @IBOutlet weak var dayOfWeekTxt: UILabel!
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var addTumoliBtn: CircleShadowButtonView!
     @IBOutlet weak var tableHeight: NSLayoutConstraint!
+    @IBOutlet weak var datePickerView: UICollectionView!
+    @IBOutlet weak var currentDateLbl: UILabel!
     
     // MARK: Valiables
     var spot: Spot!
@@ -36,6 +34,12 @@ class SpotVC: UIViewController {
     var db: Firestore!
     var listener: ListenerRegistration!
     var tumoliToEdit: Tumoli?
+    
+    var currentDate = Date()
+    var calendar = Calendar.current
+    let dateFormatter = DateFormatter()
+    var weekly = [[Date]]()
+    var lastDatePickerOffsetX: CGFloat = 0
 
     // MARK: Functions
     override func viewDidLoad() {
@@ -43,12 +47,15 @@ class SpotVC: UIViewController {
         db = Firestore.firestore()
 
         navigationItem.title = spot.name
+        
         spotImages = spot.images
-        setupCollectionView()
         setupOwnerImg()
         setupPageControl()
         controlOfNextAndPrev()
-        setupDateTxt(date: Date())
+        setupLocale()
+        setupCurrentDateLabel(date: currentDate)
+        setupWeekly(date: currentDate)
+        setupCollectionView()
         setupTableView()
         
         // ログイン中のユーザーがこのスポットのオーナーかどうかを判定
@@ -79,9 +86,48 @@ class SpotVC: UIViewController {
         tableView.register(UINib(nibName: Identifiers.TumoliCell, bundle: nil), forCellReuseIdentifier: Identifiers.TumoliCell)
     }
     
+    private func setupCollectionView() {
+        slideImageView.delegate = self
+        slideImageView.dataSource = self
+        slideImageView.register(UINib(nibName: Identifiers.SpotImageCell, bundle: nil), forCellWithReuseIdentifier: Identifiers.SpotImageCell)
+        datePickerView.delegate = self
+        datePickerView.dataSource = self
+        datePickerView.register(UINib(nibName: Identifiers.WeeklyCell, bundle: nil), forCellWithReuseIdentifier: Identifiers.WeeklyCell)
+    }
+    
+    // datePickerに関する処理 begin
+    private func setupLocale() {
+        calendar.timeZone = TimeZone(identifier: "Asia/Tokyo")!
+        calendar.locale = Locale(identifier: "ja")
+        dateFormatter.locale = Locale(identifier: "ja_JP")
+    }
+    
+    private func setupCurrentDateLabel(date: Date) {
+        dateFormatter.dateStyle = .full
+        currentDateLbl.text = dateFormatter.string(from: date)
+    }
+    
+    private func setupWeekly(date: Date) {
+        let dateComponents = calendar.dateComponents([.yearForWeekOfYear, .weekOfYear], from: date)
+        guard let startOfWeek = calendar.date(from: dateComponents) else {
+            debugPrint("週の先頭の日付データの取得に失敗しました")
+            return
+        }
+        createOneWeek(startOfWeek: startOfWeek)
+        addNextWeek(startOfLastWeek: startOfWeek)
+    }
+    
+    func dayTapped(date: Date) {
+        moveCurrentDate(date: date)
+    }
+    // datePickerに関する処理 end
+    
     // ツモリテーブルに表示されるセルのデータを制御するメソッド
     private func setTumoliListener() {
-        let ref = db.tumolis(spotId: spot.id)
+        // currentDateの日付けの始まりと終わり
+        let begin = Timestamp(date: currentDate.startOfDay)
+        let end = Timestamp(date: currentDate.endOfDay)
+        let ref = db.tumolis(spotId: spot.id, begin: begin, end: end)
         listener = ref.addSnapshotListener({ (snap, error) in
             
             if let error = error {
@@ -106,6 +152,7 @@ class SpotVC: UIViewController {
                 }
             })
             
+            self.tumoliToEdit = nil
             // ログインユーザーのツモリがあるかどうかを確認する
             snap?.documents.forEach({ (document) in
                 let data = document.data()
@@ -115,34 +162,27 @@ class SpotVC: UIViewController {
                 }
             })
             
-            if self.tumoliToEdit == nil {
-                self.appearTumoliBtnWithAnimasion()
-            } else {
-                self.disappearTumoliBtn()
-            }
+            self.setupTumoliBtn()
         })
     }
     
-    func appearTumoliBtnWithAnimasion() {
-        UIView.animate(withDuration: 0.4, delay: 0.1, options: [.curveEaseOut], animations: {
-            self.addTumoliBtn.alpha = 1.0
-        }, completion: nil)
-        changeTableHeight(margin: 140)
+    func setupTumoliBtn() {
+        if self.tumoliToEdit == nil {
+            self.controlTumoliBtnWithAnimasion(alpha: 1.0, margin: 140)
+        } else {
+            self.controlTumoliBtnWithAnimasion(alpha: 0.0, margin: 36)
+        }
     }
     
-    func disappearTumoliBtn() {
-        addTumoliBtn.alpha = 0.0
-        changeTableHeight(margin: 36)
+    private func controlTumoliBtnWithAnimasion(alpha: CGFloat, margin: CGFloat) {
+        UIView.animate(withDuration: 0.4, delay: 0.1, options: [.curveEaseOut], animations: {
+            self.addTumoliBtn.alpha = alpha
+        }, completion: nil)
+        changeTableHeight(margin: margin)
     }
     
     private func changeTableHeight(margin: CGFloat) {
         tableHeight.constant = tableView.contentSize.height + margin
-    }
-    
-    private func setupCollectionView() {
-        slideImageView.delegate = self
-        slideImageView.dataSource = self
-        slideImageView.register(UINib(nibName: Identifiers.SpotImageCell, bundle: nil), forCellWithReuseIdentifier: Identifiers.SpotImageCell)
     }
     
     // オーナーのUser情報を取得して表示させるためのメソッド
@@ -173,20 +213,6 @@ class SpotVC: UIViewController {
     private func setupPageControl() {
         pageControl.numberOfPages = spotImages.count
         pageControl.currentPage = 0
-    }
-    
-    private func setupDateTxt(date: Date) {
-        let dayOfWeekStringJp: [Int: String] = [1: "日", 2: "月", 3: "火", 4: "水", 5: "木", 6: "金", 7: "土"]
-        let date = date
-        let calendar = Calendar.current
-        let year = calendar.component(.year, from: date)
-        let month = calendar.component(.month, from: date)
-        let day = calendar.component(.day, from: date)
-        let dayOfWeek = calendar.component(.weekday, from: date)
-        yearTxt.text = String(year)
-        monthTxt.text = String(month)
-        dayTxt.text = String(day)
-        dayOfWeekTxt.text = dayOfWeekStringJp[dayOfWeek]
     }
     
     // nextボタンとprevボタンの表示非表示を制御するメソッド
@@ -264,13 +290,24 @@ class SpotVC: UIViewController {
 extension SpotVC : UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return spotImages.count
+        if collectionView == self.slideImageView {
+            return spotImages.count
+        } else {
+            return weekly.count
+        }
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        if let cell = slideImageView.dequeueReusableCell(withReuseIdentifier: Identifiers.SpotImageCell, for: indexPath) as? SpotImageCell {
-            cell.configureCell(imageUrl: spotImages[indexPath.item])
-            return cell
+        if collectionView == self.slideImageView {
+            if let cell = slideImageView.dequeueReusableCell(withReuseIdentifier: Identifiers.SpotImageCell, for: indexPath) as? SpotImageCell {
+                cell.configureCell(imageUrl: spotImages[indexPath.item])
+                return cell
+            }
+        } else {
+            if let cell = datePickerView.dequeueReusableCell(withReuseIdentifier: Identifiers.WeeklyCell, for: indexPath) as? WeeklyCell {
+                cell.configureCell(currentDate: currentDate, weekly: weekly[indexPath.item], delegate: self)
+                return cell
+            }
         }
         return UICollectionViewCell()
     }
@@ -278,16 +315,79 @@ extension SpotVC : UICollectionViewDelegate, UICollectionViewDataSource, UIColle
     // セルのサイズを設定
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let cellWidth = view.frame.width
-        let cellHeight = cellWidth * 0.5625
+        let cellHeight: CGFloat
+        if collectionView == self.slideImageView {
+            cellHeight = cellWidth * 0.5625
+        } else {
+            cellHeight = 90
+        }
         return CGSize(width: cellWidth, height: cellHeight)
     }
     
     // scrollの位置とpageControlのページを合わせるためのメソッド
     func scrollViewWillEndDragging(_ scrollView: UIScrollView, withVelocity velocity: CGPoint, targetContentOffset: UnsafeMutablePointer<CGPoint>) {
-        let x = targetContentOffset.pointee.x
-        let index = Int(x / view.frame.width)
-        pageControl.currentPage = index
-        controlOfNextAndPrev()
+        if scrollView == slideImageView {
+            let x = targetContentOffset.pointee.x
+            let index = Int(x / view.frame.width)
+            pageControl.currentPage = index
+            controlOfNextAndPrev()
+        }
+    }
+    
+    func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
+        for cell in datePickerView.visibleCells {
+            if let indexPath = datePickerView.indexPath(for: cell) {
+                if indexPath.row == weekly.count - 1 {
+                    addNextWeek(startOfLastWeek: weekly[indexPath.item][0])
+                }
+            }
+        }
+        
+        let offsetX = datePickerView.contentOffset.x
+        if lastDatePickerOffsetX > offsetX &&
+            lastDatePickerOffsetX < datePickerView.contentSize.width - datePickerView.frame.width {
+            // scroll prev
+            // スクロールする先が、今週（先頭のセル）だった場合は、currentDateを本日にする
+            if offsetX == 0.0 {
+                moveCurrentDate(date: Date())
+            } else {
+                if let dateOfLastWeek = calendar.date(byAdding: .weekOfYear, value: -1, to: currentDate) {
+                    moveCurrentDate(date: dateOfLastWeek)
+                }
+            }
+        } else if lastDatePickerOffsetX < offsetX &&
+            offsetX > 0 {
+            // screll next
+            if let dateOfNextWeek = calendar.date(byAdding: .weekOfYear, value: 1, to: currentDate) {
+                moveCurrentDate(date: dateOfNextWeek)
+            }
+        }
+        // update the new position acquired
+        lastDatePickerOffsetX = offsetX
+    }
+    
+    private func moveCurrentDate(date: Date) {
+        currentDate = date
+        datePickerView.reloadData()
+        setupCurrentDateLabel(date: date)
+        clearAllTumolis()
+        setTumoliListener()
+    }
+    
+    private func addNextWeek(startOfLastWeek: Date) {
+        if let startOfNextWeek = calendar.date(byAdding: .day, value: 7, to: startOfLastWeek) {
+            createOneWeek(startOfWeek: startOfNextWeek)
+            datePickerView.reloadData()
+        }
+    }
+    
+    private func createOneWeek(startOfWeek: Date) {
+        var oneWeek = [Date]()
+        for index in 0...6 {
+            guard let oneDate = calendar.date(byAdding: .day, value: index, to: calendar.startOfDay(for: startOfWeek)) else { return }
+            oneWeek.append(oneDate)
+        }
+        weekly.append(oneWeek)
     }
 }
 

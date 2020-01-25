@@ -575,7 +575,7 @@
         <!--ホーム-->
         <scene sceneID="Z67-IV-XAh">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="tZg-Xr-FQS" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="HomeVC" automaticallyAdjustsScrollViewInsets="NO" id="tZg-Xr-FQS" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="ホーム" image="icn_home" selectedImage="icn_home" id="Xj6-16-aEo"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="y5O-Eu-2CZ">

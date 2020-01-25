@@ -55,12 +55,19 @@ class LoginVC: UIViewController {
                     return
                 }
                 
-                self.dismiss(animated: true, completion: nil)
+                self.presentHomeController()
             })
         }
     }
     
     @IBAction func guestClicked(_ sender: Any) {
-        dismiss(animated: true, completion: nil)
+        self.presentHomeController()
+    }
+    
+    // ホーム画面のトップに遷移するためのメソッド
+    fileprivate func presentHomeController() {
+        let storyboard = UIStoryboard(name: Storyboard.Main, bundle: nil)
+        let controller = storyboard.instantiateViewController(withIdentifier: StoryboardId.MainVC)
+        present(controller, animated: true, completion: nil)
     }
 }

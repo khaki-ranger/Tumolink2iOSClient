@@ -157,7 +157,7 @@ class AddTumoliVC: UIViewController {
             guard let prevVC = naviVC.viewControllers[naviVC.viewControllers.count - 1] as? SpotVC else {
                 return
             }
-            prevVC.disappearTumoliBtn()
+            prevVC.setupTumoliBtn()
             
             self.dismiss(animated: true, completion: nil)
         }

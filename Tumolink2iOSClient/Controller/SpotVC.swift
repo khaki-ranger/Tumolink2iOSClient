@@ -152,6 +152,7 @@ class SpotVC: UIViewController, WeeklyCellDelegate {
                 }
             })
             
+            self.tumoliToEdit = nil
             // ログインユーザーのツモリがあるかどうかを確認する
             snap?.documents.forEach({ (document) in
                 let data = document.data()
@@ -161,24 +162,23 @@ class SpotVC: UIViewController, WeeklyCellDelegate {
                 }
             })
             
-            if self.tumoliToEdit == nil {
-                self.appearTumoliBtnWithAnimasion()
-            } else {
-                self.disappearTumoliBtn()
-            }
+            self.setupTumoliBtn()
         })
     }
     
-    func appearTumoliBtnWithAnimasion() {
-        UIView.animate(withDuration: 0.4, delay: 0.1, options: [.curveEaseOut], animations: {
-            self.addTumoliBtn.alpha = 1.0
-        }, completion: nil)
-        changeTableHeight(margin: 140)
+    func setupTumoliBtn() {
+        if self.tumoliToEdit == nil {
+            self.controlTumoliBtnWithAnimasion(alpha: 1.0, margin: 140)
+        } else {
+            self.controlTumoliBtnWithAnimasion(alpha: 0.0, margin: 36)
+        }
     }
     
-    func disappearTumoliBtn() {
-        addTumoliBtn.alpha = 0.0
-        changeTableHeight(margin: 36)
+    private func controlTumoliBtnWithAnimasion(alpha: CGFloat, margin: CGFloat) {
+        UIView.animate(withDuration: 0.4, delay: 0.1, options: [.curveEaseOut], animations: {
+            self.addTumoliBtn.alpha = alpha
+        }, completion: nil)
+        changeTableHeight(margin: margin)
     }
     
     private func changeTableHeight(margin: CGFloat) {

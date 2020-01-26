@@ -11,10 +11,13 @@ import Foundation
 struct Storyboard {
     static let LoginStoryboard = "LoginStoryboard"
     static let Main = "Main"
+    static let Home = "Home"
 }
 
 struct StoryboardId {
     static let LoginVC = "LoginVC"
+    static let MainVC = "MainVC"
+    static let HomeVC = "HomeVC"
 }
 
 struct AppImages {

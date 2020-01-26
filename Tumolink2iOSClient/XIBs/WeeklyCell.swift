@@ -15,6 +15,14 @@ protocol WeeklyCellDelegate : class {
 class WeeklyCell: UICollectionViewCell {
 
     // MARK: Outlets
+    @IBOutlet weak var sundayView: UIStackView!
+    @IBOutlet weak var mondayView: UIStackView!
+    @IBOutlet weak var tuesdayView: UIStackView!
+    @IBOutlet weak var wednesdayView: UIStackView!
+    @IBOutlet weak var thursdayView: UIStackView!
+    @IBOutlet weak var fridayView: UIStackView!
+    @IBOutlet weak var saturdayView: UIStackView!
+    
     @IBOutlet weak var sundayLbl: UILabel!
     @IBOutlet weak var mondayLbl: UILabel!
     @IBOutlet weak var tuesdayLbl: UILabel!
@@ -35,6 +43,7 @@ class WeeklyCell: UICollectionViewCell {
     weak var delegate : WeeklyCellDelegate?
     var calendar = Calendar.current
     var weekly = [Date]()
+    var views = [UIStackView]()
     var days = [UILabel]()
     var icons = [UIView]()
     let defaultDateColor: UIColor = #colorLiteral(red: 0.2, green: 0.2, blue: 0.2, alpha: 1)
@@ -44,6 +53,16 @@ class WeeklyCell: UICollectionViewCell {
     // MARK: Functions
     override func awakeFromNib() {
         super.awakeFromNib()
+        
+        views = [
+            sundayView,
+            mondayView,
+            tuesdayView,
+            wednesdayView,
+            thursdayView,
+            fridayView,
+            saturdayView
+        ]
         
         days = [
             sundayLbl,
@@ -77,14 +96,14 @@ class WeeklyCell: UICollectionViewCell {
         for (index, thisDay) in weekly.enumerated() {
             let day = calendar.component(.day, from: thisDay)
             days[index].text = String(day)
-            days[index].isUserInteractionEnabled = true
+            views[index].isUserInteractionEnabled = true
             icons[index].alpha = 0.0
             if calendar.isDate(currentDate, inSameDayAs: thisDay) {
                 days[index].textColor = currentDateColor
                 appearIconWithAnimasion(icon: icons[index], value: 1.0)
             } else if thisDay < today {
                 days[index].textColor = pastDateColor
-                days[index].isUserInteractionEnabled = false
+                views[index].isUserInteractionEnabled = false
             } else {
                 days[index].textColor = defaultDateColor
                 appearIconWithAnimasion(icon: icons[index], value: 0.0)
@@ -106,13 +125,13 @@ class WeeklyCell: UICollectionViewCell {
         let thursdayTap = UITapGestureRecognizer(target: self, action: #selector(thursdayTapped(sender:)))
         let fridayTap = UITapGestureRecognizer(target: self, action: #selector(fridayTapped(sender:)))
         let saturdayTap = UITapGestureRecognizer(target: self, action: #selector(saturdayTapped(sender:)))
-        sundayLbl.addGestureRecognizer(sundayTap)
-        mondayLbl.addGestureRecognizer(mondayTap)
-        tuesdayLbl.addGestureRecognizer(tuesdayTap)
-        wednesdayLbl.addGestureRecognizer(wednesdayTap)
-        thursdayLbl.addGestureRecognizer(thursdayTap)
-        fridayLbl.addGestureRecognizer(fridayTap)
-        saturdayLbl.addGestureRecognizer(saturdayTap)
+        sundayView.addGestureRecognizer(sundayTap)
+        mondayView.addGestureRecognizer(mondayTap)
+        tuesdayView.addGestureRecognizer(tuesdayTap)
+        wednesdayView.addGestureRecognizer(wednesdayTap)
+        thursdayView.addGestureRecognizer(thursdayTap)
+        fridayView.addGestureRecognizer(fridayTap)
+        saturdayView.addGestureRecognizer(saturdayTap)
     }
     
     @objc func sundayTapped(sender: UITapGestureRecognizer) {

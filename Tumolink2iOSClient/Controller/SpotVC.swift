@@ -351,20 +351,23 @@ extension SpotVC : UICollectionViewDelegate, UICollectionViewDataSource, UIColle
         let offsetX = datePickerView.contentOffset.x
         if lastDatePickerOffsetX > offsetX &&
             lastDatePickerOffsetX < datePickerView.contentSize.width - datePickerView.frame.width {
-            // scroll prev
-            // スクロールする先が、今週（先頭のセル）だった場合は、currentDateを本日にする
-            if offsetX == 0.0 {
-                moveCurrentDate(date: Date())
-            } else {
-                if let dateOfLastWeek = calendar.date(byAdding: .weekOfYear, value: -1, to: currentDate) {
-                    moveCurrentDate(date: dateOfLastWeek)
+            // 先週にスクロール
+            // 先週の最後の日付を設定
+            let comp = calendar.dateComponents([.weekOfYear, .yearForWeekOfYear], from: currentDate)
+            if let firstDateOfCurrentWeek = calendar.date(from: comp) {
+                if let lastDateOfPreviousWeek = calendar.date(byAdding: .day, value: -1, to: firstDateOfCurrentWeek) {
+                    moveCurrentDate(date: lastDateOfPreviousWeek)
                 }
             }
         } else if lastDatePickerOffsetX < offsetX &&
             offsetX > 0 {
-            // screll next
+            // 翌週にスクロール
+            // 翌週の先頭の日付を設定
             if let dateOfNextWeek = calendar.date(byAdding: .weekOfYear, value: 1, to: currentDate) {
-                moveCurrentDate(date: dateOfNextWeek)
+                let comp = calendar.dateComponents([.weekOfYear, .yearForWeekOfYear], from: dateOfNextWeek)
+                if let date = calendar.date(from: comp) {
+                    moveCurrentDate(date: date)
+                }
             }
         }
         // update the new position acquired

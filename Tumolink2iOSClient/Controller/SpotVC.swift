@@ -264,6 +264,7 @@ class SpotVC: UIViewController, WeeklyCellDelegate {
     private func appearAddTumoliVC() {
         let vc = AddTumoliVC()
         vc.spot = spot
+        vc.currentDate = currentDate
         vc.tumoliToEdit = tumoliToEdit
         vc.modalTransitionStyle = .crossDissolve
         vc.modalPresentationStyle = .overCurrentContext

@@ -22,6 +22,7 @@ class AddTumoliVC: UIViewController {
     
     // MARK: Variables
     var spot: Spot!
+    var currentDate: Date!
     var tumoliToEdit: Tumoli!
     var possibility = 50
     
@@ -120,6 +121,7 @@ class AddTumoliVC: UIViewController {
         
         activityIndicator.startAnimating()
         
+        let date = Timestamp(date: currentDate)
         var tumoli = Tumoli.init(id: "",
                                  userId: UserService.user.id,
                                  username: UserService.user.username,
@@ -129,7 +131,7 @@ class AddTumoliVC: UIViewController {
                                  spotImg: spot.images[0],
                                  possibility: possibility,
                                  isActive: true,
-                                 date: Timestamp(),
+                                 date: date,
                                  updatedAt: Timestamp())
         
         var docRef: DocumentReference!
@@ -138,6 +140,7 @@ class AddTumoliVC: UIViewController {
             // 編集
             docRef = Firestore.firestore().collection(FirestoreCollectionIds.Tumolis).document(tumoliToEdit.id)
             tumoli.id = tumoliToEdit.id
+            tumoli.date = tumoliToEdit.date
             tumoli.createdAt = tumoliToEdit.createdAt
         } else {
             // 新規作成

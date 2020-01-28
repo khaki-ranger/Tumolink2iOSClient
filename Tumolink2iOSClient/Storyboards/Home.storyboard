@@ -211,7 +211,7 @@
                                 </constraints>
                             </stackView>
                             <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="xpA-gq-ad0">
-                                <rect key="frame" x="188.5" y="267.5" width="37" height="37"/>
+                                <rect key="frame" x="188.5" y="429.5" width="37" height="37"/>
                                 <color key="color" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </activityIndicatorView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cpO-v9-UQC" customClass="RoundedButton" customModule="Tumolink2iOSClient" customModuleProvider="target">
@@ -242,6 +242,39 @@
                                     <action selector="cancelClicked:" destination="6fV-ty-Cc0" eventType="touchUpInside" id="x5q-3W-e6l"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nPO-yg-1sH" customClass="RoundedButton" customModule="Tumolink2iOSClient" customModuleProvider="target">
+                                <rect key="frame" x="20" y="257.5" width="111.5" height="27"/>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                <state key="normal" title="削除">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="removeImg1Clicked:" destination="6fV-ty-Cc0" eventType="touchUpInside" id="VYe-cn-Jwr"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YND-7w-i02" customClass="RoundedButton" customModule="Tumolink2iOSClient" customModuleProvider="target">
+                                <rect key="frame" x="151.5" y="257.5" width="111" height="27"/>
+                                <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                <state key="normal" title="削除">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="removeImg2Clicked:" destination="6fV-ty-Cc0" eventType="touchUpInside" id="qqU-19-Wg2"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RTb-mf-kZA" customClass="RoundedButton" customModule="Tumolink2iOSClient" customModuleProvider="target">
+                                <rect key="frame" x="282.5" y="257.5" width="111.5" height="27"/>
+                                <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                <state key="normal" title="削除">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="removeImg3Clicked:" destination="6fV-ty-Cc0" eventType="touchUpInside" id="McA-SQ-3Oz"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.98431372549019602" green="0.9137254901960784" blue="0.90588235294117647" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
@@ -250,20 +283,29 @@
                             <constraint firstItem="cpO-v9-UQC" firstAttribute="top" secondItem="U7T-kO-uZc" secondAttribute="bottom" constant="20" id="66N-F0-2Y9"/>
                             <constraint firstAttribute="trailing" secondItem="Ilk-Gn-erZ" secondAttribute="trailing" constant="20" id="6LP-Ll-aUn"/>
                             <constraint firstItem="Ilk-Gn-erZ" firstAttribute="leading" secondItem="uv3-wg-H5T" secondAttribute="leading" constant="20" id="Cka-o4-ka8"/>
-                            <constraint firstItem="xpA-gq-ad0" firstAttribute="top" secondItem="Ilk-Gn-erZ" secondAttribute="bottom" constant="20" id="EVA-25-oJe"/>
                             <constraint firstItem="uv3-wg-H5T" firstAttribute="trailing" secondItem="cpO-v9-UQC" secondAttribute="trailing" constant="20" id="F4L-k3-2tc"/>
+                            <constraint firstItem="RTb-mf-kZA" firstAttribute="centerX" secondItem="jGo-I0-6gI" secondAttribute="centerX" id="FXC-Q7-eOO"/>
+                            <constraint firstItem="RTb-mf-kZA" firstAttribute="width" secondItem="jGo-I0-6gI" secondAttribute="width" id="GEi-D7-Vpd"/>
                             <constraint firstItem="uRa-i9-bD8" firstAttribute="leading" secondItem="uv3-wg-H5T" secondAttribute="leading" constant="20" id="I0a-N8-NM6"/>
                             <constraint firstItem="uv3-wg-H5T" firstAttribute="trailing" secondItem="tZI-RM-eZ5" secondAttribute="trailing" constant="20" id="Ied-sq-8z1"/>
                             <constraint firstItem="uRa-i9-bD8" firstAttribute="top" secondItem="tZI-RM-eZ5" secondAttribute="bottom" constant="10" id="Iqt-Cz-qcO"/>
+                            <constraint firstItem="RTb-mf-kZA" firstAttribute="top" secondItem="Ilk-Gn-erZ" secondAttribute="bottom" constant="10" id="K7r-Lm-MCp"/>
                             <constraint firstItem="U7T-kO-uZc" firstAttribute="leading" secondItem="uv3-wg-H5T" secondAttribute="leading" constant="20" id="L1V-DP-DwG"/>
+                            <constraint firstItem="xpA-gq-ad0" firstAttribute="centerY" secondItem="nXS-BG-kzc" secondAttribute="centerY" id="Oqc-IN-h0K"/>
                             <constraint firstItem="bZa-wm-44n" firstAttribute="leading" secondItem="uv3-wg-H5T" secondAttribute="leading" constant="20" id="RhQ-c3-6gc"/>
                             <constraint firstItem="Ilk-Gn-erZ" firstAttribute="top" secondItem="bZa-wm-44n" secondAttribute="bottom" constant="10" id="SVl-RE-kcL"/>
                             <constraint firstItem="tZI-RM-eZ5" firstAttribute="leading" secondItem="uv3-wg-H5T" secondAttribute="leading" constant="20" id="Szs-ci-OJv"/>
                             <constraint firstItem="bZa-wm-44n" firstAttribute="top" secondItem="uRa-i9-bD8" secondAttribute="bottom" constant="20" id="Yob-V0-LuF"/>
+                            <constraint firstItem="nPO-yg-1sH" firstAttribute="width" secondItem="nIZ-7W-tgI" secondAttribute="width" id="ZXW-2p-r26"/>
+                            <constraint firstItem="YND-7w-i02" firstAttribute="width" secondItem="q6x-zt-sIx" secondAttribute="width" id="hEI-O7-63C"/>
                             <constraint firstItem="uv3-wg-H5T" firstAttribute="trailing" secondItem="uRa-i9-bD8" secondAttribute="trailing" constant="20" id="i60-r5-5wd"/>
                             <constraint firstItem="uv3-wg-H5T" firstAttribute="trailing" secondItem="bZa-wm-44n" secondAttribute="trailing" constant="20" id="iVG-Gg-06u"/>
+                            <constraint firstItem="YND-7w-i02" firstAttribute="top" secondItem="Ilk-Gn-erZ" secondAttribute="bottom" constant="10" id="k55-xS-d53"/>
+                            <constraint firstItem="YND-7w-i02" firstAttribute="centerX" secondItem="q6x-zt-sIx" secondAttribute="centerX" id="kOz-xc-VZd"/>
                             <constraint firstItem="cpO-v9-UQC" firstAttribute="leading" secondItem="uv3-wg-H5T" secondAttribute="leading" constant="20" id="lPj-3M-z0Y"/>
+                            <constraint firstItem="nPO-yg-1sH" firstAttribute="top" secondItem="Ilk-Gn-erZ" secondAttribute="bottom" constant="10" id="lgI-sm-bpG"/>
                             <constraint firstItem="xpA-gq-ad0" firstAttribute="centerX" secondItem="nXS-BG-kzc" secondAttribute="centerX" id="vwl-N4-9Ge"/>
+                            <constraint firstItem="nPO-yg-1sH" firstAttribute="centerX" secondItem="nIZ-7W-tgI" secondAttribute="centerX" id="wLi-2M-1N3"/>
                             <constraint firstItem="tZI-RM-eZ5" firstAttribute="top" secondItem="uv3-wg-H5T" secondAttribute="top" constant="20" id="zd1-YL-AAK"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="uv3-wg-H5T"/>
@@ -279,7 +321,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="KOb-Yj-bPe" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2848" y="680"/>
+            <point key="canvasLocation" x="2847.826086956522" y="679.6875"/>
         </scene>
         <!--SpotVC-->
         <scene sceneID="eKe-KU-2SA">
@@ -364,14 +406,14 @@
                                                 </constraints>
                                             </imageView>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="v2u-HY-uFZ">
-                                                <rect key="frame" x="10" y="94" width="34" height="45"/>
+                                                <rect key="frame" x="10" y="105.5" width="16" height="22"/>
                                                 <state key="normal" image="btn_prev"/>
                                                 <connections>
                                                     <action selector="prevTapped:" destination="7ek-Az-kmx" eventType="touchUpInside" id="PDw-qz-AdU"/>
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gGI-gD-J3r">
-                                                <rect key="frame" x="370" y="94" width="34" height="45"/>
+                                                <rect key="frame" x="388" y="105.5" width="16" height="22"/>
                                                 <state key="normal" image="btn_next"/>
                                                 <connections>
                                                     <action selector="nextTapped:" destination="7ek-Az-kmx" eventType="touchUpInside" id="YQI-NL-Bad"/>

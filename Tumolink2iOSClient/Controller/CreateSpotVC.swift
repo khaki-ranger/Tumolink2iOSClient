@@ -9,6 +9,7 @@
 import UIKit
 import FirebaseStorage
 import FirebaseFirestore
+import Kingfisher
 
 class CreateSpotVC: UIViewController {
     
@@ -112,7 +113,10 @@ class CreateSpotVC: UIViewController {
         while count < 3 {
             if count < imageUrls.count {
                 if let url = URL(string: imageUrls[count]) {
-                    spotImageViews[count].kf.setImage(with: url)
+                    let placeholder = UIImage(named: AppImages.Placeholder)
+                    let options : KingfisherOptionsInfo = [KingfisherOptionsInfoItem.transition(.fade(0.2))]
+                    spotImageViews[count].kf.indicatorType = .activity
+                    spotImageViews[count].kf.setImage(with: url, placeholder: placeholder, options: options)
                 }
             } else {
                 spotImageViews[count].image = UIImage(named: AppImages.Placeholder)

@@ -86,14 +86,39 @@ class CreateSpotVC: UIViewController {
     }
     
     // MARK: Actions
-    
     @IBAction func removeImg1Clicked(_ sender: Any) {
+        if imageUrls.count > 0 {
+            imageUrls.remove(at: 0)
+            resetSpotImageViews()
+        }
     }
     
     @IBAction func removeImg2Clicked(_ sender: Any) {
+        if imageUrls.count > 1 {
+            imageUrls.remove(at: 1)
+            resetSpotImageViews()
+        }
     }
     
     @IBAction func removeImg3Clicked(_ sender: Any) {
+        if imageUrls.count > 2 {
+            imageUrls.remove(at: 2)
+            resetSpotImageViews()
+        }
+    }
+    
+    private func resetSpotImageViews() {
+        var count = 0
+        while count < 3 {
+            if count < imageUrls.count {
+                if let url = URL(string: imageUrls[count]) {
+                    spotImageViews[count].kf.setImage(with: url)
+                }
+            } else {
+                spotImageViews[count].image = UIImage(named: AppImages.Placeholder)
+            }
+            count += 1
+        }
     }
     
     @IBAction func createClicked(_ sender: Any) {
@@ -189,8 +214,15 @@ class CreateSpotVC: UIViewController {
                 }
             }
             
-            self.dismiss(animated: true, completion: nil)
+            self.presentHomeController()
         }
+    }
+    
+    // ホーム画面のトップに遷移するためのメソッド
+    fileprivate func presentHomeController() {
+        let storyboard = UIStoryboard(name: Storyboard.Main, bundle: nil)
+        let controller = storyboard.instantiateViewController(withIdentifier: StoryboardId.MainVC)
+        present(controller, animated: true, completion: nil)
     }
     
     @IBAction func cancelClicked(_ sender: Any) {

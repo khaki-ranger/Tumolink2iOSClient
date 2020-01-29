@@ -47,17 +47,16 @@ class SpotVC: UIViewController, WeeklyCellDelegate {
         db = Firestore.firestore()
 
         navigationItem.title = spot.name
-        
         spotImages = spot.images
         setupOwnerImg()
         setupPageControl()
         controlOfNextAndPrev()
+        setupCollectionView()
+        
         setupLocale()
         setupCurrentDateLabel(date: currentDate)
         setupWeekly(date: currentDate)
-        setupCollectionView()
         setupTableView()
-        
         // ログイン中のユーザーがこのスポットのオーナーかどうかを判定
         if spot.owner == UserService.user.id {
             isOwner = true

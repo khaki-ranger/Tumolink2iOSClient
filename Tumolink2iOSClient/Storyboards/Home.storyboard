@@ -182,31 +182,24 @@
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="Ilk-Gn-erZ">
                                 <rect key="frame" x="20" y="185" width="374" height="62.5"/>
                                 <subviews>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icn_photo" translatesAutoresizingMaskIntoConstraints="NO" id="nIZ-7W-tgI">
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="placeholder" translatesAutoresizingMaskIntoConstraints="NO" id="nIZ-7W-tgI">
                                         <rect key="frame" x="0.0" y="0.0" width="111.5" height="62.5"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="nIZ-7W-tgI" secondAttribute="height" multiplier="16:9" id="Rmn-lI-nwA"/>
                                         </constraints>
                                     </imageView>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icn_photo" translatesAutoresizingMaskIntoConstraints="NO" id="q6x-zt-sIx">
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="placeholder" translatesAutoresizingMaskIntoConstraints="NO" id="q6x-zt-sIx">
                                         <rect key="frame" x="131.5" y="0.0" width="111" height="62.5"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" secondItem="q6x-zt-sIx" secondAttribute="height" multiplier="16:9" id="xua-c9-ClI"/>
-                                        </constraints>
                                     </imageView>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icn_photo" translatesAutoresizingMaskIntoConstraints="NO" id="jGo-I0-6gI">
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="placeholder" translatesAutoresizingMaskIntoConstraints="NO" id="jGo-I0-6gI">
                                         <rect key="frame" x="262.5" y="0.0" width="111.5" height="62.5"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" secondItem="jGo-I0-6gI" secondAttribute="height" multiplier="16:9" id="tm9-FO-4p5"/>
-                                        </constraints>
                                     </imageView>
                                 </subviews>
                                 <constraints>
                                     <constraint firstItem="q6x-zt-sIx" firstAttribute="width" secondItem="q6x-zt-sIx" secondAttribute="height" multiplier="16:9" id="3t6-kk-20a"/>
-                                    <constraint firstItem="jGo-I0-6gI" firstAttribute="width" secondItem="jGo-I0-6gI" secondAttribute="height" multiplier="16:9" id="JTT-qe-dT9"/>
                                     <constraint firstItem="jGo-I0-6gI" firstAttribute="width" secondItem="jGo-I0-6gI" secondAttribute="height" multiplier="16:9" id="aop-JH-h3g"/>
                                 </constraints>
                             </stackView>
@@ -406,14 +399,14 @@
                                                 </constraints>
                                             </imageView>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="v2u-HY-uFZ">
-                                                <rect key="frame" x="10" y="105.5" width="16" height="22"/>
+                                                <rect key="frame" x="10" y="94" width="34" height="45"/>
                                                 <state key="normal" image="btn_prev"/>
                                                 <connections>
                                                     <action selector="prevTapped:" destination="7ek-Az-kmx" eventType="touchUpInside" id="PDw-qz-AdU"/>
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gGI-gD-J3r">
-                                                <rect key="frame" x="388" y="105.5" width="16" height="22"/>
+                                                <rect key="frame" x="370" y="94" width="34" height="45"/>
                                                 <state key="normal" image="btn_next"/>
                                                 <connections>
                                                     <action selector="nextTapped:" destination="7ek-Az-kmx" eventType="touchUpInside" id="YQI-NL-Bad"/>
@@ -646,8 +639,8 @@
         <image name="btn_next" width="34" height="45"/>
         <image name="btn_prev" width="34" height="45"/>
         <image name="icn_home" width="25" height="25"/>
-        <image name="icn_photo" width="25" height="25"/>
         <image name="no_image" width="300" height="300"/>
+        <image name="placeholder" width="800" height="450"/>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="rxK-tx-MJb"/>

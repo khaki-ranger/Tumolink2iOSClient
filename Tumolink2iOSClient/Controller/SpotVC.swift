@@ -210,8 +210,12 @@ class SpotVC: UIViewController, WeeklyCellDelegate {
     }
     
     private func setupPageControl() {
-        pageControl.numberOfPages = spotImages.count
-        pageControl.currentPage = 0
+        if spotImages.count > 1 {
+            pageControl.numberOfPages = spotImages.count
+            pageControl.currentPage = 0
+        } else {
+            pageControl.isHidden = true
+        }
     }
     
     // nextボタンとprevボタンの表示非表示を制御するメソッド

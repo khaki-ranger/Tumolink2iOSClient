@@ -30,12 +30,25 @@
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
+                                    <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="32V-Bm-oDz">
+                                        <rect key="frame" x="376" y="21" width="18" height="18"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="18" id="1N5-xg-Q5S"/>
+                                            <constraint firstAttribute="width" constant="18" id="nnN-0N-Zjg"/>
+                                        </constraints>
+                                        <state key="normal" image="btn_delete"/>
+                                        <connections>
+                                            <action selector="deleteTapped:" destination="sCe-U4-gtr" eventType="touchUpInside" id="pGB-RQ-hVS"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" red="0.98431372549019602" green="0.9137254901960784" blue="0.90588235294117647" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstItem="jpA-2j-av9" firstAttribute="leading" secondItem="xGe-7Z-eTM" secondAttribute="leading" constant="10" id="0a0-Vf-wVE"/>
                                     <constraint firstAttribute="bottom" secondItem="jpA-2j-av9" secondAttribute="bottom" constant="10" id="Qdi-l9-FdL"/>
                                     <constraint firstAttribute="trailing" secondItem="jpA-2j-av9" secondAttribute="trailing" constant="10" id="Qu0-Qm-Y1j"/>
+                                    <constraint firstItem="32V-Bm-oDz" firstAttribute="centerY" secondItem="jpA-2j-av9" secondAttribute="centerY" id="U89-ow-amn"/>
+                                    <constraint firstItem="32V-Bm-oDz" firstAttribute="trailing" secondItem="jpA-2j-av9" secondAttribute="trailing" constant="-10" id="f1x-9W-Nnc"/>
                                     <constraint firstItem="jpA-2j-av9" firstAttribute="top" secondItem="xGe-7Z-eTM" secondAttribute="top" constant="10" id="qRd-Li-14u"/>
                                 </constraints>
                             </view>
@@ -64,6 +77,7 @@
                     </view>
                     <connections>
                         <outlet property="activityIndicator" destination="dGb-8p-Xqs" id="utn-oA-8aJ"/>
+                        <outlet property="deleteBtn" destination="32V-Bm-oDz" id="YcP-Zl-E2x"/>
                         <outlet property="searchTxt" destination="jpA-2j-av9" id="5TL-WC-0YK"/>
                         <outlet property="searchView" destination="xGe-7Z-eTM" id="AQl-hC-PNm"/>
                         <outlet property="tableView" destination="L3L-mw-Wyj" id="zI3-1l-WAV"/>
@@ -72,7 +86,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ja6-aM-h3L" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2848" y="-906"/>
+            <point key="canvasLocation" x="2847.826086956522" y="-906.02678571428567"/>
         </scene>
         <!--HomeVC-->
         <scene sceneID="uJB-pG-a4j">
@@ -624,6 +638,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="btn_delete" width="16" height="16"/>
         <image name="btn_next" width="34" height="45"/>
         <image name="btn_prev" width="34" height="45"/>
         <image name="icn_home" width="25" height="25"/>

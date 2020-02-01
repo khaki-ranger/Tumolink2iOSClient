@@ -178,8 +178,12 @@
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TvS-Ts-hhX">
-                                        <rect key="frame" x="20" y="59.5" width="10.5" height="22"/>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TvS-Ts-hhX">
+                                        <rect key="frame" x="20" y="55.5" width="50" height="30"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="50" id="EEC-aI-7IG"/>
+                                            <constraint firstAttribute="height" constant="30" id="m4e-tf-YCL"/>
+                                        </constraints>
                                         <state key="normal" image="nav_prev"/>
                                         <connections>
                                             <action selector="returnClicked:" destination="99o-Cl-Fwg" eventType="touchUpInside" id="OkV-PB-Mzj"/>

@@ -463,10 +463,6 @@
                                     <constraint firstAttribute="trailing" secondItem="uz6-mC-aFQ" secondAttribute="trailing" id="yFh-2X-jqR"/>
                                 </constraints>
                             </scrollView>
-                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="hFx-m7-7t3">
-                                <rect key="frame" x="188.5" y="186" width="37" height="37"/>
-                                <color key="color" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                            </activityIndicatorView>
                             <button opaque="NO" alpha="0.0" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ENL-37-b7t" customClass="CircleShadowButtonView" customModule="Tumolink2iOSClient" customModuleProvider="target">
                                 <rect key="frame" x="320" y="719" width="74" height="74"/>
                                 <color key="backgroundColor" red="0.96862745100000003" green="0.53725490200000003" blue="0.40784313729999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -486,8 +482,6 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="qWx-Hh-lCV" firstAttribute="trailing" secondItem="ENL-37-b7t" secondAttribute="trailing" constant="20" id="3cj-U9-tdm"/>
-                            <constraint firstItem="hFx-m7-7t3" firstAttribute="centerX" secondItem="gXK-Zj-h9u" secondAttribute="centerX" id="BDL-G0-oCM"/>
-                            <constraint firstItem="hFx-m7-7t3" firstAttribute="centerY" secondItem="ZUB-gu-BQG" secondAttribute="centerY" id="EQ2-Z4-Ikg"/>
                             <constraint firstItem="tL5-Uc-YIF" firstAttribute="top" secondItem="qWx-Hh-lCV" secondAttribute="top" id="Fac-Oi-DgJ"/>
                             <constraint firstItem="qWx-Hh-lCV" firstAttribute="bottom" secondItem="tL5-Uc-YIF" secondAttribute="bottom" id="Sga-KP-zWW"/>
                             <constraint firstItem="qWx-Hh-lCV" firstAttribute="trailing" secondItem="tL5-Uc-YIF" secondAttribute="trailing" id="XSM-l7-pap"/>
@@ -497,7 +491,6 @@
                         <viewLayoutGuide key="safeArea" id="qWx-Hh-lCV"/>
                     </view>
                     <connections>
-                        <outlet property="activityIndicator" destination="hFx-m7-7t3" id="03T-aZ-N5C"/>
                         <outlet property="addTumoliBtn" destination="ENL-37-b7t" id="7I6-6W-0tI"/>
                         <outlet property="currentDateLbl" destination="gTq-dN-QsU" id="F5y-OT-VYL"/>
                         <outlet property="datePickerView" destination="qID-jH-GAW" id="knh-oP-hcf"/>

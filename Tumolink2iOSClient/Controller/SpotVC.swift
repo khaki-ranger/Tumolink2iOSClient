@@ -19,7 +19,6 @@ class SpotVC: UIViewController, WeeklyCellDelegate {
     @IBOutlet weak var prevBtn: UIButton!
     @IBOutlet weak var nextBtn: UIButton!
     @IBOutlet weak var pageControl: UIPageControl!
-    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var addTumoliBtn: CircleShadowButtonView!
     @IBOutlet weak var tableHeight: NSLayoutConstraint!

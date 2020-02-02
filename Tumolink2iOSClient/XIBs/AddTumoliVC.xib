@@ -35,7 +35,7 @@
                     <blurEffect style="extraLight"/>
                 </visualEffectView>
                 <view contentMode="scaleToFill" placeholderIntrinsicWidth="374" placeholderIntrinsicHeight="170" translatesAutoresizingMaskIntoConstraints="NO" id="otC-vJ-70V" customClass="RoundedShadowView" customModule="Tumolink2iOSClient" customModuleProvider="target">
-                    <rect key="frame" x="20" y="312" width="374" height="272"/>
+                    <rect key="frame" x="20" y="251" width="374" height="394"/>
                     <subviews>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yQl-el-niE">
                             <rect key="frame" x="334" y="0.0" width="40" height="40"/>
@@ -69,8 +69,28 @@
                                 </slider>
                             </subviews>
                         </stackView>
+                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="bQV-b4-zMW">
+                            <rect key="frame" x="20" y="152" width="334" height="102"/>
+                            <subviews>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="時間帯" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ayl-4z-Og9">
+                                    <rect key="frame" x="0.0" y="0.0" width="334" height="20.5"/>
+                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                    <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0:00 - 24:00" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xfh-zc-7oe">
+                                    <rect key="frame" x="0.0" y="30.5" width="334" height="31.5"/>
+                                    <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="24"/>
+                                    <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                                <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="uTH-GE-35u">
+                                    <rect key="frame" x="-2" y="72" width="338" height="31"/>
+                                </slider>
+                            </subviews>
+                        </stackView>
                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="t93-BG-gpt">
-                            <rect key="frame" x="20" y="162" width="334" height="90"/>
+                            <rect key="frame" x="20" y="284" width="334" height="90"/>
                             <subviews>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gh7-FU-2sl" customClass="RoundedButton" customModule="Tumolink2iOSClient" customModuleProvider="target">
                                     <rect key="frame" x="0.0" y="0.0" width="334" height="40"/>
@@ -105,14 +125,18 @@
                     </subviews>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <constraints>
+                        <constraint firstItem="bQV-b4-zMW" firstAttribute="leading" secondItem="otC-vJ-70V" secondAttribute="leading" constant="20" id="7Nc-0E-kCM"/>
                         <constraint firstAttribute="trailing" secondItem="ZrO-8e-9Lg" secondAttribute="trailing" constant="20" id="Ept-92-S71"/>
                         <constraint firstItem="ZrO-8e-9Lg" firstAttribute="top" secondItem="otC-vJ-70V" secondAttribute="top" constant="20" id="KER-VH-rW5"/>
+                        <constraint firstAttribute="trailing" secondItem="bQV-b4-zMW" secondAttribute="trailing" constant="20" id="Rar-3d-CxZ"/>
+                        <constraint firstItem="bQV-b4-zMW" firstAttribute="centerX" secondItem="otC-vJ-70V" secondAttribute="centerX" id="S2E-DB-i1G"/>
                         <constraint firstAttribute="bottom" secondItem="t93-BG-gpt" secondAttribute="bottom" constant="20" id="S5g-2A-2Xk"/>
-                        <constraint firstItem="t93-BG-gpt" firstAttribute="top" secondItem="ZrO-8e-9Lg" secondAttribute="bottom" constant="40" id="SsB-Xe-hfS"/>
                         <constraint firstItem="yQl-el-niE" firstAttribute="top" secondItem="otC-vJ-70V" secondAttribute="top" id="bG3-gt-q5D"/>
+                        <constraint firstItem="t93-BG-gpt" firstAttribute="top" secondItem="bQV-b4-zMW" secondAttribute="bottom" constant="30" id="cK6-TC-9x8"/>
                         <constraint firstAttribute="trailing" secondItem="t93-BG-gpt" secondAttribute="trailing" constant="20" id="fOt-Gx-zip"/>
                         <constraint firstItem="ZrO-8e-9Lg" firstAttribute="leading" secondItem="otC-vJ-70V" secondAttribute="leading" constant="20" id="kRA-Is-MZW"/>
                         <constraint firstItem="t93-BG-gpt" firstAttribute="leading" secondItem="otC-vJ-70V" secondAttribute="leading" constant="20" id="lNd-BG-rv4"/>
+                        <constraint firstItem="bQV-b4-zMW" firstAttribute="top" secondItem="ZrO-8e-9Lg" secondAttribute="bottom" constant="30" id="obf-5O-GHV"/>
                         <constraint firstAttribute="trailing" secondItem="yQl-el-niE" secondAttribute="trailing" id="wgG-Be-rbc"/>
                     </constraints>
                 </view>

@@ -28,7 +28,7 @@ class ManageSpotVC: UIViewController {
         if spot.owner == UserService.user.id {
             isOwner = true
         }
-        spotNameLbl.text = spot.name
+         spotNameLbl.text = spot.name
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

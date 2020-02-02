@@ -19,7 +19,6 @@ class SpotVC: UIViewController, WeeklyCellDelegate {
     @IBOutlet weak var prevBtn: UIButton!
     @IBOutlet weak var nextBtn: UIButton!
     @IBOutlet weak var pageControl: UIPageControl!
-    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var addTumoliBtn: CircleShadowButtonView!
     @IBOutlet weak var tableHeight: NSLayoutConstraint!
@@ -47,17 +46,16 @@ class SpotVC: UIViewController, WeeklyCellDelegate {
         db = Firestore.firestore()
 
         navigationItem.title = spot.name
-        
         spotImages = spot.images
         setupOwnerImg()
         setupPageControl()
         controlOfNextAndPrev()
+        setupCollectionView()
+        
         setupLocale()
         setupCurrentDateLabel(date: currentDate)
         setupWeekly(date: currentDate)
-        setupCollectionView()
         setupTableView()
-        
         // ログイン中のユーザーがこのスポットのオーナーかどうかを判定
         if spot.owner == UserService.user.id {
             isOwner = true
@@ -118,7 +116,9 @@ class SpotVC: UIViewController, WeeklyCellDelegate {
     }
     
     func dayTapped(date: Date) {
-        moveCurrentDate(date: date)
+        if currentDate != date {
+            moveCurrentDate(date: date)
+        }
     }
     // datePickerに関する処理 end
     
@@ -211,8 +211,12 @@ class SpotVC: UIViewController, WeeklyCellDelegate {
     }
     
     private func setupPageControl() {
-        pageControl.numberOfPages = spotImages.count
-        pageControl.currentPage = 0
+        if spotImages.count > 1 {
+            pageControl.numberOfPages = spotImages.count
+            pageControl.currentPage = 0
+        } else {
+            pageControl.isHidden = true
+        }
     }
     
     // nextボタンとprevボタンの表示非表示を制御するメソッド
@@ -264,6 +268,7 @@ class SpotVC: UIViewController, WeeklyCellDelegate {
     private func appearAddTumoliVC() {
         let vc = AddTumoliVC()
         vc.spot = spot
+        vc.currentDate = currentDate
         vc.tumoliToEdit = tumoliToEdit
         vc.modalTransitionStyle = .crossDissolve
         vc.modalPresentationStyle = .overCurrentContext
@@ -351,20 +356,23 @@ extension SpotVC : UICollectionViewDelegate, UICollectionViewDataSource, UIColle
         let offsetX = datePickerView.contentOffset.x
         if lastDatePickerOffsetX > offsetX &&
             lastDatePickerOffsetX < datePickerView.contentSize.width - datePickerView.frame.width {
-            // scroll prev
-            // スクロールする先が、今週（先頭のセル）だった場合は、currentDateを本日にする
-            if offsetX == 0.0 {
-                moveCurrentDate(date: Date())
-            } else {
-                if let dateOfLastWeek = calendar.date(byAdding: .weekOfYear, value: -1, to: currentDate) {
-                    moveCurrentDate(date: dateOfLastWeek)
+            // 先週にスクロール
+            // 先週の最後の日付を設定
+            let comp = calendar.dateComponents([.weekOfYear, .yearForWeekOfYear], from: currentDate)
+            if let firstDateOfCurrentWeek = calendar.date(from: comp) {
+                if let lastDateOfPreviousWeek = calendar.date(byAdding: .day, value: -1, to: firstDateOfCurrentWeek) {
+                    moveCurrentDate(date: lastDateOfPreviousWeek)
                 }
             }
         } else if lastDatePickerOffsetX < offsetX &&
             offsetX > 0 {
-            // screll next
+            // 翌週にスクロール
+            // 翌週の先頭の日付を設定
             if let dateOfNextWeek = calendar.date(byAdding: .weekOfYear, value: 1, to: currentDate) {
-                moveCurrentDate(date: dateOfNextWeek)
+                let comp = calendar.dateComponents([.weekOfYear, .yearForWeekOfYear], from: dateOfNextWeek)
+                if let date = calendar.date(from: comp) {
+                    moveCurrentDate(date: date)
+                }
             }
         }
         // update the new position acquired

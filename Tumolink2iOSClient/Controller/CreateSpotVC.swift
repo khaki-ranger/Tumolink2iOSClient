@@ -9,6 +9,7 @@
 import UIKit
 import FirebaseStorage
 import FirebaseFirestore
+import Kingfisher
 
 class CreateSpotVC: UIViewController {
     
@@ -23,17 +24,14 @@ class CreateSpotVC: UIViewController {
     // MARK: Variables
     var db: Firestore!
     var spotToEdit: Spot?
-    var tappedImageView: UIImageView?
-    // Firestoreにアップロードした画像のURLを格納する配列
     var imageUrls = [String]()
     var spotImageViews: [UIImageView] = []
+    var tapGestures = [UITapGestureRecognizer]()
 
     // MARK: Functions
     override func viewDidLoad() {
         super.viewDidLoad()
         db = Firestore.firestore()
-        
-        setupTapGesture()
         
         spotImageViews = [
             spotImg1,
@@ -45,6 +43,8 @@ class CreateSpotVC: UIViewController {
         if let spot = spotToEdit {
             setupEditMode(spot: spot)
         }
+        
+        setupTapGesture()
     }
     
     private func setupEditMode(spot: Spot) {
@@ -64,33 +64,20 @@ class CreateSpotVC: UIViewController {
     }
     
     private func setupTapGesture() {
-        let tap1 = UITapGestureRecognizer(target: self, action: #selector(imgTapped1(_:)))
-        let tap2 = UITapGestureRecognizer(target: self, action: #selector(imgTapped2(_:)))
-        let tap3 = UITapGestureRecognizer(target: self, action: #selector(imgTapped3(_:)))
-        tap1.numberOfTapsRequired = 1
-        tap2.numberOfTapsRequired = 1
-        tap3.numberOfTapsRequired = 1
-        spotImg1.isUserInteractionEnabled = true
-        spotImg2.isUserInteractionEnabled = true
-        spotImg3.isUserInteractionEnabled = true
-        spotImg1.addGestureRecognizer(tap1)
-        spotImg2.addGestureRecognizer(tap2)
-        spotImg3.addGestureRecognizer(tap3)
+        for spotImageview in spotImageViews {
+            let tapGesture = UITapGestureRecognizer(target: self, action: #selector(imgTapped(_:)))
+            tapGesture.numberOfTapsRequired = 1
+            spotImageview.isUserInteractionEnabled = true
+            spotImageview.addGestureRecognizer(tapGesture)
+        }
     }
     
-    @objc func imgTapped1(_ tap: UITapGestureRecognizer) {
-        tappedImageView = spotImg1
-        launchImgPicker()
-    }
-    
-    @objc func imgTapped2(_ tap: UITapGestureRecognizer) {
-        tappedImageView = spotImg2
-        launchImgPicker()
-    }
-    
-    @objc func imgTapped3(_ tap: UITapGestureRecognizer) {
-        tappedImageView = spotImg3
-        launchImgPicker()
+    @objc func imgTapped(_ tap: UITapGestureRecognizer) {
+        if imageUrls.count < 3 {
+            launchImgPicker()
+        } else {
+            simpleAlert(title: "エラー", msg: "設定できる画像の枚数は3枚までです。\n追加するには画像を削除してください。")
+        }
     }
     
     private func handleError(error: Error, msg: String) {
@@ -100,6 +87,44 @@ class CreateSpotVC: UIViewController {
     }
     
     // MARK: Actions
+    @IBAction func removeImg1Clicked(_ sender: Any) {
+        if imageUrls.count > 0 {
+            imageUrls.remove(at: 0)
+            resetSpotImageViews()
+        }
+    }
+    
+    @IBAction func removeImg2Clicked(_ sender: Any) {
+        if imageUrls.count > 1 {
+            imageUrls.remove(at: 1)
+            resetSpotImageViews()
+        }
+    }
+    
+    @IBAction func removeImg3Clicked(_ sender: Any) {
+        if imageUrls.count > 2 {
+            imageUrls.remove(at: 2)
+            resetSpotImageViews()
+        }
+    }
+    
+    private func resetSpotImageViews() {
+        var count = 0
+        while count < 3 {
+            if count < imageUrls.count {
+                if let url = URL(string: imageUrls[count]) {
+                    let placeholder = UIImage(named: AppImages.Placeholder)
+                    let options : KingfisherOptionsInfo = [KingfisherOptionsInfoItem.transition(.fade(0.2))]
+                    spotImageViews[count].kf.indicatorType = .activity
+                    spotImageViews[count].kf.setImage(with: url, placeholder: placeholder, options: options)
+                }
+            } else {
+                spotImageViews[count].image = UIImage(named: AppImages.Placeholder)
+            }
+            count += 1
+        }
+    }
+    
     @IBAction func createClicked(_ sender: Any) {
         uploadDocument()
     }
@@ -193,8 +218,15 @@ class CreateSpotVC: UIViewController {
                 }
             }
             
-            self.dismiss(animated: true, completion: nil)
+            self.presentHomeController()
         }
+    }
+    
+    // ホーム画面のトップに遷移するためのメソッド
+    fileprivate func presentHomeController() {
+        let storyboard = UIStoryboard(name: Storyboard.Main, bundle: nil)
+        let controller = storyboard.instantiateViewController(withIdentifier: StoryboardId.MainVC)
+        present(controller, animated: true, completion: nil)
     }
     
     @IBAction func cancelClicked(_ sender: Any) {
@@ -211,12 +243,16 @@ extension CreateSpotVC : UIImagePickerControllerDelegate, UINavigationController
     }
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
-        
         guard let image = info[.originalImage] as? UIImage else { return }
-        if let spotImgView = tappedImageView {
-            spotImgView.contentMode = .scaleAspectFill
-            spotImgView.image = image
-            uploadImage()
+        let index = imageUrls.count
+        if index < 3 {
+            let spotImage = spotImageViews[index]
+            spotImage.image = image
+            spotImage.contentMode = .scaleAspectFit
+            uploadImage(index: index, image: image)
+        } else {
+            // 画像の枚数が超過していることを知らせる
+            simpleAlert(title: "エラー", msg: "設定できる画像の枚数は3枚までです")
         }
         dismiss(animated: true, completion: nil)
     }
@@ -225,13 +261,7 @@ extension CreateSpotVC : UIImagePickerControllerDelegate, UINavigationController
         dismiss(animated: true, completion: nil)
     }
     
-    private func uploadImage() {
-        // UIImageViewからimageを取得する
-        guard let image = tappedImageView?.image else {
-            simpleAlert(title: "エラー", msg: "画像の取得に失敗しました")
-            return
-        }
-        
+    private func uploadImage(index: Int?, image: UIImage) {
         activityIndicator.startAnimating()
         
         // 画像名を作成する
@@ -261,8 +291,10 @@ extension CreateSpotVC : UIImagePickerControllerDelegate, UINavigationController
                 }
                 // 画像のURLの取得に成功
                 guard let url = url else { return }
-                self.imageUrls.append(url.absoluteString)
-                print("image upload success! : \(url)")
+                if let index = index {
+                    self.imageUrls.insert(url.absoluteString, at: index)
+                    print("image upload success!\nurl : \(url)\nindex : \(index)")
+                }
             })
         }
     }

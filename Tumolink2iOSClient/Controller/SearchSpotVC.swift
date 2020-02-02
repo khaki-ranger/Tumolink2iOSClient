@@ -14,6 +14,7 @@ class SearchSpotVC: UIViewController {
     // MARK: Outlets
     @IBOutlet weak var searchView: UIView!
     @IBOutlet weak var searchTxt: UITextField!
+    @IBOutlet weak var deleteBtn: UIButton!
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
@@ -115,6 +116,12 @@ class SearchSpotVC: UIViewController {
         tableView.reloadData()
         
         guard let searchTxt = searchTxt.text else { return }
+        if searchTxt.isNotEmpty {
+            deleteBtn.isHidden = false
+        } else {
+            deleteBtn.isHidden = true
+        }
+        
         filteringSpots(searchTxt: searchTxt)
     }
     
@@ -130,6 +137,12 @@ class SearchSpotVC: UIViewController {
     }
     
     // MARK: Actions
+    @IBAction func deleteTapped(_ sender: Any) {
+        searchTxt.text = ""
+        deleteBtn.isHidden = true
+        filteredSpots.removeAll()
+        tableView.reloadData()
+    }
     
 }
 

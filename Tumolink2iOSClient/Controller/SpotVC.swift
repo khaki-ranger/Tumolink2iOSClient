@@ -116,7 +116,9 @@ class SpotVC: UIViewController, WeeklyCellDelegate {
     }
     
     func dayTapped(date: Date) {
-        moveCurrentDate(date: date)
+        if currentDate != date {
+            moveCurrentDate(date: date)
+        }
     }
     // datePickerに関する処理 end
     

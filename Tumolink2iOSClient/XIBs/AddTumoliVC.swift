@@ -19,7 +19,7 @@ class AddTumoliVC: UIViewController {
     @IBOutlet weak var possibilitySlider: UISlider!
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
-    @IBOutlet weak var dateStackView: UIStackView!
+    @IBOutlet weak var dateRangeView: UIView!
     
     
     @IBOutlet weak var addEditBtn: RoundedButton!
@@ -48,16 +48,11 @@ class AddTumoliVC: UIViewController {
     }
     
     private func setupRangeSlider() {
-        let margin: CGFloat = 10
         let height: CGFloat = 30
-        dateStackView.frame = CGRect(x: 0,
-                                     y: 0,
-                                     width: dateStackView.frame.width,
-                                     height: dateStackView.frame.height + margin + height)
-        let bottom = dateStackView.frame.height - height
-        let flame = CGRect(x: 0, y: bottom, width: dateStackView.frame.width, height: height)
+        let bottom = dateRangeView.frame.height - height
+        let flame = CGRect(x: 0, y: bottom, width: dateRangeView.frame.width, height: height)
         let rangeSlider: RangeSlider = RangeSlider(frame: flame)
-        dateStackView.addSubview(rangeSlider)
+        dateRangeView.addSubview(rangeSlider)
         rangeSlider.addTarget(self, action: #selector(rangeSliderValueChanged(_:)), for: .valueChanged)
     }
     

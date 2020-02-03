@@ -9,6 +9,7 @@
 import UIKit
 import FirebaseFirestore
 import Kingfisher
+import WARangeSlider
 
 class AddTumoliVC: UIViewController {
 
@@ -17,6 +18,10 @@ class AddTumoliVC: UIViewController {
     @IBOutlet weak var possibilityLbl: UILabel!
     @IBOutlet weak var possibilitySlider: UISlider!
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
+    
+    @IBOutlet weak var dateStackView: UIStackView!
+    
+    
     @IBOutlet weak var addEditBtn: RoundedButton!
     @IBOutlet weak var deleteBtn: RoundedButton!
     
@@ -32,6 +37,7 @@ class AddTumoliVC: UIViewController {
         
         setupTapGesture()
         setupSlider()
+        setupRangeSlider()
         
         // tumoliToEditがnilでない場合は編集
         if let tumoli = tumoliToEdit {
@@ -39,6 +45,25 @@ class AddTumoliVC: UIViewController {
         } else {
             deleteBtn.isHidden = true
         }
+    }
+    
+    private func setupRangeSlider() {
+        let margin: CGFloat = 10
+        let height: CGFloat = 30
+        dateStackView.frame = CGRect(x: 0,
+                                     y: 0,
+                                     width: dateStackView.frame.width,
+                                     height: dateStackView.frame.height + margin + height)
+        let bottom = dateStackView.frame.height - height
+        let flame = CGRect(x: 0, y: bottom, width: dateStackView.frame.width, height: height)
+        let rangeSlider: RangeSlider = RangeSlider(frame: flame)
+        dateStackView.addSubview(rangeSlider)
+        rangeSlider.addTarget(self, action: #selector(rangeSliderValueChanged(_:)), for: .valueChanged)
+    }
+    
+    @objc func rangeSliderValueChanged(_ rangeSlider: RangeSlider) -> Void {
+        print(rangeSlider.lowerValue)
+        print(rangeSlider.upperValue)
     }
     
     private func setupEditMode(tumoli: Tumoli) {

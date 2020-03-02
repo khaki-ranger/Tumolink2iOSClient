@@ -1,9 +1,10 @@
-# TumolinkiOSClient
-iOS版ツモリンク
+# ツモリンク
 
-## 特徴
+## ツモリンクとは？
 
 ## 利用イメージ
+
+![利用イメージ](https://github.com/khaki-ranger/Assets/blob/master/Tumolink/image.jpg?raw=true "利用イメージ")
 
 ## 機能一覧
 
@@ -56,7 +57,3 @@ iOS版ツモリンク
 - [FBSDKLoginKit](https://developers.facebook.com/docs/facebook-login/ios/v2.2)
 - [IQKeyboardManagerSwift 6.3.0](https://github.com/hackiftekhar/IQKeyboardManager)
 - [Kingfisher 4.0](https://github.com/onevcat/Kingfisher)
-
-## 使用API
-
-## 自動テスト

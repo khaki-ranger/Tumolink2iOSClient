@@ -1,6 +1,14 @@
 # ツモリンク
 
-## ツモリンクとは？
+「いついつ、どこどこに行くツモリだよ」という想いを発信したり、共有することで、その場所に行くキッカケをつくるアプリです。
+
+## 特徴
+1. スポット（場所）をつくると、自動的にそのスポットのオーナーになります。
+2. メンバーに入りたいスポットがあったら、オーナーに申請することができます。
+2. スポットのオーナーが申請を許可すれば、そのスポットのメンバーになれます。
+3. オーナーとメンバーだけが、ツモリを見ることができます。部外者は見ることができません。
+4. 指定した日付に行く可能性と時間帯でツモリを表現することができます。
+5. 自分だけが自分のツモリの履歴を見ることができます。
 
 ## 利用イメージ
 
@@ -11,9 +19,8 @@
 | 内容 | 実現方法 |
 ----|----
 |ユーザー認証 |Firebase Authentication |
-|匿名ユーザー |Firebase Authentication |
-|パスワード再設定 |Firebase Authentication |
 |外部認証（Facebook認証） |FBSDKLoginKit |
+|パスワード再設定 |Firebase Authentication |
 
 ## 開発環境・使用言語
 
@@ -28,9 +35,9 @@
 | 内容 | 実現方法 |
 ----|----
 |サーバー |Firebase |
-|データベース（データ永続化）|Firebase Firestore |
+|データベース |Firebase Firestore |
 |画像ストレージ |Firebase Firestorage |
-|ユーザー、セッション管理 |Firebase Authentication |
+|ユーザー認証 |Firebase Authentication |
 |外部認証 |FBSDKLoginKit |
 |外部API通信 |Firebase CloudFunctions |
 |画像キャッシュ |Kingfisher |
